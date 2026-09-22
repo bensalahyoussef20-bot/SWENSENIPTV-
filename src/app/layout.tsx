@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import MobileCtaBar from "@/components/MobileCtaBar";
 import CookieConsent from "@/components/CookieConsent";
+import PromoBar from "@/components/PromoBar";
 import JsonLd from "@/components/JsonLd";
 import { siteConfig } from "@/lib/data";
 import "./globals.css";
@@ -83,6 +84,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Hoppa till innehåll
         </a>
+        <PromoBar />
         {children}
         <FloatingWhatsApp />
         <MobileCtaBar />

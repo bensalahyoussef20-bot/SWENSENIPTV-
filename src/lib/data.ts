@@ -19,6 +19,14 @@ export const waLinks = {
   buyNow: waLink("Jag vill köpa IPTV Nordic"),
   installHelp: waLink("Jag behöver hjälp med installation av IPTV Nordic"),
   support: waLink("Jag behöver hjälp med IPTV Nordic"),
+  claimOffer: waLink("Jag vill ha 20% rabatt på IPTV Nordic"),
+};
+
+export const promoOffer = {
+  badge: "BEGRÄNSAT ERBJUDANDE",
+  message: "-20% på alla planer — erbjudandet slutar om:",
+  cta: "Utnyttja erbjudandet",
+  durationHours: 24,
 };
 
 export const navLinks = [
