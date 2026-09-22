@@ -1,4 +1,5 @@
 import type { ComponentType, SVGProps } from "react";
+import Image from "next/image";
 import { deviceFeatures, devices, installSteps, waLinks } from "@/lib/data";
 import Reveal from "@/components/Reveal";
 import {
@@ -33,32 +34,44 @@ export default function DevicesSection({
   return (
     <section id="installera" className="border-t border-border py-20">
       <Reveal className="container-shell">
-        <div className="mx-auto max-w-2xl text-center">
-          <span className="text-xs font-semibold uppercase tracking-widest text-primary">
-            IPTV Nordic — Alla Enheter
-          </span>
-          <Heading className="mt-3 text-3xl font-extrabold sm:text-4xl">
-            Se IPTV Nordic på Smart TV, Mobil &amp; Surfplatta
-          </Heading>
-          <p className="mt-4 text-muted">
-            Titta på IPTV Nordic hemma eller på språng – enkelt på Smart TV, Apple
-            TV, Android TV, Fire TV, MAG Box, mobil och surfplatta.
-          </p>
-        </div>
+        <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.1fr]">
+          <div className="relative order-2 aspect-[4/3] overflow-hidden rounded-3xl border border-border shadow-2xl shadow-black/40 lg:order-1">
+            <Image
+              src="/images/family-watching-tv.jpg"
+              alt="Familj som tittar på IPTV Nordic tillsammans i soffan"
+              fill
+              sizes="(min-width: 1024px) 40vw, 90vw"
+              className="object-cover"
+            />
+          </div>
 
-        <div className="mt-10 flex flex-wrap justify-center gap-4">
-          {deviceFeatures.map((f) => {
-            const Icon = iconMap[f.icon];
-            return (
-              <div
-                key={f.title}
-                className="flex items-center gap-2 rounded-full border border-border bg-surface px-5 py-2.5 text-sm font-medium"
-              >
-                <Icon className="h-4 w-4 text-primary" aria-hidden />
-                {f.title}
-              </div>
-            );
-          })}
+          <div className="order-1 text-center lg:order-2 lg:text-left">
+            <span className="text-xs font-semibold uppercase tracking-widest text-primary">
+              IPTV Nordic — Alla Enheter
+            </span>
+            <Heading className="mt-3 text-3xl font-extrabold sm:text-4xl">
+              Se IPTV Nordic på Smart TV, Mobil &amp; Surfplatta
+            </Heading>
+            <p className="mt-4 text-muted">
+              Titta på IPTV Nordic hemma eller på språng – enkelt på Smart TV,
+              Apple TV, Android TV, Fire TV, MAG Box, mobil och surfplatta.
+            </p>
+
+            <div className="mt-6 flex flex-wrap justify-center gap-3 lg:justify-start">
+              {deviceFeatures.map((f) => {
+                const Icon = iconMap[f.icon];
+                return (
+                  <div
+                    key={f.title}
+                    className="flex items-center gap-2 rounded-full border border-border bg-surface px-5 py-2.5 text-sm font-medium"
+                  >
+                    <Icon className="h-4 w-4 text-primary" aria-hidden />
+                    {f.title}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
