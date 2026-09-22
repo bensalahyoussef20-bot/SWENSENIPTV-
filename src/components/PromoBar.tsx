@@ -76,7 +76,7 @@ export default function PromoBar() {
   if (dismissed) return null;
 
   return (
-    <div className="relative z-50 bg-offer px-9 py-2.5 text-black sm:px-10">
+    <div className="relative z-50 bg-gradient-to-r from-offer to-offer-dark px-9 py-2.5 text-white sm:px-10">
       <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
         <span className="hidden shrink-0 rounded-full bg-black px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-white sm:inline-block">
           {promoOffer.badge}
@@ -109,7 +109,7 @@ export default function PromoBar() {
         type="button"
         onClick={handleDismiss}
         aria-label="Stäng erbjudande"
-        className="absolute right-2 top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full text-black/70 hover:bg-black/10 hover:text-black"
+        className="absolute right-2 top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full text-white/70 hover:bg-white/10 hover:text-white"
       >
         ✕
       </button>
