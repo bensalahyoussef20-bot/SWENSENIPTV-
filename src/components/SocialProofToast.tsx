@@ -4,9 +4,11 @@ import { useEffect, useRef, useState } from "react";
 import { socialProofEvents } from "@/lib/data";
 
 const DISMISSED_KEY = "swedeniptv-social-proof-dismissed";
+const COOKIE_CONSENT_KEY = "swedeniptv-cookie-consent";
 const FIRST_DELAY_MS = 4000;
 const VISIBLE_MS = 5500;
 const GAP_MS = 6000;
+const COOKIE_POLL_MS = 500;
 
 export default function SocialProofToast() {
   const [index, setIndex] = useState(0);
@@ -33,7 +35,32 @@ export default function SocialProofToast() {
       }, VISIBLE_MS);
     };
 
-    timeoutRef.current = setTimeout(() => showNext(0), FIRST_DELAY_MS);
+    // Both this toast and the cookie banner want the bottom-left corner, so
+    // wait until the cookie banner has been answered (or was never shown)
+    // before starting the cycle, instead of stacking on top of it.
+    const cookieDecided = () => {
+      try {
+        return Boolean(window.localStorage.getItem(COOKIE_CONSENT_KEY));
+      } catch {
+        return true;
+      }
+    };
+
+    const start = () => {
+      timeoutRef.current = setTimeout(() => showNext(0), FIRST_DELAY_MS);
+    };
+
+    if (cookieDecided()) {
+      start();
+    } else {
+      const poll = setInterval(() => {
+        if (cookieDecided()) {
+          clearInterval(poll);
+          start();
+        }
+      }, COOKIE_POLL_MS);
+      timeoutRef.current = poll as unknown as ReturnType<typeof setTimeout>;
+    }
 
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -58,7 +85,7 @@ export default function SocialProofToast() {
   return (
     <div
       role="status"
-      className="fixed left-4 top-20 z-40 flex max-w-xs items-center gap-3 rounded-2xl border border-border bg-surface/95 p-3 pr-8 shadow-2xl shadow-black/40 backdrop-blur transition-all duration-500 motion-reduce:transition-none"
+      className="fixed bottom-24 left-4 z-40 flex max-w-xs items-center gap-3 rounded-2xl border border-border bg-surface/95 p-3 pr-8 shadow-2xl shadow-black/40 backdrop-blur transition-all duration-500 motion-reduce:transition-none sm:bottom-6"
     >
       <span
         aria-hidden
