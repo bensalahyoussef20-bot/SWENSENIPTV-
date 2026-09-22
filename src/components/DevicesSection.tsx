@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { deviceFeatures, devices, installSteps } from "@/lib/data";
+import { deviceFeatures, devices, installSteps, waLinks } from "@/lib/data";
 
 const iconMap: Record<string, string> = {
   tv: "📺",
@@ -76,18 +75,22 @@ export default function DevicesSection() {
         </div>
 
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-          <Link
-            href="#kontakt"
+          <a
+            href={waLinks.installHelp}
+            target="_blank"
+            rel="noopener noreferrer"
             className="rounded-full border border-border bg-surface px-7 py-3 text-sm font-semibold transition-colors hover:border-primary/60"
           >
             Få hjälp med installation
-          </Link>
-          <Link
-            href="#priser"
+          </a>
+          <a
+            href={waLinks.freeTrial}
+            target="_blank"
+            rel="noopener noreferrer"
             className="rounded-full bg-primary px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/30 transition-transform hover:scale-105"
           >
             Starta gratis test
-          </Link>
+          </a>
         </div>
 
         <p className="mx-auto mt-8 max-w-2xl text-center text-xs text-muted">

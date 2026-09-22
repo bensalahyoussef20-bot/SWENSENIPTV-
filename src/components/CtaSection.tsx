@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { waLinks } from "@/lib/data";
 
 export default function CtaSection() {
   return (
@@ -14,12 +14,14 @@ export default function CtaSection() {
           </p>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link
-              href="#priser"
+            <a
+              href={waLinks.freeTrial}
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary/30 transition-transform hover:scale-105"
             >
               Starta gratis test
-            </Link>
+            </a>
           </div>
           <p className="mt-4 text-xs text-muted">
             Inga kontrakt • Direkt aktivering • Support 24/7
@@ -33,7 +35,9 @@ export default function CtaSection() {
               Kontakta oss så hjälper vi dig med IPTV Nordic direkt.
             </p>
             <a
-              href="mailto:contact@swedeniptv.cc"
+              href={waLinks.support}
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-4 inline-block rounded-full border border-border px-6 py-2.5 text-sm font-semibold transition-colors hover:border-primary/60"
             >
               Kontakta support

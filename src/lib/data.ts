@@ -5,6 +5,22 @@ export const siteConfig = {
   email: "contact@swedeniptv.cc",
 };
 
+export const whatsapp = {
+  number: "212619965368",
+  base: "https://wa.me/212619965368",
+};
+
+export function waLink(message: string) {
+  return `${whatsapp.base}?text=${encodeURIComponent(message)}`;
+}
+
+export const waLinks = {
+  freeTrial: waLink("Jag vill starta en gratis testperiod för IPTV Nordic"),
+  buyNow: waLink("Jag vill köpa IPTV Nordic"),
+  installHelp: waLink("Jag behöver hjälp med installation av IPTV Nordic"),
+  support: waLink("Jag behöver hjälp med IPTV Nordic"),
+};
+
 export const navLinks = [
   { label: "Hem", href: "#hem" },
   { label: "Priser", href: "#priser" },

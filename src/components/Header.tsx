@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { navLinks } from "@/lib/data";
+import { navLinks, waLinks } from "@/lib/data";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -33,12 +33,14 @@ export default function Header() {
         </nav>
 
         <div className="hidden md:block">
-          <Link
-            href="#priser"
+          <a
+            href={waLinks.freeTrial}
+            target="_blank"
+            rel="noopener noreferrer"
             className="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-primary/30 transition-transform hover:scale-105"
           >
             Gratis Testperiod
-          </Link>
+          </a>
         </div>
 
         <button
@@ -69,13 +71,15 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="#priser"
+            <a
+              href={waLinks.freeTrial}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setOpen(false)}
               className="mt-2 rounded-full bg-primary px-5 py-2.5 text-center text-sm font-semibold text-white"
             >
               Gratis Testperiod
-            </Link>
+            </a>
           </nav>
         </div>
       )}

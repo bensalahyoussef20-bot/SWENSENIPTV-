@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { stats, testimonials } from "@/lib/data";
+import { stats, testimonials, waLinks } from "@/lib/data";
 
 export default function TestimonialsSection() {
   const loopTestimonials = [...testimonials, ...testimonials];
@@ -60,12 +59,14 @@ export default function TestimonialsSection() {
         </div>
 
         <div className="mt-14 flex flex-col items-center gap-4">
-          <Link
-            href="#priser"
+          <a
+            href={waLinks.freeTrial}
+            target="_blank"
+            rel="noopener noreferrer"
             className="rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary/30 transition-transform hover:scale-105"
           >
             Starta gratis test
-          </Link>
+          </a>
           <p className="text-xs text-muted">
             Inga kontrakt • Direkt aktivering • Support 24/7
           </p>

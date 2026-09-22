@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { waLinks } from "@/lib/data";
 
 export default function Hero() {
   return (
@@ -20,18 +20,22 @@ export default function Hero() {
         </p>
 
         <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-          <Link
-            href="#priser"
+          <a
+            href={waLinks.freeTrial}
+            target="_blank"
+            rel="noopener noreferrer"
             className="rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary/30 transition-transform hover:scale-105"
           >
             Gratis Testperiod
-          </Link>
-          <Link
-            href="#priser"
+          </a>
+          <a
+            href={waLinks.buyNow}
+            target="_blank"
+            rel="noopener noreferrer"
             className="rounded-full border border-border bg-surface px-8 py-3.5 text-sm font-semibold text-foreground transition-colors hover:border-primary/60"
           >
             Köp Nu
-          </Link>
+          </a>
         </div>
 
         <div className="mt-10 flex items-center gap-2 text-sm text-muted">
