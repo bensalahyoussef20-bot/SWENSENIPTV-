@@ -24,36 +24,52 @@ export const waLinks = {
 export const navLinks = [
   { label: "Hem", href: "#hem" },
   { label: "Priser", href: "#priser" },
-  { label: "Kanaler", href: "#kanaler" },
+  { label: "Fördelar", href: "#fordelar" },
   { label: "Installera", href: "#installera" },
   { label: "Kontakt", href: "#kontakt" },
 ];
 
-export const popularChannels = [
-  "SVT1",
-  "SVT2",
-  "TV4",
-  "Kanal 5",
-  "TV3",
-  "Sjuan",
-  "TV10",
-  "Viaplay",
-  "BBC One",
-  "CNN",
-  "Sky News",
-  "Eurosport",
-  "Nat Geo",
-  "Discovery",
-  "History",
-  "ESPN",
-  "beIN Sports",
-  "HBO",
-  "Disney+",
-  "Prime Video",
-  "DAZN",
-];
+export type Benefit = {
+  icon: string;
+  title: string;
+  description: string;
+};
 
-export const movieCount = 12;
+export const benefits: Benefit[] = [
+  {
+    icon: "layers",
+    title: "20 000+ kanaler",
+    description:
+      "Sport, nyheter, barnprogram, film och underhållning från hela världen i ett enda paket.",
+  },
+  {
+    icon: "signal",
+    title: "Ingen buffring",
+    description:
+      "Stabila högkapacitetsservrar ger dig smidig streaming utan avbrott eller väntetid.",
+  },
+  {
+    icon: "sparkle",
+    title: "HD & 4K kvalitet",
+    description: "Kristallklar bild på alla dina kanaler, filmer och serier.",
+  },
+  {
+    icon: "devices",
+    title: "Multi-screen",
+    description:
+      "Titta på flera enheter samtidigt med samma abonnemang – hemma eller på språng.",
+  },
+  {
+    icon: "bolt",
+    title: "Snabb aktivering",
+    description: "Kom igång inom 5 minuter efter köp – inga krångliga steg.",
+  },
+  {
+    icon: "shield-check",
+    title: "Pengarna-tillbaka-garanti",
+    description: "Inte nöjd? Vi löser det snabbt, utan krångel eller bindningstid.",
+  },
+];
 
 export const devices = [
   {

@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import ChannelsSection from "@/components/ChannelsSection";
+import BenefitsSection from "@/components/BenefitsSection";
 import DevicesSection from "@/components/DevicesSection";
 import PricingSection from "@/components/PricingSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
@@ -14,7 +14,7 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <Hero />
-        <ChannelsSection />
+        <BenefitsSection />
         <DevicesSection />
         <PricingSection />
         <TestimonialsSection />
