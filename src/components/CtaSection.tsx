@@ -1,9 +1,10 @@
 import { waLinks } from "@/lib/data";
+import Reveal from "@/components/Reveal";
 
 export default function CtaSection() {
   return (
     <section id="kontakt" className="border-t border-border py-20">
-      <div className="container-shell">
+      <Reveal className="container-shell">
         <div className="gradient-hero rounded-3xl border border-border px-6 py-14 text-center sm:px-14">
           <h2 className="text-3xl font-extrabold sm:text-4xl">
             Redo att börja med IPTV Nordic?
@@ -44,7 +45,7 @@ export default function CtaSection() {
             </a>
           </div>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

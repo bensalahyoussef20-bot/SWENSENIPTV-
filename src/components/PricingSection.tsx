@@ -1,10 +1,11 @@
 import { plans } from "@/lib/data";
 import { cn } from "@/lib/cn";
+import Reveal from "@/components/Reveal";
 
 export default function PricingSection() {
   return (
     <section id="priser" className="border-t border-border bg-surface/40 py-20">
-      <div className="container-shell">
+      <Reveal className="container-shell">
         <div className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-semibold uppercase tracking-widest text-primary">
             IPTV Nordic — Priser
@@ -77,7 +78,7 @@ export default function PricingSection() {
           Inga kontrakt • Direkt aktivering • Support 24/7 • Fungerar på alla
           enheter
         </p>
-      </div>
+      </Reveal>
     </section>
   );
 }

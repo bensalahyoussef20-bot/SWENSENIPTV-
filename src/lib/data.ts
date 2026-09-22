@@ -277,3 +277,11 @@ export const legalLinks = [
   { label: "Användarvillkor", href: "/anvandarvillkor" },
   { label: "Cookies", href: "/cookies" },
 ];
+
+export const trustBadges = [
+  { icon: "lock", label: "Säker beställning" },
+  { icon: "no-contract", label: "Inga bindningstider" },
+  { icon: "clock", label: "Aktivering < 5 min" },
+  { icon: "headset", label: "Support dygnet runt" },
+];
+

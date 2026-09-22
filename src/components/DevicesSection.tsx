@@ -1,4 +1,5 @@
 import { deviceFeatures, devices, installSteps, waLinks } from "@/lib/data";
+import Reveal from "@/components/Reveal";
 
 const iconMap: Record<string, string> = {
   tv: "📺",
@@ -15,7 +16,7 @@ const iconMap: Record<string, string> = {
 export default function DevicesSection() {
   return (
     <section id="installera" className="border-t border-border py-20">
-      <div className="container-shell">
+      <Reveal className="container-shell">
         <div className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-semibold uppercase tracking-widest text-primary">
             IPTV Nordic — Alla Enheter
@@ -97,7 +98,7 @@ export default function DevicesSection() {
           Kompatibel med Smart TV, Apple TV, Android TV, Firestick, MAG Box och
           mobil. Nordisk iptv &amp; iptv nordic one — enkel installation.
         </p>
-      </div>
+      </Reveal>
     </section>
   );
 }

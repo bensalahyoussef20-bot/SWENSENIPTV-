@@ -1,11 +1,12 @@
 import { stats, testimonials, waLinks } from "@/lib/data";
+import Reveal from "@/components/Reveal";
 
 export default function TestimonialsSection() {
   const loopTestimonials = [...testimonials, ...testimonials];
 
   return (
     <section className="border-t border-border py-20">
-      <div className="container-shell">
+      <Reveal className="container-shell">
         <div className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-semibold uppercase tracking-widest text-primary">
             Kundomdömen
@@ -71,7 +72,7 @@ export default function TestimonialsSection() {
             Inga kontrakt • Direkt aktivering • Support 24/7
           </p>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

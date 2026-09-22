@@ -1,4 +1,5 @@
 import { benefits } from "@/lib/data";
+import Reveal from "@/components/Reveal";
 
 const iconMap: Record<string, string> = {
   layers: "📡",
@@ -12,7 +13,7 @@ const iconMap: Record<string, string> = {
 export default function BenefitsSection() {
   return (
     <section id="fordelar" className="border-t border-border bg-surface/40 py-20">
-      <div className="container-shell">
+      <Reveal className="container-shell">
         <div className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-semibold uppercase tracking-widest text-primary">
             Varför IPTV Nordic
@@ -40,7 +41,7 @@ export default function BenefitsSection() {
             </div>
           ))}
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

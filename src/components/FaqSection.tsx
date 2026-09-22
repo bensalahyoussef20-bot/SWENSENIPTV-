@@ -3,13 +3,14 @@
 import { useState } from "react";
 import { faqItems } from "@/lib/data";
 import { cn } from "@/lib/cn";
+import Reveal from "@/components/Reveal";
 
 export default function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
     <section className="border-t border-border bg-surface/40 py-20">
-      <div className="container-shell">
+      <Reveal className="container-shell">
         <div className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-semibold uppercase tracking-widest text-primary">
             Vanliga frågor
@@ -26,13 +27,17 @@ export default function FaqSection() {
         <div className="mx-auto mt-10 max-w-3xl divide-y divide-border rounded-2xl border border-border bg-surface">
           {faqItems.map((item, i) => {
             const isOpen = openIndex === i;
+            const panelId = `faq-panel-${i}`;
+            const buttonId = `faq-button-${i}`;
             return (
               <div key={item.question}>
                 <button
                   type="button"
+                  id={buttonId}
                   onClick={() => setOpenIndex(isOpen ? null : i)}
-                  className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
+                  className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                   aria-expanded={isOpen}
+                  aria-controls={panelId}
                 >
                   <span className="text-sm font-semibold sm:text-base">
                     {item.question}
@@ -48,7 +53,14 @@ export default function FaqSection() {
                   </span>
                 </button>
                 {isOpen && (
-                  <p className="px-6 pb-5 text-sm text-muted">{item.answer}</p>
+                  <p
+                    id={panelId}
+                    role="region"
+                    aria-labelledby={buttonId}
+                    className="px-6 pb-5 text-sm text-muted"
+                  >
+                    {item.answer}
+                  </p>
                 )}
               </div>
             );
@@ -69,7 +81,7 @@ export default function FaqSection() {
           </a>
           .
         </p>
-      </div>
+      </Reveal>
     </section>
   );
 }
