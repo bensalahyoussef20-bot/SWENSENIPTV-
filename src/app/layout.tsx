@@ -5,6 +5,7 @@ import MobileCtaBar from "@/components/MobileCtaBar";
 import CookieConsent from "@/components/CookieConsent";
 import PromoBar from "@/components/PromoBar";
 import SocialProofToast from "@/components/SocialProofToast";
+import WelcomeOfferModal from "@/components/WelcomeOfferModal";
 import JsonLd from "@/components/JsonLd";
 import { siteConfig } from "@/lib/data";
 import "./globals.css";
@@ -91,6 +92,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <MobileCtaBar />
         <CookieConsent />
         <SocialProofToast />
+        <WelcomeOfferModal />
       </body>
     </html>
   );

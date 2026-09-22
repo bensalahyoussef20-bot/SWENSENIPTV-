@@ -20,6 +20,7 @@ export const waLinks = {
   installHelp: waLink("Jag behöver hjälp med installation av IPTV Nordic"),
   support: waLink("Jag behöver hjälp med IPTV Nordic"),
   claimOffer: waLink("Jag vill ha 20% rabatt på IPTV Nordic"),
+  welcomeOffer: waLink("Jag vill ha 20% rabatt på 12 Månader-planen"),
 };
 
 export const promoOffer = {
@@ -27,6 +28,21 @@ export const promoOffer = {
   message: "-20% på alla planer — erbjudandet slutar om:",
   cta: "Utnyttja erbjudandet",
   durationHours: 24,
+};
+
+// Same -20% offer as the top promo bar, spotlighted for first-time visitors
+// on the 12-month plan specifically. Keep the discount % and base price in
+// sync with `plans` / `promoOffer` above if either changes.
+export const welcomeOffer = {
+  eyebrow: "Välkommen till IPTV Nordic",
+  title: "Få 20% rabatt på 12 månader",
+  description:
+    "Lås in vårt bästa pris: över 20 000 kanaler, alla filmer och serier i HD/4K, på alla dina enheter.",
+  planLabel: "12 Månader",
+  originalPrice: 799,
+  discountedPrice: 639,
+  perMonth: 53,
+  disclaimer: "Visas endast en gång · Inga bindningstider",
 };
 
 export const navLinks = [
