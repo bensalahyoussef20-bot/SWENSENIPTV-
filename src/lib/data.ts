@@ -93,6 +93,7 @@ export type Plan = {
   popular?: boolean;
   features: string[];
   cta: string;
+  orderLink: string;
 };
 
 export const plans: Plan[] = [
@@ -110,6 +111,8 @@ export const plans: Plan[] = [
       "Support 24/7",
     ],
     cta: "Beställ 3 månader",
+    orderLink:
+      "https://wa.me/212619965368?text=Jag%20vill%20k%C3%B6pa%203%20M%C3%A5nader%20IPTV%20Nordic",
   },
   {
     id: "12-man",
@@ -128,6 +131,8 @@ export const plans: Plan[] = [
       "Direkt aktivering",
     ],
     cta: "Välj bästa erbjudandet",
+    orderLink:
+      "https://wa.me/212619965368?text=Jag%20vill%20k%C3%B6pa%2012%20M%C3%A5nader%20IPTV%20Nordic",
   },
   {
     id: "6-man",
@@ -143,6 +148,8 @@ export const plans: Plan[] = [
       "Prioriterad support",
     ],
     cta: "Beställ 6 månader",
+    orderLink:
+      "https://wa.me/212619965368?text=Jag%20vill%20k%C3%B6pa%206%20M%C3%A5nader%20IPTV%20Nordic",
   },
 ];
 

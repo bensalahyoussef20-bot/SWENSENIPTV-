@@ -56,17 +56,19 @@ export default function PricingSection() {
                 ))}
               </ul>
 
-              <button
-                type="button"
+              <a
+                href={plan.orderLink}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={cn(
-                  "mt-8 rounded-full px-6 py-3 text-sm font-semibold transition-transform hover:scale-105",
+                  "mt-8 block rounded-full px-6 py-3 text-center text-sm font-semibold transition-transform hover:scale-105",
                   plan.popular
                     ? "bg-primary text-white shadow-lg shadow-primary/30"
                     : "border border-border text-foreground hover:border-primary/60"
                 )}
               >
                 {plan.cta}
-              </button>
+              </a>
             </div>
           ))}
         </div>
