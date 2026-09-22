@@ -242,6 +242,27 @@ export const testimonials: Testimonial[] = [
   },
 ];
 
+// Illustrative placeholder data for the "recent activity" toast — NOT real
+// order events. Swap this for real purchase data (from your order system,
+// CRM, or payment provider webhook) once one exists. Showing fabricated
+// real-time activity as genuine is a deceptive practice under EU/Swedish
+// consumer-protection rules if it doesn't reflect actual purchases.
+export type SocialProofEvent = {
+  name: string;
+  city: string;
+  plan: string;
+  minutesAgo: number;
+};
+
+export const socialProofEvents: SocialProofEvent[] = [
+  { name: "Johan", city: "Stockholm", plan: "12 Månader", minutesAgo: 3 },
+  { name: "Sara", city: "Göteborg", plan: "6 Månader", minutesAgo: 7 },
+  { name: "Mikael", city: "Malmö", plan: "3 Månader", minutesAgo: 12 },
+  { name: "Emma", city: "Uppsala", plan: "6 Månader", minutesAgo: 5 },
+  { name: "Daniel", city: "Västerås", plan: "12 Månader", minutesAgo: 9 },
+  { name: "Lina", city: "Helsingborg", plan: "3 Månader", minutesAgo: 2 },
+];
+
 export type FaqItem = {
   question: string;
   answer: string;

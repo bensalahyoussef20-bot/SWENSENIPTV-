@@ -1,0 +1,93 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import { socialProofEvents } from "@/lib/data";
+
+const DISMISSED_KEY = "swedeniptv-social-proof-dismissed";
+const FIRST_DELAY_MS = 4000;
+const VISIBLE_MS = 5500;
+const GAP_MS = 6000;
+
+export default function SocialProofToast() {
+  const [index, setIndex] = useState(0);
+  const [visible, setVisible] = useState(false);
+  const [stopped, setStopped] = useState(true);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    try {
+      if (window.sessionStorage.getItem(DISMISSED_KEY)) return;
+    } catch {
+      // sessionStorage unavailable — fall through and show the toasts.
+    }
+
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setStopped(false);
+
+    const showNext = (i: number) => {
+      setIndex(i % socialProofEvents.length);
+      setVisible(true);
+      timeoutRef.current = setTimeout(() => {
+        setVisible(false);
+        timeoutRef.current = setTimeout(() => showNext(i + 1), GAP_MS);
+      }, VISIBLE_MS);
+    };
+
+    timeoutRef.current = setTimeout(() => showNext(0), FIRST_DELAY_MS);
+
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
+
+  function handleDismiss() {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    try {
+      window.sessionStorage.setItem(DISMISSED_KEY, "1");
+    } catch {
+      // ignore
+    }
+    setVisible(false);
+    setStopped(true);
+  }
+
+  if (stopped || !visible) return null;
+
+  const event = socialProofEvents[index];
+
+  return (
+    <div
+      role="status"
+      className="fixed left-4 top-20 z-40 flex max-w-xs items-center gap-3 rounded-2xl border border-border bg-surface/95 p-3 pr-8 shadow-2xl shadow-black/40 backdrop-blur transition-all duration-500 motion-reduce:transition-none"
+    >
+      <span
+        aria-hidden
+        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-surface-2 text-lg"
+      >
+        🇸🇪
+      </span>
+
+      <div className="min-w-0">
+        <p className="truncate text-sm font-semibold">
+          {event.name} från {event.city}
+        </p>
+        <p className="truncate text-xs font-semibold text-accent">
+          prenumererade på {event.plan}-planen
+        </p>
+        <p className="mt-0.5 flex items-center gap-1.5 text-xs text-muted">
+          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" aria-hidden />
+          {event.minutesAgo} min sedan
+        </p>
+      </div>
+
+      <button
+        type="button"
+        onClick={handleDismiss}
+        aria-label="Stäng notis"
+        className="absolute right-2 top-2 flex h-5 w-5 items-center justify-center rounded-full text-muted hover:bg-surface-2 hover:text-foreground"
+      >
+        ✕
+      </button>
+    </div>
+  );
+}

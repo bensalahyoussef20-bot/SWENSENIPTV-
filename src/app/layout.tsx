@@ -4,6 +4,7 @@ import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import MobileCtaBar from "@/components/MobileCtaBar";
 import CookieConsent from "@/components/CookieConsent";
 import PromoBar from "@/components/PromoBar";
+import SocialProofToast from "@/components/SocialProofToast";
 import JsonLd from "@/components/JsonLd";
 import { siteConfig } from "@/lib/data";
 import "./globals.css";
@@ -89,6 +90,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <FloatingWhatsApp />
         <MobileCtaBar />
         <CookieConsent />
+        <SocialProofToast />
       </body>
     </html>
   );
