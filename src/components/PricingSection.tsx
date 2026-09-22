@@ -2,7 +2,13 @@ import { plans } from "@/lib/data";
 import { cn } from "@/lib/cn";
 import Reveal from "@/components/Reveal";
 
-export default function PricingSection() {
+export default function PricingSection({
+  headingLevel = 2,
+}: {
+  headingLevel?: 1 | 2;
+}) {
+  const Heading = headingLevel === 1 ? "h1" : "h2";
+
   return (
     <section id="priser" className="border-t border-border bg-surface/40 py-20">
       <Reveal className="container-shell">
@@ -10,9 +16,9 @@ export default function PricingSection() {
           <span className="text-xs font-semibold uppercase tracking-widest text-primary">
             IPTV Nordic — Priser
           </span>
-          <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">
+          <Heading className="mt-3 text-3xl font-extrabold sm:text-4xl">
             Välj din IPTV Nordic plan
-          </h2>
+          </Heading>
           <p className="mt-4 text-muted">
             Flexibla abonnemang för alla – börja streama med IPTV Nordic idag.
           </p>

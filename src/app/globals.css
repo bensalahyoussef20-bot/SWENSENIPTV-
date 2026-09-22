@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #05070d;
+  --background: #05070f;
   --foreground: #f5f7fb;
-  --surface: #0d1220;
-  --surface-2: #131a2c;
-  --border: #212a42;
-  --primary: #ff2d55;
-  --primary-dark: #c4123c;
-  --accent: #2d6dff;
-  --muted: #8b93ab;
+  --surface: #0c1424;
+  --surface-2: #121b30;
+  --border: #1e2a45;
+  --primary: #0064d6;
+  --primary-dark: #00478f;
+  --accent: #ffcf3f;
+  --muted: #93a0bd;
 }
 
 @theme inline {
@@ -40,13 +40,13 @@ body {
 
 .gradient-hero {
   background:
-    radial-gradient(60% 60% at 85% 10%, rgba(45, 109, 255, 0.28), transparent 60%),
-    radial-gradient(50% 50% at 10% 20%, rgba(255, 45, 85, 0.25), transparent 60%),
+    radial-gradient(60% 60% at 85% 10%, rgba(0, 100, 214, 0.32), transparent 60%),
+    radial-gradient(50% 50% at 10% 20%, rgba(255, 207, 63, 0.14), transparent 60%),
     var(--background);
 }
 
 .text-gradient {
-  background: linear-gradient(90deg, #ff2d55, #ff7a5c 50%, #ffb84d);
+  background: linear-gradient(90deg, #0064d6, #2f9dff 50%, #6fe0ff);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

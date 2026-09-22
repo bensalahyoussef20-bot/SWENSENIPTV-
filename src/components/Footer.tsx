@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { legalLinks, navLinks, siteConfig } from "@/lib/data";
+import Logo from "@/components/Logo";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -8,12 +9,7 @@ export default function Footer() {
     <footer className="border-t border-border bg-surface/40 py-14">
       <div className="container-shell grid gap-10 sm:grid-cols-3">
         <div>
-          <div className="flex items-center gap-2">
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white">
-              TV
-            </span>
-            <span className="text-sm font-bold">{siteConfig.name}</span>
-          </div>
+          <Logo />
           <p className="mt-4 text-sm text-muted">
             Din premiumtjänst för nordisk iptv — IPTV Nordic med tusentals
             kanaler i HD och 4K.

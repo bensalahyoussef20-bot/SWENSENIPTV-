@@ -1,19 +1,35 @@
+import type { ComponentType, SVGProps } from "react";
 import { deviceFeatures, devices, installSteps, waLinks } from "@/lib/data";
 import Reveal from "@/components/Reveal";
+import {
+  TvIcon,
+  BoxIcon,
+  PlayCircleIcon,
+  BoltIcon,
+  MobileIcon,
+  SignalIcon,
+  ShieldIcon,
+} from "@/components/icons";
 
-const iconMap: Record<string, string> = {
-  tv: "📺",
-  apple: "🍎",
-  android: "🤖",
-  fire: "🔥",
-  mag: "📡",
-  mobile: "📱",
-  bolt: "⚡",
-  signal: "📡",
-  shield: "🛡️",
+const iconMap: Record<string, ComponentType<SVGProps<SVGSVGElement>>> = {
+  tv: TvIcon,
+  apple: BoxIcon,
+  android: PlayCircleIcon,
+  fire: BoltIcon,
+  mag: BoxIcon,
+  mobile: MobileIcon,
+  bolt: BoltIcon,
+  signal: SignalIcon,
+  shield: ShieldIcon,
 };
 
-export default function DevicesSection() {
+export default function DevicesSection({
+  headingLevel = 2,
+}: {
+  headingLevel?: 1 | 2;
+}) {
+  const Heading = headingLevel === 1 ? "h1" : "h2";
+
   return (
     <section id="installera" className="border-t border-border py-20">
       <Reveal className="container-shell">
@@ -21,9 +37,9 @@ export default function DevicesSection() {
           <span className="text-xs font-semibold uppercase tracking-widest text-primary">
             IPTV Nordic — Alla Enheter
           </span>
-          <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">
+          <Heading className="mt-3 text-3xl font-extrabold sm:text-4xl">
             Se IPTV Nordic på Smart TV, Mobil &amp; Surfplatta
-          </h2>
+          </Heading>
           <p className="mt-4 text-muted">
             Titta på IPTV Nordic hemma eller på språng – enkelt på Smart TV, Apple
             TV, Android TV, Fire TV, MAG Box, mobil och surfplatta.
@@ -31,30 +47,36 @@ export default function DevicesSection() {
         </div>
 
         <div className="mt-10 flex flex-wrap justify-center gap-4">
-          {deviceFeatures.map((f) => (
-            <div
-              key={f.title}
-              className="flex items-center gap-2 rounded-full border border-border bg-surface px-5 py-2.5 text-sm font-medium"
-            >
-              <span aria-hidden>{iconMap[f.icon]}</span>
-              {f.title}
-            </div>
-          ))}
+          {deviceFeatures.map((f) => {
+            const Icon = iconMap[f.icon];
+            return (
+              <div
+                key={f.title}
+                className="flex items-center gap-2 rounded-full border border-border bg-surface px-5 py-2.5 text-sm font-medium"
+              >
+                <Icon className="h-4 w-4 text-primary" aria-hidden />
+                {f.title}
+              </div>
+            );
+          })}
         </div>
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {devices.map((d) => (
-            <div
-              key={d.title}
-              className="rounded-2xl border border-border bg-surface p-6 transition-colors hover:border-primary/50"
-            >
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-surface-2 text-xl">
-                {iconMap[d.icon]}
+          {devices.map((d) => {
+            const Icon = iconMap[d.icon];
+            return (
+              <div
+                key={d.title}
+                className="rounded-2xl border border-border bg-surface p-6 transition-colors hover:border-primary/50"
+              >
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-surface-2">
+                  <Icon className="h-5 w-5 text-primary" />
+                </div>
+                <h3 className="mt-4 font-semibold">{d.title}</h3>
+                <p className="mt-2 text-sm text-muted">{d.description}</p>
               </div>
-              <h3 className="mt-4 font-semibold">{d.title}</h3>
-              <p className="mt-2 text-sm text-muted">{d.description}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         <div className="mt-16 flex flex-col items-center gap-6 sm:flex-row sm:justify-center sm:gap-4">

@@ -1,35 +1,38 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { navLinks, waLinks } from "@/lib/data";
+import Logo from "@/components/Logo";
+import { cn } from "@/lib/cn";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/80 bg-background/85 backdrop-blur">
       <div className="container-shell flex h-16 items-center justify-between">
-        <Link href="#hem" className="flex items-center gap-2">
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white">
-            TV
-          </span>
-          <span className="flex flex-col leading-none">
-            <span className="text-sm font-bold tracking-wide">Sweden IPTV</span>
-            <span className="text-[11px] text-muted">Nordic Streaming</span>
-          </span>
-        </Link>
+        <Logo />
 
         <nav className="hidden items-center gap-8 md:flex">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-foreground/80 transition-colors hover:text-white"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                aria-current={isActive ? "page" : undefined}
+                className={cn(
+                  "text-sm font-medium transition-colors hover:text-white",
+                  isActive ? "text-white" : "text-foreground/80"
+                )}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="hidden md:block">

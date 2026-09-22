@@ -1,11 +1,10 @@
 import Link from "next/link";
+import { LogoMark } from "@/components/Logo";
 
 export default function NotFound() {
   return (
     <div className="gradient-hero flex min-h-screen flex-col items-center justify-center px-6 text-center">
-      <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-lg font-bold text-white">
-        TV
-      </span>
+      <LogoMark className="h-14 w-14" />
       <p className="mt-8 text-sm font-semibold uppercase tracking-widest text-primary">
         404
       </p>

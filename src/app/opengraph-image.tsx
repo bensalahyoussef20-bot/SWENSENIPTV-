@@ -15,7 +15,7 @@ export default function OpengraphImage() {
           alignItems: "center",
           justifyContent: "center",
           background:
-            "radial-gradient(circle at 80% 10%, #1b2a5c 0%, #05070d 45%), radial-gradient(circle at 10% 90%, #4a0e1f 0%, #05070d 55%), #05070d",
+            "radial-gradient(circle at 80% 10%, #123a6e 0%, #05070f 45%), radial-gradient(circle at 10% 90%, #3a2f06 0%, #05070f 55%), #05070f",
           fontFamily: "Arial, Helvetica, sans-serif",
         }}
       >
@@ -27,7 +27,7 @@ export default function OpengraphImage() {
             width: 96,
             height: 96,
             borderRadius: 22,
-            background: "#ff2d55",
+            background: "#0064d6",
             color: "white",
             fontSize: 44,
             fontWeight: 800,

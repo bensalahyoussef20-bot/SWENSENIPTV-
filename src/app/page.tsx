@@ -8,10 +8,26 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import FaqSection from "@/components/FaqSection";
 import CtaSection from "@/components/CtaSection";
 import Footer from "@/components/Footer";
+import JsonLd from "@/components/JsonLd";
+import { faqItems } from "@/lib/data";
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  })),
+};
 
 export default function Home() {
   return (
     <>
+      <JsonLd data={faqJsonLd} />
       <Header />
       <main id="main-content" className="flex-1">
         <Hero />

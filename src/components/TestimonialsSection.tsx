@@ -1,5 +1,6 @@
 import { stats, testimonials, waLinks } from "@/lib/data";
 import Reveal from "@/components/Reveal";
+import AnimatedNumber from "@/components/AnimatedNumber";
 
 export default function TestimonialsSection() {
   const loopTestimonials = [...testimonials, ...testimonials];
@@ -24,7 +25,12 @@ export default function TestimonialsSection() {
           {stats.map((s) => (
             <div key={s.label} className="text-center">
               <div className="text-2xl font-extrabold text-gradient sm:text-3xl">
-                {s.value}
+                <AnimatedNumber
+                  target={s.target}
+                  decimals={s.decimals}
+                  prefix={s.prefix}
+                  suffix={s.suffix}
+                />
               </div>
               <div className="mt-1 text-xs text-muted sm:text-sm">{s.label}</div>
             </div>
@@ -38,7 +44,7 @@ export default function TestimonialsSection() {
                 key={`${t.name}-${i}`}
                 className="w-80 shrink-0 rounded-2xl border border-border bg-surface p-6"
               >
-                <div className="text-amber-400 tracking-widest">★★★★★</div>
+                <div className="text-accent tracking-widest">★★★★★</div>
                 <blockquote className="mt-3 text-sm text-foreground/85">
                   “{t.quote}”
                 </blockquote>

@@ -22,11 +22,11 @@ export const waLinks = {
 };
 
 export const navLinks = [
-  { label: "Hem", href: "#hem" },
-  { label: "Priser", href: "#priser" },
-  { label: "Fördelar", href: "#fordelar" },
-  { label: "Installera", href: "#installera" },
-  { label: "Kontakt", href: "#kontakt" },
+  { label: "Hem", href: "/" },
+  { label: "Priser", href: "/priser" },
+  { label: "Fördelar", href: "/fordelar" },
+  { label: "Installera", href: "/installera" },
+  { label: "Kontakt", href: "/kontakt" },
 ];
 
 export type Benefit = {
@@ -186,9 +186,9 @@ export const plans: Plan[] = [
 ];
 
 export const stats = [
-  { value: "50 000+", label: "Kunder" },
-  { value: "4.9 / 5", label: "Snittbetyg" },
-  { value: "< 5 min", label: "Aktiveringstid" },
+  { target: 50000, decimals: 0, prefix: "", suffix: "+", label: "Kunder" },
+  { target: 4.9, decimals: 1, prefix: "", suffix: " / 5", label: "Snittbetyg" },
+  { target: 5, decimals: 0, prefix: "< ", suffix: " min", label: "Aktiveringstid" },
 ];
 
 export type Testimonial = {

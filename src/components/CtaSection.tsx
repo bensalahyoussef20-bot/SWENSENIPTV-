@@ -1,14 +1,20 @@
 import { waLinks } from "@/lib/data";
 import Reveal from "@/components/Reveal";
 
-export default function CtaSection() {
+export default function CtaSection({
+  headingLevel = 2,
+}: {
+  headingLevel?: 1 | 2;
+}) {
+  const Heading = headingLevel === 1 ? "h1" : "h2";
+
   return (
     <section id="kontakt" className="border-t border-border py-20">
       <Reveal className="container-shell">
         <div className="gradient-hero rounded-3xl border border-border px-6 py-14 text-center sm:px-14">
-          <h2 className="text-3xl font-extrabold sm:text-4xl">
+          <Heading className="text-3xl font-extrabold sm:text-4xl">
             Redo att börja med IPTV Nordic?
-          </h2>
+          </Heading>
           <p className="mx-auto mt-4 max-w-xl text-muted">
             Starta din gratis test idag och upplev skillnaden med nordic iptv —
             stabil streaming, HD och 4K kvalitet för hela familjen.
