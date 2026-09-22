@@ -35,10 +35,10 @@ export default function Home() {
         <Hero />
         <TrustBadges />
         <CategorySection />
+        <PricingSection />
         <BenefitsSection />
         <ComparisonSection />
         <DevicesSection />
-        <PricingSection />
         <TestimonialsSection />
         <FaqSection />
         <CtaSection />
