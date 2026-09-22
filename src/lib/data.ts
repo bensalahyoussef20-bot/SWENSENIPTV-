@@ -1,0 +1,240 @@
+export const siteConfig = {
+  name: "Sweden IPTV",
+  tagline: "Nordic Streaming",
+  domain: "swedeniptv.cc",
+  email: "contact@swedeniptv.cc",
+};
+
+export const navLinks = [
+  { label: "Hem", href: "#hem" },
+  { label: "Priser", href: "#priser" },
+  { label: "Kanaler", href: "#kanaler" },
+  { label: "Installera", href: "#installera" },
+  { label: "Kontakt", href: "#kontakt" },
+];
+
+export const popularChannels = [
+  "SVT1",
+  "SVT2",
+  "TV4",
+  "Kanal 5",
+  "TV3",
+  "Sjuan",
+  "TV10",
+  "Viaplay",
+  "BBC One",
+  "CNN",
+  "Sky News",
+  "Eurosport",
+  "Nat Geo",
+  "Discovery",
+  "History",
+  "ESPN",
+  "beIN Sports",
+  "HBO",
+  "Disney+",
+  "Prime Video",
+  "DAZN",
+];
+
+export const movieCount = 12;
+
+export const devices = [
+  {
+    icon: "tv",
+    title: "Smart TV",
+    description: "Perfekt för Samsung, LG och andra smarta TV-apparater.",
+  },
+  {
+    icon: "apple",
+    title: "Apple TV",
+    description: "Streama smidigt via Apple TV med enkel installation.",
+  },
+  {
+    icon: "android",
+    title: "Android TV",
+    description: "Fungerar med Android TV-boxar och appar.",
+  },
+  {
+    icon: "fire",
+    title: "Fire TV",
+    description: "Kompatibelt med Amazon Fire TV och Firestick.",
+  },
+  {
+    icon: "mag",
+    title: "MAG Box",
+    description: "Stöd för MAG-boxar och IPTV-enheter.",
+  },
+  {
+    icon: "mobile",
+    title: "Mobil & Surfplatta",
+    description: "Titta direkt på mobil eller surfplatta.",
+  },
+] as const;
+
+export const deviceFeatures = [
+  { icon: "bolt", title: "Installation på 5 minuter" },
+  { icon: "signal", title: "Fungerar utan satellit" },
+  { icon: "shield", title: "Support 24/7" },
+] as const;
+
+export const installSteps = [
+  { step: 1, title: "Välj din enhet" },
+  { step: 2, title: "Följ installationsguiden" },
+  { step: 3, title: "Börja titta direkt" },
+];
+
+export type Plan = {
+  id: string;
+  duration: string;
+  price: number;
+  perMonth: number;
+  saveLabel: string;
+  popular?: boolean;
+  features: string[];
+  cta: string;
+};
+
+export const plans: Plan[] = [
+  {
+    id: "3-man",
+    duration: "3 Månader",
+    price: 249,
+    perMonth: 83,
+    saveLabel: "Spara 10%",
+    features: [
+      "Över 20 000 kanaler",
+      "Filmer & serier",
+      "HD / 4K kvalitet",
+      "Alla enheter",
+      "Support 24/7",
+    ],
+    cta: "Beställ 3 månader",
+  },
+  {
+    id: "12-man",
+    duration: "12 Månader",
+    price: 799,
+    perMonth: 67,
+    saveLabel: "Spara 35%",
+    popular: true,
+    features: [
+      "Bästa priset",
+      "Över 20 000 kanaler",
+      "Full VOD-tillgång",
+      "Sport, filmer & serier",
+      "HD / 4K streaming",
+      "Premium support",
+      "Direkt aktivering",
+    ],
+    cta: "Välj bästa erbjudandet",
+  },
+  {
+    id: "6-man",
+    duration: "6 Månader",
+    price: 499,
+    perMonth: 83,
+    saveLabel: "Spara 20%",
+    features: [
+      "Allt i 3 månader",
+      "Stabil streaming",
+      "Sport, filmer & serier",
+      "Snabb aktivering",
+      "Prioriterad support",
+    ],
+    cta: "Beställ 6 månader",
+  },
+];
+
+export const stats = [
+  { value: "50 000+", label: "Kunder" },
+  { value: "4.9 / 5", label: "Snittbetyg" },
+  { value: "< 5 min", label: "Aktiveringstid" },
+];
+
+export type Testimonial = {
+  name: string;
+  city: string;
+  quote: string;
+};
+
+export const testimonials: Testimonial[] = [
+  {
+    name: "Johan",
+    city: "Stockholm, Sverige",
+    quote:
+      "Snabb aktivering och riktigt bra bildkvalitet. IPTV Nordic fungerar perfekt på min Smart TV.",
+  },
+  {
+    name: "Sara",
+    city: "Göteborg, Sverige",
+    quote:
+      "Enkel installation och stort utbud av kanaler, filmer och serier. Väldigt nöjd.",
+  },
+  {
+    name: "Mikael",
+    city: "Malmö, Sverige",
+    quote:
+      "Stabil nordisk iptv utan krångel. Supporten hjälpte mig komma igång på några minuter.",
+  },
+  {
+    name: "Emma",
+    city: "Uppsala, Sverige",
+    quote:
+      "IPTV Nordic One var enkelt att komma igång med och fungerar utmärkt på Apple TV.",
+  },
+  {
+    name: "Daniel",
+    city: "Västerås, Sverige",
+    quote: "Bra kvalitet på sportkanalerna och snabb support när jag behövde hjälp.",
+  },
+  {
+    name: "Lina",
+    city: "Helsingborg, Sverige",
+    quote: "Perfekt för hela familjen. Massor av innehåll och väldigt enkel installation.",
+  },
+];
+
+export type FaqItem = {
+  question: string;
+  answer: string;
+};
+
+export const faqItems: FaqItem[] = [
+  {
+    question: "Vad är IPTV Nordic?",
+    answer:
+      "IPTV Nordic är en premiumstreamingtjänst som levererar TV-kanaler, filmer och serier via internet – utan parabolantenn eller kabel-TV.",
+  },
+  {
+    question: "Hur snabbt aktiveras mitt abonnemang?",
+    answer:
+      "De flesta abonnemang aktiveras inom 5 minuter efter genomfört köp. Du får dina inloggningsuppgifter direkt via e-post.",
+  },
+  {
+    question: "Vilka enheter fungerar med tjänsten?",
+    answer:
+      "IPTV Nordic fungerar på Smart TV, Apple TV, Android TV, Fire TV/Firestick, MAG-boxar samt mobil och surfplatta.",
+  },
+  {
+    question: "Hur fungerar den gratis testperioden?",
+    answer:
+      "Du kan testa tjänsten kostnadsfritt under en begränsad period för att säkerställa att streamingen fungerar bra med din internetuppkoppling innan du köper ett abonnemang.",
+  },
+  {
+    question: "Behöver jag binda mig till ett kontrakt?",
+    answer:
+      "Nej, det finns inga bindningstider eller dolda avgifter. Du väljer den period som passar dig bäst.",
+  },
+  {
+    question: "Vad gör jag om jag behöver hjälp?",
+    answer:
+      "Vårt supportteam finns tillgängligt dygnet runt och hjälper dig gärna med installation eller andra frågor.",
+  },
+];
+
+export const legalLinks = [
+  { label: "Integritetspolicy", href: "/integritetspolicy" },
+  { label: "Användarvillkor", href: "/anvandarvillkor" },
+  { label: "Cookies", href: "/cookies" },
+];

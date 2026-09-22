@@ -1,0 +1,46 @@
+import Link from "next/link";
+
+export default function Hero() {
+  return (
+    <section id="hem" className="gradient-hero relative overflow-hidden pt-16 pb-20 sm:pt-24 sm:pb-28">
+      <div className="container-shell relative flex flex-col items-center text-center">
+        <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-muted">
+          Sveriges #1 IPTV-Tjänst
+        </span>
+
+        <h1 className="mt-6 max-w-3xl text-4xl font-extrabold leading-tight sm:text-5xl md:text-6xl">
+          Upplev <span className="text-gradient">IPTV Nordic</span>
+          <br />i Kristallklar 4K
+        </h1>
+
+        <p className="mt-6 max-w-2xl text-balance text-base text-muted sm:text-lg">
+          IPTV Nordic ger dig tusentals kanaler i HD och 4K direkt i TV:n. Perfekt
+          för hela familjen – enkel installation och stabil streaming. Starta ditt
+          abonnemang idag!
+        </p>
+
+        <div className="mt-9 flex flex-col gap-4 sm:flex-row">
+          <Link
+            href="#priser"
+            className="rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary/30 transition-transform hover:scale-105"
+          >
+            Gratis Testperiod
+          </Link>
+          <Link
+            href="#priser"
+            className="rounded-full border border-border bg-surface px-8 py-3.5 text-sm font-semibold text-foreground transition-colors hover:border-primary/60"
+          >
+            Köp Nu
+          </Link>
+        </div>
+
+        <div className="mt-10 flex items-center gap-2 text-sm text-muted">
+          <span className="text-amber-400 tracking-widest">★★★★★</span>
+          <span>Betyg 4.9</span>
+          <span aria-hidden>·</span>
+          <span>50 000+ nöjda kunder</span>
+        </div>
+      </div>
+    </section>
+  );
+}

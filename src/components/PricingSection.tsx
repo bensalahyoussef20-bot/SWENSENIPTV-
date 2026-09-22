@@ -1,0 +1,81 @@
+import { plans } from "@/lib/data";
+import { cn } from "@/lib/cn";
+
+export default function PricingSection() {
+  return (
+    <section id="priser" className="border-t border-border bg-surface/40 py-20">
+      <div className="container-shell">
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="text-xs font-semibold uppercase tracking-widest text-primary">
+            IPTV Nordic — Priser
+          </span>
+          <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">
+            Välj din IPTV Nordic plan
+          </h2>
+          <p className="mt-4 text-muted">
+            Flexibla abonnemang för alla – börja streama med IPTV Nordic idag.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {plans.map((plan) => (
+            <div
+              key={plan.id}
+              className={cn(
+                "relative flex flex-col rounded-2xl border p-7",
+                plan.popular
+                  ? "border-primary bg-surface shadow-xl shadow-primary/20 md:-translate-y-3"
+                  : "border-border bg-surface"
+              )}
+            >
+              {plan.popular && (
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary px-4 py-1 text-xs font-bold text-white">
+                  ★ Mest populär
+                </span>
+              )}
+
+              <h3 className="text-lg font-bold">{plan.duration}</h3>
+
+              <div className="mt-4 flex items-end gap-1">
+                <span className="text-4xl font-extrabold">{plan.price}</span>
+                <span className="mb-1 text-sm font-semibold text-muted">kr</span>
+              </div>
+              <p className="mt-1 text-xs text-muted">
+                totalt · {plan.perMonth} kr/mån
+              </p>
+              <span className="mt-3 inline-block w-fit rounded-full bg-surface-2 px-3 py-1 text-xs font-semibold text-accent">
+                {plan.saveLabel}
+              </span>
+
+              <ul className="mt-6 flex-1 space-y-3">
+                {plan.features.map((f) => (
+                  <li key={f} className="flex items-start gap-2 text-sm">
+                    <span className="mt-0.5 text-primary">✓</span>
+                    <span className="text-foreground/85">{f}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <button
+                type="button"
+                className={cn(
+                  "mt-8 rounded-full px-6 py-3 text-sm font-semibold transition-transform hover:scale-105",
+                  plan.popular
+                    ? "bg-primary text-white shadow-lg shadow-primary/30"
+                    : "border border-border text-foreground hover:border-primary/60"
+                )}
+              >
+                {plan.cta}
+              </button>
+            </div>
+          ))}
+        </div>
+
+        <p className="mt-10 text-center text-xs text-muted">
+          Inga kontrakt • Direkt aktivering • Support 24/7 • Fungerar på alla
+          enheter
+        </p>
+      </div>
+    </section>
+  );
+}
