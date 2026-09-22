@@ -1,6 +1,7 @@
 import { plans } from "@/lib/data";
 import { cn } from "@/lib/cn";
 import Reveal from "@/components/Reveal";
+import GuaranteeBadge from "@/components/GuaranteeBadge";
 
 export default function PricingSection({
   headingLevel = 2,
@@ -84,6 +85,8 @@ export default function PricingSection({
           Inga kontrakt • Direkt aktivering • Support 24/7 • Fungerar på alla
           enheter
         </p>
+
+        <GuaranteeBadge />
       </Reveal>
     </section>
   );

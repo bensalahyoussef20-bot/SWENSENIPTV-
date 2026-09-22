@@ -169,3 +169,59 @@ export function ArrowRightIcon(props: IconProps) {
     </svg>
   );
 }
+
+export function XCircleIcon(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="m9.5 9.5 5 5m0-5-5 5" />
+    </svg>
+  );
+}
+
+export function TrophyIcon(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M7 4h10v4a5 5 0 0 1-10 0V4Z" />
+      <path d="M7 5H4v1a4 4 0 0 0 4 4M17 5h3v1a4 4 0 0 1-4 4" />
+      <path d="M12 13v3m-3 4h6M9 20h6" />
+    </svg>
+  );
+}
+
+export function NewsIcon(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <rect x="3" y="5" width="14" height="15" rx="1.5" />
+      <path d="M17 8h4v9a2 2 0 0 1-2 2H7M7 9h6M7 12.5h6M7 16h4" />
+    </svg>
+  );
+}
+
+export function KidsIcon(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <circle cx="12" cy="8" r="4" />
+      <path d="M5.5 21c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6" />
+      <path d="M10 8h.01M14 8h.01" />
+    </svg>
+  );
+}
+
+export function GlobeIcon(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12h18M12 3c2.5 2.6 3.8 5.8 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.8-3.8-9S9.5 5.6 12 3Z" />
+    </svg>
+  );
+}
+
+export function FilmIcon(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <rect x="3" y="4" width="18" height="16" rx="2" />
+      <path d="M8 4v16M16 4v16M3 9h5M3 15h5M16 9h5M16 15h5" />
+    </svg>
+  );
+}

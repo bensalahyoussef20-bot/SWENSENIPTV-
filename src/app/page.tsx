@@ -1,7 +1,9 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import TrustBadges from "@/components/TrustBadges";
+import CategorySection from "@/components/CategorySection";
 import BenefitsSection from "@/components/BenefitsSection";
+import ComparisonSection from "@/components/ComparisonSection";
 import DevicesSection from "@/components/DevicesSection";
 import PricingSection from "@/components/PricingSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
@@ -32,7 +34,9 @@ export default function Home() {
       <main id="main-content" className="flex-1">
         <Hero />
         <TrustBadges />
+        <CategorySection />
         <BenefitsSection />
+        <ComparisonSection />
         <DevicesSection />
         <PricingSection />
         <TestimonialsSection />

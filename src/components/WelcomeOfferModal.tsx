@@ -72,7 +72,7 @@ export default function WelcomeOfferModal() {
           ✕
         </button>
 
-        <span className="inline-flex items-center gap-2 rounded-full bg-offer/15 px-3 py-1 text-xs font-semibold text-offer">
+        <span className="inline-flex items-center gap-2 rounded-full bg-primary/15 px-3 py-1 text-xs font-semibold text-[#4fa3ff]">
           {welcomeOffer.eyebrow}
         </span>
 

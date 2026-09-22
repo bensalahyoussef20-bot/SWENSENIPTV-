@@ -95,6 +95,61 @@ export const benefits: Benefit[] = [
   },
 ];
 
+export type ContentCategory = {
+  icon: string;
+  label: string;
+  description: string;
+};
+
+export const contentCategories: ContentCategory[] = [
+  {
+    icon: "trophy",
+    label: "Sport",
+    description: "Fotboll, hockey, motorsport och mer, live och on-demand.",
+  },
+  {
+    icon: "film",
+    label: "Film & Serier",
+    description: "Tusentals titlar från hela världen, alltid tillgängliga.",
+  },
+  {
+    icon: "news",
+    label: "Nyheter",
+    description: "Svenska och internationella nyhetskanaler dygnet runt.",
+  },
+  {
+    icon: "kids",
+    label: "Barnkanaler",
+    description: "Tryggt och roligt innehåll för de yngsta i familjen.",
+  },
+  {
+    icon: "globe",
+    label: "Dokumentärer",
+    description: "Natur, historia och vetenskap i toppkvalitet.",
+  },
+];
+
+export type ComparisonRow = {
+  label: string;
+  iptv: string | boolean;
+  traditional: string | boolean;
+};
+
+export const comparisonRows: ComparisonRow[] = [
+  { label: "Pris per månad", iptv: "Från 67 kr", traditional: "Från 400 kr" },
+  { label: "Installationstid", iptv: "5 minuter", traditional: "Flera dagar" },
+  { label: "Bindningstid", iptv: "Ingen", traditional: "Ofta 12–24 månader" },
+  { label: "Antal kanaler", iptv: "20 000+", traditional: "50–200" },
+  { label: "Titta var som helst", iptv: true, traditional: false },
+  { label: "Extra utrustning krävs", iptv: false, traditional: true },
+];
+
+export const guarantee = {
+  title: "30 dagars pengarna-tillbaka-garanti",
+  description:
+    "Inte nöjd av någon anledning? Hör av dig inom 30 dagar så löser vi det, utan krångel.",
+};
+
 export const devices = [
   {
     icon: "tv",
