@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import MobileCtaBar from "@/components/MobileCtaBar";
 import CookieConsent from "@/components/CookieConsent";
@@ -93,6 +94,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <CookieConsent />
         <SocialProofToast />
         <WelcomeOfferModal />
+        <Analytics />
       </body>
     </html>
   );
