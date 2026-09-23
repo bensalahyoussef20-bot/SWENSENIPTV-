@@ -1,3 +1,4 @@
+"use client";
 import { waLinks } from "@/lib/data";
 
 export default function FloatingWhatsApp() {
