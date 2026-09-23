@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
@@ -22,6 +23,7 @@ const geistMono = Geist_Mono({
 });
 
 const siteUrl = "https://swedeniptv.cc";
+const gaMeasurementId = "G-R5TQF98W3V";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -79,6 +81,18 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground pb-16 sm:pb-0">
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${gaMeasurementId}');
+          `}
+        </Script>
         <JsonLd data={organizationJsonLd} />
         <JsonLd data={websiteJsonLd} />
         <a
