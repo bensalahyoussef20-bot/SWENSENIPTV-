@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import TrustBadges from "@/components/TrustBadges";
@@ -12,6 +13,10 @@ import CtaSection from "@/components/CtaSection";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import { faqItems } from "@/lib/data";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 const faqJsonLd = {
   "@context": "https://schema.org",

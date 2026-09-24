@@ -5,6 +5,7 @@ import { siteConfig } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Cookiepolicy",
   description: `Hur ${siteConfig.name} använder cookies på webbplatsen.`,
+  alternates: { canonical: "/cookies" },
 };
 
 export default function Page() {

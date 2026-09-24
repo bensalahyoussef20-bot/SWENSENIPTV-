@@ -15,7 +15,7 @@ export default function Hero() {
 
           <h1 className="mt-6 max-w-3xl text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">
             Upplev <span className="text-gradient">IPTV Sverige</span>
-            <br />i kristallklar 4K
+            {" "}<br />i kristallklar 4K
           </h1>
 
           <p className="mt-6 max-w-2xl text-balance text-base text-muted sm:text-lg">

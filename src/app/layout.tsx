@@ -6,7 +6,6 @@ import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import MobileCtaBar from "@/components/MobileCtaBar";
 import CookieConsent from "@/components/CookieConsent";
 import PromoBar from "@/components/PromoBar";
-import SocialProofToast from "@/components/SocialProofToast";
 import WelcomeOfferModal from "@/components/WelcomeOfferModal";
 import JsonLd from "@/components/JsonLd";
 import { siteConfig } from "@/lib/data";
@@ -22,7 +21,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl = "https://swedeniptv.cc";
+const siteUrl = siteConfig.url;
 const gaMeasurementId = "G-R5TQF98W3V";
 
 export const metadata: Metadata = {
@@ -49,9 +48,6 @@ export const metadata: Metadata = {
     siteName: "Sweden IPTV",
     locale: "sv_SE",
     type: "website",
-  },
-  alternates: {
-    canonical: siteUrl,
   },
 };
 
@@ -106,7 +102,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <FloatingWhatsApp />
         <MobileCtaBar />
         <CookieConsent />
-        <SocialProofToast />
         <WelcomeOfferModal />
         <Analytics />
       </body>

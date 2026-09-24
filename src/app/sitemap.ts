@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
+import { siteConfig } from "@/lib/data";
 
-const baseUrl = "https://swedeniptv.cc";
+const baseUrl = siteConfig.url;
 
 const routes: Array<{
   path: string;

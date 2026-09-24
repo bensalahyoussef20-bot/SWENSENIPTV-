@@ -5,6 +5,7 @@ import { siteConfig } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Användarvillkor",
   description: `Villkor för att använda ${siteConfig.name}s tjänster.`,
+  alternates: { canonical: "/anvandarvillkor" },
 };
 
 export default function Page() {

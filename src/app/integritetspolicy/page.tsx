@@ -5,6 +5,7 @@ import { siteConfig } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Integritetspolicy",
   description: `Hur ${siteConfig.name} samlar in, använder och skyddar dina personuppgifter.`,
+  alternates: { canonical: "/integritetspolicy" },
 };
 
 export default function Page() {

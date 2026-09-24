@@ -2,6 +2,7 @@ export const siteConfig = {
   name: "Sweden IPTV",
   tagline: "IPTV i HD & 4K",
   domain: "swedeniptv.cc",
+  url: "https://www.swedeniptv.cc",
   email: "contact@swedeniptv.cc",
 };
 
