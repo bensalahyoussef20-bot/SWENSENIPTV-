@@ -28,11 +28,11 @@ const gaMeasurementId = "G-R5TQF98W3V";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "IPTV Nordic | IPTV Sverige med HD och 4K för Sverige & Norden",
-    template: "%s | IPTV Nordic",
+    default: "IPTV Sverige | IPTV-abonnemang i HD och 4K för sport, filmer och serier",
+    template: "%s | IPTV Sverige",
   },
   description:
-    "IPTV Nordic ger dig IPTV Sverige med tusentals kanaler i HD och 4K – inklusive sport, filmer, serier och underhållning för hela familjen. Köp IPTV i Sverige och i Norden med stabil streaming, enkel installation och bästa kvalitet.",
+    "IPTV Sverige ger dig premium IPTV-abonnemang med tusentals kanaler i HD och 4K. Titta på sport, filmer, serier och live-TV i Sverige med stabil streaming, enkel installation och hög kvalitet.",
   keywords: [
     "IPTV",
     "IPTV Sverige",
@@ -42,9 +42,9 @@ export const metadata: Metadata = {
     "Nordisk IPTV",
   ],
   openGraph: {
-    title: "IPTV Nordic - IPTV Sverige i HD och 4K för sport, filmer och serier",
+    title: "IPTV Sverige – IPTV-abonnemang i HD och 4K för sport, filmer och serier",
     description:
-      "Upptäck IPTV Nordic för Sverige och Norden med tusentals kanaler i HD och 4K, inklusive sport, filmer, serier och live-tv. Snabb installation, stabil streaming och kvalitet du kan lita på.",
+      "Upptäck IPTV Sverige med ett premium IPTV-abonnemang i HD och 4K. Streama sport, filmer och serier i Sverige med stabil kvalitet, snabb installation och ett stort utbud av kanaler.",
     url: siteUrl,
     siteName: "Sweden IPTV",
     locale: "sv_SE",
