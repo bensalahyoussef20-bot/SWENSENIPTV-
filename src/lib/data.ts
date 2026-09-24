@@ -386,3 +386,197 @@ export const trustBadges = [
   { icon: "headset", label: "Support dygnet runt" },
 ];
 
+export const installGuideUpdated = "24 september 2026";
+
+export type InstallApp = {
+  name: string;
+  devices: string;
+  login: string;
+};
+
+export const installApps: InstallApp[] = [
+  {
+    name: "IPTV Smarters",
+    devices: "Firestick, Android TV, Apple TV, mobil & surfplatta",
+    login: "Xtream Codes eller M3U-länk",
+  },
+  {
+    name: "TiviMate",
+    devices: "Firestick, Fire TV, Android TV & TV-boxar",
+    login: "Xtream Codes eller M3U-länk",
+  },
+  {
+    name: "IBO Player",
+    devices: "Samsung & LG Smart TV",
+    login: "Xtream Codes, M3U-länk eller MAC-aktivering",
+  },
+  {
+    name: "Smart IPTV",
+    devices: "Samsung & LG Smart TV",
+    login: "M3U-länk eller MAC-aktivering",
+  },
+];
+
+export type InstallGuide = {
+  id: string;
+  title: string;
+  intro: string;
+  prep?: string[];
+  methods: Array<{ app: string; steps: string[] }>;
+  note?: string;
+};
+
+export const installGuides: InstallGuide[] = [
+  {
+    id: "smart-tv",
+    title: "Smart TV (Samsung & LG)",
+    intro:
+      "På Samsung och LG Smart TV rekommenderar vi IBO Player eller Smart IPTV. Hur du loggar in beror på app och TV-modell: vissa uppsättningar aktiveras via TV:ns MAC-adress, medan andra låter dig ange Xtream Codes eller M3U-länk direkt.",
+    methods: [
+      {
+        app: "IBO Player",
+        steps: [
+          "Öppna TV:ns appbutik (Apps på Samsung, LG Content Store på LG), sök efter IBO Player och installera appen.",
+          "Starta appen. Kan du lägga till en spellista direkt väljer du Xtream Codes och anger serveradress, användarnamn och lösenord – eller klistrar in din M3U-länk.",
+          "Visar appen i stället en MAC-adress och Device Key används MAC-aktivering. Skicka MAC-adressen till oss via WhatsApp så hjälper vi dig att aktivera, eller lägg till spellistan själv på IBO Players webbplats.",
+          "Starta om appen på TV:n. Kanaler, filmer och serier laddas automatiskt.",
+        ],
+      },
+      {
+        app: "Smart IPTV",
+        steps: [
+          "Installera Smart IPTV från TV:ns appbutik och starta appen.",
+          "Anteckna MAC-adressen som visas på skärmen.",
+          "Lägg till din M3U-länk på siptv.eu/mylist tillsammans med MAC-adressen, eller skicka MAC-adressen till oss via WhatsApp så hjälper vi dig.",
+          "Starta om appen på TV:n så laddas kanallistan.",
+        ],
+      },
+    ],
+    note: "IBO Player och Smart IPTV är tredjepartsappar som kan kräva en egen licens från apputvecklaren efter provperioden.",
+  },
+  {
+    id: "firestick",
+    title: "Amazon Firestick & Fire TV",
+    intro:
+      "På Firestick och Fire TV rekommenderar vi TiviMate eller IPTV Smarters. Båda fungerar med Xtream Codes och M3U-länk, och installeras med hjälp av appen Downloader.",
+    prep: [
+      "Sök efter Downloader i Amazon Appstore och installera appen.",
+      "Gå till Inställningar → My Fire TV → Utvecklaralternativ → Installera okända appar och slå på Downloader. Syns inte Utvecklaralternativ? Gå till Inställningar → My Fire TV → Om och klicka sju gånger på enhetens namn.",
+      "Öppna Downloader och ange nedladdningsadressen för appen du vill använda. Vi skickar gärna rätt länk via WhatsApp.",
+    ],
+    methods: [
+      {
+        app: "TiviMate",
+        steps: [
+          "Öppna TiviMate och välj Lägg till spellista (Add playlist).",
+          "Välj Xtream Codes och ange serveradress, användarnamn och lösenord – eller välj M3U-spellista och klistra in din M3U-länk.",
+          "Välj Nästa och vänta medan kanalerna och TV-guiden laddas.",
+        ],
+      },
+      {
+        app: "IPTV Smarters",
+        steps: [
+          "Öppna IPTV Smarters och välj Login with Xtream Codes API. Har du en M3U-länk väljer du i stället Load Your Playlist or File/URL.",
+          "Ange ett valfritt namn och fyll i användarnamn, lösenord och serveradress från ditt e-postmeddelande.",
+          "Välj Add User och vänta medan innehållet laddas.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "android-tv",
+    title: "Android TV & TV-boxar",
+    intro:
+      "På Android TV, Google TV och Android-baserade TV-boxar fungerar både TiviMate och IPTV Smarters med Xtream Codes eller M3U-länk.",
+    methods: [
+      {
+        app: "TiviMate",
+        steps: [
+          "Installera TiviMate från Google Play.",
+          "Välj Lägg till spellista och ange dina Xtream Codes-uppgifter eller din M3U-länk.",
+          "Vänta medan kanalerna och TV-guiden laddas.",
+        ],
+      },
+      {
+        app: "IPTV Smarters",
+        steps: [
+          "Installera IPTV Smarters. Hittar du inte appen i Google Play installerar du den via Downloader, precis som i Firestick-guiden ovan.",
+          "Välj Login with Xtream Codes API, eller Load Your Playlist or File/URL om du har en M3U-länk.",
+          "Fyll i dina uppgifter och välj Add User.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "apple-tv",
+    title: "Apple TV",
+    intro:
+      "På Apple TV använder du IPTV Smarters, som heter Smarters Player Lite i App Store.",
+    methods: [
+      {
+        app: "IPTV Smarters",
+        steps: [
+          "Öppna App Store på din Apple TV, sök efter Smarters Player Lite och installera appen.",
+          "Starta appen och välj inloggning med Xtream Codes API, eller lägg till din M3U-länk.",
+          "Fyll i användarnamn, lösenord och serveradress och bekräfta. Innehållet laddas automatiskt.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "mag",
+    title: "MAG Box",
+    intro:
+      "MAG-boxar aktiveras via boxens MAC-adress. Du behöver ingen extra app – tjänsten läggs in direkt i boxens inställningar.",
+    methods: [
+      {
+        app: "MAC-aktivering",
+        steps: [
+          "Hitta boxens MAC-adress på etiketten under boxen eller i boxens statusmeny.",
+          "Skicka MAC-adressen till oss via WhatsApp eller e-post. Vi aktiverar din box och skickar portaladressen till dig.",
+          "Gå till Inställningar → Systeminställningar → Servrar → Portaler, ange ett valfritt namn och klistra in portaladressen.",
+          "Spara och starta om boxen. Kanalerna laddas automatiskt.",
+        ],
+      },
+    ],
+  },
+  {
+    id: "mobil",
+    title: "mobil & surfplatta",
+    intro:
+      "På iPhone, iPad och Android-mobiler använder du IPTV Smarters. Samma inloggningsuppgifter fungerar på alla dina enheter.",
+    methods: [
+      {
+        app: "IPTV Smarters",
+        steps: [
+          "iPhone och iPad: installera Smarters Player Lite från App Store. Android: installera IPTV Smarters från Google Play.",
+          "Välj inloggning med Xtream Codes API och fyll i användarnamn, lösenord och serveradress – eller lägg till din M3U-länk.",
+          "Bekräfta och börja titta direkt i mobilen eller surfplattan.",
+        ],
+      },
+    ],
+  },
+];
+
+export const installTroubleshooting = [
+  {
+    problem: "Kanalerna buffrar eller hackar",
+    solution:
+      "Starta om routern och enheten. Använd nätverkskabel eller 5 GHz-wifi om det går, och kontrollera att du har minst 10 Mbit/s för HD och 25 Mbit/s för 4K.",
+  },
+  {
+    problem: "Inloggningen misslyckas",
+    solution:
+      "Kontrollera att serveradressen är inskriven exakt som i e-postmeddelandet, inklusive http:// och eventuellt portnummer. Användarnamn och lösenord är skiftlägeskänsliga.",
+  },
+  {
+    problem: "Inga kanaler eller tom TV-guide",
+    solution:
+      "Uppdatera spellistan i appen eller starta om appen. Använder du MAC-aktivering, kontrollera att rätt MAC-adress är registrerad hos oss.",
+  },
+  {
+    problem: "Appen finns inte i min appbutik",
+    solution:
+      "Tredjepartsappar byts ibland ut i appbutikerna. Kontakta oss så tipsar vi om ett alternativ som fungerar på din enhet.",
+  },
+];
