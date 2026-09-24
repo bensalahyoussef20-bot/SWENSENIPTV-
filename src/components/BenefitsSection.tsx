@@ -31,10 +31,10 @@ export default function BenefitsSection({
       <Reveal className="container-shell">
         <div className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-semibold uppercase tracking-widest text-primary">
-            Varför IPTV Nordic
+            Varför Sweden IPTV
           </span>
           <Heading className="mt-3 text-3xl font-extrabold sm:text-4xl">
-            Streama Bättre med <span className="text-gradient">IPTV Nordic</span>
+            Streama bättre med <span className="text-gradient">IPTV Sverige</span>
           </Heading>
           <p className="mt-4 text-muted">
             Allt du behöver för stabil, högkvalitativ streaming – utan

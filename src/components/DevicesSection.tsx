@@ -38,7 +38,7 @@ export default function DevicesSection({
           <div className="relative order-2 aspect-[4/3] overflow-hidden rounded-3xl border border-border shadow-2xl shadow-black/40 lg:order-1">
             <Image
               src="/images/family-watching-tv.jpg"
-              alt="Familj som tittar på IPTV Nordic tillsammans i soffan"
+              alt="Familj som tittar på IPTV i 4K tillsammans i soffan"
               fill
               sizes="(min-width: 1024px) 40vw, 90vw"
               className="object-cover"
@@ -47,13 +47,13 @@ export default function DevicesSection({
 
           <div className="order-1 text-center lg:order-2 lg:text-left">
             <span className="text-xs font-semibold uppercase tracking-widest text-primary">
-              IPTV Nordic — Alla Enheter
+              Sweden IPTV — Alla enheter
             </span>
             <Heading className="mt-3 text-3xl font-extrabold sm:text-4xl">
-              Se IPTV Nordic på Smart TV, Mobil &amp; Surfplatta
+              Se IPTV i HD &amp; 4K på Smart TV, mobil &amp; surfplatta
             </Heading>
             <p className="mt-4 text-muted">
-              Titta på IPTV Nordic hemma eller på språng – enkelt på Smart TV,
+              Titta på Sweden IPTV hemma eller på språng – enkelt på Smart TV,
               Apple TV, Android TV, Fire TV, MAG Box, mobil och surfplatta.
             </p>
 
@@ -131,7 +131,7 @@ export default function DevicesSection({
 
         <p className="mx-auto mt-8 max-w-2xl text-center text-xs text-muted">
           Kompatibel med Smart TV, Apple TV, Android TV, Firestick, MAG Box och
-          mobil. Nordisk iptv &amp; iptv nordic one — enkel installation.
+          mobil. Enkel installation på alla enheter.
         </p>
       </Reveal>
     </section>

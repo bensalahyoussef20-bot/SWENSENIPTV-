@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Sweden IPTV",
-  tagline: "Nordic Streaming",
+  tagline: "IPTV i HD & 4K",
   domain: "swedeniptv.cc",
   email: "contact@swedeniptv.cc",
 };
@@ -34,7 +34,7 @@ export const promoOffer = {
 // on the 12-month plan specifically. Keep the discount % and base price in
 // sync with `plans` / `promoOffer` above if either changes.
 export const welcomeOffer = {
-  eyebrow: "Välkommen till IPTV Nordic",
+  eyebrow: "Välkommen till Sweden IPTV",
   title: "Få 20% rabatt på 12 månader",
   description:
     "Lås in vårt bästa pris: över 20 000 kanaler, alla filmer och serier i HD/4K, på alla dina enheter.",
@@ -341,9 +341,9 @@ export type FaqItem = {
 
 export const faqItems: FaqItem[] = [
   {
-    question: "Vad är IPTV Nordic?",
+    question: "Vad är IPTV Sverige?",
     answer:
-      "IPTV Nordic är en premiumstreamingtjänst som levererar TV-kanaler, filmer och serier via internet – utan parabolantenn eller kabel-TV.",
+      "IPTV Sverige från Sweden IPTV är en premiumstreamingtjänst som levererar TV-kanaler, filmer och serier via internet – utan parabolantenn eller kabel-TV.",
   },
   {
     question: "Hur snabbt aktiveras mitt abonnemang?",
@@ -353,7 +353,7 @@ export const faqItems: FaqItem[] = [
   {
     question: "Vilka enheter fungerar med tjänsten?",
     answer:
-      "IPTV Nordic fungerar på Smart TV, Apple TV, Android TV, Fire TV/Firestick, MAG-boxar samt mobil och surfplatta.",
+      "Sweden IPTV fungerar på Smart TV, Apple TV, Android TV, Fire TV/Firestick, MAG-boxar samt mobil och surfplatta.",
   },
   {
     question: "Hur fungerar den gratis testperioden?",

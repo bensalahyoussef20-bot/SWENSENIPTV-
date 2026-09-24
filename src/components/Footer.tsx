@@ -11,7 +11,7 @@ export default function Footer() {
         <div>
           <Logo />
           <p className="mt-4 text-sm text-muted">
-            Din premiumtjänst för nordisk iptv — IPTV Nordic med tusentals
+            Din premiumtjänst för IPTV Sverige med tusentals
             kanaler i HD och 4K.
           </p>
           <a

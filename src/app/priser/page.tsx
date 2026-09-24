@@ -9,14 +9,14 @@ import { plans, siteConfig } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Priser",
   description:
-    "Se priser för IPTV Nordic: 3, 6 eller 12 månaders abonnemang. Inga bindningstider, direkt aktivering och support dygnet runt.",
+    "Se priser för IPTV Sverige: 3, 6 eller 12 månaders IPTV abonnemang. Inga bindningstider, direkt aktivering och support dygnet runt.",
   alternates: { canonical: "/priser" },
 };
 
 const productJsonLd = {
   "@context": "https://schema.org",
   "@type": "Product",
-  name: "IPTV Nordic",
+  name: "IPTV Sverige",
   brand: siteConfig.name,
   description:
     "IPTV-abonnemang med över 20 000 kanaler, filmer och serier i HD och 4K.",

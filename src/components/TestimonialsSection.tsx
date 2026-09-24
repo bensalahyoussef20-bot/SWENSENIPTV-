@@ -13,10 +13,10 @@ export default function TestimonialsSection() {
             Kundomdömen
           </span>
           <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">
-            Därför väljer tusentals svenskar Nordisk IPTV
+            Därför väljer tusentals svenskar Sweden IPTV
           </h2>
           <p className="mt-4 text-muted">
-            Tusentals kunder väljer nordisk iptv för stabil streaming, stort
+            Tusentals kunder väljer vårt IPTV abonnemang för stabil streaming, stort
             utbud och snabb support.
           </p>
         </div>

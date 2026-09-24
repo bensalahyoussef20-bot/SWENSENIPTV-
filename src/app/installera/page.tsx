@@ -6,7 +6,7 @@ import DevicesSection from "@/components/DevicesSection";
 export const metadata: Metadata = {
   title: "Installera",
   description:
-    "Så installerar du IPTV Nordic på Smart TV, Apple TV, Android TV, Fire TV, MAG Box, mobil och surfplatta. Klart på 5 minuter.",
+    "Så installerar du IPTV Sverige på Smart TV, Apple TV, Android TV, Fire TV, MAG Box, mobil och surfplatta. Klart på 5 minuter.",
   alternates: { canonical: "/installera" },
 };
 

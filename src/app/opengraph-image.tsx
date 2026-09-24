@@ -53,7 +53,7 @@ export default function OpengraphImage() {
             color: "#8b93ab",
           }}
         >
-          Nordic Streaming i Kristallklar 4K
+          IPTV Sverige i kristallklar 4K
         </div>
       </div>
     ),

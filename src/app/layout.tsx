@@ -36,10 +36,10 @@ export const metadata: Metadata = {
   keywords: [
     "IPTV",
     "IPTV Sverige",
-    "Nordic IPTV",
-    "IPTV Nordic",
+    "IPTV Sweden",
     "Sweden IPTV",
-    "Nordisk IPTV",
+    "IPTV abonnemang",
+    "IPTV 4K",
   ],
   openGraph: {
     title: "IPTV Sverige – IPTV-abonnemang i HD och 4K för sport, filmer och serier",

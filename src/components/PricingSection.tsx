@@ -15,13 +15,13 @@ export default function PricingSection({
       <Reveal className="container-shell">
         <div className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-semibold uppercase tracking-widest text-primary">
-            IPTV Nordic — Priser
+            Sweden IPTV — Priser
           </span>
           <Heading className="mt-3 text-3xl font-extrabold sm:text-4xl">
-            Välj din IPTV Nordic plan
+            Välj ditt IPTV Sverige-abonnemang
           </Heading>
           <p className="mt-4 text-muted">
-            Flexibla abonnemang för alla – börja streama med IPTV Nordic idag.
+            Flexibla abonnemang för alla – börja streama IPTV i HD och 4K idag.
           </p>
         </div>
 

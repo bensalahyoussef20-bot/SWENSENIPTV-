@@ -6,7 +6,7 @@ import BenefitsSection from "@/components/BenefitsSection";
 export const metadata: Metadata = {
   title: "Fördelar",
   description:
-    "Därför väljer tusentals svenskar IPTV Nordic: 20 000+ kanaler, ingen buffring, HD/4K-kvalitet, multi-screen och pengarna-tillbaka-garanti.",
+    "Därför väljer tusentals svenskar IPTV Sverige: 20 000+ kanaler, ingen buffring, HD/4K-kvalitet, multi-screen och pengarna-tillbaka-garanti.",
   alternates: { canonical: "/fordelar" },
 };
 

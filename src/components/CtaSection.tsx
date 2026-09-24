@@ -25,11 +25,11 @@ export default function CtaSection({
 
           <div className="relative">
             <Heading className="text-3xl font-extrabold sm:text-4xl">
-              Redo att börja med IPTV Nordic?
+              Redo att börja med IPTV Sverige?
             </Heading>
             <p className="mx-auto mt-4 max-w-xl text-muted">
-              Starta din gratis test idag och upplev skillnaden med nordic
-              iptv — stabil streaming, HD och 4K kvalitet för hela familjen.
+              Starta din gratis test idag och upplev skillnaden med Sweden
+              IPTV — stabil streaming, HD och 4K kvalitet för hela familjen.
             </p>
 
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -49,7 +49,7 @@ export default function CtaSection({
             <div className="mx-auto mt-10 max-w-md rounded-2xl border border-border bg-surface/70 px-6 py-6">
               <h3 className="font-semibold">Behöver du hjälp att komma igång?</h3>
               <p className="mt-2 text-sm text-muted">
-                Kontakta oss så hjälper vi dig med IPTV Nordic direkt.
+                Kontakta oss så hjälper vi dig med ditt IPTV abonnemang direkt.
               </p>
               <a
                 href={waLinks.support}

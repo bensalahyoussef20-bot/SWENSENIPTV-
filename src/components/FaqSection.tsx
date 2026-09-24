@@ -16,10 +16,10 @@ export default function FaqSection() {
             Vanliga frågor
           </span>
           <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">
-            Har du frågor om IPTV Nordic? Vi svarar!
+            Har du frågor om IPTV Sverige? Vi svarar!
           </h2>
           <p className="mt-4 text-muted">
-            Få snabba svar på vanliga frågor om IPTV Nordic, installation,
+            Få snabba svar på vanliga frågor om Sweden IPTV, installation,
             kompatibla enheter och gratis test.
           </p>
         </div>
@@ -68,7 +68,7 @@ export default function FaqSection() {
         </div>
 
         <p className="mx-auto mt-6 max-w-2xl text-center text-xs text-muted">
-          IPTV Nordic är en premiumstreamingtjänst som levererar TV-kanaler,
+          Sweden IPTV är en premiumstreamingtjänst som levererar TV-kanaler,
           filmer och serier via internet – utan parabolantenn eller kabel-TV. Du
           kan läsa mer om tekniken bakom IPTV på{" "}
           <a

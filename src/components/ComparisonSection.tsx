@@ -28,18 +28,18 @@ export default function ComparisonSection() {
             Jämförelse
           </span>
           <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">
-            IPTV Nordic jämfört med traditionell TV
+            Sweden IPTV jämfört med traditionell TV
           </h2>
           <p className="mt-4 text-muted">
             Se varför fler och fler svenskar lämnar dyra kabel- och
-            parabolabonnemang för IPTV Nordic.
+            parabolabonnemang för ett IPTV abonnemang.
           </p>
         </div>
 
         <div className="mx-auto mt-10 max-w-2xl overflow-hidden rounded-2xl border border-border bg-surface">
           <div className="grid grid-cols-[1.3fr_1fr_1fr] border-b border-border bg-surface-2 text-center text-xs font-bold uppercase tracking-wide sm:text-sm">
             <div className="px-3 py-3 text-left text-muted">&nbsp;</div>
-            <div className="px-3 py-3 text-primary">IPTV Nordic</div>
+            <div className="px-3 py-3 text-primary">Sweden IPTV</div>
             <div className="px-3 py-3 text-muted">Traditionell TV</div>
           </div>
 
