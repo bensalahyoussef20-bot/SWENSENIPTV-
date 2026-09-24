@@ -28,11 +28,11 @@ const gaMeasurementId = "G-R5TQF98W3V";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "IPTV Sverige | IPTV-abonnemang i HD och 4K för sport, filmer och serier",
+    default: "IPTV Sverige | Bästa IPTV i HD & 4K | Sport, Filmer & Serier",
     template: "%s | IPTV Sverige",
   },
   description:
-    "IPTV Sverige ger dig premium IPTV-abonnemang med tusentals kanaler i HD och 4K. Titta på sport, filmer, serier och live-TV i Sverige med stabil streaming, enkel installation och hög kvalitet.",
+    "IPTV Sverige med över 20 000 kanaler, sport, filmer och serier i HD & 4K. Stabil streaming, snabb aktivering och gratis test. Starta idag!",
   keywords: [
     "IPTV",
     "IPTV Sverige",

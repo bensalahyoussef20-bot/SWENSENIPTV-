@@ -14,14 +14,14 @@ export default function Hero() {
           </span>
 
           <h1 className="mt-6 max-w-3xl text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">
-            Upplev <span className="text-gradient">IPTV Nordic</span>
-            <br />i Kristallklar 4K
+            Upplev <span className="text-gradient">IPTV Sverige</span>
+            <br />i kristallklar 4K
           </h1>
 
           <p className="mt-6 max-w-2xl text-balance text-base text-muted sm:text-lg">
-            IPTV Nordic ger dig tusentals kanaler i HD och 4K direkt i TV:n.
-            Perfekt för hela familjen – enkel installation och stabil
-            streaming. Starta ditt abonnemang idag!
+            IPTV Sverige ger dig över 20 000 kanaler, sport, filmer och serier
+            i HD och 4K direkt i TV:n. Perfekt för hela familjen – enkel
+            installation och stabil streaming. Starta ditt abonnemang idag!
           </p>
 
           <div className="mt-9 flex flex-col gap-4 sm:flex-row">
