@@ -187,6 +187,7 @@ export const orderSteps = [
 export const homeTroubleshooting = [
   {
     problem: "IPTV buffrar",
+    href: "/blog/iptv-buffrar",
     solution:
       "Starta om routern och enheten. Använd nätverkskabel eller 5 GHz-wifi och kontrollera att du har minst 10 Mbit/s för HD och 25 Mbit/s för 4K.",
   },
@@ -619,6 +620,7 @@ export const installTroubleshooting = [
     problem: "Kanalerna buffrar eller hackar",
     solution:
       "Starta om routern och enheten. Använd nätverkskabel eller 5 GHz-wifi om det går, och kontrollera att du har minst 10 Mbit/s för HD och 25 Mbit/s för 4K.",
+    link: { text: "Läs hela guiden om buffring", href: "/blog/iptv-buffrar" },
   },
   {
     problem: "Inloggningen misslyckas",

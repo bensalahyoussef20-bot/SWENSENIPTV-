@@ -167,7 +167,18 @@ export default function Page() {
               {installTroubleshooting.map((t) => (
                 <div key={t.problem}>
                   <dt className="font-semibold">{t.problem}</dt>
-                  <dd className="mt-1 text-muted">{t.solution}</dd>
+                  <dd className="mt-1 text-muted">
+                    {t.solution}
+                    {t.link && (
+                      <>
+                        {" "}
+                        <Link href={t.link.href} className="font-semibold text-primary hover:underline">
+                          {t.link.text}
+                        </Link>
+                        .
+                      </>
+                    )}
+                  </dd>
                 </div>
               ))}
             </dl>

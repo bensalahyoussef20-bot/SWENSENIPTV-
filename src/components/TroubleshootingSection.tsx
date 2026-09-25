@@ -21,7 +21,15 @@ export default function TroubleshootingSection() {
               key={item.problem}
               className="rounded-2xl border border-border bg-surface p-6"
             >
-              <h3 className="font-semibold">{item.problem}</h3>
+              <h3 className="font-semibold">
+                {item.href ? (
+                  <Link href={item.href} className="text-primary hover:underline">
+                    {item.problem}
+                  </Link>
+                ) : (
+                  item.problem
+                )}
+              </h3>
               <p className="mt-2 text-sm text-muted">{item.solution}</p>
             </div>
           ))}

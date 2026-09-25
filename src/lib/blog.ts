@@ -14,11 +14,227 @@ export type Post = {
   publishedAt: string;
   updatedAt: string;
   readingMinutes: number;
+  image?: { src: string; alt: string };
   related: string[];
   body: ArticleBlock[];
 };
 
 export const posts: Post[] = [
+  {
+    slug: "iptv-buffrar",
+    title: "IPTV buffrar? 8 sätt att få en stabil bild",
+    description:
+      "Buffrar eller hackar din IPTV? Här är 8 beprövade sätt att få stabil bild – från kabel och 5 GHz-wifi till appinställningar. Testa idag!",
+    excerpt:
+      "Bilden fryser eller laddar hela tiden? Så tar du reda på om felet sitter i nätverket, enheten eller tjänsten – och 8 sätt att få en stabil bild.",
+    publishedAt: "2026-09-25",
+    updatedAt: "2026-09-25",
+    readingMinutes: 8,
+    image: {
+      src: "/images/blog/iptv-buffrar-smart-tv-wifi.webp",
+      alt: "Smart TV som buffrar under en fotbollsmatch, med en wifi-router i förgrunden",
+    },
+    related: ["vad-ar-iptv"],
+    body: [
+      {
+        type: "p",
+        content: [
+          "IPTV buffrar oftast på grund av instabilt wifi, för låg internethastighet eller en överbelastad enhet. Börja med att starta om routern och ansluta TV:n eller boxen med nätverkskabel – det löser många fall direkt. Nedan går vi igenom hur du hittar orsaken och 8 sätt att få en stabil bild.",
+        ],
+      },
+      { type: "h2", text: "Varför buffrar IPTV?", id: "varfor-buffrar-iptv" },
+      {
+        type: "p",
+        content: [
+          "När du tittar på IPTV laddar appen hela tiden in bilden i små delar via internet. Så länge delarna kommer fram snabbare än de spelas upp flyter allt på. Kommer de för långsamt, eller ojämnt, tar bufferten slut och bilden stannar medan appen laddar om. Det är därför en stabil uppkoppling ofta betyder mer än en hög maxhastighet.",
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Vill du veta mer om hur tekniken fungerar kan du läsa vår guide om ",
+          { text: "vad IPTV är och hur det fungerar", href: "/blog/vad-ar-iptv" },
+          ".",
+        ],
+      },
+      {
+        type: "h2",
+        text: "Snabbdiagnos: nätverket, enheten eller tjänsten?",
+        id: "snabbdiagnos",
+      },
+      {
+        type: "p",
+        content: [
+          "Titta på hur problemet visar sig. Det ger ofta en tydlig ledtråd om var felet sitter:",
+        ],
+      },
+      {
+        type: "ul",
+        items: [
+          ["Alla kanaler buffrar, på alla enheter – troligen din uppkoppling eller routern. Börja med punkt 1–4 nedan."],
+          ["Bara en enhet buffrar – troligen enheten, appen eller wifi-signalen just där. Prova punkt 2, 3 och 5."],
+          ["Det buffrar främst på kvällen – många använder nätet samtidigt. Se punkt 7 och 8."],
+          ["Bara en kanal buffrar – felet ligger troligen hos kanalen, inte hos dig. Kontakta oss så kontrollerar vi den."],
+          ["Ljudet fungerar men bilden fryser – ofta enheten eller appen. Rensa cache och uppdatera enligt punkt 5."],
+          ["Problemet började efter en uppdatering – starta om enheten och kontrollera att appen är uppdaterad till senaste versionen."],
+        ],
+      },
+      { type: "h2", text: "8 sätt att få en stabil bild", id: "8-satt" },
+      { type: "h3", text: "1. Mät hastigheten på rätt sätt", id: "mat-hastigheten" },
+      {
+        type: "p",
+        content: [
+          "Mät hastigheten på samma enhet och samma uppkoppling som du tittar på, helst på kvällen när det brukar buffra. En mätning på mobilen bredvid routern säger inte mycket om hur det ser ut vid TV:n. Du kan till exempel använda ",
+          { text: "Bredbandskollen", href: "https://www.bredbandskollen.se/" },
+          ". Så här mycket behöver du minst:",
+        ],
+      },
+      {
+        type: "ul",
+        items: [["SD: 5 Mbit/s"], ["HD: 10 Mbit/s"], ["4K: 25 Mbit/s"]],
+      },
+      {
+        type: "p",
+        content: [
+          "Ligger du nära gränsen, eller varierar värdet mycket mellan mätningarna, är det troligen där problemet finns.",
+        ],
+      },
+      { type: "h3", text: "2. Anslut med nätverkskabel", id: "natverkskabel" },
+      {
+        type: "p",
+        content: [
+          "En trådbunden anslutning är det enklaste sättet att få en stabil bild. Kabeln påverkas inte av väggar, avstånd eller andra trådlösa nätverk, så IPTV hackar betydligt mindre. Har TV:n eller boxen en nätverksport, dra en kabel direkt till routern.",
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Går det inte att dra kabel kan en powerline-adapter vara ett alternativ. Den skickar internet via elnätet i hemmet. Hur bra det fungerar beror på elinstallationen, så testa gärna innan du bestämmer dig.",
+        ],
+      },
+      { type: "h3", text: "3. Optimera ditt wifi", id: "wifi" },
+      {
+        type: "p",
+        content: ["Måste du använda wifi finns det flera saker som gör skillnad:"],
+      },
+      {
+        type: "ul",
+        items: [
+          ["Anslut till routerns 5 GHz-band om det finns. Det är snabbare och störs mindre, men räckvidden är kortare än på 2,4 GHz."],
+          ["Placera routern fritt och högt, inte i ett skåp eller bakom TV:n."],
+          ["Minska avståndet och antalet väggar mellan router och TV."],
+          ["I större bostäder kan ett mesh-system ge jämnare täckning i alla rum."],
+        ],
+      },
+      { type: "h3", text: "4. Starta om router och enhet", id: "starta-om" },
+      {
+        type: "p",
+        content: [
+          "Det låter enkelt, men en omstart löser förvånansvärt ofta problemet. Gör en kallstart: dra ur strömsladden till routern och till TV:n eller boxen, vänta ungefär en minut och koppla sedan in dem igen. Då töms arbetsminnet och anslutningen byggs upp på nytt.",
+        ],
+      },
+      { type: "h3", text: "5. Rensa cache och uppdatera appen", id: "rensa-cache" },
+      {
+        type: "p",
+        content: [
+          "Med tiden kan appens tillfälliga filer göra den långsammare. Rensa appens cache i enhetens inställningar och se till att både appen och enhetens mjukvara är uppdaterade. Hur du gör skiljer sig mellan enheter – se vår guide för ",
+          { text: "Firestick", href: "/installera#firestick" },
+          ", ",
+          { text: "Android TV", href: "/installera#android-tv" },
+          " eller ",
+          { text: "Smart TV", href: "/installera#smart-tv" },
+          ".",
+        ],
+      },
+      {
+        type: "h3",
+        text: "6. Kontrollera appens spelarinställningar",
+        id: "appinstallningar",
+      },
+      {
+        type: "p",
+        content: [
+          "Vissa IPTV-appar har inställningar för videospelare eller buffertstorlek. Finns det i din app kan en större buffert ge jämnare uppspelning, men det tar något längre tid innan kanalen startar. Alla appar har inte de här inställningarna, och menyerna ser olika ut. Är du osäker kan du fråga oss, eller läsa om ",
+          { text: "vilken app som passar din enhet", href: "/installera" },
+          ".",
+        ],
+      },
+      {
+        type: "h3",
+        text: "7. Minska belastningen på nätverket",
+        id: "minska-belastningen",
+      },
+      {
+        type: "p",
+        content: [
+          "Allt som använder internet samtidigt delar på samma uppkoppling. Stora nedladdningar, spelkonsoler som uppdateras, molnsäkerhetskopiering och andra som streamar kan ta så mycket kapacitet att IPTV-strömmen inte hinner med. Pausa det som inte behövs medan du tittar. Använder du VPN kan det också sänka hastigheten – prova att stänga av det tillfälligt och se om det blir bättre.",
+        ],
+      },
+      { type: "h3", text: "8. Sänk bildkvaliteten tillfälligt", id: "sank-kvaliteten" },
+      {
+        type: "p",
+        content: [
+          "4K kräver betydligt mer bandbredd än HD. Om din uppkoppling ligger nära gränsen, välj HD-versionen av kanalen i stället. Skillnaden syns ofta mindre än du tror, och en stabil HD-bild är bättre än en 4K-bild som stannar.",
+        ],
+      },
+      { type: "h2", text: "Buffrar det fortfarande? Så hjälper vi dig", id: "support" },
+      {
+        type: "p",
+        content: [
+          "Har du provat stegen ovan och det fortfarande buffrar på alla kanaler trots en stabil uppkoppling, kan felet ligga hos oss. Hör av dig till ",
+          { text: "vår support via WhatsApp", href: "/om-oss" },
+          " så felsöker vi tillsammans. Det går snabbast om du skickar med:",
+        ],
+      },
+      {
+        type: "ul",
+        items: [
+          ["Vilken kanal eller vilka kanaler som buffrar"],
+          ["Ungefär när det händer (tid och dag)"],
+          ["Vilken enhet och vilken app du använder"],
+          ["Resultatet från din hastighetsmätning"],
+        ],
+      },
+      { type: "h2", text: "Vanliga frågor om IPTV-buffring", id: "vanliga-fragor" },
+      { type: "h3", text: "Varför buffrar IPTV mer på kvällen?" },
+      {
+        type: "p",
+        content: [
+          "På kvällen är fler uppkopplade samtidigt, både i ditt hem och i nätet i stort. Det gör att marginalerna krymper. Kabelanslutning och färre samtidiga nedladdningar brukar hjälpa mest.",
+        ],
+      },
+      { type: "h3", text: "Hjälper en snabbare internetuppkoppling alltid?" },
+      {
+        type: "p",
+        content: [
+          "Inte alltid. Om problemet är dåligt wifi eller en överbelastad enhet blir det inte bättre av ett snabbare abonnemang. Mät först vid TV:n och prova kabel innan du uppgraderar.",
+        ],
+      },
+      { type: "h3", text: "Varför fungerar Netflix men inte IPTV?" },
+      {
+        type: "p",
+        content: [
+          "Tjänster som Netflix strömmar inspelat material. De kan ladda långt i förväg och sänker bildkvaliteten automatiskt när uppkopplingen svajar. Live-TV sänds i realtid, så appen kan inte buffra lika mycket i förväg och blir därför känsligare för ojämn uppkoppling.",
+        ],
+      },
+      { type: "h3", text: "Är en Smart TV sämre än en IPTV-box?" },
+      {
+        type: "p",
+        content: [
+          "Inte nödvändigtvis. Äldre Smart TV-apparater har ofta mindre minne och långsammare processor än en modern streamingbox, vilket kan märkas. En nyare Smart TV med en bra app fungerar i regel bra.",
+        ],
+      },
+      { type: "h2", text: "Sammanfattning", id: "sammanfattning" },
+      {
+        type: "p",
+        content: [
+          "De snabbaste lösningarna när IPTV buffrar är att ansluta med nätverkskabel, starta om router och enhet och mäta hastigheten vid TV:n. Hjälper inget av det kan du felsöka vidare med punkterna ovan eller höra av dig till oss. Med ",
+          { text: "IPTV Sverige", href: "/" },
+          " får du support via WhatsApp dygnet runt när du behöver hjälp.",
+        ],
+      },
+    ],
+  },
   {
     slug: "vad-ar-iptv",
     title: "Vad är IPTV? Så fungerar IPTV i Sverige",
@@ -29,7 +245,11 @@ export const posts: Post[] = [
     publishedAt: "2026-09-25",
     updatedAt: "2026-09-25",
     readingMinutes: 5,
-    related: [],
+    image: {
+      src: "/images/family-watching-tv.jpg",
+      alt: "Familj som tittar på IPTV tillsammans i soffan",
+    },
+    related: ["iptv-buffrar"],
     body: [
       {
         type: "p",
