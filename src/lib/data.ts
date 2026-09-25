@@ -412,7 +412,7 @@ export const trustBadges = [
   { icon: "headset", label: "Support dygnet runt" },
 ];
 
-export const installGuideUpdated = "24 september 2026";
+export const installGuideUpdated = "25 september 2026";
 
 export type InstallApp = {
   name: string;
@@ -503,7 +503,7 @@ export const installGuides: InstallGuide[] = [
         app: "IPTV Smarters",
         steps: [
           "Öppna IPTV Smarters och välj Login with Xtream Codes API. Har du en M3U-länk väljer du i stället Load Your Playlist or File/URL.",
-          "Ange ett valfritt namn och fyll i användarnamn, lösenord och serveradress från ditt e-postmeddelande.",
+          "Ange ett valfritt namn och fyll i användarnamn, lösenord och serveradress från uppgifterna du fick av oss efter beställningen.",
           "Välj Add User och vänta medan innehållet laddas.",
         ],
       },
@@ -593,7 +593,7 @@ export const installTroubleshooting = [
   {
     problem: "Inloggningen misslyckas",
     solution:
-      "Kontrollera att serveradressen är inskriven exakt som i e-postmeddelandet, inklusive http:// och eventuellt portnummer. Användarnamn och lösenord är skiftlägeskänsliga.",
+      "Kontrollera att serveradressen är inskriven exakt som i uppgifterna du fick av oss, inklusive http:// och eventuellt portnummer. Användarnamn och lösenord är skiftlägeskänsliga.",
   },
   {
     problem: "Inga kanaler eller tom TV-guide",

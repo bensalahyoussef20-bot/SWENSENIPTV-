@@ -84,10 +84,11 @@ export default function Page() {
             <h2 className="mt-14 text-2xl font-bold">Innan du börjar</h2>
             <ul className="mt-4 list-disc space-y-2 pl-5 text-muted">
               <li>
-                Dina inloggningsuppgifter från e-postmeddelandet du får efter
-                köpet. Beroende på vad du önskar vid beställningen får du
-                antingen Xtream Codes (serveradress, användarnamn och lösenord)
-                eller en M3U-länk.
+                Dina aktiverings- och inloggningsuppgifter. Du beställer genom
+                att kontakta oss via WhatsApp, och efter beställningen skickar
+                vi dina uppgifter till dig. Beroende på vad du önskar vid
+                beställningen får du antingen Xtream Codes (serveradress,
+                användarnamn och lösenord) eller en M3U-länk.
               </li>
               <li>
                 Använder du MAG Box eller en TV-app som aktiveras via MAC-adress
