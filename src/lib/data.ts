@@ -16,11 +16,11 @@ export function waLink(message: string) {
 }
 
 export const waLinks = {
-  freeTrial: waLink("Jag vill starta en gratis testperiod för IPTV Nordic"),
-  buyNow: waLink("Jag vill köpa IPTV Nordic"),
-  installHelp: waLink("Jag behöver hjälp med installation av IPTV Nordic"),
-  support: waLink("Jag behöver hjälp med IPTV Nordic"),
-  claimOffer: waLink("Jag vill ha 20% rabatt på IPTV Nordic"),
+  freeTrial: waLink("Jag vill starta en gratis testperiod för IPTV Sverige"),
+  buyNow: waLink("Jag vill köpa IPTV Sverige"),
+  installHelp: waLink("Jag behöver hjälp med installation av IPTV Sverige"),
+  support: waLink("Jag behöver hjälp med IPTV Sverige"),
+  claimOffer: waLink("Jag vill ha 20% rabatt på IPTV Sverige"),
   welcomeOffer: waLink("Jag vill ha 20% rabatt på 12 Månader-planen"),
 };
 
@@ -51,8 +51,11 @@ export const navLinks = [
   { label: "Priser", href: "/priser" },
   { label: "Fördelar", href: "/fordelar" },
   { label: "Installera", href: "/installera" },
+  { label: "Om oss", href: "/om-oss" },
   { label: "Kontakt", href: "/kontakt" },
 ];
+
+export const footerNavLinks = [...navLinks, { label: "Blogg", href: "/blog" }];
 
 export type Benefit = {
   icon: string;
@@ -144,6 +147,29 @@ export const comparisonRows: ComparisonRow[] = [
   { label: "Titta var som helst", iptv: true, traditional: false },
   { label: "Extra utrustning krävs", iptv: false, traditional: true },
 ];
+
+export type InfoSegment = string | { text: string; href: string };
+
+export const infoSection = {
+  eyebrow: "Guide",
+  heading: "IPTV Sverige – så fungerar det",
+  paragraphs: [
+    [
+      "IPTV står för Internet Protocol Television och innebär att TV-kanaler, filmer och serier strömmas via din vanliga internetuppkoppling i stället för via parabol eller kabel-TV. Med IPTV Sverige från Sweden IPTV samlar du sport, nyheter, barnkanaler och underhållning i en och samma tjänst – hemma i soffan eller på språng.",
+    ],
+    [
+      "Det enda du behöver är en stabil internetanslutning och en kompatibel enhet, till exempel Smart TV, Apple TV, Android TV, Fire TV Stick, MAG-box, mobil eller surfplatta. Vi rekommenderar minst 10 Mbit/s för HD och 25 Mbit/s för 4K. En trådbunden anslutning eller ett starkt wifi ger den jämnaste bilden.",
+    ],
+    [
+      "Att komma igång är enkelt. Kontakta oss via WhatsApp och välj det ",
+      { text: "abonnemang", href: "/priser" },
+      " som passar dig – 3, 6 eller 12 månader. Efter din beställning får du dina aktiverings- och inloggningsuppgifter, och sedan följer du installationsguiden för din enhet. De flesta är igång inom några minuter.",
+    ],
+    [
+      "Osäker? Börja med en gratis testperiod och se hur IPTV Sverige fungerar med din uppkoppling innan du bestämmer dig – utan bindningstid och utan dolda avgifter.",
+    ],
+  ] satisfies InfoSegment[][],
+};
 
 export const guarantee = {
   title: "30 dagars pengarna-tillbaka-garanti",
@@ -282,7 +308,7 @@ export const testimonials: Testimonial[] = [
     name: "Johan",
     city: "Stockholm, Sverige",
     quote:
-      "Snabb aktivering och riktigt bra bildkvalitet. IPTV Nordic fungerar perfekt på min Smart TV.",
+      "Snabb aktivering och riktigt bra bildkvalitet. Sweden IPTV fungerar perfekt på min Smart TV.",
   },
   {
     name: "Sara",
@@ -300,7 +326,7 @@ export const testimonials: Testimonial[] = [
     name: "Emma",
     city: "Uppsala, Sverige",
     quote:
-      "IPTV Nordic One var enkelt att komma igång med och fungerar utmärkt på Apple TV.",
+      "Sweden IPTV var enkelt att komma igång med och fungerar utmärkt på Apple TV.",
   },
   {
     name: "Daniel",
@@ -349,7 +375,7 @@ export const faqItems: FaqItem[] = [
   {
     question: "Hur snabbt aktiveras mitt abonnemang?",
     answer:
-      "De flesta abonnemang aktiveras inom 5 minuter efter genomfört köp. Du får dina inloggningsuppgifter direkt via e-post.",
+      "Du beställer enkelt genom att kontakta oss via WhatsApp. Efter din beställning skickar vi dina aktiverings- och inloggningsuppgifter, och de flesta abonnemang är aktiva inom 5 minuter.",
   },
   {
     question: "Vilka enheter fungerar med tjänsten?",
@@ -359,7 +385,7 @@ export const faqItems: FaqItem[] = [
   {
     question: "Hur fungerar den gratis testperioden?",
     answer:
-      "Du kan testa tjänsten kostnadsfritt under en begränsad period för att säkerställa att streamingen fungerar bra med din internetuppkoppling innan du köper ett abonnemang.",
+      "Kontakta oss via WhatsApp så startar vi din testperiod. Du kan testa tjänsten kostnadsfritt under en begränsad period för att säkerställa att streamingen fungerar bra med din internetuppkoppling innan du köper ett abonnemang.",
   },
   {
     question: "Behöver jag binda mig till ett kontrakt?",

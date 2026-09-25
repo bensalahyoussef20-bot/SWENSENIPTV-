@@ -8,7 +8,7 @@ import CookieConsent from "@/components/CookieConsent";
 import PromoBar from "@/components/PromoBar";
 import WelcomeOfferModal from "@/components/WelcomeOfferModal";
 import JsonLd from "@/components/JsonLd";
-import { siteConfig } from "@/lib/data";
+import { siteConfig, whatsapp } from "@/lib/data";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -55,10 +55,17 @@ const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: siteConfig.name,
+  alternateName: "IPTV Sverige",
   url: siteUrl,
   logo: `${siteUrl}/icon`,
   email: siteConfig.email,
   areaServed: "SE",
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer support",
+    telephone: `+${whatsapp.number}`,
+    availableLanguage: ["sv"],
+  },
   sameAs: [],
 };
 

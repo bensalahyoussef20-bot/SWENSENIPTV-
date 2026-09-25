@@ -5,6 +5,7 @@ import TrustBadges from "@/components/TrustBadges";
 import CategorySection from "@/components/CategorySection";
 import BenefitsSection from "@/components/BenefitsSection";
 import ComparisonSection from "@/components/ComparisonSection";
+import InfoSection from "@/components/InfoSection";
 import DevicesSection from "@/components/DevicesSection";
 import PricingSection from "@/components/PricingSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
@@ -43,6 +44,7 @@ export default function Home() {
         <PricingSection />
         <BenefitsSection />
         <ComparisonSection />
+        <InfoSection />
         <DevicesSection />
         <TestimonialsSection />
         <FaqSection />

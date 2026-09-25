@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { plans } from "@/lib/data";
 import { cn } from "@/lib/cn";
 import Reveal from "@/components/Reveal";
@@ -22,6 +23,14 @@ export default function PricingSection({
           </Heading>
           <p className="mt-4 text-muted">
             Flexibla abonnemang för alla – börja streama IPTV i HD och 4K idag.
+            {headingLevel === 2 && (
+              <>
+                {" "}
+                <Link href="/priser" className="text-primary hover:underline">
+                  Se alla IPTV Sverige-priser
+                </Link>
+              </>
+            )}
           </p>
         </div>
 

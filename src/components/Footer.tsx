@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { legalLinks, navLinks, siteConfig } from "@/lib/data";
+import { footerNavLinks, legalLinks, siteConfig } from "@/lib/data";
 import Logo from "@/components/Logo";
 
 export default function Footer() {
@@ -25,7 +25,7 @@ export default function Footer() {
         <div>
           <h3 className="text-sm font-semibold">Navigering</h3>
           <ul className="mt-4 space-y-2">
-            {navLinks.map((link) => (
+            {footerNavLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}

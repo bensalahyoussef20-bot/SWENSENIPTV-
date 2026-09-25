@@ -1,5 +1,6 @@
 import type { ComponentType, SVGProps } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { deviceFeatures, devices, installSteps, waLinks } from "@/lib/data";
 import Reveal from "@/components/Reveal";
 import {
@@ -55,6 +56,11 @@ export default function DevicesSection({
             <p className="mt-4 text-muted">
               Titta på Sweden IPTV hemma eller på språng – enkelt på Smart TV,
               Apple TV, Android TV, Fire TV, MAG Box, mobil och surfplatta.
+              Följ vår{" "}
+              <Link href="/installera" className="text-primary hover:underline">
+                installationsguide för IPTV
+              </Link>{" "}
+              för din enhet.
             </p>
 
             <div className="mt-6 flex flex-wrap justify-center gap-3 lg:justify-start">
