@@ -169,7 +169,38 @@ export const infoSection = {
       "Osäker? Börja med en gratis testperiod och se hur IPTV Sverige fungerar med din uppkoppling innan du bestämmer dig – utan bindningstid och utan dolda avgifter.",
     ],
   ] satisfies InfoSegment[][],
+  speedHeading: "Hur snabbt internet behöver du för IPTV?",
+  speeds: [
+    { quality: "SD", speed: "5 Mbit/s" },
+    { quality: "HD", speed: "10 Mbit/s" },
+    { quality: "4K", speed: "25 Mbit/s" },
+  ],
 };
+
+export const orderSteps = [
+  { title: "Välj abonnemang eller gratis test", href: "/priser" },
+  { title: "Kontakta oss via WhatsApp" },
+  { title: "Få Xtream Codes, M3U eller MAC-aktivering" },
+  { title: "Installera och börja titta", href: "/installera" },
+];
+
+export const homeTroubleshooting = [
+  {
+    problem: "IPTV buffrar",
+    solution:
+      "Starta om routern och enheten. Använd nätverkskabel eller 5 GHz-wifi och kontrollera att du har minst 10 Mbit/s för HD och 25 Mbit/s för 4K.",
+  },
+  {
+    problem: "Inloggning fungerar inte",
+    solution:
+      "Kontrollera att serveradress, användarnamn och lösenord är inskrivna exakt som i uppgifterna du fick av oss. Användarnamn och lösenord är skiftlägeskänsliga.",
+  },
+  {
+    problem: "Ingen bild",
+    solution:
+      "Uppdatera spellistan eller starta om appen. Använder du MAC-aktivering, kontrollera att rätt MAC-adress är registrerad hos oss.",
+  },
+];
 
 export const guarantee = {
   title: "30 dagars pengarna-tillbaka-garanti",
@@ -227,7 +258,7 @@ export type Plan = {
   duration: string;
   price: number;
   perMonth: number;
-  saveLabel: string;
+  saveLabel?: string;
   popular?: boolean;
   features: string[];
   cta: string;
@@ -277,7 +308,6 @@ export const plans: Plan[] = [
     duration: "6 Månader",
     price: 499,
     perMonth: 83,
-    saveLabel: "Spara 20%",
     features: [
       "Allt i 3 månader",
       "Stabil streaming",

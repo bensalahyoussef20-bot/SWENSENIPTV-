@@ -60,9 +60,11 @@ export default function PricingSection({
               <p className="mt-1 text-xs text-muted">
                 totalt · {plan.perMonth} kr/mån
               </p>
-              <span className="mt-3 inline-block w-fit rounded-full bg-surface-2 px-3 py-1 text-xs font-semibold text-accent">
-                {plan.saveLabel}
-              </span>
+              {plan.saveLabel && (
+                <span className="mt-3 inline-block w-fit rounded-full bg-surface-2 px-3 py-1 text-xs font-semibold text-accent">
+                  {plan.saveLabel}
+                </span>
+              )}
 
               <ul className="mt-6 flex-1 space-y-3">
                 {plan.features.map((f) => (
@@ -96,6 +98,38 @@ export default function PricingSection({
         </p>
 
         <GuaranteeBadge />
+
+        {headingLevel === 2 && (
+          <div className="mx-auto mt-14 max-w-2xl">
+            <h3 className="text-center text-xl font-bold">
+              Vad kostar IPTV Sverige?
+            </h3>
+            <div className="mt-4 overflow-x-auto rounded-2xl border border-border">
+              <table className="w-full text-left text-sm">
+                <thead className="bg-surface">
+                  <tr>
+                    <th scope="col" className="px-4 py-3 font-semibold">Period</th>
+                    <th scope="col" className="px-4 py-3 font-semibold">Totalpris</th>
+                    <th scope="col" className="px-4 py-3 font-semibold">Per månad</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[...plans]
+                    .sort((a, b) => a.price - b.price)
+                    .map((plan) => (
+                      <tr key={plan.id} className="border-t border-border">
+                        <th scope="row" className="px-4 py-3 font-semibold">
+                          {plan.duration.toLowerCase()}
+                        </th>
+                        <td className="px-4 py-3 text-muted">{plan.price} kr</td>
+                        <td className="px-4 py-3 text-muted">{plan.perMonth} kr/mån</td>
+                      </tr>
+                    ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
       </Reveal>
     </section>
   );

@@ -7,6 +7,8 @@ import BenefitsSection from "@/components/BenefitsSection";
 import ComparisonSection from "@/components/ComparisonSection";
 import InfoSection from "@/components/InfoSection";
 import DevicesSection from "@/components/DevicesSection";
+import OrderSection from "@/components/OrderSection";
+import TroubleshootingSection from "@/components/TroubleshootingSection";
 import PricingSection from "@/components/PricingSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import FaqSection from "@/components/FaqSection";
@@ -46,7 +48,9 @@ export default function Home() {
         <ComparisonSection />
         <InfoSection />
         <DevicesSection />
+        <OrderSection />
         <TestimonialsSection />
+        <TroubleshootingSection />
         <FaqSection />
         <CtaSection />
       </main>

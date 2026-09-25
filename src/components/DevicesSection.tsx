@@ -1,7 +1,7 @@
 import type { ComponentType, SVGProps } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { deviceFeatures, devices, installSteps, waLinks } from "@/lib/data";
+import { deviceFeatures, devices, waLinks } from "@/lib/data";
 import Reveal from "@/components/Reveal";
 import {
   TvIcon,
@@ -96,24 +96,6 @@ export default function DevicesSection({
               </div>
             );
           })}
-        </div>
-
-        <div className="mt-16 flex flex-col items-center gap-6 sm:flex-row sm:justify-center sm:gap-4">
-          {installSteps.map((s, i) => (
-            <div key={s.step} className="flex items-center gap-4">
-              <div className="flex items-center gap-3">
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">
-                  {s.step}
-                </span>
-                <span className="text-sm font-semibold">{s.title}</span>
-              </div>
-              {i < installSteps.length - 1 && (
-                <span className="hidden text-muted sm:inline" aria-hidden>
-                  →
-                </span>
-              )}
-            </div>
-          ))}
         </div>
 
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
