@@ -6,6 +6,11 @@ export const siteConfig = {
   email: "contact@swedeniptv.cc",
 };
 
+export const schemaIds = {
+  organization: `${siteConfig.url}/#organization`,
+  website: `${siteConfig.url}/#website`,
+};
+
 export const whatsapp = {
   number: "212619965368",
   base: "https://wa.me/212619965368",

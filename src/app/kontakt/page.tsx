@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CtaSection from "@/components/CtaSection";
+import JsonLd from "@/components/JsonLd";
 import { siteConfig, waLinks } from "@/lib/data";
 import { HeadsetIcon, ClockIcon } from "@/components/icons";
 
@@ -12,9 +13,24 @@ export const metadata: Metadata = {
   alternates: { canonical: "/kontakt" },
 };
 
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Hem", item: siteConfig.url },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Kontakt",
+      item: `${siteConfig.url}/kontakt`,
+    },
+  ],
+};
+
 export default function Page() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd} />
       <Header />
       <main id="main-content" className="flex-1">
         <section className="py-16">

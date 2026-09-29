@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BenefitsSection from "@/components/BenefitsSection";
+import JsonLd from "@/components/JsonLd";
+import { siteConfig } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Fördelar",
@@ -10,9 +12,24 @@ export const metadata: Metadata = {
   alternates: { canonical: "/fordelar" },
 };
 
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Hem", item: siteConfig.url },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Fördelar",
+      item: `${siteConfig.url}/fordelar`,
+    },
+  ],
+};
+
 export default function Page() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd} />
       <Header />
       <main id="main-content" className="flex-1">
         <BenefitsSection headingLevel={1} />

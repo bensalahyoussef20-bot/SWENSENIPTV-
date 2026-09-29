@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import CtaSection from "@/components/CtaSection";
 import JsonLd from "@/components/JsonLd";
 import ArticleBody from "@/components/ArticleBody";
-import { siteConfig } from "@/lib/data";
+import { schemaIds, siteConfig } from "@/lib/data";
 import { formatDate, getPost, posts } from "@/lib/blog";
 
 export const dynamicParams = false;
@@ -79,7 +79,9 @@ export default async function Page(props: PageProps<"/blog/[slug]">) {
     inLanguage: "sv-SE",
     url,
     mainEntityOfPage: url,
-    image: `${siteConfig.url}/opengraph-image`,
+    image: post.image
+      ? `${siteConfig.url}${post.image.src}`
+      : `${siteConfig.url}/opengraph-image`,
     author: {
       "@type": "Organization",
       name: siteConfig.name,
@@ -87,9 +89,8 @@ export default async function Page(props: PageProps<"/blog/[slug]">) {
     },
     publisher: {
       "@type": "Organization",
+      "@id": schemaIds.organization,
       name: siteConfig.name,
-      url: siteConfig.url,
-      logo: { "@type": "ImageObject", url: `${siteConfig.url}/icon` },
     },
   };
 

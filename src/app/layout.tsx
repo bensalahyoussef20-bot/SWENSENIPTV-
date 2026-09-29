@@ -8,7 +8,7 @@ import CookieConsent from "@/components/CookieConsent";
 import PromoBar from "@/components/PromoBar";
 import WelcomeOfferModal from "@/components/WelcomeOfferModal";
 import JsonLd from "@/components/JsonLd";
-import { siteConfig, whatsapp } from "@/lib/data";
+import { schemaIds, siteConfig, whatsapp } from "@/lib/data";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -54,10 +54,16 @@ export const metadata: Metadata = {
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": schemaIds.organization,
   name: siteConfig.name,
   alternateName: "IPTV Sverige",
   url: siteUrl,
-  logo: `${siteUrl}/icon`,
+  logo: {
+    "@type": "ImageObject",
+    url: `${siteUrl}/apple-icon`,
+    width: 180,
+    height: 180,
+  },
   email: siteConfig.email,
   areaServed: "SE",
   contactPoint: {
@@ -66,15 +72,16 @@ const organizationJsonLd = {
     telephone: `+${whatsapp.number}`,
     availableLanguage: ["sv"],
   },
-  sameAs: [],
 };
 
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": schemaIds.website,
   name: siteConfig.name,
   url: siteUrl,
   inLanguage: "sv-SE",
+  publisher: { "@id": schemaIds.organization },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
