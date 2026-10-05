@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
 import LegalPage from "@/components/LegalPage";
 import { siteConfig } from "@/lib/data";
+import { pageOpenGraph } from "@/lib/seo";
+
+const title = "Cookiepolicy";
+const description = `Hur ${siteConfig.name} använder cookies på webbplatsen.`;
 
 export const metadata: Metadata = {
-  title: "Cookiepolicy",
-  description: `Hur ${siteConfig.name} använder cookies på webbplatsen.`,
+  title,
+  description,
   alternates: { canonical: "/cookies" },
+  openGraph: pageOpenGraph("/cookies", title, description),
 };
 
 export default function Page() {

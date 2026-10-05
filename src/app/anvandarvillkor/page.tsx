@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
 import LegalPage from "@/components/LegalPage";
 import { siteConfig } from "@/lib/data";
+import { pageOpenGraph } from "@/lib/seo";
+
+const title = "Användarvillkor";
+const description = `Villkor för att använda ${siteConfig.name}s tjänster.`;
 
 export const metadata: Metadata = {
-  title: "Användarvillkor",
-  description: `Villkor för att använda ${siteConfig.name}s tjänster.`,
+  title,
+  description,
   alternates: { canonical: "/anvandarvillkor" },
+  openGraph: pageOpenGraph("/anvandarvillkor", title, description),
 };
 
 export default function Page() {

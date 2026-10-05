@@ -5,12 +5,17 @@ import PricingSection from "@/components/PricingSection";
 import TrustBadges from "@/components/TrustBadges";
 import JsonLd from "@/components/JsonLd";
 import { plans, schemaIds, siteConfig } from "@/lib/data";
+import { pageOpenGraph } from "@/lib/seo";
+
+const title = "Priser";
+const description =
+  "Se priser för IPTV Sverige: 3, 6 eller 12 månaders IPTV abonnemang. Inga bindningstider, direkt aktivering och support dygnet runt.";
 
 export const metadata: Metadata = {
-  title: "Priser",
-  description:
-    "Se priser för IPTV Sverige: 3, 6 eller 12 månaders IPTV abonnemang. Inga bindningstider, direkt aktivering och support dygnet runt.",
+  title,
+  description,
   alternates: { canonical: "/priser" },
+  openGraph: pageOpenGraph("/priser", title, description),
 };
 
 const pageUrl = `${siteConfig.url}/priser`;

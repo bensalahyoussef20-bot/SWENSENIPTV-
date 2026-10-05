@@ -4,13 +4,18 @@ import Footer from "@/components/Footer";
 import CtaSection from "@/components/CtaSection";
 import JsonLd from "@/components/JsonLd";
 import { siteConfig, waLinks } from "@/lib/data";
+import { pageOpenGraph } from "@/lib/seo";
 import { HeadsetIcon, ClockIcon } from "@/components/icons";
 
+const title = "Kontakt";
+const description =
+  "Kontakta Sweden IPTV via WhatsApp eller e-post. Support dygnet runt och snabb hjälp med beställning eller installation.";
+
 export const metadata: Metadata = {
-  title: "Kontakt",
-  description:
-    "Kontakta Sweden IPTV via WhatsApp eller e-post. Support dygnet runt och snabb hjälp med beställning eller installation.",
+  title,
+  description,
   alternates: { canonical: "/kontakt" },
+  openGraph: pageOpenGraph("/kontakt", title, description),
 };
 
 const breadcrumbJsonLd = {

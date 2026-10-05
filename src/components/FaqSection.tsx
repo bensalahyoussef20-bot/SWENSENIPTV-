@@ -52,16 +52,15 @@ export default function FaqSection() {
                     +
                   </span>
                 </button>
-                {isOpen && (
-                  <p
-                    id={panelId}
-                    role="region"
-                    aria-labelledby={buttonId}
-                    className="px-6 pb-5 text-sm text-muted"
-                  >
-                    {item.answer}
-                  </p>
-                )}
+                <p
+                  id={panelId}
+                  role="region"
+                  aria-labelledby={buttonId}
+                  hidden={!isOpen}
+                  className="px-6 pb-5 text-sm text-muted"
+                >
+                  {item.answer}
+                </p>
               </div>
             );
           })}

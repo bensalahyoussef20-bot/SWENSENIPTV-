@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
 import LegalPage from "@/components/LegalPage";
 import { siteConfig } from "@/lib/data";
+import { pageOpenGraph } from "@/lib/seo";
+
+const title = "Integritetspolicy";
+const description = `Hur ${siteConfig.name} samlar in, använder och skyddar dina personuppgifter.`;
 
 export const metadata: Metadata = {
-  title: "Integritetspolicy",
-  description: `Hur ${siteConfig.name} samlar in, använder och skyddar dina personuppgifter.`,
+  title,
+  description,
   alternates: { canonical: "/integritetspolicy" },
+  openGraph: pageOpenGraph("/integritetspolicy", title, description),
 };
 
 export default function Page() {

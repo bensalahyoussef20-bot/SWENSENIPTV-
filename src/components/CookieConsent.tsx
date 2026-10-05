@@ -3,7 +3,9 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const STORAGE_KEY = "swedeniptv-cookie-consent";
+export const CONSENT_STORAGE_KEY = "swedeniptv-cookie-consent";
+export const CONSENT_EVENT = "swedeniptv-consent-change";
+const STORAGE_KEY = CONSENT_STORAGE_KEY;
 
 export default function CookieConsent() {
   const [visible, setVisible] = useState(false);
@@ -29,6 +31,7 @@ export default function CookieConsent() {
     } catch {
       // localStorage unavailable (private mode etc.) — just hide the banner.
     }
+    window.dispatchEvent(new Event(CONSENT_EVENT));
     setVisible(false);
   }
 

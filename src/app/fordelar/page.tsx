@@ -4,12 +4,17 @@ import Footer from "@/components/Footer";
 import BenefitsSection from "@/components/BenefitsSection";
 import JsonLd from "@/components/JsonLd";
 import { siteConfig } from "@/lib/data";
+import { pageOpenGraph } from "@/lib/seo";
+
+const title = "Fördelar";
+const description =
+  "Därför väljer tusentals svenskar IPTV Sverige: 20 000+ kanaler, ingen buffring, HD/4K-kvalitet, multi-screen och pengarna-tillbaka-garanti.";
 
 export const metadata: Metadata = {
-  title: "Fördelar",
-  description:
-    "Därför väljer tusentals svenskar IPTV Sverige: 20 000+ kanaler, ingen buffring, HD/4K-kvalitet, multi-screen och pengarna-tillbaka-garanti.",
+  title,
+  description,
   alternates: { canonical: "/fordelar" },
+  openGraph: pageOpenGraph("/fordelar", title, description),
 };
 
 const breadcrumbJsonLd = {
