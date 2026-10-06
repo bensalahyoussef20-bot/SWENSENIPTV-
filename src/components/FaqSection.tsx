@@ -9,7 +9,7 @@ export default function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="border-t border-border bg-surface/40 py-20">
+    <section id="faq" className="scroll-mt-20 border-t border-border bg-surface/40 py-20">
       <Reveal className="container-shell">
         <div className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-semibold uppercase tracking-widest text-primary">
