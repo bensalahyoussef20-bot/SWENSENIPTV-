@@ -12,7 +12,7 @@ import {
   waLinks,
 } from "@/lib/data";
 
-const title = "Installera IPTV: Guide för Smart TV, Firestick & Apple TV";
+const title = "Installera IPTV på Smart TV, Firestick & Apple TV";
 const description =
   "Så installerar du IPTV Sverige på Smart TV, Firestick, Android TV, Apple TV, MAG Box och mobil – med Xtream Codes, M3U-länk eller MAC-aktivering.";
 

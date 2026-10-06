@@ -24,6 +24,9 @@ export async function generateMetadata(
 
   const url = `/blog/${post.slug}`;
   const title = post.metaTitle ?? post.title;
+  const images = post.image
+    ? [{ url: post.image.src, alt: post.image.alt }]
+    : "/opengraph-image";
 
   return {
     title,
@@ -33,7 +36,7 @@ export async function generateMetadata(
       title,
       description: post.description,
       url,
-      images: "/opengraph-image",
+      images,
       siteName: siteConfig.name,
       locale: "sv_SE",
       type: "article",

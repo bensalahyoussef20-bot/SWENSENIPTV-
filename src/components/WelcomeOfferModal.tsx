@@ -4,7 +4,11 @@ import { useEffect, useRef, useState } from "react";
 import { waLinks, welcomeOffer } from "@/lib/data";
 
 const SEEN_KEY = "swedeniptv-welcome-offer-seen";
-const OPEN_DELAY_MS = 1500;
+// Only show the offer to visitors who are engaging with the page: after they
+// have scrolled part of the way down AND spent a little time on it. Opening a
+// full-screen modal right after landing counts as an intrusive interstitial.
+const MIN_TIME_MS = 8000;
+const MIN_SCROLL_RATIO = 0.4;
 
 export default function WelcomeOfferModal() {
   const [open, setOpen] = useState(false);
@@ -19,16 +23,40 @@ export default function WelcomeOfferModal() {
     }
     if (alreadySeen) return;
 
-    const timer = setTimeout(() => {
+    let timeReached = false;
+    let scrollReached = false;
+    let shown = false;
+
+    const show = () => {
+      if (shown || !timeReached || !scrollReached) return;
+      shown = true;
+      window.removeEventListener("scroll", onScroll);
       try {
         window.localStorage.setItem(SEEN_KEY, "1");
       } catch {
         // ignore — worst case it can show again next visit.
       }
       setOpen(true);
-    }, OPEN_DELAY_MS);
+    };
 
-    return () => clearTimeout(timer);
+    const onScroll = () => {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollable > 0 && window.scrollY / scrollable >= MIN_SCROLL_RATIO) {
+        scrollReached = true;
+        show();
+      }
+    };
+
+    const timer = setTimeout(() => {
+      timeReached = true;
+      show();
+    }, MIN_TIME_MS);
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   useEffect(() => {
