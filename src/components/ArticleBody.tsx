@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { InfoSegment } from "@/lib/data";
 import type { ArticleBlock } from "@/lib/blog";
@@ -53,6 +54,51 @@ export default function ArticleBody({ blocks }: { blocks: ArticleBlock[] }) {
           </List>
         );
       }
+      case "image":
+        return (
+          <Image
+            key={i}
+            src={block.src}
+            alt={block.alt}
+            width={block.width}
+            height={block.height}
+            sizes="(min-width: 768px) 768px, 100vw"
+            className="mt-8 h-auto w-full rounded-2xl border border-border"
+          />
+        );
+      case "table":
+        return (
+          <div key={i} className="mt-4 overflow-x-auto rounded-2xl border border-border">
+            <table className="w-full text-left text-sm">
+              <thead className="bg-surface">
+                <tr>
+                  {block.head.map((h) => (
+                    <th key={h} scope="col" className="px-4 py-3 font-semibold">
+                      {h}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {block.rows.map((row, j) => (
+                  <tr key={j} className="border-t border-border">
+                    {row.map((cell, k) =>
+                      k === 0 ? (
+                        <th key={k} scope="row" className="px-4 py-3 font-semibold">
+                          {cell}
+                        </th>
+                      ) : (
+                        <td key={k} className="px-4 py-3 text-muted">
+                          {cell}
+                        </td>
+                      )
+                    )}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        );
     }
   });
 }

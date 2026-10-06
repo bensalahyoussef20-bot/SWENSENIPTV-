@@ -1,9 +1,11 @@
-import type { InfoSegment } from "@/lib/data";
+import { infoSection, type InfoSegment } from "@/lib/data";
 
 export type ArticleBlock =
   | { type: "p"; content: InfoSegment[] }
   | { type: "h2" | "h3"; text: string; id?: string }
-  | { type: "ul" | "ol"; items: InfoSegment[][] };
+  | { type: "ul" | "ol"; items: InfoSegment[][] }
+  | { type: "table"; head: string[]; rows: string[][] }
+  | { type: "image"; src: string; alt: string; width: number; height: number };
 
 export type Post = {
   slug: string;
@@ -19,7 +21,231 @@ export type Post = {
   body: ArticleBlock[];
 };
 
+const internethastighetImage = {
+  src: "/images/blog/internethastighet-for-iptv.webp",
+  alt: "Internethastighet för IPTV Sverige med hastighetstest för stabil streaming",
+};
+
 export const posts: Post[] = [
+  {
+    slug: "internethastighet-for-iptv",
+    title: "Hur snabbt internet behöver du för IPTV i HD och 4K?",
+    metaTitle: "Internethastighet för IPTV i HD och 4K",
+    description:
+      "Hur snabbt internet behöver du för IPTV? Se hur många Mbit/s som krävs för SD, HD och 4K och hur du mäter rätt hemma. Läs hela guiden!",
+    excerpt:
+      "Hur många Mbit/s behöver du för IPTV i SD, HD och 4K? Här är siffrorna, hur du räknar ut vad hela hushållet behöver och hur du mäter rätt.",
+    publishedAt: "2026-10-06",
+    updatedAt: "2026-10-06",
+    readingMinutes: 6,
+    image: internethastighetImage,
+    related: ["iptv-buffrar", "vad-ar-iptv"],
+    body: [
+      {
+        type: "p",
+        content: [
+          "För IPTV behöver du minst 5 Mbit/s för SD, 10 Mbit/s för HD och 25 Mbit/s för 4K – per ström. Tittar flera personer samtidigt lägger du ihop behovet för varje TV, mobil eller surfplatta. Rätt internethastighet för IPTV handlar alltså både om hur hög kvalitet du vill ha och om hur många som streamar samtidigt hemma.",
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "I den här guiden går vi igenom siffrorna, hur du räknar ut vad ditt hushåll behöver, hur du mäter hastigheten på rätt sätt och varför bilden ibland hackar trots att du har snabbt bredband.",
+        ],
+      },
+      { type: "image", ...internethastighetImage, width: 1672, height: 941 },
+      { type: "h2", text: "Internethastighet för IPTV – snabbtabell", id: "snabbtabell" },
+      {
+        type: "p",
+        content: ["Så här mycket behöver du minst för en ström i varje bildkvalitet:"],
+      },
+      {
+        type: "table",
+        head: ["Bildkvalitet", "Minsta hastighet per ström"],
+        rows: infoSection.speeds.map((s) => [s.quality, s.speed]),
+      },
+      {
+        type: "p",
+        content: [
+          "Siffrorna är miniminivåer. De visar vad som krävs för att en ström ska fungera, inte vad som ger bäst marginal. Läs mer om hur tekniken bakom fungerar i vår guide om ",
+          { text: "hur IPTV fungerar", href: "/blog/vad-ar-iptv" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Vad betyder Mbit/s?", id: "vad-betyder-mbit" },
+      {
+        type: "p",
+        content: [
+          "Mbit/s står för megabit per sekund och anger hur mycket data din uppkoppling kan föra över varje sekund. Det är samma enhet som bredbandsleverantörer använder när de skriver till exempel 100/100 eller 250/100 – den första siffran är nedladdning och den andra uppladdning.",
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Blanda inte ihop Mbit/s med MB/s, som ofta visas när du laddar ner filer. En byte är åtta bitar, så 1 MB/s motsvarar 8 Mbit/s. När du jämför din uppkoppling med siffrorna i den här guiden är det alltså Mbit/s du ska titta på.",
+        ],
+      },
+      { type: "h2", text: "Varför 4K kräver mer än HD", id: "varfor-4k" },
+      {
+        type: "p",
+        content: [
+          "En 4K-bild består av betydligt fler bildpunkter än en HD-bild. Fler bildpunkter betyder mer data per sekund, och därför behöver 4K en snabbare uppkoppling för att spelas upp jämnt. HD och SD klarar sig med mindre.",
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Lika viktigt som hur snabb uppkopplingen är, är hur stabil den är. IPTV-appen laddar hela tiden in bilden i små delar. Om hastigheten varierar mycket hinner appen inte ladda tillräckligt i förväg, och då stannar bilden – även om uppkopplingen i genomsnitt är snabb nog.",
+        ],
+      },
+      { type: "h2", text: "Räkna ut vad ditt hushåll behöver", id: "hushallet" },
+      {
+        type: "p",
+        content: [
+          "Har du flera TV-apparater, eller tittar någon på mobilen samtidigt, lägger du ihop behovet för varje ström. Några exempel:",
+        ],
+      },
+      {
+        type: "table",
+        head: ["Situation", "Uträkning", "Minsta hastighet"],
+        rows: [
+          ["1 TV i HD", "10", "10 Mbit/s"],
+          ["1 TV i 4K", "25", "25 Mbit/s"],
+          ["2 TV-apparater i 4K", "25 + 25", "50 Mbit/s"],
+          ["2 TV-apparater i 4K + 1 mobil i HD", "25 + 25 + 10", "60 Mbit/s"],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Tänk på hur ni faktiskt tittar. Står det en TV i vardagsrummet och en i sovrummet, och tittar barnen ibland på surfplattan samtidigt, är det den situationen du ska räkna på – inte en vanlig vardagskväll när bara en TV är igång.",
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Kom ihåg att summan är ett minimum för just IPTV-strömmarna. Resten av hemmet använder också internet samtidigt – spelkonsoler, nedladdningar, videosamtal och mobiler som uppdaterar appar. Ju mer annat som pågår, desto mer marginal behöver du utöver minimibehovet. Därför är det klokt att ha en uppkoppling som ligger en bit över summan i tabellen, i stället för precis på gränsen.",
+        ],
+      },
+      { type: "h2", text: "Så mäter du din internethastighet rätt", id: "mata" },
+      {
+        type: "p",
+        content: [
+          "Den hastighet som står i ditt bredbandsavtal gäller oftast fram till routern. Det som spelar roll för IPTV är hastigheten där du faktiskt tittar. Så här mäter du rätt:",
+        ],
+      },
+      {
+        type: "ol",
+        items: [
+          ["Mät på den enhet du tittar på, eller så nära den som möjligt. En mätning på mobilen bredvid routern säger lite om hur det ser ut vid TV:n."],
+          ["Mät på kvällen, när det brukar buffra och fler är uppkopplade."],
+          ["Jämför trådbunden anslutning och wifi om du kan, så ser du hur mycket wifi kostar."],
+          ["Mät flera gånger. Varierar resultatet mycket är det stabiliteten, inte maxhastigheten, som är problemet."],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Du kan till exempel använda ",
+          { text: "Bredbandskollen", href: "https://www.bredbandskollen.se/" },
+          " för att mäta internethastighet. Jämför sedan resultatet med tabellerna ovan. Ligger nedladdningshastigheten vid TV:n tydligt över ditt behov är uppkopplingen sannolikt inte problemet. Ligger den nära gränsen, eller varierar den mycket mellan mätningarna, är det där du bör börja.",
+        ],
+      },
+      { type: "h2", text: "Wifi eller nätverkskabel?", id: "wifi-eller-kabel" },
+      {
+        type: "p",
+        content: [
+          "En nätverkskabel mellan routern och TV:n eller boxen ger den jämnaste bilden, eftersom kabeln inte påverkas av väggar, avstånd eller grannarnas nätverk. Måste du använda wifi finns det flera saker som hjälper:",
+        ],
+      },
+      {
+        type: "ul",
+        items: [
+          ["Anslut till routerns 5 GHz-band om det finns. Det är snabbare och störs mindre, men räckvidden är kortare än på 2,4 GHz."],
+          ["2,4 GHz når längre genom väggar men är långsammare och mer känsligt för störningar."],
+          ["Placera routern fritt och högt, inte i ett skåp eller bakom TV:n."],
+          ["I större bostäder kan ett mesh-system ge jämnare täckning i alla rum."],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Hur du kopplar upp och loggar in på just din enhet visar vi i ",
+          { text: "installationsguiden", href: "/installera" },
+          ".",
+        ],
+      },
+      {
+        type: "h2",
+        text: "Därför kan IPTV buffra trots snabbt internet",
+        id: "buffrar-trots-snabbt-internet",
+      },
+      {
+        type: "p",
+        content: [
+          "Många har en uppkoppling på 100 Mbit/s eller mer och upplever ändå att bilden hackar. Det beror oftast på något av följande:",
+        ],
+      },
+      {
+        type: "ul",
+        items: [
+          ["Hastigheten i avtalet gäller fram till routern – vid TV:n kan den vara betydligt lägre, särskilt över wifi."],
+          ["Wifi-signalen är svag eller ojämn i rummet där TV:n står."],
+          ["Andra enheter i hemmet använder mycket av kapaciteten samtidigt."],
+          ["TV:n, boxen eller appen är överbelastad och behöver startas om eller uppdateras."],
+          ["En VPN kan sänka hastigheten – prova att stänga av den tillfälligt."],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Fler konkreta lösningar hittar du i vår guide om vad du kan göra när ",
+          { text: "IPTV buffrar", href: "/blog/iptv-buffrar" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Vanliga frågor om internethastighet och IPTV", id: "vanliga-fragor" },
+      { type: "h3", text: "Räcker 100 Mbit/s för IPTV?" },
+      {
+        type: "p",
+        content: [
+          "Ja, i de flesta hem. 100 Mbit/s räcker räknat på minimibehovet till fyra samtidiga 4K-strömmar, eller betydligt fler i HD – förutsatt att uppkopplingen är stabil och att inte mycket annat använder nätet samtidigt.",
+        ],
+      },
+      { type: "h3", text: "Behöver jag hög uppladdningshastighet för IPTV?" },
+      {
+        type: "p",
+        content: [
+          "Nej, det är främst nedladdningshastigheten som spelar roll. När du tittar på IPTV tar du emot data, och det är den riktningen som avgör hur bilden flyter.",
+        ],
+      },
+      { type: "h3", text: "Fungerar IPTV med mobilt bredband eller 5G?" },
+      {
+        type: "p",
+        content: [
+          "Det kan fungera, men hastighet och stabilitet varierar med täckningen och hur många som använder masten samtidigt. Mät därför på platsen där du ska titta, helst vid olika tider på dygnet, innan du bestämmer dig.",
+        ],
+      },
+      { type: "h3", text: "Vilken hastighet behöver jag för att titta i 4K?" },
+      {
+        type: "p",
+        content: [
+          "Minst 25 Mbit/s per 4K-ström. Ska två TV-apparater visa 4K samtidigt behöver du alltså minst 50 Mbit/s, plus marginal för resten av hemmets användning.",
+        ],
+      },
+      { type: "h2", text: "Sammanfattning", id: "sammanfattning" },
+      {
+        type: "p",
+        content: [
+          "Räkna med minst 5 Mbit/s för SD, 10 Mbit/s för HD och 25 Mbit/s för 4K per ström, lägg ihop behovet för alla som tittar samtidigt och ha gärna marginal. Mät hastigheten vid TV:n på kvällen och använd nätverkskabel om du kan. Med ",
+          { text: "IPTV Sverige", href: "/" },
+          " från Sweden IPTV kan du börja med en gratis testperiod och kontrollera att allt fungerar med din uppkoppling innan du väljer bland ",
+          { text: "våra abonnemang", href: "/priser" },
+          ".",
+        ],
+      },
+    ],
+  },
   {
     slug: "iptv-buffrar",
     title: "IPTV buffrar? 8 sätt att få en stabil bild",
