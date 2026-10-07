@@ -6,7 +6,6 @@ import MobileCtaBar from "@/components/MobileCtaBar";
 import CookieConsent from "@/components/CookieConsent";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import PromoBar from "@/components/PromoBar";
-import WelcomeOfferModal from "@/components/WelcomeOfferModal";
 import JsonLd from "@/components/JsonLd";
 import { schemaIds, siteConfig, whatsapp } from "@/lib/data";
 import "./globals.css";
@@ -105,7 +104,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <FloatingWhatsApp />
         <MobileCtaBar />
         <CookieConsent />
-        <WelcomeOfferModal />
         <Analytics />
       </body>
     </html>
