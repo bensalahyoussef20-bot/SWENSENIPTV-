@@ -66,7 +66,11 @@ export default function Page() {
               ))}
             </ul>
             <p className="mt-4 text-muted">
-              Får du problem med bilden har vi samlat våra bästa tips i guiden{" "}
+              Hur du räknar ut behovet och mäter rätt går vi igenom i guiden om{" "}
+              <Link href="/blog/internethastighet-for-iptv" className={linkClass}>
+                internethastighet för IPTV
+              </Link>
+              . Får du problem med bilden har vi samlat våra bästa tips i guiden{" "}
               <Link href="/blog/iptv-buffrar" className={linkClass}>
                 IPTV buffrar? 8 sätt att få en stabil bild
               </Link>

@@ -59,6 +59,16 @@ export default function InfoSection() {
               </tbody>
             </table>
           </div>
+          <p className="mt-4 text-center text-sm text-muted">
+            Tittar flera samtidigt? Läs hur du kan{" "}
+            <Link
+              href="/blog/internethastighet-for-iptv"
+              className="text-primary hover:underline"
+            >
+              räkna ut vilken hastighet ditt hushåll behöver
+            </Link>
+            .
+          </p>
         </div>
       </Reveal>
     </section>

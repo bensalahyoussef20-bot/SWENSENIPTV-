@@ -322,7 +322,9 @@ export const posts: Post[] = [
       {
         type: "p",
         content: [
-          "Ligger du nära gränsen, eller varierar värdet mycket mellan mätningarna, är det troligen där problemet finns.",
+          "Ligger du nära gränsen, eller varierar värdet mycket mellan mätningarna, är det troligen där problemet finns. Läs mer om ",
+          { text: "hur snabbt internet du behöver för IPTV", href: "/blog/internethastighet-for-iptv" },
+          ".",
         ],
       },
       { type: "h3", text: "2. Anslut med nätverkskabel", id: "natverkskabel" },
