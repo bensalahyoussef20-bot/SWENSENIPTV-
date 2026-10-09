@@ -1,4 +1,4 @@
-import { infoSection, type InfoSegment } from "@/lib/data";
+import { infoSection, installApps, type InfoSegment } from "@/lib/data";
 
 export type ArticleBlock =
   | { type: "p"; content: InfoSegment[] }
@@ -26,7 +26,225 @@ const internethastighetImage = {
   alt: "Internethastighet för IPTV Sverige med hastighetstest för stabil streaming",
 };
 
+const xtreamM3uImage = {
+  src: "/images/blog/xtream-codes-eller-m3u.webp",
+  alt: "Jämförelse av IPTV-inloggning med Xtream Codes, M3U-länk och MAC-aktivering",
+};
+
 export const posts: Post[] = [
+  {
+    slug: "xtream-codes-eller-m3u",
+    title: "Xtream Codes eller M3U – vad är bäst för IPTV?",
+    metaTitle: "Xtream Codes vs M3U – vad är bäst för IPTV?",
+    description:
+      "Xtream Codes eller M3U-länk? Se skillnaden, vilka appar som stöder vad och vilken inloggning som passar din enhet bäst. Läs guiden här!",
+    excerpt:
+      "Xtream Codes, M3U-länk eller MAC-aktivering? Så skiljer sig inloggningarna åt, vilka appar som stöder vad och hur du väljer rätt för din enhet.",
+    publishedAt: "2026-10-09",
+    updatedAt: "2026-10-09",
+    readingMinutes: 7,
+    image: xtreamM3uImage,
+    related: ["vad-ar-iptv", "internethastighet-for-iptv"],
+    body: [
+      {
+        type: "p",
+        content: [
+          "Kan din app logga in med Xtream Codes är det oftast det smidigaste valet, eftersom kanaler, filmer, serier och TV-guide brukar hämtas automatiskt och sorteras i appen. En M3U-länk fungerar i fler appar och är ett bra alternativ om din app bara stöder spellistor. Har du en MAG Box eller vissa Smart TV-appar används i stället MAC-aktivering.",
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Här går vi igenom vad Xtream Codes och M3U är, hur de skiljer sig åt, när MAC-aktivering är aktuell och hur du väljer rätt inloggning för just din enhet och app.",
+        ],
+      },
+      { type: "image", ...xtreamM3uImage, width: 1672, height: 941 },
+      { type: "h2", text: "Vad är Xtream Codes?", id: "vad-ar-xtream-codes" },
+      {
+        type: "p",
+        content: [
+          "Xtream Codes är ett sätt att logga in i en IPTV-app med tre uppgifter: serveradress, användarnamn och lösenord. Appen ansluter sedan till servern och hämtar själv innehållet, uppdelat i live-TV, filmer och serier.",
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Fördelen är att du bara behöver skriva in tre uppgifter, och att appen i många fall även hämtar TV-guiden (EPG) och omslagsbilder automatiskt. Det gör det lättare att hitta rätt bland kanaler, filmer och serier. Hur du loggar in steg för steg visar vi i ",
+          { text: "installationsguiden för Firestick", href: "/installera#firestick" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Vad är en M3U-länk?", id: "vad-ar-m3u" },
+      {
+        type: "p",
+        content: [
+          "En M3U-länk är en adress till en spellista. Listan innehåller kanalerna och var de ska hämtas ifrån, och länken slutar ofta på .m3u eller .m3u8. Du klistrar in länken i din IPTV-app, som läser listan och visar kanalerna.",
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "M3U är ett av de vanligaste formaten och stöds av många spelare, även enklare appar. Beroende på app kan TV-guiden behöva läggas till separat, och filmer och serier visas inte alltid lika överskådligt som med Xtream Codes.",
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Ibland ser du ändelsen .m3u8 i stället för .m3u. Det är samma typ av spellista, och för dig som tittare spelar skillnaden sällan någon roll – de flesta IPTV-appar hanterar båda. Det viktiga är att du klistrar in länken exakt som du fått den, utan att ändra eller korta den.",
+        ],
+      },
+      {
+        type: "h2",
+        text: "Xtream Codes eller M3U – jämförelse",
+        id: "jamforelse",
+      },
+      {
+        type: "p",
+        content: ["Så här brukar de två inloggningarna skilja sig åt i praktiken:"],
+      },
+      {
+        type: "table",
+        head: ["Egenskap", "Xtream Codes", "M3U-länk"],
+        rows: [
+          ["Det här anger du", "Serveradress, användarnamn och lösenord", "En länk till spellistan"],
+          ["Kanaler, filmer och serier", "Brukar sorteras automatiskt i appen", "Visas som en lista; upplägget beror på appen"],
+          ["TV-guide (EPG)", "Hämtas ofta automatiskt", "Kan behöva läggas till separat"],
+          ["Stöd i appar", "Stöds av många IPTV-appar", "Stöds av de flesta spelare"],
+          ["Om uppgifterna ändras", "Du uppdaterar inloggningen i appen", "Du lägger in den nya länken eller uppdaterar spellistan"],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Kanalerna och bildkvaliteten är desamma oavsett inloggning – skillnaden ligger i hur appen hämtar och visar innehållet.",
+        ],
+      },
+      { type: "h2", text: "Och MAC-aktivering då?", id: "mac-aktivering" },
+      {
+        type: "p",
+        content: [
+          "Vissa enheter och appar loggar inte in med Xtream Codes eller M3U-länk själva, utan aktiveras via enhetens MAC-adress. Det gäller till exempel MAG Box och, beroende på uppsättning, IBO Player och Smart IPTV på Samsung och LG Smart TV.",
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Då hittar du MAC-adressen på enheten eller i appen och skickar den till oss via WhatsApp, så aktiverar vi den åt dig. Hur det går till steg för steg ser du i guiden för ",
+          { text: "MAC-aktivering på MAG Box", href: "/installera#mag" },
+          " och i guiden för ",
+          { text: "Smart TV", href: "/installera#smart-tv" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Vilken ska du välja?", id: "vilken-ska-du-valja" },
+      {
+        type: "ul",
+        items: [
+          ["Välj Xtream Codes om din app stöder det, till exempel IPTV Smarters eller TiviMate. Det brukar ge den mest överskådliga upplevelsen med kanaler, filmer, serier och TV-guide."],
+          ["Välj M3U-länk om din app bara stöder spellistor, eller om du vill ha ett alternativ att falla tillbaka på."],
+          ["Välj MAC-aktivering om du har en MAG Box eller om din Smart TV-app visar en MAC-adress och ber dig aktivera den."],
+          ["Är du osäker? Berätta vilken enhet och vilken app du använder när du beställer, så får du rätt typ av uppgifter från början."],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Utgår du från enheten blir valet ofta enkelt. På Firestick, Fire TV och Android TV används vanligtvis TiviMate eller IPTV Smarters, och där är Xtream Codes det naturliga förstahandsvalet. På Samsung och LG Smart TV används ofta IBO Player eller Smart IPTV, och där beror det på appen och TV-modellen om du loggar in med M3U-länk, Xtream Codes eller MAC-aktivering. På Apple TV, mobil och surfplatta fungerar IPTV Smarters med både Xtream Codes och M3U-länk.",
+        ],
+      },
+      { type: "h2", text: "Vilka appar stöder vad?", id: "appar" },
+      {
+        type: "p",
+        content: [
+          "Här är apparna vi går igenom i installationsguiden och vilka inloggningar de stöder:",
+        ],
+      },
+      {
+        type: "table",
+        head: ["App", "Enheter", "Inloggning"],
+        rows: installApps.map((app) => [app.name, app.devices, app.login]),
+      },
+      {
+        type: "p",
+        content: [
+          "Fullständiga instruktioner för varje enhet hittar du i vår ",
+          { text: "installationsguide", href: "/installera" },
+          ". Vill du först förstå grunderna kan du läsa mer om ",
+          { text: "hur IPTV fungerar", href: "/blog/vad-ar-iptv" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Vanliga frågor", id: "vanliga-fragor" },
+      { type: "h3", text: "Kan jag använda både Xtream Codes och M3U?" },
+      {
+        type: "p",
+        content: [
+          "Det beror på hur du får dina uppgifter och vilken app du använder. Vill du kunna växla mellan dem, eller använda olika appar på olika enheter, kan du nämna det när du beställer.",
+        ],
+      },
+      { type: "h3", text: "Varför fungerar inte min M3U-länk?" },
+      {
+        type: "p",
+        content: [
+          "Kontrollera att hela länken är inklistrad utan extra mellanslag och att den är inskriven exakt som du fick den. Uppdatera sedan spellistan eller starta om appen. Hjälper det inte kan du prova att logga in med Xtream Codes i stället, om din app stöder det, eller höra av dig till oss.",
+        ],
+      },
+      { type: "h3", text: "Varför misslyckas inloggningen med Xtream Codes?" },
+      {
+        type: "p",
+        content: ["Oftast beror det på någon av följande saker:"],
+      },
+      {
+        type: "ul",
+        items: [
+          ["Serveradressen är inte inskriven exakt som du fick den, till exempel utan http:// eller utan portnummer."],
+          ["Användarnamn eller lösenord är fel – de är skiftlägeskänsliga, så stora och små bokstäver spelar roll."],
+          ["Ett extra mellanslag har följt med när du kopierade uppgifterna."],
+          ["Fel inloggningstyp är vald i appen, till exempel en M3U-länk inklistrad där appen förväntar sig Xtream Codes."],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Kontrollera uppgifterna en i taget och försök igen. Fungerar det fortfarande inte är du välkommen att höra av dig till oss.",
+        ],
+      },
+      { type: "h3", text: "Vad är EPG?" },
+      {
+        type: "p",
+        content: [
+          "EPG står för Electronic Program Guide, alltså TV-guiden som visar vad som sänds just nu och senare på varje kanal. Med Xtream Codes brukar många appar hämta TV-guiden automatiskt, medan den med M3U-länk ibland behöver läggas till separat i appens inställningar.",
+        ],
+      },
+      { type: "h3", text: "Ska jag hålla mina inloggningsuppgifter hemliga?" },
+      {
+        type: "p",
+        content: [
+          "Ja. Behandla serveradress, användarnamn, lösenord och M3U-länk som ett lösenord och dela dem inte med andra. De är kopplade till ditt abonnemang.",
+        ],
+      },
+      { type: "h3", text: "Vilken inloggning ger bäst bildkvalitet?" },
+      {
+        type: "p",
+        content: [
+          "Bildkvaliteten beror inte på om du loggar in med Xtream Codes eller M3U, utan på strömmen och din uppkoppling. Läs mer om ",
+          { text: "vilken internethastighet du behöver för HD och 4K", href: "/blog/internethastighet-for-iptv" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Sammanfattning", id: "sammanfattning" },
+      {
+        type: "p",
+        content: [
+          "Xtream Codes är oftast det smidigaste valet om din app stöder det, M3U-länken fungerar i fler appar och MAC-aktivering används för MAG Box och vissa Smart TV-appar. Med ",
+          { text: "IPTV Sverige", href: "/" },
+          " från Sweden IPTV får du den inloggning som passar din enhet – berätta bara vilken app du använder när du väljer bland ",
+          { text: "våra abonnemang", href: "/priser" },
+          ".",
+        ],
+      },
+    ],
+  },
   {
     slug: "internethastighet-for-iptv",
     title: "Hur snabbt internet behöver du för IPTV i HD och 4K?",
