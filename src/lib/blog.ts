@@ -190,6 +190,16 @@ export const posts: Post[] = [
         head: ["App", "Enheter", "Inloggning"],
         rows: installApps.map((app) => [app.name, app.devices, app.login]),
       },
+      { type: "h2", text: "Exempel: så väljer du app", id: "exempel" },
+      {
+        type: "ul",
+        items: [
+          ["Du har en Samsung- eller LG-TV och vill slippa extra prylar: börja med IBO Player direkt i TV:n."],
+          ["Du tittar mest på live-TV och sport via en Fire TV Stick: TiviMate ger en tablå som liknar vanlig TV."],
+          ["Familjen tittar på olika enheter: IPTV Smarters finns för Android och Fire TV, och som Smarters Player Lite för Apple TV, iPhone och iPad – så alla får ett liknande upplägg."],
+          ["Du vill främst titta i mobilen: IPTV Smarters på Android eller Smarters Player Lite på iPhone räcker långt."],
+        ],
+      },
       { type: "h2", text: "Gratis eller betald IPTV-app?", id: "gratis-eller-betald" },
       {
         type: "p",
@@ -240,6 +250,13 @@ export const posts: Post[] = [
           ".",
         ],
       },
+      { type: "h3", text: "Kan jag använda samma inloggning i flera appar?" },
+      {
+        type: "p",
+        content: [
+          "Ja. Dina uppgifter för Xtream Codes eller M3U-länken fungerar i alla appar som stöder samma inloggningssätt, så du kan till exempel använda TiviMate på Fire TV och Smarters Player Lite i mobilen. Hur många enheter du vill kunna titta på samtidigt väljer du när du beställer ditt abonnemang.",
+        ],
+      },
       { type: "h3", text: "Ingår appen i IPTV-abonnemanget?" },
       {
         type: "p",
@@ -276,7 +293,7 @@ export const posts: Post[] = [
       "Du behöver ingen extra box för att titta på IPTV på din Samsung Smart TV. Så väljer du app, installerar den och loggar in eller aktiverar TV:n via MAC-adressen.",
     publishedAt: "2026-10-17",
     updatedAt: "2026-10-17",
-    readingMinutes: 7,
+    readingMinutes: 5,
     image: samsungSmartTvImage,
     related: ["basta-iptv-appen", "iptv-wifi-eller-kabel"],
     body: [
@@ -348,6 +365,27 @@ export const posts: Post[] = [
           "Använd alltid den MAC-adress som visas i appen. Den kan skilja sig från TV:ns egen nätverksadress i inställningarna, och det är appens adress som gäller vid aktiveringen. Skriv av den noga – en enda felaktig siffra eller bokstav gör att aktiveringen inte fungerar. Mer om de olika inloggningssätten läser du i guiden om ",
           { text: "Xtream Codes eller M3U", href: "/blog/xtream-codes-eller-m3u" },
           ".",
+        ],
+      },
+      { type: "h2", text: "Uppdatera TV:ns mjukvara", id: "uppdatera-tv" },
+      {
+        type: "p",
+        content: [
+          "En uppdaterad TV ger bäst förutsättningar för att apparna ska fungera stabilt. Så kontrollerar du om det finns en uppdatering:",
+        ],
+      },
+      {
+        type: "ol",
+        items: [
+          ["Tryck på Home på fjärrkontrollen och öppna Inställningar."],
+          ["Gå till Support och välj Programuppdatering."],
+          ["Välj Uppdatera nu och låt TV:n starta om när uppdateringen är klar."],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Menyernas namn kan skilja sig något mellan olika modeller och årsmodeller.",
         ],
       },
       { type: "h2", text: "Hittar du inte appen?", id: "hittar-inte-appen" },
@@ -425,7 +463,7 @@ export const posts: Post[] = [
       "Med appen Smarters Player Lite tittar du på IPTV på Apple TV, iPhone och iPad. Så installerar du appen, loggar in och får en stabil bild.",
     publishedAt: "2026-10-17",
     updatedAt: "2026-10-17",
-    readingMinutes: 6,
+    readingMinutes: 5,
     image: appleTvIphoneImage,
     related: ["basta-iptv-appen", "xtream-codes-eller-m3u"],
     body: [
@@ -443,6 +481,13 @@ export const posts: Post[] = [
           ["En Apple TV, iPhone eller iPad med tillgång till App Store."],
           ["En stabil internetuppkoppling."],
           ["Dina inloggningsuppgifter: serveradress, användarnamn och lösenord, eller en M3U-länk."],
+        ],
+      },
+      { type: "h2", text: "Vilka Apple TV-modeller fungerar?", id: "apple-tv-modeller" },
+      {
+        type: "p",
+        content: [
+          "Appar från App Store kan installeras på Apple TV HD och Apple TV 4K. Äldre modeller, från tredje generationen och tidigare, saknar App Store och kan därför inte användas med IPTV-appar. Där kan en Fire TV Stick eller en Android TV-box vara ett alternativ.",
         ],
       },
       { type: "h2", text: "Installera IPTV på Apple TV", id: "apple-tv" },
@@ -505,6 +550,24 @@ export const posts: Post[] = [
           ".",
         ],
       },
+      { type: "h2", text: "Felsökning på Apple TV, iPhone och iPad", id: "felsokning" },
+      {
+        type: "ul",
+        items: [
+          ["Inloggningen misslyckas: kontrollera serveradressen, inklusive http:// och eventuellt portnummer, och att användarnamn och lösenord är rätt skrivna."],
+          ["Inget innehåll visas: logga ut och in igen, eller ta bort profilen i appen och lägg till den på nytt."],
+          ["Bilden hackar: anslut Apple TV med kabel eller använd 5 GHz-wifi."],
+          ["Appen hänger sig på Apple TV: tryck två gånger på TV-knappen på fjärrkontrollen, svep bort appen och starta den igen."],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Fler lösningar hittar du i guiden ",
+          { text: "IPTV fungerar inte?", href: "/blog/iptv-fungerar-inte" },
+          ".",
+        ],
+      },
       { type: "h2", text: "Vanliga frågor", id: "vanliga-fragor" },
       { type: "h3", text: "Vad heter IPTV Smarters i App Store?" },
       {
@@ -553,7 +616,7 @@ export const posts: Post[] = [
       "EPG är TV-guiden i din IPTV-app. Så fungerar tablån, varför den ibland är tom eller visar fel tid och hur du uppdaterar den.",
     publishedAt: "2026-10-17",
     updatedAt: "2026-10-17",
-    readingMinutes: 6,
+    readingMinutes: 5,
     image: epgTvGuideImage,
     related: ["iptv-fungerar-inte", "xtream-codes-eller-m3u"],
     body: [
@@ -601,6 +664,32 @@ export const posts: Post[] = [
           "Menyernas namn och placering kan skilja sig mellan appversioner. Vilken app som passar din enhet läser du i guiden om ",
           { text: "bästa IPTV-appen", href: "/blog/basta-iptv-appen" },
           ".",
+        ],
+      },
+      { type: "h2", text: "Lägg till TV-guiden med M3U-länk", id: "epg-med-m3u" },
+      {
+        type: "p",
+        content: [
+          "Använder du en M3U-länk i stället för Xtream Codes kan du behöva lägga till TV-guiden själv. I de flesta appar går det till så här:",
+        ],
+      },
+      {
+        type: "ol",
+        items: [
+          ["Öppna appens inställningar och leta efter EPG, TV-guide eller XMLTV."],
+          ["Välj att lägga till en ny källa och klistra in länken till TV-guiden."],
+          ["Spara och uppdatera guiden. Första nedladdningen kan ta en stund."],
+          ["Behöver du länken eller hjälp med inställningen? Kontakta oss så hjälper vi dig."],
+        ],
+      },
+      { type: "h2", text: "Smarta sätt att använda TV-guiden", id: "tips-tv-guide" },
+      {
+        type: "ul",
+        items: [
+          ["Bläddra framåt i tablån för att se vad som sänds senare i kväll eller i morgon."],
+          ["Lägg till dina favoritkanaler, så hamnar de först och du slipper bläddra."],
+          ["Använd kategorier för att snabbt hitta sport, nyheter eller barnkanaler."],
+          ["I vissa appar kan du ställa in en påminnelse inför ett program."],
         ],
       },
       { type: "h2", text: "Varför är TV-guiden tom?", id: "tom-tv-guide" },
@@ -677,7 +766,7 @@ export const posts: Post[] = [
       "Inloggningen misslyckas, kanallistan är tom eller ljudet saknas? Så felsöker du de vanligaste IPTV-problemen steg för steg.",
     publishedAt: "2026-10-17",
     updatedAt: "2026-10-17",
-    readingMinutes: 7,
+    readingMinutes: 5,
     image: iptvFungerarInteImage,
     related: ["iptv-buffrar", "iptv-epg-tv-guide"],
     body: [
@@ -780,6 +869,23 @@ export const posts: Post[] = [
           ".",
         ],
       },
+      { type: "h2", text: "Vanliga felmeddelanden", id: "felmeddelanden" },
+      {
+        type: "table",
+        head: ["Felmeddelande (exempel)", "Vad det brukar betyda", "Gör så här"],
+        rows: [
+          ["Fel användarnamn eller lösenord", "Inloggningsuppgifterna stämmer inte", "Kontrollera stavning, stora och små bokstäver och mellanslag."],
+          ["Kan inte ansluta till servern", "Appen når inte servern", "Kontrollera serveradressen och internet, och starta om routern."],
+          ["Kontot har gått ut", "Abonnemanget är inte längre aktivt", "Kontakta oss så hjälper vi dig."],
+          ["Kanalen kan inte spelas upp", "Problemet gäller en enskild kanal", "Testa en annan kanal eller byt spelare i appen."],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Den exakta formuleringen skiljer sig mellan apparna, och många appar visar meddelandena på engelska.",
+        ],
+      },
       { type: "h2", text: "Är tjänsten nere?", id: "ar-tjansten-nere" },
       {
         type: "p",
@@ -830,7 +936,7 @@ export const posts: Post[] = [
       "Nätverkskabel ger stabilast bild, men wifi kan räcka. Så väljer du anslutning, vilken kabel som behövs och vilka routerinställningar som ger stabilare IPTV.",
     publishedAt: "2026-10-17",
     updatedAt: "2026-10-17",
-    readingMinutes: 7,
+    readingMinutes: 5,
     image: wifiEllerKabelImage,
     related: ["internethastighet-for-iptv", "iptv-buffrar"],
     body: [
@@ -883,6 +989,16 @@ export const posts: Post[] = [
         type: "p",
         content: [
           "Många smarta TV-apparater har en nätverksport på 100 Mbit/s. Det räcker för IPTV, eftersom en 4K-ström kräver ungefär 25 Mbit/s. Streamingstickor som Fire TV Stick saknar ofta nätverksport, men för många modeller finns en adapter som gör det möjligt att ansluta en kabel.",
+        ],
+      },
+      { type: "h2", text: "Så ansluter du TV:n med nätverkskabel", id: "ansluta-med-kabel" },
+      {
+        type: "ol",
+        items: [
+          ["Koppla kabeln mellan en ledig LAN-port på routern och nätverksporten på TV:n eller boxen."],
+          ["Öppna nätverksinställningarna på enheten och välj trådbunden anslutning om den inte väljs automatiskt."],
+          ["Kontrollera att enheten är ansluten och starta om IPTV-appen."],
+          ["Mät gärna hastigheten igen för att se skillnaden mot wifi."],
         ],
       },
       {
@@ -1815,6 +1931,42 @@ export function getAllPosts() {
 
 export function getPost(slug: string) {
   return posts.find((post) => post.slug === slug);
+}
+
+export type TocItem = { id: string; text: string; level: 2 | 3 };
+
+function slugify(text: string) {
+  return text
+    .toLowerCase()
+    .replace(/[åä]/g, "a")
+    .replace(/ö/g, "o")
+    .replace(/é/g, "e")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+// Gives every H2/H3 an id so it can be linked from the table of contents.
+// Ids set in the data are kept, so existing anchor links keep working.
+export function withHeadingIds(blocks: ArticleBlock[]): ArticleBlock[] {
+  const used = new Set(
+    blocks.flatMap((b) => ((b.type === "h2" || b.type === "h3") && b.id ? [b.id] : []))
+  );
+  return blocks.map((b) => {
+    if ((b.type !== "h2" && b.type !== "h3") || b.id) return b;
+    const base = slugify(b.text) || "avsnitt";
+    let id = base;
+    for (let n = 2; used.has(id); n++) id = `${base}-${n}`;
+    used.add(id);
+    return { ...b, id };
+  });
+}
+
+export function getToc(blocks: ArticleBlock[]): TocItem[] {
+  return blocks.flatMap((b) =>
+    (b.type === "h2" || b.type === "h3") && b.id
+      ? [{ id: b.id, text: b.text, level: b.type === "h2" ? (2 as const) : (3 as const) }]
+      : []
+  );
 }
 
 export function formatDate(iso: string) {
