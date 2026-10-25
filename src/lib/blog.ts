@@ -1552,17 +1552,17 @@ export const posts: Post[] = [
     slug: "iptv-buffrar",
     title: "IPTV buffrar? 8 sätt att få en stabil bild",
     description:
-      "Buffrar eller hackar din IPTV? Här är 8 beprövade sätt att få stabil bild – från kabel och 5 GHz-wifi till appinställningar. Testa idag!",
+      "Buffrar din IPTV? Så hittar du orsaken – nätverk, enhet eller app – och 8 sätt att få stabil bild, från nätverkskabel och 5 GHz-wifi till appinställningar.",
     excerpt:
       "Bilden fryser eller laddar hela tiden? Så tar du reda på om felet sitter i nätverket, enheten eller tjänsten – och 8 sätt att få en stabil bild.",
     publishedAt: "2026-09-25",
-    updatedAt: "2026-09-25",
+    updatedAt: "2026-10-25",
     readingMinutes: 8,
     image: {
       src: "/images/blog/iptv-buffrar-smart-tv-wifi.webp",
       alt: "Smart TV som buffrar under en fotbollsmatch, med en wifi-router i förgrunden",
     },
-    related: ["vad-ar-iptv"],
+    related: ["iptv-wifi-eller-kabel", "iptv-fungerar-inte"],
     body: [
       {
         type: "p",
@@ -1656,6 +1656,14 @@ export const posts: Post[] = [
           ["I större bostäder kan ett mesh-system ge jämnare täckning i alla rum."],
         ],
       },
+      {
+        type: "p",
+        content: [
+          "Fler råd om kabeltyper och routerinställningar hittar du i guiden om ",
+          { text: "wifi eller nätverkskabel för IPTV", href: "/blog/iptv-wifi-eller-kabel" },
+          ".",
+        ],
+      },
       { type: "h3", text: "4. Starta om router och enhet", id: "starta-om" },
       {
         type: "p",
@@ -1712,7 +1720,7 @@ export const posts: Post[] = [
         type: "p",
         content: [
           "Har du provat stegen ovan och det fortfarande buffrar på alla kanaler trots en stabil uppkoppling, kan felet ligga hos oss. Hör av dig till ",
-          { text: "vår support via WhatsApp", href: "/om-oss" },
+          { text: "vår support via WhatsApp", href: "/kontakt" },
           " så felsöker vi tillsammans. Det går snabbast om du skickar med:",
         ],
       },
@@ -1723,6 +1731,14 @@ export const posts: Post[] = [
           ["Ungefär när det händer (tid och dag)"],
           ["Vilken enhet och vilken app du använder"],
           ["Resultatet från din hastighetsmätning"],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Är problemet något annat än buffring, till exempel inloggning, ljud eller svart bild? Läs guiden ",
+          { text: "IPTV fungerar inte?", href: "/blog/iptv-fungerar-inte" },
+          ".",
         ],
       },
       { type: "h2", text: "Vanliga frågor om IPTV-buffring", id: "vanliga-fragor" },
