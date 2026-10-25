@@ -579,7 +579,7 @@ export const installGuides: InstallGuide[] = [
         app: "MAC-aktivering",
         steps: [
           "Hitta boxens MAC-adress på etiketten under boxen eller i boxens statusmeny.",
-          "Skicka MAC-adressen till oss via WhatsApp eller e-post. Vi aktiverar din box och skickar portaladressen till dig.",
+          "Skicka MAC-adressen till oss via WhatsApp. Vi aktiverar din box och skickar portaladressen till dig.",
           "Gå till Inställningar → Systeminställningar → Servrar → Portaler, ange ett valfritt namn och klistra in portaladressen.",
           "Spara och starta om boxen. Kanalerna laddas automatiskt.",
         ],

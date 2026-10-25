@@ -1,4 +1,4 @@
-import { infoSection, installApps, type InfoSegment } from "@/lib/data";
+import { infoSection, installApps, plans, type InfoSegment } from "@/lib/data";
 
 export type ArticleBlock =
   | { type: "p"; content: InfoSegment[] }
@@ -61,7 +61,823 @@ const wifiEllerKabelImage = {
   alt: "Wi-Fi eller nätverkskabel för IPTV – router ansluten till TV både trådlöst och med kabel",
 };
 
+const ostabiltWifiImage = {
+  src: "/images/blog/ostabilt-wifi-lagenhet.webp",
+  alt: "Ostabilt wifi i lägenheten – flerbostadshus där grannarnas wifi-nätverk trängs runt en lägenhet",
+};
+
+const macAdressImage = {
+  src: "/images/blog/mac-adress-iptv.webp",
+  alt: "MAC-adress för IPTV – appskärm med MAC-adress och Device Key samt etikett med MAC-adress på en box",
+};
+
+const vadKostarImage = {
+  src: "/images/blog/vad-kostar-iptv.webp",
+  alt: "Vad kostar IPTV – uträkning av pris per månad: totalpris delat med antal månader",
+};
+
+const dataforbrukningImage = {
+  src: "/images/blog/iptv-dataforbrukning.webp",
+  alt: "Hur mycket data drar IPTV – stapeldiagram över datamängd per timme i SD, HD och 4K",
+};
+
+// Price figures for "Vad kostar IPTV?" are read from the plans on /priser, so the
+// article always matches the current prices.
+const plansByLength = [...plans]
+  .map((plan) => ({ ...plan, months: Number.parseInt(plan.duration, 10) }))
+  .sort((a, b) => a.months - b.months);
+const shortestPlan = plansByLength[0];
+const longestPlan = plansByLength[plansByLength.length - 1];
+const krDecimals = (value: number) =>
+  value.toLocaleString("sv-SE", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const listSv = (items: string[]) =>
+  items.length < 2 ? items.join("") : `${items.slice(0, -1).join(", ")} och ${items[items.length - 1]}`;
+const perMonth = (plan: (typeof plansByLength)[number]) => plan.price / plan.months;
+const yearCosts = plansByLength
+  .filter((plan) => 12 % plan.months === 0)
+  .map((plan) => ({ plan, times: 12 / plan.months, total: (12 / plan.months) * plan.price }));
+const yearCostSpread =
+  Math.max(...yearCosts.map((y) => y.total)) - Math.min(...yearCosts.map((y) => y.total));
+const speedFor = (quality: string) =>
+  infoSection.speeds.find((s) => s.quality === quality)?.speed ?? "";
+// Data per hour: 1 Mbit/s for 3 600 s = 3 600 Mbit = 450 MB = 0.45 GB (1 GB = 1 000 MB).
+const gbPerHour = (mbit: number) =>
+  (mbit * 0.45).toLocaleString("sv-SE", { maximumFractionDigits: 2 });
+
 export const posts: Post[] = [
+  {
+    slug: "ostabilt-wifi-lagenhet",
+    title: "Ostabilt wifi i lägenheten? Så löser du det",
+    description:
+      "Ostabilt wifi i lägenheten? Så hittar du orsaken – grannarnas nätverk, routerns placering eller väggar – och åtgärdar den steg för steg.",
+    excerpt:
+      "Grannarnas nätverk, routerns placering och tjocka väggar är de vanligaste orsakerna till ostabilt wifi i lägenheter. Så hittar du felet och löser det.",
+    publishedAt: "2026-10-25",
+    updatedAt: "2026-10-25",
+    readingMinutes: 7,
+    image: ostabiltWifiImage,
+    related: ["iptv-wifi-eller-kabel", "iptv-buffrar"],
+    body: [
+      {
+        type: "p",
+        content: [
+          "Ostabilt wifi i lägenheten beror oftast på tre saker: grannarnas trådlösa nätverk som trängs på samma kanaler, en router som står dåligt placerad och väggar som dämpar signalen. Börja med att flytta routern till en fri och central plats, anslut det du kan till 5 GHz-bandet och låt routern byta till en mindre belastad kanal. Räcker inte det kan mesh eller en extra accesspunkt ge jämnare täckning.",
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Råden gäller allt som använder wifi – mobiler, datorer och TV. Vill du främst få stabil bild på TV:n har vi en separat guide om att välja ",
+          { text: "wifi eller nätverkskabel för IPTV", href: "/blog/iptv-wifi-eller-kabel" },
+          ".",
+        ],
+      },
+      { type: "image", ...ostabiltWifiImage, width: 1672, height: 941 },
+      { type: "h2", text: "Varför blir wifi ostabilt i en lägenhet?", id: "varfor-ostabilt" },
+      {
+        type: "p",
+        content: [
+          "I ett flerbostadshus finns ofta tiotals trådlösa nätverk inom räckhåll. Alla delar på samma radiofrekvenser, och det är där de flesta problem börjar.",
+        ],
+      },
+      { type: "h3", text: "Grannarnas nätverk trängs på samma kanaler" },
+      {
+        type: "p",
+        content: [
+          "På 2,4 GHz-bandet finns bara ett fåtal kanaler som inte överlappar varandra – i praktiken kanal 1, 6 och 11, enligt ",
+          {
+            text: "Cisco Merakis riktlinjer för kanalplanering",
+            href: "https://documentation.meraki.com/Wireless/Design_and_Configure/Architecture_and_Best_Practices/Channel_Planning_Best_Practices",
+          },
+          ". När många routrar i samma hus delar på dem får alla dela på sändningstiden, och hastigheten blir ojämn – särskilt på kvällen när fler är hemma och uppkopplade.",
+        ],
+      },
+      { type: "h3", text: "Routern står på fel ställe" },
+      {
+        type: "p",
+        content: [
+          "Routern hamnar ofta där bredbandet kommer in i lägenheten, till exempel i hallen eller i ett skåp. Därifrån måste signalen ta sig genom flera väggar för att nå vardagsrum och sovrum, och den blir svagare för varje vägg.",
+        ],
+      },
+      { type: "h3", text: "Väggar och andra apparater dämpar signalen" },
+      {
+        type: "p",
+        content: [
+          "Betong, tegel och metall dämpar wifi betydligt mer än lättväggar. Även trådlösa telefoner, babyvakter, Bluetooth-prylar och mikrovågsugnar använder 2,4 GHz-bandet och kan störa signalen, som ",
+          {
+            text: "Realtid beskriver",
+            href: "https://www.realtid.se/it-tech/gor-du-det-har-hemma-da-stryper-du-ditt-internet-sjalv/",
+          },
+          ".",
+        ],
+      },
+      { type: "h3", text: "Gamla enheter och gammal mjukvara" },
+      {
+        type: "p",
+        content: [
+          "En router som inte har uppdaterats på länge, eller äldre enheter som bara klarar äldre wifi-standarder, kan göra nätet både långsammare och mindre stabilt.",
+        ],
+      },
+      { type: "h2", text: "Hitta felet med tre snabba tester", id: "testa" },
+      {
+        type: "ol",
+        items: [
+          [
+            "Mät med kabel och med wifi. Anslut en dator med nätverkskabel direkt till routern och mät hastigheten på ",
+            { text: "Bredbandskollen", href: "https://www.bredbandskollen.se/" },
+            ". Gör sedan samma mätning via wifi. Är kabelmätningen stabil men inte wifi-mätningen sitter felet i det trådlösa nätet.",
+          ],
+          ["Mät i olika rum och vid olika tider. Är det bra nära routern men dåligt längre bort handlar det om räckvidd. Är det bara dåligt på kvällarna tyder det på trängsel från grannarnas nätverk."],
+          ["Se vilka nätverk som finns runt dig. En wifi-analysapp i mobilen visar vilka nätverk som syns och vilka kanaler de använder. Ligger många på samma kanal som ditt nätverk har du hittat en trolig orsak."],
+        ],
+      },
+      {
+        type: "table",
+        head: ["Symptom", "Trolig orsak", "Börja med att"],
+        rows: [
+          ["Sämre på kvällen", "Trängsel från grannarnas nätverk", "Byta till 5 GHz eller en annan kanal"],
+          ["Bra nära routern, dåligt i andra rum", "Avstånd och väggar", "Flytta routern eller komplettera med mesh"],
+          ["Anslutningen tappas helt ibland", "Routern eller enheten har hängt sig", "Starta om och uppdatera routern"],
+          ["Långsamt även med kabel", "Bredbandet eller leverantören", "Kontakta din bredbandsleverantör"],
+        ],
+      },
+      { type: "h2", text: "Så löser du det – steg för steg", id: "losningar" },
+      { type: "h3", text: "1. Ge routern en bättre plats" },
+      {
+        type: "p",
+        content: [
+          "Placera routern fritt och gärna högt, så centralt i lägenheten som möjligt – inte i ett skåp, bakom TV:n eller tätt intill annan elektronik. Sitter bredbandsuttaget i hallen kan en längre nätverkskabel mellan uttaget och routern göra det möjligt att flytta routern närmare mitten av lägenheten.",
+        ],
+      },
+      { type: "h3", text: "2. Använd 5 GHz där det går" },
+      {
+        type: "p",
+        content: [
+          "5 GHz-bandet har fler kanaler och är oftast mindre trångt än 2,4 GHz, men räckvidden är kortare och signalen går sämre genom väggar. Anslut mobiler, datorer och TV-apparater som står nära routern till 5 GHz, och låt enheter längre bort använda 2,4 GHz.",
+        ],
+      },
+      { type: "h3", text: "3. Byt kanal och använd 20 MHz på 2,4 GHz" },
+      {
+        type: "p",
+        content: [
+          "Låt routern välja kanal automatiskt, eller välj själv den av kanal 1, 6 och 11 som är minst belastad enligt wifi-analysappen. Använd 20 MHz kanalbredd på 2,4 GHz-bandet. En bredare kanal tar upp en större del av det smala bandet och ökar risken för störningar i ett hus med många nätverk.",
+        ],
+      },
+      { type: "h3", text: "4. Starta om och uppdatera routern" },
+      {
+        type: "p",
+        content: [
+          "Dra ur routerns strömsladd i ungefär en minut och starta den igen om nätet har börjat bete sig konstigt. Kontrollera också i routerns inställningar om det finns ny mjukvara – uppdateringar kan förbättra både stabilitet och säkerhet.",
+        ],
+      },
+      { type: "h3", text: "5. Komplettera med mesh eller en accesspunkt" },
+      {
+        type: "p",
+        content: [
+          "Räcker inte en router till hela lägenheten, till exempel på grund av tjocka betongväggar, ger ett mesh-system med flera enheter jämnare täckning. Ännu stabilare blir det om den extra enheten kan anslutas med nätverkskabel till routern. En enkel wifi-förstärkare kan hjälpa i vissa fall, men den kan också sänka hastigheten.",
+        ],
+      },
+      { type: "h3", text: "6. Koppla det som står still med kabel" },
+      {
+        type: "p",
+        content: [
+          "TV, TV-box, stationär dator och spelkonsol står oftast på samma plats. Ansluter du dem med nätverkskabel frigör du utrymme i wifi-nätet för mobiler och bärbara datorer. Hur du gör det med TV:n beskriver vi i guiden ",
+          { text: "Wi-Fi eller nätverkskabel för IPTV", href: "/blog/iptv-wifi-eller-kabel" },
+          ".",
+        ],
+      },
+      { type: "h3", text: "7. Byt ut en gammal router" },
+      {
+        type: "p",
+        content: [
+          "Saknar routern 5 GHz eller stöd för nyare standarder som Wi-Fi 6 kan en ny router vara värd pengarna. Hyr du routern av din bredbandsleverantör kan du fråga om de kan byta till en nyare modell.",
+        ],
+      },
+      { type: "h2", text: "När beror felet inte på wifi?", id: "inte-wifi" },
+      {
+        type: "p",
+        content: [
+          "Är uppkopplingen långsam eller ostabil även med nätverkskabel ligger felet troligen hos bredbandet, inte i ditt trådlösa nätverk. Kontakta då din bredbandsleverantör. Märker du problemen främst när du tittar på strömmad TV kan du också läsa vad du kan göra när ",
+          { text: "IPTV buffrar", href: "/blog/iptv-buffrar" },
+          " och hur mycket ",
+          { text: "internethastighet du behöver för IPTV", href: "/blog/internethastighet-for-iptv" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Vanliga frågor", id: "vanliga-fragor" },
+      { type: "h3", text: "Varför är wifi sämre på kvällen?" },
+      {
+        type: "p",
+        content: [
+          "På kvällen använder fler i huset sina nätverk samtidigt. Eftersom grannarnas nätverk delar på samma kanaler blir det trängre, och din uppkoppling blir ojämnare. 5 GHz eller en mindre belastad kanal brukar hjälpa.",
+        ],
+      },
+      { type: "h3", text: "Ska jag välja 2,4 eller 5 GHz i lägenheten?" },
+      {
+        type: "p",
+        content: [
+          "Använd 5 GHz för enheter i samma eller närliggande rum som routern – det är snabbare och mindre trångt. 2,4 GHz når längre och kan fungera bättre för enheter långt bort, men är ofta hårt belastat i flerbostadshus.",
+        ],
+      },
+      { type: "h3", text: "Behöver jag mesh i en mindre lägenhet?" },
+      {
+        type: "p",
+        content: [
+          "Oftast inte. I en mindre lägenhet räcker det vanligtvis att flytta routern och använda 5 GHz. Mesh blir mer aktuellt i större lägenheter eller där tjocka väggar stoppar signalen.",
+        ],
+      },
+      { type: "h3", text: "Kan grannarnas wifi verkligen störa mitt nätverk?" },
+      {
+        type: "p",
+        content: [
+          "Ja. Nätverk som använder samma eller överlappande kanaler delar på sändningstiden, vilket gör att alla blir långsammare. Det är en av de vanligaste orsakerna till ostabilt wifi i flerbostadshus.",
+        ],
+      },
+      { type: "h2", text: "Sammanfattning", id: "sammanfattning" },
+      {
+        type: "p",
+        content: [
+          "Ostabilt wifi i lägenheten beror oftast på trängsel från grannarnas nätverk, routerns placering eller väggar. Flytta routern, använd 5 GHz och byt kanal, och komplettera med mesh om täckningen ändå inte räcker. Tittar du på TV via internet ger en nätverkskabel till TV:n den stabilaste bilden – och med ",
+          { text: "IPTV Sverige", href: "/" },
+          " kan du testa tjänsten med din egen uppkoppling innan du väljer abonnemang.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "mac-adress-iptv",
+    title: "MAC-adress för IPTV – var hittar du den?",
+    description:
+      "Var hittar du MAC-adressen för IPTV? Se skillnaden mellan enhetens nätverksadress och appens ID, och var adressen visas på MAG-box, TV och i appar.",
+    excerpt:
+      "Boxens MAC-adress, appens ID eller Device Key? Så vet du vilken adress som gäller för IPTV och var du hittar den på MAG-box, Smart TV och i appar.",
+    publishedAt: "2026-10-25",
+    updatedAt: "2026-10-25",
+    readingMinutes: 5,
+    image: macAdressImage,
+    related: ["xtream-codes-eller-m3u", "iptv-samsung-smart-tv"],
+    body: [
+      {
+        type: "p",
+        content: [
+          "Vilken MAC-adress du behöver för IPTV beror på hur du aktiverar tjänsten. På en MAG-box är det boxens egen MAC-adress, som står på etiketten under boxen och i boxens statusmeny. I appar som Smart IPTV och IBO Player är det i stället adressen som appen själv visar på skärmen – och den kan skilja sig från TV:ns nätverksadress. Använd alltid den adress som efterfrågas, och skriv av den tecken för tecken.",
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Här reder vi ut skillnaden mellan enhetens nätverksadress, appens ID och Device Key, och var du hittar rätt uppgift på de vanligaste enheterna.",
+        ],
+      },
+      { type: "image", ...macAdressImage, width: 1672, height: 941 },
+      { type: "h2", text: "Vad är en MAC-adress?", id: "vad-ar-mac" },
+      {
+        type: "p",
+        content: [
+          "En MAC-adress är en hårdvaruadress som identifierar ett nätverkskort. Den består av 12 hexadecimala tecken – siffrorna 0–9 och bokstäverna A–F – och skrivs oftast i sex par med kolon emellan, till exempel 00:1A:2B:3C:4D:5E. En enhet med både wifi och nätverksuttag har en adress för vardera. Läs mer om ",
+          { text: "MAC-adresser på Wikipedia", href: "https://sv.wikipedia.org/wiki/MAC-adress" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Nätverks-MAC, appens ID och Device Key", id: "skillnaden" },
+      {
+        type: "table",
+        head: ["Begrepp", "Vad det är", "Var du hittar det", "Används till"],
+        rows: [
+          ["Enhetens MAC-adress", "Hårdvaruadressen för enhetens wifi eller nätverksuttag", "Enhetens nätverks- eller Om-meny, ibland på en etikett", "Aktivering av MAG-box, routerinställningar"],
+          ["Appens MAC/ID", "Identifierare som en IPTV-app visar och använder för att koppla en spellista till din TV", "Appens startskärm eller inställningar", "Smart IPTV, IBO Player"],
+          ["Device Key", "Extra kod som visas tillsammans med MAC-adressen i IBO Player", "I appen", "Inloggning på IBO Players webbplats"],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Appens adress ser ut som en vanlig MAC-adress men behöver inte vara densamma som TV:ns egen nätverksadress. När en app ber om MAC-adress är det därför adressen som visas i appen som gäller.",
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Loggar du in med Xtream Codes eller en M3U-länk direkt i appen behöver du ingen MAC-adress alls. Skillnaderna förklaras i guiden ",
+          { text: "Xtream Codes eller M3U", href: "/blog/xtream-codes-eller-m3u" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Var hittar du MAC-adressen?", id: "var-hittar" },
+      { type: "h3", text: "MAG-box" },
+      {
+        type: "p",
+        content: [
+          "En MAG-box aktiveras med boxens egen MAC-adress. Den står på etiketten under boxen och visas också i boxens statusmeny – menynamnen kan variera mellan modeller och mjukvaruversioner.",
+        ],
+      },
+      {
+        type: "ol",
+        items: [
+          ["Hitta boxens MAC-adress på etiketten under boxen eller i statusmenyn."],
+          ["Skicka MAC-adressen till oss via WhatsApp. Vi aktiverar boxen och skickar portaladressen till dig."],
+          ["Gå till Inställningar → Systeminställningar → Servrar → Portaler, ange ett valfritt namn och klistra in portaladressen."],
+          ["Spara och starta om boxen."],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Mer om MAG-boxar finns i ",
+          { text: "installationsguiden för MAG-box", href: "/installera#mag" },
+          ".",
+        ],
+      },
+      { type: "h3", text: "Smart IPTV" },
+      {
+        type: "p",
+        content: [
+          "Smart IPTV visar en MAC-adress på skärmen när du startar appen. Den adressen anger du på utvecklarens sida ",
+          { text: "siptv.app/mylist", href: "https://siptv.app/mylist/" },
+          " tillsammans med länken till din spellista. Enligt utvecklaren visas felet ”MAC address is not found” om adressen är felskriven eller om appen inte har startats minst en gång.",
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Utvecklaren rekommenderar också att du låser din MAC/ID i appens inställningar, så att spellistan inte kan nollställas av någon annan. Appen aktiveras mot en engångsavgift per TV enligt ",
+          { text: "utvecklarens aktiveringssida", href: "https://siptv.app/activation/" },
+          ". Avgiften betalas till apputvecklaren och ingår inte i ditt IPTV-abonnemang.",
+        ],
+      },
+      { type: "h3", text: "IBO Player" },
+      {
+        type: "p",
+        content: [
+          "IBO Player visar både en MAC-adress och en Device Key i appen. Båda uppgifterna behövs för att logga in under Manage Playlists på ",
+          { text: "IBO Players webbplats", href: "https://iboplayer.com/device/login" },
+          " och lägga till en spellista. Du kan också fylla i Xtream Codes eller en M3U-länk direkt i appen. Enligt utvecklaren har appen en provperiod på 7 dagar, därefter behöver en licens köpas från utvecklaren.",
+        ],
+      },
+      { type: "h3", text: "Smart TV, Fire TV och Apple TV" },
+      {
+        type: "p",
+        content: [
+          "Ibland behöver du enhetens egen nätverksadress, till exempel om routern bara släpper in godkända enheter. Menynamnen kan skilja sig mellan modeller, mjukvaruversioner och språk:",
+        ],
+      },
+      {
+        type: "table",
+        head: ["Enhet", "Var du hittar MAC-adressen"],
+        rows: [
+          ["Samsung Smart TV", "Inställningar → Support → Om denna TV (About This TV)"],
+          ["Fire TV och Fire TV Stick", "Inställningar → My Fire TV → Om (About) → Nätverk (Network)"],
+          ["Apple TV", "Inställningar → Allmänt → Om (Wi-Fi-adress eller Ethernet-adress)"],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Sökvägen för Samsung kommer från ",
+          { text: "Samsungs supportsida", href: "https://www.samsung.com/us/support/answer/ANS10005222/" },
+          ". Hittar du inte menyn på din enhet, leta under nätverksinställningarna.",
+        ],
+      },
+      { type: "h2", text: "Vanliga misstag", id: "misstag" },
+      {
+        type: "ul",
+        items: [
+          ["Att skriva bokstaven O i stället för en nolla. En MAC-adress innehåller bara siffror och bokstäverna A–F, så ett tecken som ser ut som ett O är alltid en nolla."],
+          ["Att blanda ihop B och 8 eller D och 0. Jämför adressen tecken för tecken innan du skickar den."],
+          ["Att använda TV:ns nätverksadress när appen visar en egen adress."],
+          ["Att uppge adressen för wifi när enheten är ansluten med kabel, eller tvärtom – de två har olika adresser."],
+          ["Att lägga in spellistan innan appen har startats första gången."],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Sidor som erbjuder att ”generera” MAC-adresser för IPTV behöver du inte. En giltig adress kommer alltid från din egen enhet eller app.",
+        ],
+      },
+      { type: "h2", text: "Vanliga frågor", id: "vanliga-fragor" },
+      { type: "h3", text: "Behöver jag en MAC-adress för IPTV?" },
+      {
+        type: "p",
+        content: [
+          "Bara om du aktiverar via MAC-adress, till exempel med en MAG-box eller i appar som Smart IPTV. Loggar du in med Xtream Codes eller en M3U-länk direkt i appen behövs ingen MAC-adress.",
+        ],
+      },
+      { type: "h3", text: "Varför visar appen en annan MAC-adress än TV:n?" },
+      {
+        type: "p",
+        content: [
+          "Vissa appar använder ett eget ID som ser ut som en MAC-adress. Det är adressen som appen visar som gäller för aktiveringen, inte TV:ns nätverksadress.",
+        ],
+      },
+      { type: "h3", text: "Är MAC-adressen hemlig?" },
+      {
+        type: "p",
+        content: [
+          "Den är inget lösenord, men i appar som kopplar en spellista till adressen fungerar den som en nyckel till din spellista. Dela den därför bara med din leverantör eller på apputvecklarens officiella sida.",
+        ],
+      },
+      { type: "h2", text: "Sammanfattning", id: "sammanfattning" },
+      {
+        type: "p",
+        content: [
+          "På en MAG-box använder du boxens egen MAC-adress från etiketten eller statusmenyn. I Smart IPTV och IBO Player gäller adressen som appen visar – och i IBO Player även Device Key. Med ",
+          { text: "IPTV Sverige", href: "/" },
+          " hjälper vi dig gärna med aktiveringen: ",
+          { text: "kontakta oss", href: "/kontakt" },
+          ", eller följ stegen för din enhet i ",
+          { text: "installationsguiden", href: "/installera" },
+          ".",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "vad-kostar-iptv",
+    title: "Vad kostar IPTV? Så räknar du månadspriset",
+    description:
+      "Vad kostar IPTV? Så räknar du fram priset per månad för 3, 6 och 12 månader, vad ett år kostar och vilka extra kostnader som kan tillkomma.",
+    excerpt:
+      "Dela totalpriset med antalet månader – så får du det verkliga månadspriset. Vi visar uträkningen, vad ett helt år kostar och vilka kostnader som kan tillkomma.",
+    publishedAt: "2026-10-25",
+    updatedAt: "2026-10-25",
+    readingMinutes: 5,
+    image: vadKostarImage,
+    related: ["basta-iptv-appen", "internethastighet-for-iptv"],
+    body: [
+      {
+        type: "p",
+        content: [
+          `Vad kostar IPTV? Det beror på hur lång period du betalar för och om något tillkommer utöver själva abonnemanget. Månadspriset räknar du fram genom att dela totalpriset med antalet månader. Hos IPTV Sverige kostar ${listSv(
+            plansByLength.map((p) => `${p.months} månader ${p.price} kr`)
+          )}, vilket blir ${listSv(plansByLength.map((p) => krDecimals(perMonth(p))))} kr per månad. Fler enheter kostar extra, och app och eventuell utrustning betalas separat.`,
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Här visar vi hur du räknar, vad ett helt år kostar med olika perioder och vilka kostnader som kan tillkomma. Aktuella priser och vad som ingår i varje abonnemang ser du alltid på ",
+          { text: "prissidan", href: "/priser" },
+          ".",
+        ],
+      },
+      { type: "image", ...vadKostarImage, width: 1672, height: 941 },
+      { type: "h2", text: "Så räknar du månadspriset", id: "rakna" },
+      {
+        type: "p",
+        content: ["Formeln är enkel: totalpris ÷ antal månader = pris per månad. Så här ser det ut för våra abonnemang:"],
+      },
+      {
+        type: "table",
+        head: ["Abonnemang", "Totalpris", "Uträkning", "Pris per månad"],
+        rows: plansByLength.map((p) => [
+          `${p.months} månader`,
+          `${p.price} kr`,
+          `${p.price} ÷ ${p.months}`,
+          `${krDecimals(perMonth(p))} kr`,
+        ]),
+      },
+      {
+        type: "p",
+        content: [
+          `Med ${longestPlan.months} månader betalar du ${krDecimals(perMonth(longestPlan))} kr per månad, jämfört med ${krDecimals(perMonth(shortestPlan))} kr med ${shortestPlan.months} månader. På prissidan avrundas månadspriset till hela kronor.`,
+        ],
+      },
+      { type: "h2", text: "Vad kostar ett helt år?", id: "helt-ar" },
+      {
+        type: "p",
+        content: ["Vill du titta ett helt år kan du jämföra vad tolv månader kostar om du köper samma period flera gånger:"],
+      },
+      {
+        type: "table",
+        head: ["Så betalar du", "Uträkning", "Kostnad för 12 månader"],
+        rows: yearCosts.map(({ plan, times, total }) => [
+          `${plan.months} månader × ${times}`,
+          times > 1 ? `${times} × ${plan.price} kr` : `${plan.price} kr`,
+          `${total} kr`,
+        ]),
+      },
+      {
+        type: "p",
+        content: [
+          `Skillnaden mellan det dyraste och det billigaste sättet är ${yearCostSpread} kr per år. Samtidigt gäller priset för hela perioden, så ett längre abonnemang innebär en större summa på en gång. Det finns ingen bindningstid – du väljer själv vilken period som passar dig.`,
+        ],
+      },
+      { type: "h2", text: "Kostnader som kan tillkomma", id: "extra-kostnader" },
+      { type: "h3", text: "Appen" },
+      {
+        type: "p",
+        content: [
+          "IPTV-appen är en separat spelare från en tredjepartsutvecklare och ingår inte i abonnemanget. Vissa appar är gratis, andra kostar efter en provperiod. Två exempel från utvecklarnas egna sidor:",
+        ],
+      },
+      {
+        type: "ul",
+        items: [
+          [
+            "IBO Player har en provperiod på 7 dagar, därefter krävs en licens (",
+            { text: "iboplayer.com", href: "https://iboplayer.com/" },
+            ").",
+          ],
+          [
+            "Smart IPTV aktiveras mot en engångsavgift per TV eller enhet (",
+            { text: "siptv.app", href: "https://siptv.app/activation/" },
+            ").",
+          ],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Avgifterna bestäms av apputvecklarna och kan ändras. Vilken app som passar din enhet läser du i guiden om ",
+          { text: "bästa IPTV-appen", href: "/blog/basta-iptv-appen" },
+          ".",
+        ],
+      },
+      { type: "h3", text: "Utrustning" },
+      {
+        type: "p",
+        content: [
+          "Har din TV redan en app som fungerar behöver du ingen extra utrustning. Saknas appen kan en streamingsticka eller TV-box som ansluts via HDMI vara ett alternativ – en engångskostnad utöver abonnemanget.",
+        ],
+      },
+      { type: "h3", text: "Internetuppkoppling" },
+      {
+        type: "p",
+        content: [
+          `Du behöver ett bredband som klarar strömmen. Vi rekommenderar minst ${speedFor("HD")} för HD och ${speedFor("4K")} för 4K – läs mer om `,
+          { text: "internethastighet för IPTV", href: "/blog/internethastighet-for-iptv" },
+          ". Tittar du med mobildata kan det också vara värt att veta ",
+          { text: "hur mycket data IPTV drar", href: "/blog/iptv-dataforbrukning" },
+          ".",
+        ],
+      },
+      { type: "h3", text: "Flera enheter samtidigt" },
+      {
+        type: "p",
+        content: [
+          "Vill du kunna titta på fler enheter samtidigt kostar det extra. Hur många enheter du behöver väljer du när du beställer via WhatsApp – berätta hur många det gäller, så får du priset för just ditt abonnemang.",
+        ],
+      },
+      { type: "h2", text: "Det här bör du jämföra", id: "jamfora" },
+      {
+        type: "ul",
+        items: [
+          ["Månadspriset för samma periodlängd – jämför inte ett pris för tre månader med ett årspris."],
+          ["Vad som ingår, till exempel kanaler, filmer och serier, bildkvalitet och support."],
+          ["Bindningstid och eventuella avgifter utöver abonnemanget."],
+          ["Vad det kostar om flera enheter ska kunna titta samtidigt."],
+          ["Om det finns en testperiod, så att du kan prova med din egen uppkoppling."],
+          ["Vilka enheter och appar som fungerar."],
+        ],
+      },
+      { type: "h2", text: "Kan man testa innan man betalar?", id: "testperiod" },
+      {
+        type: "p",
+        content: [
+          "Ja. Kontakta oss via WhatsApp så startar vi en gratis testperiod. Du kan då testa tjänsten kostnadsfritt under en begränsad period och se hur den fungerar med din uppkoppling innan du köper ett abonnemang.",
+        ],
+      },
+      { type: "h2", text: "Vanliga frågor", id: "vanliga-fragor" },
+      { type: "h3", text: "Vilka abonnemangsperioder finns?" },
+      {
+        type: "p",
+        content: [
+          `Hos oss väljer du mellan ${listSv(plansByLength.map((p) => `${p.months}`))} månader. Månadspriset räknar du fram genom att dela totalpriset med antalet månader.`,
+        ],
+      },
+      { type: "h3", text: "Ingår appen i priset?" },
+      {
+        type: "p",
+        content: [
+          "Nej. Abonnemanget ger dig tillgång till tjänstens kanaler, filmer och serier, medan appen är en separat spelare. Kräver appen en licens betalar du den direkt till apputvecklaren.",
+        ],
+      },
+      { type: "h3", text: "Finns det någon bindningstid?" },
+      {
+        type: "p",
+        content: ["Nej, det finns ingen bindningstid och inga dolda avgifter. Du väljer den period som passar dig."],
+      },
+      { type: "h3", text: "Lönar det sig att välja en längre period?" },
+      {
+        type: "p",
+        content: [
+          `Räknat per månad, ja: ${longestPlan.months} månader kostar ${krDecimals(perMonth(longestPlan))} kr per månad mot ${krDecimals(perMonth(shortestPlan))} kr för ${shortestPlan.months} månader. Är du osäker kan du börja med en gratis testperiod eller en kortare period.`,
+        ],
+      },
+      { type: "h2", text: "Sammanfattning", id: "sammanfattning" },
+      {
+        type: "p",
+        content: [
+          "Dela totalpriset med antalet månader så får du det verkliga månadspriset, och räkna med att fler enheter, app och eventuell utrustning tillkommer. Se aktuella priser för ",
+          { text: "IPTV Sverige", href: "/" },
+          " på ",
+          { text: "prissidan", href: "/priser" },
+          ", eller börja med en gratis testperiod via WhatsApp.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "iptv-dataforbrukning",
+    title: "Hur mycket data drar IPTV? Så räknar du",
+    description:
+      "Hur mycket data drar IPTV i SD, HD och 4K? Så räknar du om Mbit/s till GB per timme, vad en månad kan dra och hur du sparar på mobildatan.",
+    excerpt:
+      "Bithastighet × 0,45 = GB per timme. Så räknar du ut hur mycket data IPTV drar i SD, HD och 4K, vad en månad kan kosta i data och hur du mäter själv.",
+    publishedAt: "2026-10-25",
+    updatedAt: "2026-10-25",
+    readingMinutes: 6,
+    image: dataforbrukningImage,
+    related: ["internethastighet-for-iptv", "iptv-apple-tv-iphone"],
+    body: [
+      {
+        type: "p",
+        content: [
+          "Hur mycket data IPTV drar beror på strömmens bithastighet, som varierar med bildkvalitet, kanal och tjänst. Som riktmärke anger Netflix att strömning drar upp till 1 GB per timme i SD, upp till 3 GB i HD och upp till 7 GB i 4K. Vill du räkna själv multiplicerar du bithastigheten i Mbit/s med 0,45 – då får du ungefärligt antal GB per timme.",
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Här visar vi hur du räknar, vad en vanlig månad kan dra och hur du håller koll på mobildatan.",
+        ],
+      },
+      { type: "image", ...dataforbrukningImage, width: 1672, height: 941 },
+      { type: "h2", text: "Så räknar du om Mbit/s till GB per timme", id: "formel" },
+      {
+        type: "p",
+        content: [
+          "Bithastigheten anger hur mycket data strömmen använder varje sekund. En timme har 3 600 sekunder och en byte är 8 bitar. Vi räknar med 1 GB = 1 000 MB:",
+        ],
+      },
+      {
+        type: "ol",
+        items: [
+          ["1 Mbit/s × 3 600 sekunder = 3 600 megabit"],
+          ["3 600 megabit ÷ 8 = 450 megabyte"],
+          ["450 megabyte = 0,45 gigabyte (GB)"],
+        ],
+      },
+      {
+        type: "p",
+        content: ["Varje Mbit/s motsvarar alltså ungefär 0,45 GB per timme:"],
+      },
+      {
+        type: "table",
+        head: ["Bithastighet", "Data per timme"],
+        rows: [1, 2, 4, 6, 8, 12, 16, 20].map((mbit) => [`${mbit} Mbit/s`, `${gbPerHour(mbit)} GB`]),
+      },
+      { type: "h2", text: "Ungefärlig förbrukning i SD, HD och 4K", id: "sd-hd-4k" },
+      {
+        type: "p",
+        content: [
+          "Det finns ingen gemensam siffra för alla IPTV-kanaler – bithastigheten bestäms av hur varje kanal kodas. Två publicerade riktmärken ger ändå en bra bild:",
+        ],
+      },
+      {
+        type: "table",
+        head: ["Kvalitet", "Netflix, upp till per timme", "Räknat från Apples exempel på bithastigheter"],
+        rows: [
+          ["SD", "1 GB", "cirka 0,9 GB (960×540, 2 Mbit/s)"],
+          ["HD 720p", "–", "cirka 1,4–2,0 GB (3–4,5 Mbit/s)"],
+          ["Full HD 1080p", "3 GB", "cirka 2,7–3,5 GB (6–7,8 Mbit/s, H.264) eller 2,0–2,6 GB (4,5–5,8 Mbit/s, HEVC)"],
+          ["4K", "7 GB", "cirka 5,2–7,6 GB (11,6–16,8 Mbit/s, HEVC)"],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          { text: "Netflix hjälpcenter", href: "https://help.netflix.com/sv/node/87" },
+          " anger hur mycket data tjänsten använder per timme och kvalitetsnivå. ",
+          {
+            text: "Apples riktlinjer för HLS-strömning",
+            href: "https://developer.apple.com/streaming/hls-authoring-specification-for-apple-devices.html",
+          },
+          " listar exempel på bithastigheter som videotjänster kan koda i. Apples siffror är kodningsmål, inte mätningar av en viss IPTV-kanal, så se dem som ett riktmärke.",
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Två saker påverkar mest. Högre bildfrekvens kräver högre bithastighet, vilket syns i ",
+          { text: "YouTubes rekommendationer för livesändningar", href: "https://support.google.com/youtube/answer/2853702" },
+          " där 60 bilder per sekund får högre värden än 30 – därför kan sport med mycket rörelse dra mer. Och modernare kodning som HEVC ger samma upplösning med lägre bithastighet än H.264, som Apples tabell visar.",
+        ],
+      },
+      { type: "h2", text: "Internethastighet är inte samma sak som dataförbrukning", id: "hastighet-vs-data" },
+      {
+        type: "p",
+        content: [
+          `Våra rekommendationer om minst ${speedFor("HD")} för HD och ${speedFor("4K")} för 4K gäller hur snabb uppkoppling du behöver – med marginal för variationer och för annat som använder nätet samtidigt. Själva strömmen använder normalt mindre än så.`,
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          `Räknar du ut förbrukningen från den rekommenderade hastigheten får du därför för höga siffror: ${speedFor("HD")} skulle motsvara ${gbPerHour(Number.parseInt(speedFor("HD"), 10))} GB per timme, medan en Full HD-ström enligt riktmärkena ovan ligger kring 2–3,5 GB. Hur snabbt internet du behöver förklaras i guiden om `,
+          { text: "internethastighet för IPTV", href: "/blog/internethastighet-for-iptv" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Exempel: så mycket data går åt per månad", id: "per-manad" },
+      {
+        type: "p",
+        content: [
+          "Med Netflix riktmärken som utgångspunkt och två timmars tittande om dagen i 30 dagar – totalt 60 timmar:",
+        ],
+      },
+      {
+        type: "table",
+        head: ["Kvalitet", "Per timme, upp till", "60 timmar per månad, upp till"],
+        rows: [
+          ["SD", "1 GB", "60 GB"],
+          ["HD", "3 GB", "180 GB"],
+          ["4K", "7 GB", "420 GB"],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "En fotbollsmatch på ungefär två timmar i HD kan alltså dra upp till cirka 6 GB. Har du fast bredband utan datagräns behöver du sällan tänka på förbrukningen – det är främst med mobildata och mobilt bredband med surfgräns som den spelar roll.",
+        ],
+      },
+      { type: "h2", text: "Titta på IPTV med mobildata", id: "mobildata" },
+      {
+        type: "p",
+        content: [
+          "Med en surfpott på till exempel 20 GB räcker det till ungefär 6–7 timmar i HD med 3 GB per timme, men till omkring 20 timmar i SD med 1 GB per timme. Så sparar du data:",
+        ],
+      },
+      {
+        type: "ul",
+        items: [
+          ["Använd wifi när du kan."],
+          ["Välj en lägre bildkvalitet eller kanalens SD-version när du är på mobilnätet, om den finns."],
+          ["Stäng appen när du har tittat klart – en ström som fortsätter spela drar data även om du inte tittar."],
+          ["Håll koll på förbrukningen i mobilens inställningar."],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Hur du kommer igång i mobilen och surfplattan beskriver vi i guiden om ",
+          { text: "IPTV på Apple TV, iPhone och iPad", href: "/blog/iptv-apple-tv-iphone" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Så mäter du din egen förbrukning", id: "mat-sjalv" },
+      {
+        type: "p",
+        content: ["Det säkraste sättet att veta hur mycket just din kanal och app drar är att mäta själv:"],
+      },
+      {
+        type: "ol",
+        items: [
+          ["Se till att mobilen använder mobildata och notera hur mycket IPTV-appen har förbrukat. På iPhone hittar du det under Inställningar → Mobildata, på Android under nätverks- eller dataanvändningsinställningarna – namnet varierar mellan tillverkare."],
+          ["Titta på en kanal i 30 minuter med den bildkvalitet du brukar använda."],
+          ["Läs av hur mycket appen har använt och multiplicera med två – då har du förbrukningen per timme."],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Vill du mäta på TV:n kan många routrar visa trafik per enhet i sina inställningar.",
+        ],
+      },
+      { type: "h2", text: "Vanliga frågor", id: "vanliga-fragor" },
+      { type: "h3", text: "Hur mycket data drar en timme IPTV i HD?" },
+      {
+        type: "p",
+        content: [
+          "Räkna med ungefär 2–3,5 GB per timme för en Full HD-ström, beroende på bithastighet och kodning. Netflix anger upp till 3 GB per timme i HD.",
+        ],
+      },
+      { type: "h3", text: "Drar 4K alltid mer data än HD?" },
+      {
+        type: "p",
+        content: [
+          "I regel ja. En 4K-bild har fyra gånger så många bildpunkter som Full HD och kräver högre bithastighet. Enligt Netflix kan 4K dra upp till 7 GB per timme, jämfört med upp till 3 GB i HD.",
+        ],
+      },
+      { type: "h3", text: "Varför stämmer inte min mätning med tabellen?" },
+      {
+        type: "p",
+        content: [
+          "Bithastigheten varierar mellan kanaler, program och appar, och vissa appar anpassar kvaliteten efter uppkopplingen. Tabellerna är riktmärken – din egen mätning visar vad som gäller för dig.",
+        ],
+      },
+      { type: "h2", text: "Sammanfattning", id: "sammanfattning" },
+      {
+        type: "p",
+        content: [
+          "Multiplicera bithastigheten i Mbit/s med 0,45 så får du ungefärligt antal GB per timme. En Full HD-ström drar ofta 2–3,5 GB per timme och 4K upp mot 7 GB, men den rekommenderade internethastigheten är högre än förbrukningen. Mät gärna själv, och testa ",
+          { text: "IPTV Sverige", href: "/" },
+          " med din egen uppkoppling innan du väljer abonnemang.",
+        ],
+      },
+    ],
+  },
   {
     slug: "basta-iptv-appen",
     title: "Bästa IPTV-appen 2026 för Smart TV, Fire TV och Apple TV",
@@ -204,7 +1020,9 @@ export const posts: Post[] = [
       {
         type: "p",
         content: [
-          "Apparna är fristående spelare från tredjepartsutvecklare. Vissa är gratis att ladda ner, medan andra kräver en licens eller en premiumversion efter en provperiod. Villkor och priser bestäms av apputvecklaren och kan ändras, så kontrollera aktuell information i appbutiken innan du bestämmer dig.",
+          "Apparna är fristående spelare från tredjepartsutvecklare. Vissa är gratis att ladda ner, medan andra kräver en licens eller en premiumversion efter en provperiod. Villkor och priser bestäms av apputvecklaren och kan ändras, så kontrollera aktuell information i appbutiken innan du bestämmer dig. Hur appens kostnad påverkar totalen räknar vi på i guiden ",
+          { text: "Vad kostar IPTV?", href: "/blog/vad-kostar-iptv" },
+          ".",
         ],
       },
       {
@@ -364,6 +1182,8 @@ export const posts: Post[] = [
         content: [
           "Använd alltid den MAC-adress som visas i appen. Den kan skilja sig från TV:ns egen nätverksadress i inställningarna, och det är appens adress som gäller vid aktiveringen. Skriv av den noga – en enda felaktig siffra eller bokstav gör att aktiveringen inte fungerar. Mer om de olika inloggningssätten läser du i guiden om ",
           { text: "Xtream Codes eller M3U", href: "/blog/xtream-codes-eller-m3u" },
+          ". Var du hittar rätt adress på olika enheter visar vi i guiden om ",
+          { text: "MAC-adress för IPTV", href: "/blog/mac-adress-iptv" },
           ".",
         ],
       },
@@ -462,7 +1282,7 @@ export const posts: Post[] = [
     excerpt:
       "Med appen Smarters Player Lite tittar du på IPTV på Apple TV, iPhone och iPad. Så installerar du appen, loggar in och får en stabil bild.",
     publishedAt: "2026-10-17",
-    updatedAt: "2026-10-17",
+    updatedAt: "2026-10-25",
     readingMinutes: 5,
     image: appleTvIphoneImage,
     related: ["basta-iptv-appen", "xtream-codes-eller-m3u"],
@@ -547,6 +1367,8 @@ export const posts: Post[] = [
         content: [
           "I mobilen och surfplattan fungerar IPTV både via wifi och mobilt nätverk. Tänk på att strömmande video i HD och 4K förbrukar mycket data, så använd wifi när du kan om du har ett mobilabonnemang med begränsad surf. Hur mycket hastighet som krävs för olika bildkvaliteter läser du i guiden om ",
           { text: "internethastighet för IPTV", href: "/blog/internethastighet-for-iptv" },
+          ", och hur mycket data det blir i guiden ",
+          { text: "Hur mycket data drar IPTV?", href: "/blog/iptv-dataforbrukning" },
           ".",
         ],
       },
@@ -589,7 +1411,7 @@ export const posts: Post[] = [
       {
         type: "p",
         content: [
-          "Samma inloggningsuppgifter fungerar i appen på alla dina enheter. Du kan titta på flera enheter samtidigt med samma abonnemang, och du väljer själv hur många enheter du vill ha när du beställer. Berätta hur många du behöver, så hjälper vi dig att välja rätt.",
+          "Samma inloggningsuppgifter fungerar i appen på alla dina enheter. Du kan titta på flera enheter samtidigt med samma abonnemang, och du väljer själv hur många enheter du vill ha när du beställer. Fler enheter som tittar samtidigt kostar extra – berätta hur många du behöver, så får du priset för just ditt abonnemang.",
         ],
       },
       { type: "h2", text: "Sammanfattning", id: "sammanfattning" },
@@ -1037,7 +1859,9 @@ export const posts: Post[] = [
       {
         type: "p",
         content: [
-          "Bor du i lägenhet kan grannarnas nätverk störa. Låt routern välja kanal automatiskt, eller prova en annan kanal manuellt om bilden ofta hackar vid samma tider.",
+          "Bor du i lägenhet kan grannarnas nätverk störa. Låt routern välja kanal automatiskt, eller prova en annan kanal manuellt om bilden ofta hackar vid samma tider. Fler råd för flerbostadshus finns i guiden om ",
+          { text: "ostabilt wifi i lägenheten", href: "/blog/ostabilt-wifi-lagenhet" },
+          ".",
         ],
       },
       { type: "h3", text: "Placera routern rätt" },
@@ -1217,6 +2041,14 @@ export const posts: Post[] = [
           { text: "MAC-aktivering på MAG Box", href: "/installera#mag" },
           " och i guiden för ",
           { text: "Smart TV", href: "/installera#smart-tv" },
+          ".",
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Skillnaden mellan enhetens nätverksadress och appens eget ID förklarar vi i guiden ",
+          { text: "MAC-adress för IPTV – var hittar du den?", href: "/blog/mac-adress-iptv" },
           ".",
         ],
       },
@@ -1525,7 +2357,9 @@ export const posts: Post[] = [
       {
         type: "p",
         content: [
-          "Det kan fungera, men hastighet och stabilitet varierar med täckningen och hur många som använder masten samtidigt. Mät därför på platsen där du ska titta, helst vid olika tider på dygnet, innan du bestämmer dig.",
+          "Det kan fungera, men hastighet och stabilitet varierar med täckningen och hur många som använder masten samtidigt. Mät därför på platsen där du ska titta, helst vid olika tider på dygnet, innan du bestämmer dig. Har abonnemanget en surfgräns, se också ",
+          { text: "hur mycket data IPTV drar", href: "/blog/iptv-dataforbrukning" },
+          ".",
         ],
       },
       { type: "h3", text: "Vilken hastighet behöver jag för att titta i 4K?" },
@@ -1746,7 +2580,9 @@ export const posts: Post[] = [
       {
         type: "p",
         content: [
-          "På kvällen är fler uppkopplade samtidigt, både i ditt hem och i nätet i stort. Det gör att marginalerna krymper. Kabelanslutning och färre samtidiga nedladdningar brukar hjälpa mest.",
+          "På kvällen är fler uppkopplade samtidigt, både i ditt hem och i nätet i stort. Det gör att marginalerna krymper. Kabelanslutning och färre samtidiga nedladdningar brukar hjälpa mest. Bor du i lägenhet kan grannarnas nätverk också spela in – läs mer om ",
+          { text: "ostabilt wifi i lägenheten", href: "/blog/ostabilt-wifi-lagenhet" },
+          ".",
         ],
       },
       { type: "h3", text: "Hjälper en snabbare internetuppkoppling alltid?" },
@@ -1934,6 +2770,8 @@ export const posts: Post[] = [
         content: [
           "IPTV är TV via internet. Allt du behöver är en stabil uppkoppling, en kompatibel enhet och en app. Jämfört med kabel-TV och parabol slipper du extra utrustning och kan titta på flera enheter. Vill du komma igång kan du ",
           { text: "jämföra våra priser", href: "/priser" },
+          ", läsa ",
+          { text: "vad IPTV kostar per månad", href: "/blog/vad-kostar-iptv" },
           " eller starta en gratis testperiod.",
         ],
       },
