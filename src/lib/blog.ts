@@ -81,6 +81,31 @@ const dataforbrukningImage = {
   alt: "Hur mycket data drar IPTV – stapeldiagram över datamängd per timme i SD, HD och 4K",
 };
 
+const smartTvImage = {
+  src: "/images/blog/iptv-smart-tv.webp",
+  alt: "IPTV på Smart TV – TV-skärm med operativsystemen Tizen, webOS, Google TV och Android TV",
+};
+
+const fireTvStickImage = {
+  src: "/images/blog/iptv-fire-tv-stick.webp",
+  alt: "IPTV på Fire TV Stick – fem steg från Downloader och utvecklaralternativ till inloggning",
+};
+
+const kopaIptvImage = {
+  src: "/images/blog/kopa-iptv.webp",
+  alt: "Köpa IPTV – checklista med enheter, uppkoppling, antal enheter, testperiod och support",
+};
+
+const androidTvImage = {
+  src: "/images/blog/iptv-android-tv.webp",
+  alt: "IPTV på Android TV och Google TV – TV med appskärm och en Google TV-enhet ansluten via HDMI",
+};
+
+const ordlistaImage = {
+  src: "/images/blog/iptv-ordlista.webp",
+  alt: "IPTV-ordlista – kort med begreppen EPG, M3U, VOD, Xtream Codes, MAC och 4K",
+};
+
 // Price figures for "Vad kostar IPTV?" are read from the plans on /priser, so the
 // article always matches the current prices.
 const plansByLength = [...plans]
@@ -105,6 +130,990 @@ const gbPerHour = (mbit: number) =>
   (mbit * 0.45).toLocaleString("sv-SE", { maximumFractionDigits: 2 });
 
 export const posts: Post[] = [
+  {
+    slug: "iptv-smart-tv",
+    title: "IPTV på Smart TV: vilka TV-märken fungerar?",
+    description:
+      "IPTV på Smart TV: se vilka appar som passar Samsung, LG, Android TV och Google TV – och vad du gör om din TV saknar en passande app.",
+    excerpt:
+      "Samsung, LG, Android TV eller Google TV? Så vet du vilket system din TV har, vilka IPTV-appar som fungerar och vad du gör om appen saknas.",
+    publishedAt: "2026-11-01",
+    updatedAt: "2026-11-01",
+    readingMinutes: 5,
+    image: smartTvImage,
+    related: ["iptv-samsung-smart-tv", "iptv-android-tv"],
+    body: [
+      {
+        type: "p",
+        content: [
+          "IPTV på Smart TV fungerar på de flesta moderna TV-apparater, men vilken app du använder beror på TV:ns operativsystem. Samsung (Tizen) och LG (webOS) använder appar som IBO Player och Smart IPTV från TV:ns egen appbutik. TV-apparater med Android TV eller Google TV – vilket finns hos flera märken – kan i stället använda TiviMate och IPTV Smarters. Saknar din TV en passande app kan du koppla in en Fire TV Stick eller en Google TV-enhet via HDMI.",
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Här går vi igenom systemen ett i taget och länkar vidare till de detaljerade guiderna för varje enhet.",
+        ],
+      },
+      { type: "image", ...smartTvImage, width: 1672, height: 941 },
+      { type: "h2", text: "Snabbguide: system, appar och inloggning", id: "snabbguide" },
+      {
+        type: "table",
+        head: ["TV eller enhet", "Operativsystem", "Appar", "Inloggning"],
+        rows: [
+          ["Samsung Smart TV", "Tizen", "IBO Player, Smart IPTV", "Xtream Codes, M3U-länk eller MAC-aktivering"],
+          ["LG Smart TV", "webOS", "IBO Player, Smart IPTV", "Xtream Codes, M3U-länk eller MAC-aktivering"],
+          ["TV med Android TV eller Google TV", "Android TV / Google TV", "TiviMate, IPTV Smarters", "Xtream Codes eller M3U-länk"],
+          ["Apple TV (box)", "tvOS", "Smarters Player Lite", "Xtream Codes eller M3U-länk"],
+          ["TV med annat system", "Varierar", "Kontrollera appbutiken", "Beror på appen"],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Smart IPTV stöder M3U-länk och MAC-aktivering men inte Xtream Codes. Mer om skillnaderna mellan apparna finns i guiden om ",
+          { text: "bästa IPTV-appen", href: "/blog/basta-iptv-appen" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Så ser du vilket system din TV har", id: "vilket-system" },
+      {
+        type: "ul",
+        items: [
+          ["Titta på startskärmen: Google TV och Android TV visar ofta logotypen när TV:n startar."],
+          ["Öppna TV:ns inställningar och leta efter Om eller Support – där står modell och mjukvaruversion."],
+          ["Sök på TV:ns modellbeteckning, som står på etiketten på baksidan, hos tillverkaren."],
+          ["Kontrollera vilken appbutik som finns: Apps på Samsung, LG Content Store på LG och Google Play på Android TV och Google TV."],
+        ],
+      },
+      { type: "h2", text: "Samsung Smart TV (Tizen)", id: "samsung" },
+      {
+        type: "p",
+        content: [
+          "Samsung använder operativsystemet Tizen, och där fungerar inte Android-appar som TiviMate. Du installerar i stället IBO Player eller Smart IPTV från appbutiken Apps. Enligt ",
+          { text: "Smart IPTV:s utvecklare", href: "https://siptv.app/" },
+          " finns en ny appversion för Samsung-TV med Tizen 6.5 eller senare (2022 års modeller och nyare), och den kräver en ny installation från appbutiken i stället för en uppdatering.",
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Stegen för installation och MAC-aktivering finns i guiden ",
+          { text: "IPTV på Samsung Smart TV", href: "/blog/iptv-samsung-smart-tv" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "LG Smart TV (webOS)", id: "lg" },
+      {
+        type: "p",
+        content: [
+          "LG använder webOS och appbutiken LG Content Store. Där kan du installera IBO Player eller Smart IPTV och logga in på samma sätt som på Samsung. Smart IPTV:s utvecklare anger en aktuell appversion för webOS 3.0 och senare, och en äldre version för LG-modeller med Netcast och webOS 1.0–2.0.",
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Stegen för både IBO Player och Smart IPTV finns i ",
+          { text: "installationsguiden för Smart TV", href: "/installera#smart-tv" },
+          ". Behöver du MAC-adressen hittar du den i guiden ",
+          { text: "MAC-adress för IPTV", href: "/blog/mac-adress-iptv" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Android TV och Google TV", id: "android-tv-google-tv" },
+      {
+        type: "p",
+        content: [
+          "Google TV är Googles gränssnitt som bygger på Android TV, och båda använder Google Play som appbutik – enligt Google fungerar alla appar som är byggda för Android TV även på Google TV. Det finns hos flera TV-märken, beroende på modell, och i fristående enheter som Chromecast med Google TV. Här fungerar TiviMate, som enligt utvecklaren är byggd för Android TV, och IPTV Smarters. Hittar du inte IPTV Smarters i Google Play kan du installera den via appen Downloader.",
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Hur du installerar och loggar in steg för steg beskriver vi i guiden ",
+          { text: "IPTV på Android TV och Google TV", href: "/blog/iptv-android-tv" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Saknar din TV en bra app?", id: "saknar-app" },
+      {
+        type: "p",
+        content: [
+          "Har din TV ett annat system, eller hittar du inga av apparna i appbutiken, är det oftast enklast att ansluta en extern enhet till TV:ns HDMI-port. Då styr du IPTV-appen med enhetens fjärrkontroll, oavsett vilket TV-märke du har.",
+        ],
+      },
+      {
+        type: "table",
+        head: ["Enhet", "Appar", "Guide"],
+        rows: [
+          ["Fire TV Stick eller Fire TV", "TiviMate, IPTV Smarters", "IPTV på Fire TV Stick – steg för steg"],
+          ["Google TV-enhet eller Android TV-box", "TiviMate, IPTV Smarters", "IPTV på Android TV och Google TV"],
+          ["Apple TV", "Smarters Player Lite", "IPTV på Apple TV, iPhone och iPad"],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Läs mer i guiderna ",
+          { text: "IPTV på Fire TV Stick", href: "/blog/iptv-fire-tv-stick" },
+          ", ",
+          { text: "IPTV på Android TV och Google TV", href: "/blog/iptv-android-tv" },
+          " och ",
+          { text: "IPTV på Apple TV, iPhone och iPad", href: "/blog/iptv-apple-tv-iphone" },
+          ". Ska du köpa en ny Fire TV Stick, kontrollera att modellen kör Fire OS – Fire TV Stick 4K Select kör Vega OS och kan bara installera appar från Amazon Appstore.",
+        ],
+      },
+      { type: "h2", text: "Få stabil bild på din Smart TV", id: "stabil-bild" },
+      {
+        type: "p",
+        content: [
+          "De flesta smarta TV-apparater har en nätverksport. En kabel till routern ger ofta stabilare bild än wifi – se guiden om ",
+          { text: "wifi eller nätverkskabel för IPTV", href: "/blog/iptv-wifi-eller-kabel" },
+          ". Stannar bilden ofta hittar du fler lösningar i guiden om vad du kan göra när ",
+          { text: "IPTV buffrar", href: "/blog/iptv-buffrar" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Vanliga frågor", id: "vanliga-fragor" },
+      { type: "h3", text: "Kan jag använda TiviMate på en Samsung- eller LG-TV?" },
+      {
+        type: "p",
+        content: [
+          "Nej, inte direkt i TV:n. TiviMate är byggd för Android TV, så på Samsung och LG använder du IBO Player eller Smart IPTV – eller kopplar in en Fire TV Stick eller Google TV-enhet.",
+        ],
+      },
+      { type: "h3", text: "Fungerar IPTV på äldre smarta TV-apparater?" },
+      {
+        type: "p",
+        content: [
+          "Ofta, men det beror på vilka appar som finns i TV:ns appbutik. Smart IPTV har till exempel en äldre appversion för LG-modeller med Netcast och webOS 1.0–2.0. Hittar du ingen app är en HDMI-enhet det säkraste alternativet.",
+        ],
+      },
+      { type: "h3", text: "Behöver jag en box för att titta på IPTV?" },
+      {
+        type: "p",
+        content: [
+          "Inte om din TV har en passande app. Samsung, LG och TV-apparater med Android TV eller Google TV klarar sig oftast utan extra utrustning.",
+        ],
+      },
+      { type: "h2", text: "Sammanfattning", id: "sammanfattning" },
+      {
+        type: "p",
+        content: [
+          "På Samsung och LG använder du IBO Player eller Smart IPTV, på Android TV och Google TV TiviMate eller IPTV Smarters, och på Apple TV Smarters Player Lite. Saknar TV:n en app löser en Fire TV Stick eller Google TV-enhet det. Alla steg finns i ",
+          { text: "installationsguiden", href: "/installera" },
+          ", och med ",
+          { text: "IPTV Sverige", href: "/" },
+          " kan du börja med en gratis testperiod för att se att allt fungerar på din TV.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "iptv-fire-tv-stick",
+    title: "IPTV på Fire TV Stick – steg för steg",
+    description:
+      "Så installerar du IPTV på Fire TV Stick: hämta Downloader, aktivera utvecklaralternativ, installera TiviMate eller IPTV Smarters och logga in.",
+    excerpt:
+      "Downloader, utvecklaralternativ och okända appar – så installerar du TiviMate eller IPTV Smarters på din Fire TV Stick och loggar in, steg för steg.",
+    publishedAt: "2026-11-01",
+    updatedAt: "2026-11-01",
+    readingMinutes: 5,
+    image: fireTvStickImage,
+    related: ["iptv-smart-tv", "iptv-android-tv"],
+    body: [
+      {
+        type: "p",
+        content: [
+          "På en Fire TV Stick installerar du IPTV-appen med hjälp av appen Downloader. Installera Downloader från Amazon Appstore, ge den tillstånd att installera appar under Utvecklaralternativ och hämta sedan TiviMate eller IPTV Smarters. Därefter loggar du in med Xtream Codes eller en M3U-länk. Stegen gäller Fire TV-enheter med Fire OS, som Fire TV Stick och TV-apparater med Fire TV.",
+        ],
+      },
+      { type: "image", ...fireTvStickImage, width: 1672, height: 941 },
+      { type: "h2", text: "Det här behöver du", id: "det-har-behover-du" },
+      {
+        type: "ul",
+        items: [
+          ["En Fire TV Stick eller annan Fire TV-enhet som är ansluten till internet."],
+          ["Dina inloggningsuppgifter: serveradress, användarnamn och lösenord – eller en M3U-länk."],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Fire TV Stick 4K Select kör Amazons nya operativsystem Vega OS, där bara appar från Amazon Appstore kan installeras – Downloader-metoden fungerar alltså inte där, enligt ",
+          {
+            text: "AFTVnews",
+            href: "https://www.aftvnews.com/sideloading-is-truly-dead-on-the-fire-tv-stick-4k-select-with-vega-os/",
+          },
+          ". Amazon beskriver Vega OS som ",
+          { text: "framtiden för Fire TV Sticks", href: "https://developer.amazon.com/apps-and-games/vega" },
+          ". Ska du köpa en ny Fire TV Stick för IPTV, kontrollera därför att modellen kör Fire OS, eller fråga oss först.",
+        ],
+      },
+      { type: "h2", text: "Steg 1: Installera Downloader", id: "steg-1" },
+      {
+        type: "p",
+        content: [
+          "Sök efter Downloader i Amazon Appstore och installera appen. Enligt ",
+          { text: "AFTVnews webbplats för appen", href: "https://www.aftvnews.com/downloader/" },
+          ", hämtar Downloader filer till Fire TV via en webbadress, en sökning eller en sifferkod. Det är så du installerar appar som inte finns i Amazon Appstore.",
+        ],
+      },
+      { type: "h2", text: "Steg 2: Aktivera utvecklaralternativ", id: "steg-2" },
+      {
+        type: "p",
+        content: [
+          "Gå till Inställningar → My Fire TV. Finns Utvecklaralternativ redan i menyn kan du gå vidare till nästa steg. Annars öppnar du Om och klickar sju gånger på enhetens namn med fjärrkontrollens mittknapp – då visas Utvecklaralternativ. Det är samma metod som ",
+          {
+            text: "Amazons utvecklardokumentation",
+            href: "https://developer.amazon.com/docs/fire-tv/connecting-adb-to-device.html",
+          },
+          " beskriver.",
+        ],
+      },
+      { type: "h2", text: "Steg 3: Tillåt installation av okända appar", id: "steg-3" },
+      {
+        type: "p",
+        content: [
+          "Gå till Inställningar → My Fire TV → Utvecklaralternativ → Installera okända appar och slå på Downloader. På vissa äldre mjukvaruversioner heter inställningen i stället Appar från okända källor och gäller alla appar på en gång.",
+        ],
+      },
+      { type: "h2", text: "Steg 4: Installera TiviMate eller IPTV Smarters", id: "steg-4" },
+      { type: "h3", text: "TiviMate" },
+      {
+        type: "p",
+        content: [
+          "Öppna Downloader och ange den adress som TiviMates utvecklare anger på ",
+          { text: "tivimate.com", href: "https://tivimate.com/" },
+          ": tivimate.com/apk, eller sifferkoden 272483 (enligt webbplatsen i november 2026). Välj Installera när nedladdningen är klar. TiviMate är byggd för Android TV och fjärrkontroll, och vissa funktioner låses upp med en betald uppgradering från utvecklaren.",
+        ],
+      },
+      { type: "h3", text: "IPTV Smarters" },
+      {
+        type: "p",
+        content: [
+          "IPTV Smarters installerar du också via Downloader. Vi skickar gärna rätt nedladdningslänk till dig via WhatsApp, så att du vet att du får appen från rätt källa.",
+        ],
+      },
+      { type: "h2", text: "Steg 5: Logga in", id: "steg-5" },
+      { type: "h3", text: "Logga in i TiviMate" },
+      {
+        type: "ol",
+        items: [
+          ["Öppna TiviMate och välj Lägg till spellista (Add playlist)."],
+          ["Välj Xtream Codes och ange serveradress, användarnamn och lösenord – eller välj M3U-spellista och klistra in din M3U-länk."],
+          ["Välj Nästa och vänta medan kanalerna och TV-guiden laddas."],
+        ],
+      },
+      { type: "h3", text: "Logga in i IPTV Smarters" },
+      {
+        type: "ol",
+        items: [
+          ["Öppna IPTV Smarters och välj Login with Xtream Codes API. Har du en M3U-länk väljer du Load Your Playlist or File/URL."],
+          ["Ange ett valfritt namn och fyll i användarnamn, lösenord och serveradress."],
+          ["Välj Add User och vänta medan innehållet laddas."],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Är du osäker på vilken inloggning du ska välja förklarar vi skillnaden i guiden ",
+          { text: "Xtream Codes eller M3U", href: "/blog/xtream-codes-eller-m3u" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Efter installationen", id: "efter-installationen" },
+      {
+        type: "ul",
+        items: [
+          ["Vill du kan du stänga av Installera okända appar för Downloader igen – appen du installerade fortsätter att fungera."],
+          ["Installera bara appar från källor du litar på, till exempel utvecklarens egen webbplats eller länkar från oss."],
+          ["Lägg IPTV-appen bland dina favoriter på startskärmen så hittar du den snabbare."],
+        ],
+      },
+      { type: "h2", text: "Vanliga problem på Fire TV Stick", id: "vanliga-problem" },
+      {
+        type: "table",
+        head: ["Problem", "Lösning"],
+        rows: [
+          ["Utvecklaralternativ syns inte", "Gå till Inställningar → My Fire TV → Om och klicka sju gånger på enhetens namn"],
+          ["Downloader får inte installera appen", "Slå på Downloader under Utvecklaralternativ → Installera okända appar"],
+          ["Appen startar långsamt eller kraschar", "Rensa appens cache och frigör lagringsutrymme genom att ta bort appar du inte använder"],
+          ["Inloggningen misslyckas", "Kontrollera serveradress, användarnamn och lösenord tecken för tecken"],
+          ["Bilden hackar", "Placera routern närmare eller använd en nätverksadapter med kabel"],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Fler lösningar finns i guiderna ",
+          { text: "IPTV fungerar inte?", href: "/blog/iptv-fungerar-inte" },
+          " och ",
+          { text: "IPTV buffrar", href: "/blog/iptv-buffrar" },
+          ". Fire TV Stick saknar nätverksuttag, så stabil uppkoppling handlar ofta om wifi – läs om ",
+          { text: "wifi eller nätverkskabel för IPTV", href: "/blog/iptv-wifi-eller-kabel" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Vanliga frågor", id: "vanliga-fragor" },
+      { type: "h3", text: "Är det säkert att installera appar via Downloader?" },
+      {
+        type: "p",
+        content: [
+          "Downloader i sig finns i Amazon Appstore. Det viktiga är varifrån du hämtar själva IPTV-appen – använd utvecklarens officiella adress eller en länk från oss, och undvik okända webbplatser.",
+        ],
+      },
+      { type: "h3", text: "Vilken app ska jag välja på Fire TV Stick?" },
+      {
+        type: "p",
+        content: [
+          "TiviMate passar dig som mest tittar på live-TV och vill ha en tydlig TV-guide. IPTV Smarters fungerar på fler enheter, så du får samma upplägg i mobilen och på TV:n. En jämförelse finns i guiden om ",
+          { text: "bästa IPTV-appen", href: "/blog/basta-iptv-appen" },
+          ".",
+        ],
+      },
+      { type: "h3", text: "Fungerar samma steg på en vanlig TV?" },
+      {
+        type: "p",
+        content: [
+          "Stegen gäller Fire TV-enheter. Har du en Samsung, LG eller en TV med Google TV hittar du rätt metod i guiden ",
+          { text: "IPTV på Smart TV", href: "/blog/iptv-smart-tv" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Sammanfattning", id: "sammanfattning" },
+      {
+        type: "p",
+        content: [
+          "Installera Downloader, aktivera Utvecklaralternativ, tillåt Downloader att installera appar och hämta TiviMate eller IPTV Smarters – sedan loggar du in. En kortversion finns i ",
+          { text: "installationsguiden för Fire TV", href: "/installera#firestick" },
+          ". Med ",
+          { text: "IPTV Sverige", href: "/" },
+          " kan du börja med en gratis testperiod via WhatsApp, och vi hjälper dig om du fastnar.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "kopa-iptv",
+    title: "Köpa IPTV: det här ska du kontrollera först",
+    description:
+      "Ska du köpa IPTV? Kontrollera enheter, uppkoppling, antal enheter samtidigt, innehåll och support – och testa gratis via WhatsApp först.",
+    excerpt:
+      "En checklista inför köpet: vilka enheter du ska titta på, hur många samtidigt, vad du bör testa under provperioden och hur beställningen går till.",
+    publishedAt: "2026-11-01",
+    updatedAt: "2026-11-01",
+    readingMinutes: 6,
+    image: kopaIptvImage,
+    related: ["vad-kostar-iptv", "iptv-smart-tv"],
+    body: [
+      {
+        type: "p",
+        content: [
+          "Ska du köpa IPTV bör du först kontrollera att tjänsten fungerar på dina enheter, att uppkopplingen räcker, hur många enheter som ska kunna titta samtidigt, att innehållet passar dig och att du kan få hjälp när något strular. Det enklaste sättet att kontrollera allt det är att börja med en gratis testperiod – hos oss startar du den via WhatsApp.",
+        ],
+      },
+      { type: "image", ...kopaIptvImage, width: 1672, height: 941 },
+      { type: "h2", text: "Checklista innan du köper IPTV", id: "checklista" },
+      {
+        type: "table",
+        head: ["Kontrollera", "Varför", "Så gör du"],
+        rows: [
+          ["Dina enheter", "Appen måste finnas för din TV eller box", "Se vilken app som passar i installationsguiden"],
+          ["Uppkopplingen", "För låg eller ostabil hastighet ger buffring", "Mät hastigheten vid TV:n, gärna på kvällen"],
+          ["Antal enheter samtidigt", "Varje extra enhet som tittar samtidigt kostar extra", "Räkna hur många som tittar samtidigt hemma"],
+          ["Innehållet", "Du vill hitta det du faktiskt tittar på", "Kontrollera dina viktigaste kanaler under testperioden"],
+          ["Abonnemangets längd", "Längre period ger lägre pris per månad", "Jämför perioderna på prissidan"],
+          ["Appens kostnad", "Vissa appar kräver egen licens", "Kontrollera villkoren hos apputvecklaren"],
+          ["Support", "Du vill få hjälp snabbt om något strular", "Fråga hur du når supporten"],
+        ],
+      },
+      { type: "h2", text: "1. Fungerar det på dina enheter?", id: "enheter" },
+      {
+        type: "p",
+        content: [
+          "Börja med att lista var du vill titta: Smart TV, Fire TV Stick, Apple TV, mobil, surfplatta eller dator. Tjänsten fungerar på alla de vanligaste enheterna, och även på datorer med Windows och macOS. Det som avgör är att det finns en app för just din enhet – vilka TV-märken som fungerar ser du i guiden ",
+          { text: "IPTV på Smart TV", href: "/blog/iptv-smart-tv" },
+          ", och stegen för varje enhet finns i ",
+          { text: "installationsguiden", href: "/installera" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "2. Räcker din uppkoppling?", id: "uppkoppling" },
+      {
+        type: "p",
+        content: [
+          `Vi rekommenderar minst ${speedFor("HD")} för HD och ${speedFor("4K")} för 4K per ström. Mät vid TV:n, inte bredvid routern, och lägg ihop behovet om flera tittar samtidigt. Mer om det i guiden om `,
+          { text: "internethastighet för IPTV", href: "/blog/internethastighet-for-iptv" },
+          ". Är wifi-signalen svag hittar du råd i guiden om ",
+          { text: "ostabilt wifi i lägenheten", href: "/blog/ostabilt-wifi-lagenhet" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "3. Hur många enheter ska kunna titta samtidigt?", id: "antal-enheter" },
+      {
+        type: "p",
+        content: [
+          "Samma inloggning fungerar på alla dina enheter, men det som räknas är hur många som tittar samtidigt. Ska flera enheter kunna titta på samma gång kostar varje extra enhet extra. Tänk igenom hur det ser ut hemma innan du beställer:",
+        ],
+      },
+      {
+        type: "ul",
+        items: [
+          ["Tittar bara du, eller ett hushåll som alltid ser på samma TV? Då räcker en enhet åt gången."],
+          ["Ser någon på TV:n i vardagsrummet medan en annan tittar i sovrummet eller i mobilen? Då behöver ni två enheter samtidigt."],
+          ["Har ni flera TV-apparater som används samtidigt, till exempel under en stor sportkväll? Räkna med en enhet per skärm."],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Berätta hur många enheter du behöver när du beställer, så får du priset för just ditt abonnemang.",
+        ],
+      },
+      { type: "h2", text: "4. Passar innehållet dig?", id: "innehall" },
+      {
+        type: "p",
+        content: [
+          "Utbudet innehåller bland annat svenska kanaler, sport samt filmer och serier. Har du särskilda kanaler eller sporter som är viktiga för dig, fråga oss innan du beställer och kontrollera dem under testperioden – då vet du att det du tittar mest på finns med. TV-guiden är också värd att testa; hur den fungerar förklarar vi i guiden om ",
+          { text: "EPG och TV-guide", href: "/blog/iptv-epg-tv-guide" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "5. Vilken period passar dig?", id: "period" },
+      {
+        type: "p",
+        content: [
+          `Vi erbjuder ${listSv(plansByLength.map((p) => `${p.months}`))} månader, utan bindningstid. En längre period ger lägre pris per månad, och priset gäller för hela perioden. Hur du räknar fram månadspriset visar vi i `,
+          { text: "Vad kostar IPTV?", href: "/blog/vad-kostar-iptv" },
+          ", och aktuella priser finns på ",
+          { text: "prissidan", href: "/priser" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "6. Räkna med appens kostnad", id: "appens-kostnad" },
+      {
+        type: "p",
+        content: [
+          "IPTV-appen ingår inte i abonnemanget. Vissa appar är gratis, medan andra – som IBO Player och Smart IPTV – kan kräva en licens från apputvecklaren, och TiviMate låser upp vissa funktioner med en betald uppgradering. Vilken app som passar din enhet läser du i guiden om ",
+          { text: "bästa IPTV-appen", href: "/blog/basta-iptv-appen" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "7. Hur får du hjälp?", id: "support" },
+      {
+        type: "p",
+        content: [
+          "Hos oss får du support via WhatsApp dygnet runt – både inför köpet och när du installerar. Vi hjälper till med allt från val av app till MAC-aktivering av en MAG-box, som också sköts via WhatsApp. Se alla sätt att ",
+          { text: "kontakta oss", href: "/kontakt" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Så fungerar den gratis testperioden", id: "testperiod" },
+      {
+        type: "ol",
+        items: [
+          ["Skriv till oss på WhatsApp och berätta att du vill testa, och vilken enhet du vill använda."],
+          ["Vi startar din testperiod och hjälper dig att komma igång."],
+          ["Testa kostnadsfritt under en begränsad period, med din egen uppkoppling och på dina egna enheter."],
+        ],
+      },
+      { type: "p", content: ["Passa på att testa det som är viktigast för dig:"] },
+      {
+        type: "ul",
+        items: [
+          ["De kanaler och sporter du tittar mest på."],
+          ["Bilden på kvällen, när fler är uppkopplade."],
+          ["TV-guiden och hur lätt det är att hitta i appen."],
+          ["Alla enheter du tänker använda."],
+          ["Skillnaden mellan wifi och kabel, om du kan."],
+        ],
+      },
+      { type: "h2", text: "Så går beställningen till", id: "bestallning" },
+      {
+        type: "ol",
+        items: [
+          [
+            "Välj period på ",
+            { text: "prissidan", href: "/priser" },
+            " och beställ via WhatsApp.",
+          ],
+          ["Berätta vilka enheter du ska använda och hur många som ska kunna titta samtidigt."],
+          ["Efter beställningen får du dina aktiverings- och inloggningsuppgifter."],
+          ["Följ installationsguiden för din enhet – eller be oss om hjälp."],
+        ],
+      },
+      { type: "h2", text: "Vanliga frågor", id: "vanliga-fragor" },
+      { type: "h3", text: "Kan jag använda samma konto på flera enheter?" },
+      {
+        type: "p",
+        content: [
+          "Ja, samma inloggning fungerar på alla dina enheter. Ska flera enheter kunna titta samtidigt kostar varje extra enhet extra – berätta hur många du behöver när du beställer.",
+        ],
+      },
+      { type: "h3", text: "Fungerar det på datorn?" },
+      {
+        type: "p",
+        content: [
+          "Ja, tjänsten kan användas på datorer med Windows och macOS. Hör av dig till oss så hjälper vi dig att välja en spelare som passar din dator. TiviMate är däremot byggd för Android TV, inte för datorer.",
+        ],
+      },
+      { type: "h3", text: "Finns svenska kanaler och sport?" },
+      {
+        type: "p",
+        content: [
+          "Ja, utbudet innehåller svenska kanaler och sport. Fråga oss gärna om specifika kanaler innan du beställer, och kontrollera dem under testperioden.",
+        ],
+      },
+      { type: "h3", text: "Finns det någon bindningstid?" },
+      {
+        type: "p",
+        content: ["Nej. Du väljer en period, och det finns ingen bindningstid och inga dolda avgifter."],
+      },
+      { type: "h2", text: "Sammanfattning", id: "sammanfattning" },
+      {
+        type: "p",
+        content: [
+          "Kontrollera dina enheter, din uppkoppling och hur många som ska titta samtidigt, och testa sedan det du tittar mest på under en gratis testperiod. Med ",
+          { text: "IPTV Sverige", href: "/" },
+          " startar du testet via WhatsApp – och när du är redo väljer du period på ",
+          { text: "prissidan", href: "/priser" },
+          ".",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "iptv-android-tv",
+    title: "IPTV på Android TV och Google TV",
+    description:
+      "Så installerar du IPTV på Android TV, Google TV och Chromecast med Google TV: TiviMate från Google Play, IPTV Smarters via Downloader och inloggning.",
+    excerpt:
+      "TiviMate från Google Play eller IPTV Smarters via Downloader – så får du IPTV på Android TV, Google TV och Chromecast med Google TV.",
+    publishedAt: "2026-11-01",
+    updatedAt: "2026-11-01",
+    readingMinutes: 5,
+    image: androidTvImage,
+    related: ["iptv-fire-tv-stick", "iptv-smart-tv"],
+    body: [
+      {
+        type: "p",
+        content: [
+          "På Android TV och Google TV installerar du IPTV-appen från Google Play eller med appen Downloader, och loggar sedan in med Xtream Codes eller en M3U-länk. TiviMate finns i Google Play och är byggd för Android TV. IPTV Smarters kan du behöva installera via Downloader om den inte finns i Google Play. Samma sak gäller Chromecast med Google TV och andra Google TV-enheter.",
+        ],
+      },
+      { type: "image", ...androidTvImage, width: 1672, height: 941 },
+      { type: "h2", text: "Android TV eller Google TV – vad är skillnaden?", id: "skillnaden" },
+      {
+        type: "p",
+        content: [
+          "Google TV är Googles gränssnitt som bygger på Android TV. Startskärmen ser olika ut, men båda använder Google Play som appbutik, och enligt ",
+          { text: "Googles utvecklardokumentation", href: "https://developer.android.com/training/tv/get-started/google-tv" },
+          " fungerar alla appar som är byggda för Android TV även på enheter med Google TV. Du hittar systemen i TV-apparater från flera märken, i Android-baserade TV-boxar och i strömningsenheter som ansluts via HDMI.",
+        ],
+      },
+      { type: "h2", text: "Vilka appar fungerar?", id: "appar" },
+      {
+        type: "table",
+        head: ["App", "Installation", "Inloggning", "Att tänka på"],
+        rows: [
+          ["TiviMate", "Google Play eller Downloader", "Xtream Codes, M3U-länk", "Byggd för Android TV och fjärrkontroll; vissa funktioner kräver betald uppgradering"],
+          ["IPTV Smarters", "Google Play om den finns, annars Downloader", "Xtream Codes, M3U-länk", "Finns för fler enheter, till exempel mobil"],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Enligt ",
+          { text: "TiviMate i Google Play", href: "https://play.google.com/store/apps/details?id=ar.tvplayer.tv" },
+          " stöder appen M3U, Xtream Codes och Stalker-portal, har TV-guide, favoriter, catch-up, inspelning och föräldrakontroll, och är inte anpassad för mobiler och surfplattor. Vill du titta i Android-mobilen använder du i stället IPTV Smarters.",
+        ],
+      },
+      { type: "h2", text: "Installera TiviMate", id: "tivimate" },
+      {
+        type: "ol",
+        items: [
+          ["Öppna Google Play på TV:n eller Google TV-enheten, sök efter TiviMate och installera appen."],
+          ["Starta TiviMate och välj Lägg till spellista (Add playlist)."],
+          ["Välj Xtream Codes och ange serveradress, användarnamn och lösenord – eller välj M3U-spellista och klistra in din M3U-länk."],
+          ["Vänta medan kanalerna och TV-guiden laddas."],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Utvecklaren erbjuder också en direktnedladdning på ",
+          { text: "tivimate.com", href: "https://tivimate.com/" },
+          ", som du kan hämta med Downloader på samma sätt som på Fire TV.",
+        ],
+      },
+      { type: "h2", text: "Installera IPTV Smarters", id: "iptv-smarters" },
+      {
+        type: "ol",
+        items: [
+          ["Sök efter IPTV Smarters i Google Play. Hittar du inte appen installerar du Downloader från Google Play och hämtar IPTV Smarters med den – vi skickar gärna rätt länk via WhatsApp."],
+          ["Första gången Downloader installerar en app ber enheten dig att tillåta det. Följ anvisningen på skärmen och ge Downloader tillstånd."],
+          ["Öppna IPTV Smarters och välj Login with Xtream Codes API, eller Load Your Playlist or File/URL om du har en M3U-länk."],
+          ["Fyll i dina uppgifter och välj Add User."],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Enligt ",
+          { text: "Downloaders webbplats", href: "https://www.aftvnews.com/downloader/" },
+          " fungerar appen på Google TV, Android TV och Fire TV. På Fire TV ser stegen lite annorlunda ut – se guiden ",
+          { text: "IPTV på Fire TV Stick", href: "/blog/iptv-fire-tv-stick" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Chromecast med Google TV", id: "chromecast" },
+      {
+        type: "p",
+        content: [
+          "Chromecast med Google TV är en strömningsenhet som du ansluter till TV:ns HDMI-port. Den kör Google TV, så du installerar TiviMate eller IPTV Smarters precis som ovan och styr allt med den medföljande fjärrkontrollen. Samma sak gäller Google TV Streamer, som också kör Google TV.",
+        ],
+      },
+      {
+        type: "ul",
+        items: [
+          ["Äldre Chromecast-modeller utan Google TV har ingen appbutik. De tar bara emot det du castar från mobilen och kan inte köra en IPTV-app på egen hand."],
+          [
+            "Chromecast med Google TV saknar eget nätverksuttag. Vill du ansluta med kabel säljer Google en ",
+            { text: "Ethernet-adapter för Chromecast", href: "https://store.google.com/product/ethernet_adapter_for_chromecast" },
+            " som ger både ström och nätverksuttag – tillgängligheten varierar mellan länder.",
+          ],
+          ["Har enheten lite lagringsutrymme kvar, ta bort appar du inte använder innan du installerar IPTV-appen."],
+        ],
+      },
+      { type: "h2", text: "Barnprofiler och föräldrakontroll", id: "foraldrakontroll" },
+      {
+        type: "p",
+        content: [
+          "På Google TV kan du skapa en barnprofil och välja vilka appar barnen får använda, enligt ",
+          { text: "Googles hjälpsida om föräldrakontroll", href: "https://support.google.com/chromecast/answer/10070481" },
+          ". TiviMate har dessutom egen föräldrakontroll i appen.",
+        ],
+      },
+      { type: "h2", text: "Vanliga problem", id: "vanliga-problem" },
+      {
+        type: "ul",
+        items: [
+          ["Appen finns inte i Google Play: utbudet varierar mellan enheter och länder. Använd Downloader eller hör av dig till oss."],
+          ["Downloader får inte installera: ge Downloader tillstånd att installera appar när enheten frågar, eller i enhetens inställningar för appar och säkerhet."],
+          ["TV-guiden är tom: uppdatera spellistan eller guiden i appen – se guiden om EPG och TV-guide."],
+          ["Bilden hackar: anslut med kabel om enheten har nätverksuttag, eller förbättra wifi-signalen."],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Fler lösningar finns i guiderna ",
+          { text: "EPG och TV-guide", href: "/blog/iptv-epg-tv-guide" },
+          ", ",
+          { text: "IPTV buffrar", href: "/blog/iptv-buffrar" },
+          " och ",
+          { text: "IPTV fungerar inte?", href: "/blog/iptv-fungerar-inte" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Vanliga frågor", id: "vanliga-fragor" },
+      { type: "h3", text: "Fungerar TiviMate i Android-mobilen?" },
+      {
+        type: "p",
+        content: [
+          "Enligt utvecklaren är TiviMate byggd för Android TV och inte anpassad för mobiler och surfplattor. I mobilen använder du IPTV Smarters.",
+        ],
+      },
+      { type: "h3", text: "Vilka TV-apparater har Google TV eller Android TV?" },
+      {
+        type: "p",
+        content: [
+          "Flera TV-märken använder Google TV eller Android TV på vissa modeller. Kontrollera startskärmen eller inställningarna under Om – eller se guiden ",
+          { text: "IPTV på Smart TV", href: "/blog/iptv-smart-tv" },
+          ".",
+        ],
+      },
+      { type: "h3", text: "Behöver jag ett Google-konto?" },
+      {
+        type: "p",
+        content: [
+          "För att installera appar från Google Play behöver du vara inloggad med ett Google-konto på enheten.",
+        ],
+      },
+      { type: "h2", text: "Sammanfattning", id: "sammanfattning" },
+      {
+        type: "p",
+        content: [
+          "Installera TiviMate från Google Play eller IPTV Smarters – via Downloader om den saknas – och logga in med Xtream Codes eller M3U-länk. Samma steg gäller Chromecast med Google TV. Kortversionen finns i ",
+          { text: "installationsguiden för Android TV", href: "/installera#android-tv" },
+          ", och med ",
+          { text: "IPTV Sverige", href: "/" },
+          " kan du börja med en gratis testperiod via WhatsApp.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "iptv-ordlista",
+    title: "IPTV-ordlista – begreppen förklarade enkelt",
+    description:
+      "IPTV-ordlista på svenska: vad betyder EPG, M3U, VOD, Xtream Codes, MAC-adress, buffring och bithastighet? Korta förklaringar med länkar till guiderna.",
+    excerpt:
+      "EPG, M3U, VOD, Xtream Codes, MAC-adress och bithastighet – de vanligaste IPTV-begreppen förklarade kort, med länkar till guiderna där du läser mer.",
+    publishedAt: "2026-11-01",
+    updatedAt: "2026-11-01",
+    readingMinutes: 5,
+    image: ordlistaImage,
+    related: ["vad-ar-iptv", "xtream-codes-eller-m3u"],
+    body: [
+      {
+        type: "p",
+        content: [
+          "Den här IPTV-ordlistan förklarar de vanligaste begreppen kort och enkelt. EPG är TV-guiden, M3U är en spellista med kanaler, VOD betyder filmer och serier på begäran och Xtream Codes är ett sätt att logga in med serveradress, användarnamn och lösenord. Varje förklaring länkar till guiden där du kan läsa mer.",
+        ],
+      },
+      { type: "image", ...ordlistaImage, width: 1672, height: 941 },
+      { type: "h2", text: "Grundbegrepp", id: "grundbegrepp" },
+      { type: "h3", text: "IPTV" },
+      {
+        type: "p",
+        content: [
+          "IPTV står för Internet Protocol Television och betyder TV som strömmas via internet i stället för via antenn, parabol eller kabel-TV. Läs mer i guiden ",
+          { text: "Vad är IPTV?", href: "/blog/vad-ar-iptv" },
+        ],
+      },
+      { type: "h3", text: "Live-TV" },
+      {
+        type: "p",
+        content: ["Kanaler som sänds i realtid, precis som vanliga TV-kanaler. I IPTV-appar ligger de oftast under Live TV."],
+      },
+      { type: "h3", text: "VOD" },
+      {
+        type: "p",
+        content: [
+          "VOD står för video on demand – filmer och serier som du startar när du vill, i stället för att följa en tablå.",
+        ],
+      },
+      { type: "h3", text: "Catch-up" },
+      {
+        type: "p",
+        content: [
+          "Möjligheten att titta på program som redan har sänts. Funktionen kräver stöd i både appen och tjänsten för den aktuella kanalen.",
+        ],
+      },
+      { type: "h2", text: "Inloggning och aktivering", id: "inloggning" },
+      { type: "h3", text: "Xtream Codes" },
+      {
+        type: "p",
+        content: [
+          "Ett inloggningssätt där du anger serveradress, användarnamn och lösenord i appen, som sedan hämtar kanaler, filmer, serier och TV-guide. Läs mer i guiden ",
+          { text: "Xtream Codes eller M3U", href: "/blog/xtream-codes-eller-m3u" },
+          ".",
+        ],
+      },
+      { type: "h3", text: "M3U-länk" },
+      {
+        type: "p",
+        content: [
+          "En länk till en spellista – en textfil med kanaler och deras adresser – som du klistrar in i appen. Den fungerar i fler appar än Xtream Codes men hämtar inte alltid TV-guiden automatiskt.",
+        ],
+      },
+      { type: "h3", text: "Spellista" },
+      {
+        type: "p",
+        content: [
+          "Listan över kanaler och innehåll som appen visar. Du lägger till den med Xtream Codes eller en M3U-länk, och i vissa appar via apputvecklarens webbplats.",
+        ],
+      },
+      { type: "h3", text: "MAC-adress" },
+      {
+        type: "p",
+        content: [
+          "En unik hårdvaruadress för en enhets nätverkskort, skriven med tolv tecken som 0–9 och A–F. Vissa IPTV-appar visar i stället ett eget ID som ser ut som en MAC-adress. Läs mer i guiden ",
+          { text: "MAC-adress för IPTV", href: "/blog/mac-adress-iptv" },
+          ".",
+        ],
+      },
+      { type: "h3", text: "Device Key" },
+      {
+        type: "p",
+        content: [
+          "En extra kod som IBO Player visar tillsammans med MAC-adressen. Båda behövs för att lägga till en spellista via IBO Players webbplats.",
+        ],
+      },
+      { type: "h3", text: "Portal" },
+      {
+        type: "p",
+        content: [
+          "Den adress som en MAG-box ansluter till. Du lägger in den i boxens inställningar efter att boxen har aktiverats – hos oss sker aktiveringen via WhatsApp. Se ",
+          { text: "installationsguiden för MAG-box", href: "/installera#mag" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "TV-guide och innehåll", id: "tv-guide" },
+      { type: "h3", text: "EPG" },
+      {
+        type: "p",
+        content: [
+          "EPG står för Electronic Program Guide och är TV-guiden i IPTV-appen, med programmens namn och tider. Läs mer i guiden ",
+          { text: "EPG och TV-guide", href: "/blog/iptv-epg-tv-guide" },
+          ".",
+        ],
+      },
+      { type: "h3", text: "XMLTV" },
+      {
+        type: "p",
+        content: ["Ett vanligt filformat för TV-guider. Det innehåller kanaler, program och tider som appen läser in."],
+      },
+      { type: "h3", text: "Favoriter" },
+      {
+        type: "p",
+        content: [
+          "En egen lista med de kanaler du tittar mest på. De flesta IPTV-appar låter dig lägga till favoriter så att du slipper bläddra.",
+        ],
+      },
+      { type: "h2", text: "Uppkoppling och bildkvalitet", id: "uppkoppling" },
+      { type: "h3", text: "Mbit/s" },
+      {
+        type: "p",
+        content: [
+          "Megabit per sekund – måttet på hur snabb uppkopplingen är. Läs mer i guiden om ",
+          { text: "internethastighet för IPTV", href: "/blog/internethastighet-for-iptv" },
+          ".",
+        ],
+      },
+      { type: "h3", text: "Bithastighet" },
+      {
+        type: "p",
+        content: [
+          "Hur mycket data en ström använder per sekund. Den avgör hur mycket data du förbrukar – varje Mbit/s motsvarar ungefär 0,45 GB per timme. Läs mer i guiden ",
+          { text: "Hur mycket data drar IPTV?", href: "/blog/iptv-dataforbrukning" },
+        ],
+      },
+      { type: "h3", text: "Buffring" },
+      {
+        type: "p",
+        content: [
+          "När bilden stannar och laddar för att data inte hinner fram tillräckligt snabbt. Läs mer i guiden om vad du kan göra när ",
+          { text: "IPTV buffrar", href: "/blog/iptv-buffrar" },
+          ".",
+        ],
+      },
+      { type: "h3", text: "HD och 4K" },
+      {
+        type: "p",
+        content: [
+          "Bildkvaliteter med olika upplösning. Full HD är 1920 × 1080 bildpunkter och 4K är 3840 × 2160 – fyra gånger så många, vilket kräver snabbare uppkoppling och mer data.",
+        ],
+      },
+      { type: "h3", text: "HEVC" },
+      {
+        type: "p",
+        content: [
+          "Ett modernare sätt att koda video, även kallat H.265. Det ger samma bildkvalitet med mindre data än det äldre H.264.",
+        ],
+      },
+      { type: "h3", text: "2,4 GHz och 5 GHz" },
+      {
+        type: "p",
+        content: [
+          "Wifi-routerns två vanligaste frekvensband. 5 GHz är snabbare och mindre störningskänsligt, medan 2,4 GHz når längre. Läs mer i guiden om ",
+          { text: "ostabilt wifi i lägenheten", href: "/blog/ostabilt-wifi-lagenhet" },
+          ".",
+        ],
+      },
+      { type: "h3", text: "Mesh" },
+      {
+        type: "p",
+        content: [
+          "Ett wifi-system med flera enheter som tillsammans ger jämnare täckning i hela bostaden. Läs mer i guiden om ",
+          { text: "wifi eller nätverkskabel för IPTV", href: "/blog/iptv-wifi-eller-kabel" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Enheter och appar", id: "enheter" },
+      { type: "h3", text: "IPTV-app" },
+      {
+        type: "p",
+        content: [
+          "En spelare som visar innehållet från din IPTV-tjänst, till exempel TiviMate eller IPTV Smarters. Appen innehåller inga kanaler i sig. Läs mer i guiden om ",
+          { text: "bästa IPTV-appen", href: "/blog/basta-iptv-appen" },
+          ".",
+        ],
+      },
+      { type: "h3", text: "Tizen och webOS" },
+      {
+        type: "p",
+        content: [
+          "Operativsystemen i Samsungs respektive LG:s smarta TV-apparater. De har egna appbutiker, så Android-appar fungerar inte där. Läs mer i guiden ",
+          { text: "IPTV på Smart TV", href: "/blog/iptv-smart-tv" },
+          ".",
+        ],
+      },
+      { type: "h3", text: "Android TV och Google TV" },
+      {
+        type: "p",
+        content: [
+          "Googles system för TV-apparater och strömningsenheter, där Google TV är ett gränssnitt som bygger på Android TV. Båda använder Google Play. Läs mer i guiden ",
+          { text: "IPTV på Android TV och Google TV", href: "/blog/iptv-android-tv" },
+          ".",
+        ],
+      },
+      { type: "h3", text: "Downloader" },
+      {
+        type: "p",
+        content: [
+          "En app för Fire TV, Google TV och Android TV som hämtar filer via en webbadress. Den används för att installera appar som inte finns i appbutiken. Läs mer i guiden ",
+          { text: "IPTV på Fire TV Stick", href: "/blog/iptv-fire-tv-stick" },
+          ".",
+        ],
+      },
+      { type: "h3", text: "MAG-box" },
+      {
+        type: "p",
+        content: [
+          "En TV-box som är gjord för IPTV och aktiveras med boxens egen MAC-adress i stället för med en app.",
+        ],
+      },
+      { type: "h2", text: "Abonnemang", id: "abonnemang" },
+      { type: "h3", text: "Abonnemangsperiod" },
+      {
+        type: "p",
+        content: [
+          "Den tid du betalar för i förväg. Månadspriset räknar du fram genom att dela totalpriset med antalet månader – se ",
+          { text: "Vad kostar IPTV?", href: "/blog/vad-kostar-iptv" },
+        ],
+      },
+      { type: "h3", text: "Samtidiga enheter" },
+      {
+        type: "p",
+        content: [
+          "Antalet enheter som kan titta samtidigt med samma abonnemang. Hos oss kostar varje extra samtidig enhet extra. Läs mer i guiden ",
+          { text: "Köpa IPTV", href: "/blog/kopa-iptv" },
+          ".",
+        ],
+      },
+      { type: "h3", text: "Testperiod" },
+      {
+        type: "p",
+        content: [
+          "En kostnadsfri period då du kan prova tjänsten med din egen uppkoppling innan du köper. Hos oss startar du testperioden via WhatsApp.",
+        ],
+      },
+      { type: "h2", text: "Sammanfattning", id: "sammanfattning" },
+      {
+        type: "p",
+        content: [
+          "Med de här begreppen blir det lättare att förstå inställningar, guider och supportsvar. Saknar du ett ord eller fastnar i installationen hjälper vi dig gärna – ",
+          { text: "kontakta oss", href: "/kontakt" },
+          ", eller börja med en gratis testperiod hos ",
+          { text: "IPTV Sverige", href: "/" },
+          ".",
+        ],
+      },
+    ],
+  },
   {
     slug: "ostabilt-wifi-lagenhet",
     title: "Ostabilt wifi i lägenheten? Så löser du det",
@@ -635,7 +1644,9 @@ export const posts: Post[] = [
       {
         type: "p",
         content: [
-          "Ja. Kontakta oss via WhatsApp så startar vi en gratis testperiod. Du kan då testa tjänsten kostnadsfritt under en begränsad period och se hur den fungerar med din uppkoppling innan du köper ett abonnemang.",
+          "Ja. Kontakta oss via WhatsApp så startar vi en gratis testperiod. Du kan då testa tjänsten kostnadsfritt under en begränsad period och se hur den fungerar med din uppkoppling innan du köper ett abonnemang. Vad du bör kontrollera innan du beställer går vi igenom i guiden ",
+          { text: "Köpa IPTV", href: "/blog/kopa-iptv" },
+          ".",
         ],
       },
       { type: "h2", text: "Vanliga frågor", id: "vanliga-fragor" },
@@ -1036,7 +2047,13 @@ export const posts: Post[] = [
         type: "ul",
         items: [
           ["Kontrollera att appen finns i appbutiken för just din TV-modell eller enhet."],
-          ["Har du en vanlig TV utan bra appar kan en Fire TV Stick eller Android TV-box via HDMI vara enklaste vägen."],
+          [
+            "Har du en vanlig TV utan bra appar kan en ",
+            { text: "Fire TV Stick", href: "/blog/iptv-fire-tv-stick" },
+            " eller en ",
+            { text: "Android TV- eller Google TV-enhet", href: "/blog/iptv-android-tv" },
+            " via HDMI vara enklaste vägen.",
+          ],
           ["Se till att uppkopplingen räcker – läs om vilken internethastighet du behöver för IPTV i HD och 4K."],
           ["Testa gärna tjänsten innan du köper ett abonnemang."],
         ],
@@ -1258,6 +2275,8 @@ export const posts: Post[] = [
         content: [
           "Ja, IBO Player och Smart IPTV finns även för LG Smart TV, där du installerar dem från LG Content Store. Stegen är i stort sett desamma – se ",
           { text: "installationsguiden för Smart TV", href: "/installera#smart-tv" },
+          ". Vilka andra TV-märken som fungerar ser du i guiden ",
+          { text: "IPTV på Smart TV", href: "/blog/iptv-smart-tv" },
           ".",
         ],
       },
@@ -2643,7 +3662,9 @@ export const posts: Post[] = [
       {
         type: "p",
         content: [
-          "IPTV står för Internet Protocol Television. Namnet kommer från att TV-signalen skickas som datapaket över internet – samma teknik som används när du surfar, streamar musik eller ringer videosamtal. IPTV är i sig ingen ny teknik: många TV-operatörer levererar redan TV via bredband till sina kunder.",
+          "IPTV står för Internet Protocol Television. Namnet kommer från att TV-signalen skickas som datapaket över internet – samma teknik som används när du surfar, streamar musik eller ringer videosamtal. IPTV är i sig ingen ny teknik: många TV-operatörer levererar redan TV via bredband till sina kunder. Fler begrepp förklarar vi i vår ",
+          { text: "IPTV-ordlista", href: "/blog/iptv-ordlista" },
+          ".",
         ],
       },
       {
