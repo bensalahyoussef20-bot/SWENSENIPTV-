@@ -106,6 +106,16 @@ const ordlistaImage = {
   alt: "IPTV-ordlista – kort med begreppen EPG, M3U, VOD, Xtream Codes, MAC och 4K",
 };
 
+const svenskaKanalerImage = {
+  src: "/images/blog/iptv-svenska-kanaler.webp",
+  alt: "IPTV med svenska kanaler – Smart TV med TV-guide",
+};
+
+const stabilIptvImage = {
+  src: "/images/blog/stabil-iptv.webp",
+  alt: "Stabil IPTV – kedjan från tjänstens server via routern till TV:n",
+};
+
 // Price figures for "Vad kostar IPTV?" are read from the plans on /priser, so the
 // article always matches the current prices.
 const plansByLength = [...plans]
@@ -130,6 +140,469 @@ const gbPerHour = (mbit: number) =>
   (mbit * 0.45).toLocaleString("sv-SE", { maximumFractionDigits: 2 });
 
 export const posts: Post[] = [
+  {
+    slug: "stabil-iptv",
+    title: "Stabil IPTV – vad avgör och hur testar du det?",
+    metaTitle: "Stabil IPTV – vad avgör och hur testar du?",
+    description:
+      "Vad gör IPTV stabil? Se vad som avgör jämn bild – tjänst, nätverk och enhet – och hur du testar stabiliteten hemma innan du väljer tjänst.",
+    excerpt:
+      "Stabil IPTV avgörs av hela kedjan – tjänst, internet, hemnätverk och enhet. Så förstår du vad som ger jämn bild och hur du testar stabiliteten hemma.",
+    publishedAt: "2026-11-07",
+    updatedAt: "2026-11-07",
+    readingMinutes: 8,
+    image: stabilIptvImage,
+    related: ["iptv-buffrar", "iptv-wifi-eller-kabel"],
+    body: [
+      {
+        type: "p",
+        content: [
+          "Stabil IPTV betyder att bilden flyter jämnt utan att stanna, hacka eller tappa kvalitet – även på kvällen och under direktsänd sport. Stabiliteten avgörs av tre länkar i en kedja: tjänstens servrar, ditt hemnätverk och din enhet med appen. Är en av länkarna svag märks det på bilden. Det bästa sättet att veta om en tjänst är stabil hos just dig är att testa den med din egen uppkoppling, vid de tider du brukar titta.",
+        ],
+      },
+      { type: "image", ...stabilIptvImage, width: 1672, height: 941 },
+      { type: "h2", text: "Vad gör en IPTV-ström stabil?", id: "vad-gor-strommen-stabil" },
+      {
+        type: "p",
+        content: [
+          "När du tittar på IPTV skickas bilden i små delar från tjänstens servrar, via din internetleverantör och ditt hemnätverk, till appen på din TV. Appen lägger delarna i en buffert innan de spelas upp. Så länge nya delar kommer fram i jämn takt flyter bilden. Kommer de för sent tar bufferten slut och bilden stannar.",
+        ],
+      },
+      { type: "p", content: ["Stabiliteten beror därför på hela vägen – inte bara på hur snabbt ditt bredband är:"] },
+      {
+        type: "table",
+        head: ["Länk i kedjan", "Vad som påverkar"],
+        rows: [
+          ["Tjänsten", "Hur väl servrarna klarar många tittare samtidigt, särskilt vid populära sändningar"],
+          ["Vägen via internet", "Hur trafiken går mellan tjänsten och din internetleverantör, och belastningen på kvällen"],
+          ["Ditt hemnätverk", "Wifi-signal, störningar, routerns placering och annan trafik i hemmet"],
+          ["Enheten och appen", "Enhetens prestanda, ledigt minne, appens version och inställningar"],
+        ],
+      },
+      { type: "h2", text: "Vanliga orsaker till att IPTV blir ostabil", id: "vanliga-orsaker" },
+      { type: "p", content: ["De flesta problem går att spåra till någon av länkarna ovan:"] },
+      {
+        type: "ul",
+        items: [
+          ["Svagt eller stört wifi: avstånd, väggar och grannarnas nätverk."],
+          ["Annan trafik i hemmet: nedladdningar, uppdateringar och andra som streamar samtidigt."],
+          ["Kvällsbelastning: fler är uppkopplade, både i hemmet och i nätet i stort."],
+          ["En överbelastad enhet: fullt minne eller en gammal app."],
+          ["Belastning hos tjänsten: till exempel när många tittar på samma sändning."],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Hur du felsöker varje orsak steg för steg går vi igenom i guiden ",
+          { text: "IPTV buffrar? 8 sätt att få en stabil bild", href: "/blog/iptv-buffrar" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Hastighet och stabilitet är inte samma sak", id: "hastighet-och-stabilitet" },
+      {
+        type: "p",
+        content: [
+          "Hastighet anger hur mycket data din uppkoppling klarar per sekund. Stabilitet handlar om hur jämnt data kommer fram. En snabb uppkoppling kan ändå ge hackig bild om den svajar. Tre mått är bra att känna till:",
+        ],
+      },
+      {
+        type: "ul",
+        items: [
+          ["Svarstid (ping): hur lång tid det tar för data att gå fram och tillbaka."],
+          ["Jitter: hur mycket svarstiden varierar. Stora variationer ger ojämn leverans."],
+          ["Paketförlust: data som försvinner på vägen och kan behöva skickas igen."],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "För IPTV är jämnheten ofta viktigare än toppfarten. Vilken hastighet du behöver för SD, HD och 4K hittar du i guiden ",
+          { text: "internethastighet för IPTV", href: "/blog/internethastighet-for-iptv" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Wifi eller nätverkskabel?", id: "wifi-eller-kabel" },
+      {
+        type: "p",
+        content: [
+          "En nätverkskabel ger nästan alltid den jämnaste uppkopplingen, eftersom den inte påverkas av väggar, avstånd eller grannarnas nätverk. Wifi kan fungera bra, men är mer känsligt för störningar – och det är just variationerna som ger hackig bild. Kan du dra en kabel till TV:n eller boxen är det ofta den enskilt mest effektiva åtgärden för stabil IPTV. Fördelar och nackdelar går vi igenom i guiden ",
+          { text: "wifi eller nätverkskabel för IPTV", href: "/blog/iptv-wifi-eller-kabel" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Routerns placering och trängsel i nätverket", id: "routerns-placering" },
+      {
+        type: "p",
+        content: [
+          "Routern bör stå fritt och centralt, inte i ett skåp eller bakom TV:n. I flerbostadshus kan grannarnas nätverk trängas på samma kanaler, och då hjälper det ofta att använda 5 GHz-bandet eller byta kanal. Hemma kan stora nedladdningar och flera samtidiga strömmar ta så mycket kapacitet att IPTV-strömmen inte hinner med. Mer om störningar i lägenheter finns i guiden ",
+          { text: "ostabilt wifi i lägenheten", href: "/blog/ostabilt-wifi-lagenhet" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Så felsöker du när bilden buffrar eller fryser", id: "felsok" },
+      { type: "p", content: ["Börja med de snabba åtgärderna och gå sedan vidare:"] },
+      {
+        type: "ol",
+        items: [
+          ["Starta om routern och enheten."],
+          ["Testa en annan kanal – gäller problemet en kanal eller alla?"],
+          ["Anslut med kabel, eller flytta närmare routern, och jämför."],
+          ["Pausa nedladdningar och annan streaming i hemmet."],
+          ["Uppdatera appen och rensa dess cache."],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Gäller problemet något annat än buffring – till exempel inloggning, ljud eller svart bild – finns lösningarna i guiden ",
+          { text: "IPTV fungerar inte?", href: "/blog/iptv-fungerar-inte" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Så testar du hur stabil din uppkoppling är", id: "testa-uppkopplingen" },
+      { type: "p", content: ["Du kan själv ta reda på om det är uppkopplingen eller wifi som svajar:"] },
+      {
+        type: "ul",
+        items: [
+          [
+            "Mät vid TV:n på kvällen: gör flera mätningar på ",
+            { text: "Bredbandskollen", href: "https://www.bredbandskollen.se/" },
+            ", som visar både hastighet och svarstid. Varierar resultaten mycket mellan mätningarna är uppkopplingen ojämn.",
+          ],
+          ["Gör ett längre pingtest: kör ping -n 100 följt av routerns adress (Windows) eller ping -c 100 (Mac) från en dator som står där TV:n står. Stora variationer eller förlorade paket mot routern tyder på problem med wifi; stabila värden mot routern men ojämna värden mot en extern adress tyder på att det svajar längre ut i nätet."],
+          ["Jämför wifi och kabel på samma plats, om du kan."],
+        ],
+      },
+      { type: "h2", text: "Det här bör du kontrollera innan du väljer IPTV-tjänst", id: "valja-tjanst" },
+      {
+        type: "p",
+        content: ["En stabil upplevelse beror både på dig och på tjänsten. Inför valet är det värt att kontrollera:"],
+      },
+      {
+        type: "ul",
+        items: [
+          ["Att du kan testa först: en testperiod visar mer än alla löften."],
+          ["Att appen finns för din enhet och att du kan välja en app som passar dig."],
+          ["Att det finns support som kan hjälpa dig om bilden strular."],
+          ["Hur många enheter som kan titta samtidigt: flera strömmar ställer högre krav på uppkopplingen."],
+          ["Att tjänsten är seriös och auktoriserad: med tydlig information om vem som står bakom den, läsbara villkor och rätt att visa det innehåll den erbjuder. Var försiktig med gratis kanallistor och erbjudanden som verkar för bra för att vara sanna; de är ofta ostabila och saknar rättigheter till innehållet."],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Ingen tjänst kan lova helt avbrottsfri streaming, eftersom stabiliteten också beror på din uppkoppling och ditt hemnätverk. En mer allmän checklista inför köpet hittar du i guiden ",
+          { text: "Köpa IPTV", href: "/blog/kopa-iptv" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Så utvärderar du stabiliteten under en testperiod", id: "utvardera-testperiod" },
+      {
+        type: "p",
+        content: [
+          "En testperiod är det säkraste sättet att se hur stabil en tjänst är hemma hos dig. Testa under realistiska förhållanden:",
+        ],
+      },
+      {
+        type: "ul",
+        items: [
+          ["Titta på kvällen, mellan ungefär 19 och 23, när belastningen är som störst."],
+          ["Testa direktsänd sport, som ställer höga krav på jämn leverans."],
+          ["Testa de kanaler du tittar mest på – och några till."],
+          ["Testa på alla enheter du tänker använda, och gärna både wifi och kabel."],
+          ["Anteckna när bilden stannar, på vilken kanal och vilken enhet. Då ser du om problemet ligger hos en kanal, en enhet eller nätverket."],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "IPTV Sverige är en licensierad tjänst. Hos oss startar du en gratis testperiod via WhatsApp, och vår support når du dygnet runt via WhatsApp om något inte fungerar som det ska.",
+        ],
+      },
+      { type: "h2", text: "Vanliga frågor om stabil IPTV", id: "vanliga-fragor" },
+      { type: "h3", text: "Vad är stabil IPTV?" },
+      {
+        type: "p",
+        content: [
+          "Stabil IPTV innebär att bilden spelas upp jämnt utan avbrott, hack eller kvalitetstapp. Det kräver att tjänsten, uppkopplingen, hemnätverket och enheten fungerar bra tillsammans.",
+        ],
+      },
+      { type: "h3", text: "Varför laggar IPTV bara på kvällen?" },
+      {
+        type: "p",
+        content: [
+          "På kvällen är fler uppkopplade samtidigt, både i ditt hem och i nätet i stort. Marginalerna krymper, och små variationer märks mer. Kabelanslutning och färre samtidiga nedladdningar brukar hjälpa.",
+        ],
+      },
+      { type: "h3", text: "Hjälper ett snabbare bredband?" },
+      {
+        type: "p",
+        content: [
+          "Bara om din nuvarande hastighet är för låg. Är problemet att uppkopplingen svajar hjälper ofta kabel, bättre wifi-täckning eller mindre annan trafik mer än ett snabbare abonnemang.",
+        ],
+      },
+      { type: "h3", text: "Finns det IPTV helt utan buffring?" },
+      {
+        type: "p",
+        content: [
+          "Ingen tjänst kan garantera IPTV helt utan buffring, eftersom stabiliteten beror på hela kedjan från tjänsten till din TV. Med en stabil uppkoppling, gärna via kabel, brukar avbrotten däremot bli betydligt färre. Testa under en testperiod med din egen uppkoppling innan du bestämmer dig.",
+        ],
+      },
+      { type: "h3", text: "Vilken enhet ger stabilast IPTV?" },
+      {
+        type: "p",
+        content: [
+          "En enhet med nätverksuttag och tillräcklig prestanda, ansluten med kabel, ger oftast jämnast bild. Vilka enheter och appar som fungerar ser du i guiden ",
+          { text: "IPTV på Smart TV", href: "/blog/iptv-smart-tv" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Sammanfattning", id: "sammanfattning" },
+      {
+        type: "p",
+        content: [
+          "Stabil IPTV handlar om hela kedjan: tjänsten, vägen via internet, ditt hemnätverk och din enhet. Jämnhet är viktigare än toppfart, och en nätverkskabel är ofta den mest effektiva förbättringen. Testa under realistiska förhållanden – på kvällen, med sport och på dina egna enheter – innan du bestämmer dig. Med ",
+          { text: "IPTV Sverige", href: "/" },
+          " kan du börja med en gratis testperiod och se hur stabilt det fungerar hemma hos dig.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "iptv-svenska-kanaler",
+    title: "IPTV med svenska kanaler – så väljer du rätt tjänst",
+    metaTitle: "IPTV med svenska kanaler – så väljer du rätt",
+    description:
+      "IPTV med svenska kanaler: se vad du ska kontrollera innan du väljer tjänst – kanalutbud, TV-guide, appar för din TV, uppkoppling och laglighet.",
+    excerpt:
+      "Så tittar du på svenska kanaler via IPTV – och vad du ska kontrollera innan du väljer tjänst: kanalutbud, TV-guide, appar för din TV och uppkoppling.",
+    publishedAt: "2026-11-07",
+    updatedAt: "2026-11-07",
+    readingMinutes: 7,
+    image: svenskaKanalerImage,
+    related: ["kopa-iptv", "iptv-epg-tv-guide"],
+    body: [
+      {
+        type: "p",
+        content: [
+          "Med IPTV tittar du på svenska kanaler via internet i stället för via antenn, parabol eller kabel-TV. Du använder en app på din Smart TV, TV-box eller mobil, och kanalerna visas med en TV-guide precis som vanlig tablå-TV. Innan du väljer tjänst är det klokt att kontrollera fyra saker: att de svenska kanaler du tittar mest på finns med, att TV-guiden fungerar, att appen finns för din enhet och att din uppkoppling är stabil nog.",
+        ],
+      },
+      { type: "image", ...svenskaKanalerImage, width: 1672, height: 941 },
+      { type: "h2", text: "Vad menas med IPTV och svenska kanaler?", id: "vad-menas" },
+      {
+        type: "p",
+        content: [
+          "När någon söker efter IPTV med svenska kanaler vill de oftast titta på svensk live-TV – nyheter, sport och underhållning – på samma sätt som med ett vanligt TV-paket, fast via internet. I stället för en box från en kabel- eller parabolleverantör räcker det med en app och en internetuppkoppling.",
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Många vill också samla allt på ett ställe: svenska kanaler, sport, filmer och serier i en och samma app, på flera enheter. Vill du först förstå hur tekniken bakom fungerar finns en grundlig genomgång i guiden ",
+          { text: "Vad är IPTV?", href: "/blog/vad-ar-iptv" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Så får du svenska kanaler via IPTV", id: "sa-far-du" },
+      { type: "p", content: ["Själva upplägget är detsamma oavsett vilka kanaler du vill se:"] },
+      {
+        type: "ol",
+        items: [
+          ["Du väljer en IPTV-tjänst och får inloggningsuppgifter – oftast Xtream Codes eller en M3U-länk."],
+          ["Du installerar en IPTV-app på din TV eller enhet."],
+          ["Du loggar in i appen, och kanallistan och TV-guiden laddas."],
+          ["Du bläddrar bland kanalerna eller väljer program direkt i tablån."],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Hur du loggar in beskriver vi i guiden ",
+          { text: "Xtream Codes eller M3U", href: "/blog/xtream-codes-eller-m3u" },
+          ", och stegen för varje enhet finns i ",
+          { text: "installationsguiden", href: "/installera" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Det här bör du kontrollera innan du väljer tjänst", id: "kontrollera" },
+      {
+        type: "p",
+        content: ["Kanalutbudet är det viktigaste för de flesta, men det är inte det enda som avgör om tjänsten passar dig."],
+      },
+      {
+        type: "table",
+        head: ["Kontrollera", "Varför det spelar roll"],
+        rows: [
+          ["Att dina viktigaste svenska kanaler finns med", "Utbudet skiljer sig mellan tjänster – fråga efter de kanaler du tittar mest på"],
+          ["Att TV-guiden fungerar för kanalerna", "Utan tablå blir det svårt att hitta rätt program"],
+          ["Att appen finns för din enhet", "Alla appar finns inte för alla TV-märken"],
+          ["Bildkvalitet", "Kvaliteten kan variera mellan kanaler och beror också på din uppkoppling"],
+          ["Hur många som ska titta samtidigt", "Fler samtidiga enheter kan påverka priset"],
+          ["Möjlighet att testa först", "Då ser du hur kanalerna fungerar hemma hos dig"],
+          ["Support", "Bra att kunna få hjälp om något inte fungerar"],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Det säkraste sättet att kontrollera kanalutbudet är att testa tjänsten med de kanaler du faktiskt tittar på. En mer allmän checklista inför köpet hittar du i guiden ",
+          { text: "Köpa IPTV: det här ska du kontrollera först", href: "/blog/kopa-iptv" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Svenska kanaler på Smart TV och andra enheter", id: "enheter" },
+      {
+        type: "p",
+        content: [
+          "Du kan titta på svenska kanaler via IPTV på de flesta moderna enheter. Det som avgör är vilken app som finns för just din enhet.",
+        ],
+      },
+      {
+        type: "table",
+        head: ["Enhet", "Vanliga appar"],
+        rows: [
+          ["Samsung och LG Smart TV", "IBO Player, Smart IPTV"],
+          ["TV med Android TV eller Google TV", "TiviMate, IPTV Smarters"],
+          ["Fire TV Stick", "TiviMate, IPTV Smarters"],
+          ["Apple TV, iPhone och iPad", "Smarters Player Lite"],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Vilka TV-märken som fungerar, och vad du gör om din TV saknar en passande app, förklarar vi i guiden ",
+          { text: "IPTV på Smart TV", href: "/blog/iptv-smart-tv" },
+          ". Har du en Fire TV Stick finns en egen guide: ",
+          { text: "IPTV på Fire TV Stick – steg för steg", href: "/blog/iptv-fire-tv-stick" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Därför är TV-guiden viktig för svenska kanaler", id: "tv-guide" },
+      {
+        type: "p",
+        content: [
+          "TV-guiden, eller EPG, visar vad som sänds nu och senare på varje kanal. För svenska kanaler är den särskilt användbar när du vill hitta kvällens nyheter, en sportsändning eller ett program du följer.",
+        ],
+      },
+      { type: "p", content: ["Två saker är bra att känna till:"] },
+      {
+        type: "ul",
+        items: [
+          ["Rätt tidszon: visar tablån fel klockslag beror det nästan alltid på att enhetens tidszon inte är inställd på Sverige."],
+          ["Matchning mot kanalerna: TV-guiden kopplas till kanalerna i appen. Saknas programinformation för en kanal kan guiden behöva uppdateras."],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Hur tablån fungerar, och vad du gör om den är tom eller visar fel tid, går vi igenom i guiden ",
+          { text: "EPG och TV-guide i IPTV", href: "/blog/iptv-epg-tv-guide" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Uppkoppling och bildkvalitet", id: "uppkoppling" },
+      {
+        type: "p",
+        content: [
+          `Svenska live-kanaler strömmas i realtid, så en stabil uppkoppling betyder mer än en hög toppfart. Vi rekommenderar minst ${speedFor("SD")} för SD, ${speedFor("HD")} för HD och ${speedFor("4K")} för 4K – per ström som används samtidigt.`,
+        ],
+      },
+      {
+        type: "ul",
+        items: [
+          ["Anslut TV:n eller boxen med nätverkskabel om du kan. Det ger jämnast bild, särskilt vid livesport."],
+          ["Använder du wifi, välj 5 GHz-bandet och placera routern nära TV:n."],
+          ["Mät hastigheten vid TV:n och gärna på kvällen, när fler är uppkopplade."],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Läs mer i guiderna ",
+          { text: "internethastighet för IPTV", href: "/blog/internethastighet-for-iptv" },
+          " och ",
+          { text: "IPTV buffrar", href: "/blog/iptv-buffrar" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Välj en laglig och auktoriserad tjänst", id: "laglig-tjanst" },
+      {
+        type: "p",
+        content: [
+          "Det finns många erbjudanden om IPTV med svenska kanaler, och de skiljer sig mycket åt. Välj en tjänst som har rätt att visa det innehåll den erbjuder. Det här är bra att titta efter:",
+        ],
+      },
+      {
+        type: "ul",
+        items: [
+          ["Tydlig information om företaget – vem som står bakom tjänsten och hur du kontaktar dem."],
+          ["Villkor och integritetspolicy som går att läsa innan du betalar."],
+          ["Raka besked om innehållet – en seriös tjänst kan svara på frågor om vad som ingår."],
+          ["Var försiktig med gratis kanallistor och erbjudanden som verkar för bra för att vara sanna. Sådana listor saknar ofta rättigheter till innehållet och kan dessutom vara osäkra."],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Kom också ihåg att flera svenska TV-bolag erbjuder egna tjänster där du kan se deras kanaler och program via internet. Är du osäker på om en tjänst har rätt att visa ett visst innehåll, fråga leverantören innan du köper. IPTV Sverige är en licensierad tjänst, och vi svarar gärna på frågor om vad som ingår.",
+        ],
+      },
+      { type: "h2", text: "Svenska kanaler hos IPTV Sverige", id: "hos-oss" },
+      {
+        type: "p",
+        content: [
+          "I vårt utbud ingår svenska kanaler och sport, och TV-guiden ingår i abonnemanget. Vill du veta om en viss kanal finns med, fråga oss innan du beställer – och börja gärna med en gratis testperiod via WhatsApp, så kan du kontrollera kanalerna med din egen uppkoppling. Ska flera enheter kunna titta samtidigt kostar varje extra enhet extra, och vår support når du via WhatsApp dygnet runt. Aktuella priser finns på ",
+          { text: "prissidan", href: "/priser" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Vanliga frågor om IPTV och svenska kanaler", id: "vanliga-fragor" },
+      { type: "h3", text: "Vilka svenska kanaler ingår?" },
+      {
+        type: "p",
+        content: [
+          "Kanalutbudet skiljer sig mellan tjänster och kan förändras över tid. Fråga efter de kanaler du tittar mest på innan du beställer, och kontrollera dem under en testperiod.",
+        ],
+      },
+      { type: "h3", text: "Fungerar TV-guiden för svenska kanaler?" },
+      {
+        type: "p",
+        content: ["TV-guiden ingår i abonnemanget hos oss. Visar den fel tid, kontrollera att enhetens tidszon är inställd på Sverige."],
+      },
+      { type: "h3", text: "Kan jag se svenska kanaler på min Smart TV utan box?" },
+      {
+        type: "p",
+        content: [
+          "Ofta, ja. Samsung, LG och TV-apparater med Android TV eller Google TV har appar som fungerar direkt i TV:n. Saknas appen kan en Fire TV Stick eller en Google TV-enhet via HDMI lösa det.",
+        ],
+      },
+      { type: "h3", text: "Finns svenska kanaler i HD och 4K?" },
+      {
+        type: "p",
+        content: [
+          `Bildkvaliteten beror på kanalen och på din uppkoppling. För HD behöver du minst ${speedFor("HD")} och för 4K minst ${speedFor("4K")} per ström.`,
+        ],
+      },
+      { type: "h3", text: "Är gratis IPTV med svenska kanaler att lita på?" },
+      {
+        type: "p",
+        content: [
+          "Var försiktig. Gratis kanallistor saknar ofta rättigheter till innehållet, fungerar ofta dåligt och kan vara en säkerhetsrisk. Välj hellre en tjänst med tydliga villkor och möjlighet att testa först.",
+        ],
+      },
+      { type: "h2", text: "Sammanfattning", id: "sammanfattning" },
+      {
+        type: "p",
+        content: [
+          "IPTV med svenska kanaler handlar om att se svensk live-TV via internet i en app på din TV eller mobil. Kontrollera att dina viktigaste kanaler finns med, att TV-guiden fungerar, att appen finns för din enhet och att uppkopplingen är stabil – och välj en tjänst med tydliga villkor och rätt att visa innehållet. Med ",
+          { text: "IPTV Sverige", href: "/" },
+          " kan du testa gratis innan du bestämmer dig.",
+        ],
+      },
+    ],
+  },
   {
     slug: "iptv-smart-tv",
     title: "IPTV på Smart TV: vilka TV-märken fungerar?",
@@ -575,7 +1048,9 @@ export const posts: Post[] = [
       {
         type: "p",
         content: [
-          "Utbudet innehåller bland annat svenska kanaler, sport samt filmer och serier. Har du särskilda kanaler eller sporter som är viktiga för dig, fråga oss innan du beställer och kontrollera dem under testperioden – då vet du att det du tittar mest på finns med. TV-guiden är också värd att testa; hur den fungerar förklarar vi i guiden om ",
+          "Utbudet innehåller bland annat ",
+          { text: "svenska kanaler", href: "/blog/iptv-svenska-kanaler" },
+          ", sport samt filmer och serier. Har du särskilda kanaler eller sporter som är viktiga för dig, fråga oss innan du beställer och kontrollera dem under testperioden – då vet du att det du tittar mest på finns med. TV-guiden är också värd att testa; hur den fungerar förklarar vi i guiden om ",
           { text: "EPG och TV-guide", href: "/blog/iptv-epg-tv-guide" },
           ".",
         ],
@@ -886,7 +1361,11 @@ export const posts: Post[] = [
       { type: "h3", text: "Live-TV" },
       {
         type: "p",
-        content: ["Kanaler som sänds i realtid, precis som vanliga TV-kanaler. I IPTV-appar ligger de oftast under Live TV."],
+        content: [
+          "Kanaler som sänds i realtid, precis som vanliga TV-kanaler. I IPTV-appar ligger de oftast under Live TV. Läs mer i guiden ",
+          { text: "IPTV med svenska kanaler", href: "/blog/iptv-svenska-kanaler" },
+          ".",
+        ],
       },
       { type: "h3", text: "VOD" },
       {
@@ -2451,8 +2930,9 @@ export const posts: Post[] = [
   {
     slug: "iptv-epg-tv-guide",
     title: "EPG och TV-guide i IPTV – så fungerar tablån",
+    metaTitle: "IPTV-tablå och EPG: så fungerar TV-guiden",
     description:
-      "Vad är EPG i IPTV och varför är TV-guiden ibland tom eller visar fel tid? Så fungerar tablån i IPTV-appar och så får du den att fungera.",
+      "Tom IPTV-tablå eller fel tider i TV-guiden? Så fungerar EPG, så ställer du in svensk tidszon och så uppdaterar du guiden i TiviMate och Smarters.",
     excerpt:
       "EPG är TV-guiden i din IPTV-app. Så fungerar tablån, varför den ibland är tom eller visar fel tid och hur du uppdaterar den.",
     publishedAt: "2026-10-17",
@@ -3639,6 +4119,7 @@ export const posts: Post[] = [
   {
     slug: "vad-ar-iptv",
     title: "Vad är IPTV? Så fungerar IPTV i Sverige",
+    metaTitle: "Vad är IPTV och hur fungerar det?",
     description:
       "Vad är IPTV och hur fungerar det? Lär dig hur TV via internet fungerar, vad du behöver, vilka enheter som stöds och hur du kommer igång med IPTV i Sverige.",
     excerpt:
@@ -3684,7 +4165,11 @@ export const posts: Post[] = [
       {
         type: "ul",
         items: [
-          ["Live-TV – kanaler som sänds i realtid, till exempel sport och nyheter."],
+          [
+            "Live-TV – kanaler som sänds i realtid, till exempel sport och nyheter. Läs mer om att se ",
+            { text: "svensk live-TV via IPTV", href: "/blog/iptv-svenska-kanaler" },
+            ".",
+          ],
           ["Video on demand (VOD) – filmer och serier som du startar när du vill."],
         ],
       },

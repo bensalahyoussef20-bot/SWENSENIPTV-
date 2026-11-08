@@ -12,8 +12,8 @@ export const schemaIds = {
 };
 
 export const whatsapp = {
-  number: "212619965368",
-  base: "https://wa.me/212619965368",
+  number: "447476510069",
+  base: "https://wa.me/447476510069",
 };
 
 export function waLink(message: string) {
@@ -271,7 +271,7 @@ export const plans: Plan[] = [
     ],
     cta: "Beställ 3 månader",
     orderLink:
-      "https://wa.me/212619965368?text=Jag%20vill%20k%C3%B6pa%203%20M%C3%A5nader%20Sweden%20IPTV",
+      "https://wa.me/447476510069?text=Jag%20vill%20k%C3%B6pa%203%20M%C3%A5nader%20Sweden%20IPTV",
   },
   {
     id: "12-man",
@@ -291,7 +291,7 @@ export const plans: Plan[] = [
     ],
     cta: "Välj bästa erbjudandet",
     orderLink:
-      "https://wa.me/212619965368?text=Jag%20vill%20k%C3%B6pa%2012%20M%C3%A5nader%20Sweden%20IPTV",
+      "https://wa.me/447476510069?text=Jag%20vill%20k%C3%B6pa%2012%20M%C3%A5nader%20Sweden%20IPTV",
   },
   {
     id: "6-man",
@@ -307,7 +307,7 @@ export const plans: Plan[] = [
     ],
     cta: "Beställ 6 månader",
     orderLink:
-      "https://wa.me/212619965368?text=Jag%20vill%20k%C3%B6pa%206%20M%C3%A5nader%20Sweden%20IPTV",
+      "https://wa.me/447476510069?text=Jag%20vill%20k%C3%B6pa%206%20M%C3%A5nader%20Sweden%20IPTV",
   },
 ];
 

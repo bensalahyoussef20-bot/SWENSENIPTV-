@@ -8,9 +8,11 @@ import JsonLd from "@/components/JsonLd";
 import { devices, plans, schemaIds, siteConfig, waLinks } from "@/lib/data";
 import { pageOpenGraph } from "@/lib/seo";
 
-const title = "Priser";
-const description =
-  "Se priser för IPTV Sverige: 3, 6 eller 12 månaders IPTV abonnemang. Inga bindningstider, direkt aktivering och support dygnet runt.";
+// Lowest monthly price across the plans, used in the title, description and FAQ.
+const lowestPerMonth = Math.min(...plans.map((p) => p.perMonth));
+
+const title = `IPTV-pris från ${lowestPerMonth} kr/mån – ingen bindningstid`;
+const description = `Se vad IPTV kostar: 3, 6 eller 12 månader från ${lowestPerMonth} kr/mån. Inga bindningstider eller dolda avgifter – beställ via WhatsApp eller testa gratis först.`;
 
 export const metadata: Metadata = {
   title,
@@ -51,7 +53,6 @@ const breadcrumbJsonLd = {
 };
 
 const plansByPrice = [...plans].sort((a, b) => a.price - b.price);
-const lowestPerMonth = Math.min(...plans.map((p) => p.perMonth));
 const highestPerMonth = Math.max(...plans.map((p) => p.perMonth));
 const linkClass = "text-primary hover:underline";
 
@@ -84,7 +85,12 @@ export default function Page() {
               ))}
             </ul>
             <p className="mt-4 text-muted">
-              12 månader ger det lägsta priset per månad.
+              12 månader ger det lägsta priset per månad. Hur du räknar ut
+              månadspriset och vad ett helt år kostar visar vi i guiden{" "}
+              <Link href="/blog/vad-kostar-iptv" className={linkClass}>
+                Vad kostar IPTV?
+              </Link>
+              .
             </p>
 
             <h2 className="mt-14 text-2xl font-bold">Det här ingår i abonnemanget</h2>
@@ -166,6 +172,10 @@ export default function Page() {
               läsa mer{" "}
               <Link href="/om-oss" className={linkClass}>
                 om hur tjänsten fungerar
+              </Link>
+              . Inför köpet kan du också gå igenom vår{" "}
+              <Link href="/blog/kopa-iptv" className={linkClass}>
+                checklista för att köpa IPTV
               </Link>
               .
             </p>

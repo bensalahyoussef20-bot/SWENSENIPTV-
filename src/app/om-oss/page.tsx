@@ -61,7 +61,7 @@ export default function Page() {
               Om Sweden IPTV
             </h1>
             <p className="mt-4 text-muted">
-              Sweden IPTV är en IPTV-tjänst för tittare i Sverige. Vi erbjuder
+              Sweden IPTV är en licensierad IPTV-tjänst för tittare i Sverige. Vi erbjuder
               IPTV Sverige-abonnemang med sport, filmer, serier, nyheter och
               barnkanaler i HD och 4K, som du streamar via din vanliga
               internetuppkoppling – utan parabol, kabel-TV eller
