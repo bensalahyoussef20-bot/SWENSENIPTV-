@@ -22,14 +22,22 @@ const routes: Array<{
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
+  const posts = getAllPosts();
+  // Only real modification dates: the blog index changes when a post does.
+  // Static pages get no lastmod rather than the build time on every deploy.
+  const latestPost = posts.reduce(
+    (latest, post) => (post.updatedAt > latest ? post.updatedAt : latest),
+    "",
+  );
   const pages = routes.map((route) => ({
     url: `${baseUrl}${route.path}`,
-    lastModified,
+    ...(route.path === "/blog" && latestPost
+      ? { lastModified: new Date(latestPost) }
+      : {}),
     changeFrequency: route.changeFrequency,
     priority: route.priority,
   }));
-  const articles = getAllPosts().map((post) => ({
+  const articles = posts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: new Date(post.updatedAt),
     changeFrequency: "monthly" as const,
