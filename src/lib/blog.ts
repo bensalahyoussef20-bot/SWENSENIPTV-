@@ -1824,6 +1824,8 @@ export const posts: Post[] = [
         content: [
           "En MAC-adress är en hårdvaruadress som identifierar ett nätverkskort. Den består av 12 hexadecimala tecken – siffrorna 0–9 och bokstäverna A–F – och skrivs oftast i sex par med kolon emellan, till exempel 00:1A:2B:3C:4D:5E. En enhet med både wifi och nätverksuttag har en adress för vardera. Läs mer om ",
           { text: "MAC-adresser på Wikipedia", href: "https://sv.wikipedia.org/wiki/MAC-adress" },
+          ". Andra IPTV-begrepp hittar du i vår ",
+          { text: "IPTV-ordlista", href: "/blog/iptv-ordlista" },
           ".",
         ],
       },
@@ -2429,7 +2431,11 @@ export const posts: Post[] = [
         type: "ul",
         items: [
           ["Vilka enheter appen finns för."],
-          ["Vilka inloggningar den stöder: Xtream Codes, M3U-länk eller MAC-aktivering."],
+          [
+            "Vilka inloggningar den stöder: Xtream Codes, M3U-länk eller MAC-aktivering – begreppen förklaras i vår ",
+            { text: "IPTV-ordlista", href: "/blog/iptv-ordlista" },
+            ".",
+          ],
           ["Hur lätt den är att använda med en vanlig fjärrkontroll."],
           ["Hur kanaler, filmer, serier och TV-guide presenteras."],
         ],
@@ -2952,7 +2958,9 @@ export const posts: Post[] = [
       {
         type: "p",
         content: [
-          "EPG är samma sak som TV-guiden eller tablån i traditionell TV. I en IPTV-app ser du programmens namn, start- och sluttider och ofta en kort beskrivning. Med guiden kan du bläddra framåt i tiden, se vad som går på andra kanaler och snabbt byta till det du vill titta på.",
+          "EPG är samma sak som TV-guiden eller tablån i traditionell TV. I en IPTV-app ser du programmens namn, start- och sluttider och ofta en kort beskrivning. Med guiden kan du bläddra framåt i tiden, se vad som går på andra kanaler och snabbt byta till det du vill titta på. Fler begrepp, som XMLTV och VOD, förklaras i ",
+          { text: "IPTV-ordlistan", href: "/blog/iptv-ordlista" },
+          ".",
         ],
       },
       { type: "h2", text: "Hur fungerar TV-guiden i en IPTV-app?", id: "hur-fungerar-epg" },
@@ -3628,7 +3636,9 @@ export const posts: Post[] = [
       {
         type: "p",
         content: [
-          "EPG står för Electronic Program Guide, alltså TV-guiden som visar vad som sänds just nu och senare på varje kanal. Med Xtream Codes brukar många appar hämta TV-guiden automatiskt, medan den med M3U-länk ibland behöver läggas till separat i appens inställningar.",
+          "EPG står för Electronic Program Guide, alltså TV-guiden som visar vad som sänds just nu och senare på varje kanal. Med Xtream Codes brukar många appar hämta TV-guiden automatiskt, medan den med M3U-länk ibland behöver läggas till separat i appens inställningar. Fler IPTV-begrepp förklaras i vår ",
+          { text: "IPTV-ordlista", href: "/blog/iptv-ordlista" },
+          ".",
         ],
       },
       { type: "h3", text: "Ska jag hålla mina inloggningsuppgifter hemliga?" },
@@ -3907,7 +3917,9 @@ export const posts: Post[] = [
       {
         type: "p",
         content: [
-          "När du tittar på IPTV laddar appen hela tiden in bilden i små delar via internet. Så länge delarna kommer fram snabbare än de spelas upp flyter allt på. Kommer de för långsamt, eller ojämnt, tar bufferten slut och bilden stannar medan appen laddar om. Det är därför en stabil uppkoppling ofta betyder mer än en hög maxhastighet.",
+          "När du tittar på IPTV laddar appen hela tiden in bilden i små delar via internet. Så länge delarna kommer fram snabbare än de spelas upp flyter allt på. Kommer de för långsamt, eller ojämnt, tar bufferten slut och bilden stannar medan appen laddar om. Det är därför en stabil uppkoppling ofta betyder mer än en hög maxhastighet. Begrepp som buffring och bithastighet förklaras kort i vår ",
+          { text: "IPTV-ordlista", href: "/blog/iptv-ordlista" },
+          ".",
         ],
       },
       {
