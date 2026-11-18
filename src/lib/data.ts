@@ -498,7 +498,7 @@ export const installGuides: InstallGuide[] = [
         ],
       },
     ],
-    note: "IBO Player och Smart IPTV är tredjepartsappar som kan kräva en egen licens från apputvecklaren efter provperioden.",
+    note: "IBO Player och Smart IPTV är tredjepartsappar som kräver en egen licens eller aktivering hos apputvecklaren.",
   },
   {
     id: "firestick",

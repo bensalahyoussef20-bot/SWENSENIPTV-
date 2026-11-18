@@ -141,6 +141,362 @@ const gbPerHour = (mbit: number) =>
 
 export const posts: Post[] = [
   {
+    slug: "smart-iptv-app",
+    title: "Smart IPTV-appen – så aktiverar du den steg för steg",
+    metaTitle: "Smart IPTV-appen: så aktiverar du den",
+    description:
+      "Så kommer du igång med Smart IPTV på Samsung, LG och Android TV: hitta MAC-adressen, ladda upp din spellista på siptv.app och aktivera appen steg för steg.",
+    excerpt:
+      "Smart IPTV är en mediaspelare utan egna kanaler. Så installerar du appen, hittar MAC-adressen, laddar upp spellistan på siptv.app och löser de vanligaste felen.",
+    publishedAt: "2026-11-18",
+    updatedAt: "2026-11-18",
+    readingMinutes: 7,
+    related: ["iptv-samsung-smart-tv", "mac-adress-iptv"],
+    body: [
+      { type: "h2", text: "Kort svar", id: "kort-svar" },
+      {
+        type: "p",
+        content: [
+          "Så aktiverar du Smart IPTV: installera appen på TV:n, starta den en gång och anteckna MAC-adressen som visas. På LG-TV med webOS och på många Android-enheter visar appen i stället ett enhets-ID, som du använder på samma sätt. Gå sedan till siptv.app/mylist, ange adressen och lägg till din spellista som fil eller länk. Starta om appen så laddas kanalerna.",
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Smart IPTV är bara en spelare – kanalerna kommer från ditt IPTV-abonnemang. Appen aktiveras hos utvecklaren mot en engångsavgift på 5,49 euro per TV eller enhet.",
+        ],
+      },
+      { type: "h2", text: "Vad är Smart IPTV?", id: "vad-ar-smart-iptv" },
+      {
+        type: "p",
+        content: [
+          "Smart IPTV, ofta förkortat SIPTV, är en app för att spela upp IPTV på Smart TV och Android-enheter. Appen innehåller inga kanaler. Utvecklaren beskriver den själv som en ren mediaspelare och tar inget ansvar för innehållet som spelas upp i den.",
+        ],
+      },
+      {
+        type: "p",
+        content: ["För att titta behöver du därför två separata saker:"],
+      },
+      {
+        type: "table",
+        head: ["", "Smart IPTV-appen", "IPTV-abonnemang"],
+        rows: [
+          ["Vad det är", "En mediaspelare för TV:n", "Tjänsten som levererar kanaler, filmer och serier"],
+          ["Vem som står för det", "Apputvecklaren (siptv.app)", "Din IPTV-leverantör"],
+          ["Innehåller kanaler", "Nej", "Ja, i form av en spellista"],
+          ["Kostnad", "Engångsavgift på 5,49 euro per TV eller enhet", "Enligt leverantörens priser"],
+          ["Gratis test", "Utvecklaren anger ingen provperiod för appen", "Hos IPTV Sverige: ja, gratis test via WhatsApp"],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Avgiften för appen betalas till apputvecklaren och ingår inte i ett IPTV-abonnemang. Är orden spellista, M3U och EPG nya för dig finns de förklarade i vår ",
+          { text: "IPTV-ordlista", href: "/blog/iptv-ordlista" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Vilka TV-apparater fungerar Smart IPTV på?", id: "vilka-tv" },
+      {
+        type: "p",
+        content: [
+          "Enligt ",
+          { text: "utvecklarens installationsguider", href: "https://siptv.app/howto/" },
+          " finns Smart IPTV för Samsung, LG och Android-enheter. Hur du installerar appen beror på märke och årsmodell:",
+        ],
+      },
+      {
+        type: "table",
+        head: ["TV eller enhet", "Så installeras appen enligt utvecklaren"],
+        rows: [
+          ["Samsung med Tizen, 2019 och senare", "Från Samsungs appbutik Apps, kategorin Video. För Tizen 6.5 och senare (2022 års modeller och nyare) finns en ny appversion som kräver en ny installation – den kommer inte som en uppdatering."],
+          ["Samsung med Tizen, 2015–2018", "Manuellt via USB-minne"],
+          ["Äldre Samsung: serierna E, ES, F, H, J4 och J52", "Manuellt via USB-minne"],
+          ["Samsung D-serien och äldre", "Stöds inte"],
+          ["LG med webOS 3.0 och senare", "Från LG:s appbutik, kategorin Entertainment"],
+          ["LG med Netcast eller webOS 1.0–2.0", "En äldre appversion finns för dessa modeller"],
+          ["Android TV och andra Android-enheter", "Från Google Play"],
+          ["Android-enheter utan Google Play, som Fire TV", "Som APK-fil, till exempel via appen Downloader"],
+          ["Apple TV", "Nämns inte av utvecklaren"],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Utbudet i appbutikerna kan variera mellan modeller och länder. Hittar du inte appen på din TV kan du välja en annan app eller koppla in en Android-enhet via HDMI – läs mer om ",
+          { text: "IPTV på Android TV och Google TV", href: "/blog/iptv-android-tv" },
+          ".",
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Fler tips för respektive märke finns i guiderna ",
+          { text: "IPTV på Samsung Smart TV", href: "/blog/iptv-samsung-smart-tv" },
+          " och ",
+          { text: "LG Smart TV", href: "/blog/iptv-smart-tv#lg" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Så aktiverar du Smart IPTV – steg för steg", id: "aktivera" },
+      {
+        type: "p",
+        content: [
+          "När appen är installerad tar aktiveringen bara några minuter. Du behöver din spellista från IPTV-leverantören, antingen som länk (URL) eller som fil.",
+        ],
+      },
+      {
+        type: "ol",
+        items: [
+          ["Starta Smart IPTV på TV:n minst en gång."],
+          ["Anteckna MAC-adressen som visas i appen. Visar appen ett enhets-ID i stället använder du det på samma sätt."],
+          [
+            "Öppna ",
+            { text: "siptv.app/mylist", href: "https://siptv.app/mylist/" },
+            " i webbläsaren på mobilen eller datorn och ange MAC-adressen.",
+          ],
+          ["Lägg till spellistan som fil eller länk och skicka in formuläret."],
+          ["Starta om appen på TV:n. Kanalerna laddas från spellistan."],
+          [
+            "Aktivera appen hos utvecklaren på ",
+            { text: "siptv.app/activation", href: "https://siptv.app/activation/" },
+            ". Avgiften gäller per TV – se avsnittet om pris nedan.",
+          ],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Är du kund hos IPTV Sverige kan du också skicka MAC-adressen till oss via WhatsApp, så hjälper vi dig att lägga till spellistan. Supporten når du dygnet runt.",
+        ],
+      },
+      { type: "h3", text: "Fil eller länk?" },
+      {
+        type: "p",
+        content: [
+          "På siptv.app/mylist kan du lägga till spellistan antingen som fil eller som länk. Enligt utvecklaren använder appen spellistor i M3U-format, och du kan lägga till upp till tio spellistor.",
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Utvecklarens instruktioner beskriver inloggning via fil eller länk, inte med Xtream Codes. Har du fått Xtream Codes-uppgifter kan du läsa om skillnaden i guiden ",
+          { text: "Xtream Codes eller M3U-länk", href: "/blog/xtream-codes-eller-m3u" },
+          ".",
+        ],
+      },
+      { type: "h3", text: "TV-guiden (EPG)" },
+      {
+        type: "p",
+        content: [
+          "Innehåller spellistan en adress till en TV-guide kan funktionen Detect EPG på siptv.app/mylist hitta den automatiskt. Enligt utvecklaren går det också att använda flera EPG-källor. Hur programinformationen fungerar läser du om i guiden om ",
+          { text: "TV-guiden (EPG)", href: "/blog/iptv-epg-tv-guide" },
+          ".",
+        ],
+      },
+      { type: "h3", text: "När ska du välja Save online?" },
+      {
+        type: "p",
+        content: [
+          "På uppladdningssidan finns valet Save online. Utvecklaren rekommenderar att du bara använder det om TV:n har för lite minne för spellistan.",
+        ],
+      },
+      { type: "h2", text: "MAC-adress eller enhets-ID?", id: "mac-adress" },
+      {
+        type: "p",
+        content: [
+          "Smart IPTV kopplar din spellista till TV:n med hjälp av en identifierare. Vilken du ser beror på enheten:",
+        ],
+      },
+      {
+        type: "table",
+        head: ["Enhet", "Vad appen visar enligt utvecklaren"],
+        rows: [
+          ["Samsung", "MAC-adress"],
+          ["LG med webOS (appversion 3.0.0 och senare)", "Enhets-ID – appen har inte tillgång till TV:ns MAC-adress"],
+          ["Android 13 och senare, eller appen installerad från Google Play", "Ett tillfälligt enhets-ID i stället för MAC-adressen"],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "En TV har ofta två MAC-adresser: en för wifi och en för nätverkskabel. Enligt utvecklaren aktiveras den andra adressen när du byter anslutningssätt och startar om appen. MAC-adressen går inte att ändra manuellt.",
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "På Android avråder utvecklaren från att fabriksåterställa enheten, eftersom enhets-ID:t är tillfälligt. Ansluter du via wifi rekommenderas att du väljer enhetens egen MAC-adress (Use Device MAC) i stället för en slumpad (Use Randomized MAC) i nätverksinställningarna.",
+        ],
+      },
+      { type: "h3", text: "Lås din MAC-adress" },
+      {
+        type: "p",
+        content: [
+          "Utvecklaren rekommenderar att du låser din MAC-adress eller ditt ID med en PIN-kod, så att ingen annan kan ändra din spellista. Har du låst adressen anger du PIN-koden när du laddar upp en ny lista. Vill du ta bort låset låser du med koden 0000.",
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Hur MAC-adresser fungerar i andra appar och på MAG-boxar går vi igenom i guiden om ",
+          { text: "var du hittar MAC-adressen", href: "/blog/mac-adress-iptv" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Vad kostar Smart IPTV?", id: "pris" },
+      {
+        type: "p",
+        content: [
+          "Smart IPTV aktiveras mot en engångsavgift på 5,49 euro per TV eller enhet, enligt ",
+          { text: "utvecklarens aktiveringssida", href: "https://siptv.app/activation/" },
+          ". Har du två TV-apparater betalar du alltså för var och en.",
+        ],
+      },
+      {
+        type: "table",
+        head: ["", "Enligt utvecklaren"],
+        rows: [
+          ["Pris", "5,49 euro"],
+          ["Typ av avgift", "Engångsavgift"],
+          ["Gäller för", "En TV eller enhet"],
+          ["Betalsätt", "Bland annat kort, PayPal och kryptovaluta"],
+          ["Ingår kanaler", "Nej"],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Smart IPTV:s utvecklare anger ingen provperiod för appen på sin webbplats. Däremot uppmanar utvecklaren dig att inte betala om du inte redan har kanaler att titta på – skaffa alltså ditt IPTV-abonnemang först. Hos IPTV Sverige kan du testa abonnemanget gratis via WhatsApp innan du köper. Appens avgift går till apputvecklaren och ingår inte i ditt abonnemang hos oss.",
+        ],
+      },
+      { type: "h2", text: "Smart IPTV eller IBO Player?", id: "smart-iptv-eller-ibo-player" },
+      {
+        type: "p",
+        content: ["IBO Player är det andra vanliga valet på Samsung och LG. Den största skillnaden är hur du lägger till dina kanaler:"],
+      },
+      {
+        type: "table",
+        head: ["", "Smart IPTV", "IBO Player"],
+        rows: [
+          ["Lägga till spellista", "Via siptv.app/mylist, som fil eller länk", "Direkt i appen eller via apputvecklarens webbplats"],
+          ["Xtream Codes", "Beskrivs inte i utvecklarens instruktioner", "Ja"],
+          ["Licens", "Engångsavgift per TV eller enhet", "Licens från apputvecklaren"],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Vill du skriva in dina uppgifter direkt på TV:n är IBO Player ofta enklast. Vill du hantera spellistan från mobilen eller datorn passar Smart IPTV bra. En bredare ",
+          { text: "jämförelse av IPTV-apparna", href: "/blog/basta-iptv-appen" },
+          " hittar du i vår guide.",
+        ],
+      },
+      { type: "h2", text: "Vanliga fel och lösningar", id: "vanliga-fel" },
+      {
+        type: "p",
+        content: [
+          "De här felen och lösningarna beskrivs i ",
+          { text: "utvecklarens vanliga frågor", href: "https://siptv.app/faq/" },
+          ":",
+        ],
+      },
+      {
+        type: "table",
+        head: ["Problem", "Vanlig orsak", "Lösning"],
+        rows: [
+          ["”MAC address is not found!”", "MAC-adressen är felskriven, eller appen har inte startats på TV:n", "Starta appen en gång och kontrollera adressen tecken för tecken"],
+          ["”MAC address is not activated!”", "TV:n är inte aktiverad hos utvecklaren", "Aktivera appen på siptv.app/activation"],
+          ["Spellistan laddas inte", "Länken är fel eller leder vidare till en annan adress", "Använd en direktlänk. Testa med utvecklarens exempellista http://siptv.app/lists/example.m3u – fungerar den är problemet troligen kopplat till din spellista"],
+          ["Ändringar i spellistan syns inte", "Appen har inte läst in listan på nytt", "Håll in knappen 0 eller CH på fjärrkontrollen för att ladda om listan"],
+          ["En stor spellista laddas inte", "TV:n har för lite minne", "Använd en mindre spellista eller välj Save online"],
+          ["Appen beter sig konstigt", "Tillfälligt fel i TV:n", "Dra ut strömsladden i ungefär en minut. På Samsung kan du även återställa Smart Hub"],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Buffrar kanalerna beror det oftare på uppkopplingen än på appen – så felsöker du ",
+          { text: "när IPTV buffrar", href: "/blog/iptv-buffrar" },
+          ". Är du kund hos IPTV Sverige kan du också kontakta vår support via WhatsApp dygnet runt.",
+        ],
+      },
+      { type: "h2", text: "Vanliga frågor om Smart IPTV", id: "vanliga-fragor" },
+      { type: "h3", text: "Ingår det kanaler i Smart IPTV?" },
+      {
+        type: "p",
+        content: [
+          "Nej. Smart IPTV är en mediaspelare utan egna kanaler. Kanalerna kommer från ditt IPTV-abonnemang, som du lägger till i appen som en spellista.",
+        ],
+      },
+      { type: "h3", text: "Var hittar jag MAC-adressen i Smart IPTV?" },
+      {
+        type: "p",
+        content: [
+          "Adressen visas i appen när du startar den. På LG-TV med webOS och på många Android-enheter visar appen i stället ett enhets-ID, som du använder på samma sätt.",
+        ],
+      },
+      { type: "h3", text: "Måste jag betala för varje TV?" },
+      {
+        type: "p",
+        content: [
+          "Ja. Enligt utvecklaren gäller engångsavgiften på 5,49 euro per TV eller enhet. Har du flera TV-apparater aktiverar du var och en för sig.",
+        ],
+      },
+      { type: "h3", text: "Har Smart IPTV en gratis provperiod?" },
+      {
+        type: "p",
+        content: [
+          "Smart IPTV:s utvecklare anger ingen provperiod för appen på sin webbplats, så kontrollera vad som gäller i appen och på aktiveringssidan innan du betalar. Det gratis testet hos IPTV Sverige gäller vårt IPTV-abonnemang, inte appen – det startar du via WhatsApp.",
+        ],
+      },
+      { type: "h3", text: "Kan jag logga in med Xtream Codes i Smart IPTV?" },
+      {
+        type: "p",
+        content: [
+          "Utvecklarens instruktioner beskriver att spellistan läggs till som fil eller länk på siptv.app/mylist, inte inloggning med Xtream Codes. Vill du logga in med Xtream Codes direkt på TV:n är IBO Player ett alternativ.",
+        ],
+      },
+      { type: "h3", text: "Fungerar Smart IPTV på äldre Samsung och LG?" },
+      {
+        type: "p",
+        content: [
+          "Ofta. Samsung-modeller från 2015–2018 och serierna E, ES, F, H, J4 och J52 kan enligt utvecklaren installera appen via USB-minne, men D-serien och äldre stöds inte. För LG med Netcast och webOS 1.0–2.0 finns en äldre appversion.",
+        ],
+      },
+      { type: "h3", text: "Fungerar Smart IPTV på Fire TV och Android TV?" },
+      {
+        type: "p",
+        content: [
+          "Ja. På Android TV installeras appen från Google Play. På enheter utan Google Play, som Fire TV, kan den enligt utvecklaren installeras som APK-fil, till exempel via appen Downloader.",
+        ],
+      },
+      { type: "h3", text: "Vad händer om jag byter från wifi till kabel?" },
+      {
+        type: "p",
+        content: [
+          "Då använder TV:n en annan MAC-adress, eftersom wifi och nätverkskabel har var sin. Enligt utvecklaren aktiveras den andra adressen när du har bytt anslutning och startat om appen.",
+        ],
+      },
+      { type: "h3", text: "Varför står det ”MAC address is not found”?" },
+      {
+        type: "p",
+        content: [
+          "Enligt utvecklaren beror felet på att MAC-adressen är felskriven eller på att appen inte har startats på TV:n ännu. Starta appen en gång och skriv in adressen igen.",
+        ],
+      },
+      { type: "h2", text: "Sammanfattning", id: "sammanfattning" },
+      {
+        type: "p",
+        content: [
+          "Smart IPTV är en spelare, inte en IPTV-tjänst. Du installerar appen, antecknar MAC-adressen eller enhets-ID:t, lägger till din spellista på siptv.app/mylist och startar om appen. Aktiveringen kostar 5,49 euro per TV hos utvecklaren och ingår inte i abonnemanget. Kanalerna får du från din IPTV-leverantör – med ",
+          { text: "IPTV Sverige", href: "/" },
+          " kan du testa abonnemanget gratis via WhatsApp innan du köper.",
+        ],
+      },
+    ],
+  },
+  {
     slug: "stabil-iptv",
     title: "Stabil IPTV – vad avgör och hur testar du det?",
     metaTitle: "Stabil IPTV – vad avgör och hur testar du?",
@@ -2494,7 +2850,7 @@ export const posts: Post[] = [
         type: "ul",
         items: [
           ["Fördelar: enkel app som fungerar direkt i TV:n."],
-          ["Att tänka på: stöder M3U-länk och MAC-aktivering men inte Xtream Codes, och kan kräva en licens från apputvecklaren efter provperioden."],
+          ["Att tänka på: stöder M3U-länk och MAC-aktivering men inte Xtream Codes, och aktiveras mot en engångsavgift per TV hos apputvecklaren."],
         ],
       },
       { type: "h2", text: "Jämförelse: appar, enheter och inloggning", id: "jamforelse" },
@@ -2534,7 +2890,7 @@ export const posts: Post[] = [
       {
         type: "p",
         content: [
-          "Samsung använder operativsystemet Tizen, så Android-appar som TiviMate går inte att installera direkt på TV:n. Använd i stället IBO Player eller Smart IPTV från Samsungs appbutik Apps. Vill du logga in med Xtream Codes är IBO Player det naturliga valet, eftersom Smart IPTV stöder M3U-länk och MAC-aktivering men inte Xtream Codes. Båda apparna kan kräva en licens från apputvecklaren efter provperioden. Steg för steg finns i guiden ",
+          "Samsung använder operativsystemet Tizen, så Android-appar som TiviMate går inte att installera direkt på TV:n. Använd i stället IBO Player eller Smart IPTV från Samsungs appbutik Apps. Vill du logga in med Xtream Codes är IBO Player det naturliga valet, eftersom Smart IPTV stöder M3U-länk och MAC-aktivering men inte Xtream Codes. Båda apparna kräver en licens eller aktivering hos apputvecklaren. Steg för steg finns i guiden ",
           { text: "IPTV på Samsung Smart TV", href: "/blog/iptv-samsung-smart-tv" },
           ".",
         ],
@@ -2713,7 +3069,7 @@ export const posts: Post[] = [
         rows: [
           ["Inloggning", "Xtream Codes, M3U-länk eller MAC-aktivering", "M3U-länk eller MAC-aktivering"],
           ["Lägga till spellista", "Direkt i appen eller via apputvecklarens webbplats", "Via apputvecklarens webbplats (siptv.app/mylist)"],
-          ["Applicens", "Kan kräva licens från apputvecklaren efter provperioden", "Kan kräva licens från apputvecklaren efter provperioden"],
+          ["Applicens", "Kan kräva licens från apputvecklaren efter provperioden", "Engångsavgift per TV eller enhet till apputvecklaren"],
         ],
       },
       {
