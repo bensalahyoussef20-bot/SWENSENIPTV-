@@ -141,6 +141,274 @@ const gbPerHour = (mbit: number) =>
 
 export const posts: Post[] = [
   {
+    slug: "iptv-lg-smart-tv",
+    title: "IPTV på LG Smart TV – så kommer du igång steg för steg",
+    metaTitle: "IPTV på LG Smart TV: appar och installation",
+    description:
+      "Så tittar du på IPTV på LG Smart TV med webOS: välj app, installera den från LG:s appbutik, lägg till din spellista och lös vanliga problem steg för steg.",
+    excerpt:
+      "Så får du IPTV på din LG-TV: vilka webOS-versioner som fungerar, hur du installerar en IPTV-app som Smart IPTV och vad du gör om appen inte finns.",
+    publishedAt: "2026-11-18",
+    updatedAt: "2026-11-18",
+    readingMinutes: 7,
+    related: ["smart-iptv-app", "iptv-smart-tv"],
+    body: [
+      { type: "h2", text: "Kort svar", id: "kort-svar" },
+      {
+        type: "p",
+        content: [
+          "Ja, du kan titta på IPTV på en LG Smart TV. Du installerar en IPTV-app från TV:ns egen appbutik och lägger sedan till din spellista från IPTV-leverantören. Smart IPTV finns enligt utvecklaren för LG med webOS och visar ett enhets-ID som du använder för att ladda upp spellistan på utvecklarens webbplats. Andra appar, som IBO Player, kan också finnas – sök i appbutiken för att se vad som finns för din modell. Saknas en passande app kan du koppla in en extern enhet, till exempel en Fire TV Stick eller en Google TV-enhet, via HDMI.",
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Appen är bara spelaren. Kanalerna kommer från ditt IPTV-abonnemang, och eventuella applicenser betalas till apputvecklaren.",
+        ],
+      },
+      { type: "h2", text: "Det här behöver du", id: "det-har-behover-du" },
+      {
+        type: "table",
+        head: ["Del", "Vad det är", "Var du får det"],
+        rows: [
+          ["LG Smart TV med webOS", "TV:n och dess operativsystem", "Din TV – kontrollera webOS-versionen nedan"],
+          ["Internetanslutning", "Helst nätverkskabel, annars stabilt wifi", "Ditt bredband"],
+          ["IPTV-app", "Spelaren som visar kanalerna på TV:n", "LG:s appbutik, från apputvecklaren"],
+          ["IPTV-abonnemang", "Tjänsten som levererar kanaler, filmer och serier", "Din IPTV-leverantör, till exempel IPTV Sverige"],
+          ["Applicens", "Vissa appar kräver en licens eller aktivering", "Betalas till apputvecklaren – ingår inte i abonnemanget"],
+        ],
+      },
+      { type: "h2", text: "Vilken webOS-version har din LG-TV?", id: "webos-version" },
+      {
+        type: "p",
+        content: [
+          "LG:s Smart TV-apparater använder operativsystemet webOS. Vilka appar som fungerar beror på versionen. Enligt LG levererades TV-apparaterna med följande versioner:",
+        ],
+      },
+      {
+        type: "table",
+        head: ["Årsmodell", "webOS-version"],
+        rows: [
+          ["2024", "webOS 24"],
+          ["2023", "webOS 23"],
+          ["2022", "webOS 22"],
+          ["2021", "webOS 6.0"],
+          ["2020", "webOS 5.0"],
+          ["2019", "webOS 4.5"],
+          ["2018", "webOS 4.0"],
+          ["2017", "webOS 3.5"],
+          ["2016", "webOS 3.0"],
+          ["2015", "webOS 2.0"],
+          ["2014", "webOS 1.0"],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Från 2022 numrerar LG versionerna efter årtal. Har TV:n fått en programuppdatering kan den ha en nyare version än den levererades med. Du ser versionen i TV:ns inställningar under Support och TV-information – menynamnen kan skilja sig något mellan modeller. Årsmodellen kan du också läsa av på etiketten på TV:ns baksida.",
+        ],
+      },
+      { type: "h2", text: "Vilka IPTV-appar fungerar på LG?", id: "appar" },
+      {
+        type: "p",
+        content: [
+          "Två vanliga IPTV-appar för Smart TV är Smart IPTV och IBO Player. Smart IPTV:s utvecklare anger uttryckligen versioner för LG. För IBO Player har vi inte hittat någon officiell uppgift om vilka LG-modeller som stöds, så sök efter appen i appbutiken på din TV. Android-appar som TiviMate går inte att installera på webOS. Så skiljer sig apparna åt:",
+        ],
+      },
+      {
+        type: "table",
+        head: ["", "IBO Player", "Smart IPTV"],
+        rows: [
+          ["Inloggning", "Xtream Codes, M3U-länk eller aktivering via appens MAC-adress och Device Key", "Spellista som fil eller länk via siptv.app/mylist"],
+          ["Vad appen visar på LG", "MAC-adress och Device Key när aktivering används", "Enhets-ID (appversion 3.0.0 och senare)"],
+          ["Finns för LG", "Sök i appbutiken – utbudet varierar mellan modeller", "Ja enligt utvecklaren: aktuell version för webOS 3.0 och senare, äldre version för Netcast och webOS 1.0–2.0"],
+          ["Licens", "Licens från apputvecklaren", "Engångsavgift per TV – 5,49 euro enligt utvecklaren"],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Finns IBO Player för din TV och vill du skriva in dina uppgifter direkt på skärmen är den ofta enklast. Föredrar du att hantera spellistan från mobilen eller datorn passar Smart IPTV. En bredare jämförelse finns i guiden om ",
+          { text: "bästa IPTV-appen", href: "/blog/basta-iptv-appen" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Så installerar du en IPTV-app på LG – steg för steg", id: "installera" },
+      {
+        type: "ol",
+        items: [
+          ["Anslut TV:n till internet, helst med nätverkskabel."],
+          ["Logga in med ditt LG-konto. Enligt LG kan vissa appar inte installeras eller användas utan inloggning."],
+          ["Tryck på Home på fjärrkontrollen och öppna appbutiken. På nyare modeller heter den Apps, på äldre LG Content Store."],
+          ["Sök efter appen, till exempel Smart IPTV eller IBO Player, öppna appens sida och välj Installera. Hittar du inte appen finns den troligen inte för din modell eller region."],
+          ["Starta appen och lägg till din spellista enligt stegen för respektive app nedan."],
+        ],
+      },
+      { type: "h3", text: "Lägga till spellistan i IBO Player" },
+      {
+        type: "p",
+        content: ["Finns IBO Player i appbutiken för din TV lägger du till spellistan så här:"],
+      },
+      {
+        type: "ol",
+        items: [
+          ["Starta IBO Player."],
+          ["Kan du lägga till en spellista direkt väljer du Xtream Codes och anger serveradress, användarnamn och lösenord – eller klistrar in din M3U-länk."],
+          ["Visar appen i stället en MAC-adress och en Device Key används aktivering. Skicka uppgifterna till oss via WhatsApp så hjälper vi dig, eller lägg till spellistan själv på IBO Players webbplats."],
+          ["Starta om appen. Kanaler, filmer och serier laddas automatiskt."],
+        ],
+      },
+      { type: "h3", text: "Lägga till spellistan i Smart IPTV" },
+      {
+        type: "p",
+        content: [
+          "Enligt utvecklaren har Smart IPTV för webOS inte tillgång till TV:ns MAC-adress från appversion 3.0.0, så appen visar i stället ett enhets-ID. Det anger du på ",
+          { text: "siptv.app/mylist", href: "https://siptv.app/mylist/" },
+          " tillsammans med din spellista, och sedan startar du om appen. Appen aktiveras mot en engångsavgift per TV, som enligt utvecklarens ",
+          { text: "aktiveringssida", href: "https://siptv.app/activation/" },
+          " är 5,49 euro (november 2026). Priset kan ändras, så kontrollera det aktuella priset innan du betalar. Hela förloppet och vanliga felmeddelanden går vi igenom i guiden om ",
+          { text: "Smart IPTV-appen", href: "/blog/smart-iptv-app" },
+          ".",
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Är du osäker på vilken adress eller vilket ID du ska använda förklarar vi skillnaderna i guiden om ",
+          { text: "MAC-adress för IPTV", href: "/blog/mac-adress-iptv" },
+          ". Undrar du över skillnaden mellan inloggningssätten, läs ",
+          { text: "Xtream Codes eller M3U-länk", href: "/blog/xtream-codes-eller-m3u" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Hittar du inte appen i appbutiken?", id: "appen-saknas" },
+      {
+        type: "p",
+        content: [
+          "Enligt LG kan utbudet i appbutiken variera mellan regioner och TV-modeller, och appar och tjänster är kopplade till landet där TV:n såldes. Gör så här:",
+        ],
+      },
+      {
+        type: "ul",
+        items: [
+          ["Kontrollera att TV:ns land för LG-tjänster är inställt på det land där du bor."],
+          ["Logga in med ditt LG-konto och sök igen."],
+          ["Kontrollera att TV:ns programvara är uppdaterad."],
+          ["Hittar du fortfarande ingen app: koppla in en extern enhet via TV:ns HDMI-ingång, till exempel en Fire TV Stick eller en enhet med Android TV eller Google TV. Där är utbudet av IPTV-appar oftast större."],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Vilka appar som fungerar på respektive enhet går vi igenom i guiderna ",
+          { text: "IPTV på Fire TV Stick", href: "/blog/iptv-fire-tv-stick" },
+          " och ",
+          { text: "IPTV på Android TV och Google TV", href: "/blog/iptv-android-tv" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Vanliga problem och lösningar", id: "vanliga-problem" },
+      {
+        type: "table",
+        head: ["Problem", "Trolig orsak", "Lösning"],
+        rows: [
+          ["Appen går inte att installera", "Du är inte inloggad med LG-konto, eller TV:n har ont om lagringsutrymme", "Logga in med ditt LG-konto och ta bort appar du inte använder"],
+          ["Kanalerna laddas inte", "Fel uppgifter eller fel enhets-ID, eller spellistan har inte lästs in", "Kontrollera uppgifterna tecken för tecken och starta om appen"],
+          ["Appen fungerade men har slutat", "Applicensen hos apputvecklaren kan ha gått ut", "Kontrollera licensen hos apputvecklaren – den ingår inte i IPTV-abonnemanget"],
+          ["Vissa strömmar spelas inte i Smart IPTV", "Enligt utvecklaren fungerar inte strömmar av typen UDP, RTP, RTMP och RTSP på webOS", "Kontakta din IPTV-leverantör och fråga om ett annat strömformat"],
+          ["Bilden buffrar eller hackar", "Oftast wifi eller uppkopplingen", "Använd nätverkskabel och kontrollera hastigheten"],
+          ["Appen eller TV:n beter sig konstigt", "Tillfälligt fel", "Stäng av TV:n helt och dra ut strömsladden en stund, och kontrollera att programvaran är uppdaterad"],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Buffrar bilden ofta hjälper guiderna ",
+          { text: "wifi eller nätverkskabel för IPTV", href: "/blog/iptv-wifi-eller-kabel" },
+          " och ",
+          { text: "när IPTV buffrar", href: "/blog/iptv-buffrar" },
+          ". Fler felorsaker går vi igenom i ",
+          { text: "IPTV fungerar inte", href: "/blog/iptv-fungerar-inte" },
+          ".",
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "En fabriksåterställning bör vara sista utvägen. Enligt LG raderas då alla kontoinställningar och installerade appar, så du behöver installera och logga in i IPTV-appen igen efteråt.",
+        ],
+      },
+      { type: "h2", text: "Vanliga frågor om IPTV på LG Smart TV", id: "vanliga-fragor" },
+      { type: "h3", text: "Kan man ha IPTV på en LG Smart TV?" },
+      {
+        type: "p",
+        content: [
+          "Ja. Du installerar en IPTV-app från LG:s appbutik – till exempel Smart IPTV, som enligt utvecklaren finns för webOS – och lägger till spellistan från din IPTV-leverantör. Saknas en passande app kan du koppla in en extern enhet, som en Fire TV Stick eller en Google TV-enhet, via HDMI.",
+        ],
+      },
+      { type: "h3", text: "Vilken IPTV-app ska jag välja på LG?" },
+      {
+        type: "p",
+        content: [
+          "Smart IPTV är ett tryggt val om du vill ladda upp spellistan från mobilen eller datorn – utvecklaren anger versioner för LG. Vill du logga in med Xtream Codes direkt på TV:n kan IBO Player passa, om appen finns i appbutiken för din modell.",
+        ],
+      },
+      { type: "h3", text: "Fungerar TiviMate på LG?" },
+      {
+        type: "p",
+        content: [
+          "Nej, inte direkt på TV:n. TiviMate är byggd för Android, och LG använder webOS. Vill du använda TiviMate behöver du en extern Android-baserad enhet – se guiden om IPTV på Android TV och Google TV.",
+        ],
+      },
+      { type: "h3", text: "Fungerar IPTV på äldre LG-TV?" },
+      {
+        type: "p",
+        content: [
+          "Ofta. Smart IPTV har enligt utvecklaren en aktuell version för webOS 3.0 och senare – modeller från 2016 och framåt – och en äldre version för Netcast och webOS 1.0–2.0. För andra appar avgör utbudet i appbutiken för just din modell.",
+        ],
+      },
+      { type: "h3", text: "Hur ser jag vilken webOS-version min LG-TV har?" },
+      {
+        type: "p",
+        content: [
+          "Öppna inställningarna och gå till Support och TV-information. Där visas versionen på nyare modeller. Du kan också utgå från årsmodellen – till exempel levererades 2020 års modeller med webOS 5.0 och 2022 års med webOS 22.",
+        ],
+      },
+      { type: "h3", text: "Behöver jag ett LG-konto?" },
+      {
+        type: "p",
+        content: [
+          "Enligt LG kan vissa appar inte installeras eller användas utan att du är inloggad med ett LG-konto. Logga därför in innan du installerar IPTV-appen.",
+        ],
+      },
+      { type: "h3", text: "Kostar IPTV-appen något på LG?" },
+      {
+        type: "p",
+        content: [
+          "Det beror på appen. Smart IPTV aktiveras mot en engångsavgift per TV, som enligt utvecklaren är 5,49 euro (november 2026) – priset kan ändras. IBO Player kräver en licens från apputvecklaren. Avgifterna betalas till apputvecklarna och ingår inte i ditt IPTV-abonnemang.",
+        ],
+      },
+      { type: "h3", text: "Kan jag testa IPTV gratis på min LG-TV?" },
+      {
+        type: "p",
+        content: [
+          "Ja, hos IPTV Sverige kan du testa abonnemanget gratis via WhatsApp innan du köper. Testet gäller vårt IPTV-abonnemang – eventuella applicenser hanteras av apputvecklaren.",
+        ],
+      },
+      { type: "h2", text: "Sammanfattning", id: "sammanfattning" },
+      {
+        type: "p",
+        content: [
+          "IPTV på LG Smart TV kräver en app och ett abonnemang. Installera en IPTV-app från LG:s appbutik, till exempel Smart IPTV, logga in eller ladda upp din spellista och starta om appen. Kontrollera webOS-versionen om appen saknas, och använd en extern enhet via HDMI som reserv. Hur LG står sig mot andra TV-märken ser du i guiden ",
+          { text: "IPTV på Smart TV", href: "/blog/iptv-smart-tv" },
+          ". Med ",
+          { text: "IPTV Sverige", href: "/" },
+          " kan du testa abonnemanget gratis via WhatsApp innan du köper.",
+        ],
+      },
+    ],
+  },
+  {
     slug: "smart-iptv-app",
     title: "Smart IPTV-appen – så aktiverar du den steg för steg",
     metaTitle: "Smart IPTV-appen: så aktiverar du den",
