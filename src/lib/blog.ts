@@ -2251,6 +2251,14 @@ export const posts: Post[] = [
           ". Avgiften betalas till apputvecklaren och ingår inte i ditt IPTV-abonnemang.",
         ],
       },
+      {
+        type: "p",
+        content: [
+          "Hela aktiveringen steg för steg finns i guiden ",
+          { text: "så aktiverar du Smart IPTV", href: "/blog/smart-iptv-app" },
+          ".",
+        ],
+      },
       { type: "h3", text: "IBO Player" },
       {
         type: "p",
@@ -2853,6 +2861,14 @@ export const posts: Post[] = [
           ["Att tänka på: stöder M3U-länk och MAC-aktivering men inte Xtream Codes, och aktiveras mot en engångsavgift per TV hos apputvecklaren."],
         ],
       },
+      {
+        type: "p",
+        content: [
+          "Hur du aktiverar appen, vad den kostar och hur du löser vanliga fel går vi igenom i guiden ",
+          { text: "Smart IPTV-appen – så aktiverar du den", href: "/blog/smart-iptv-app" },
+          ".",
+        ],
+      },
       { type: "h2", text: "Jämförelse: appar, enheter och inloggning", id: "jamforelse" },
       {
         type: "table",
@@ -3099,6 +3115,14 @@ export const posts: Post[] = [
           ["Anteckna MAC-adressen som visas på skärmen."],
           ["Lägg till din M3U-länk på siptv.app/mylist tillsammans med MAC-adressen, eller skicka MAC-adressen till oss via WhatsApp så hjälper vi dig."],
           ["Starta om appen så laddas kanallistan."],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Mer om aktiveringsavgiften, enhets-ID och vanliga felmeddelanden hittar du i vår ",
+          { text: "guide till Smart IPTV-appen", href: "/blog/smart-iptv-app" },
+          ".",
         ],
       },
       { type: "h2", text: "Rätt MAC-adress", id: "mac-adress" },
