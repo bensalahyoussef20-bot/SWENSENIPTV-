@@ -4,7 +4,7 @@ import { siteConfig } from "@/lib/data";
 import { pageOpenGraph } from "@/lib/seo";
 
 const title = "Integritetspolicy";
-const description = `Hur ${siteConfig.name} samlar in, använder och skyddar dina personuppgifter.`;
+const description = `Integritetspolicy för ${siteConfig.name}: vilka personuppgifter vi samlar in, hur de används och delas, hur länge de sparas och vilka rättigheter du har.`;
 
 export const metadata: Metadata = {
   title,

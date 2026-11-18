@@ -4,7 +4,7 @@ import { siteConfig } from "@/lib/data";
 import { pageOpenGraph } from "@/lib/seo";
 
 const title = "Användarvillkor";
-const description = `Villkor för att använda ${siteConfig.name}s tjänster.`;
+const description = `Användarvillkor för ${siteConfig.name}: tjänstens omfattning, beställning och betalning, ditt ansvar, ångerrätt och återbetalning, uppsägning och ändringar.`;
 
 export const metadata: Metadata = {
   title,

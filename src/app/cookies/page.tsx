@@ -4,7 +4,7 @@ import { siteConfig } from "@/lib/data";
 import { pageOpenGraph } from "@/lib/seo";
 
 const title = "Cookiepolicy";
-const description = `Hur ${siteConfig.name} använder cookies på webbplatsen.`;
+const description = `Cookiepolicy för ${siteConfig.name}: vad cookies är, vilka cookies webbplatsen använder, tredjepartscookies och hur du ändrar dina cookieinställningar.`;
 
 export const metadata: Metadata = {
   title,

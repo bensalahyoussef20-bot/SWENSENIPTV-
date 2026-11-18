@@ -31,14 +31,6 @@ export const metadata: Metadata = {
   },
   description:
     "IPTV Sverige med över 20 000 kanaler, sport, filmer och serier i HD & 4K. Stabil streaming, snabb aktivering och gratis test. Starta idag!",
-  keywords: [
-    "IPTV",
-    "IPTV Sverige",
-    "IPTV Sweden",
-    "Sweden IPTV",
-    "IPTV abonnemang",
-    "IPTV 4K",
-  ],
   openGraph: {
     title: "IPTV Sverige – IPTV-abonnemang i HD och 4K för sport, filmer och serier",
     description:

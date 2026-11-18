@@ -14,9 +14,9 @@ import {
 } from "@/lib/data";
 import { pageOpenGraph } from "@/lib/seo";
 
-const title = "Fördelar";
+const title = "Fördelar med IPTV: HD, 4K och flera enheter";
 const description =
-  "Därför väljer tusentals svenskar IPTV Sverige: 20 000+ kanaler, ingen buffring, HD/4K-kvalitet, multi-screen och pengarna-tillbaka-garanti.";
+  "IPTV i HD och 4K för Smart TV, Fire TV, Apple TV och mobil – med support via WhatsApp dygnet runt, gratis test och abonnemang utan bindningstid.";
 
 export const metadata: Metadata = {
   title,

@@ -31,7 +31,7 @@ const productJsonLd = {
   image: `${siteConfig.url}/opengraph-image`,
   brand: { "@type": "Brand", name: siteConfig.name },
   description:
-    "IPTV-abonnemang med över 20 000 kanaler, filmer och serier i HD och 4K.",
+    "IPTV-abonnemang med kanaler, filmer och serier i HD och 4K – 3, 6 eller 12 månader utan bindningstid.",
   offers: plans.map((plan) => ({
     "@type": "Offer",
     name: plan.duration,
