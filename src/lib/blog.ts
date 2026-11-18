@@ -2712,7 +2712,7 @@ export const posts: Post[] = [
         head: ["", "IBO Player", "Smart IPTV"],
         rows: [
           ["Inloggning", "Xtream Codes, M3U-länk eller MAC-aktivering", "M3U-länk eller MAC-aktivering"],
-          ["Lägga till spellista", "Direkt i appen eller via apputvecklarens webbplats", "Via apputvecklarens webbplats (siptv.eu/mylist)"],
+          ["Lägga till spellista", "Direkt i appen eller via apputvecklarens webbplats", "Via apputvecklarens webbplats (siptv.app/mylist)"],
           ["Applicens", "Kan kräva licens från apputvecklaren efter provperioden", "Kan kräva licens från apputvecklaren efter provperioden"],
         ],
       },
@@ -2741,7 +2741,7 @@ export const posts: Post[] = [
         items: [
           ["Sök efter Smart IPTV i Apps, installera appen och starta den."],
           ["Anteckna MAC-adressen som visas på skärmen."],
-          ["Lägg till din M3U-länk på siptv.eu/mylist tillsammans med MAC-adressen, eller skicka MAC-adressen till oss via WhatsApp så hjälper vi dig."],
+          ["Lägg till din M3U-länk på siptv.app/mylist tillsammans med MAC-adressen, eller skicka MAC-adressen till oss via WhatsApp så hjälper vi dig."],
           ["Starta om appen så laddas kanallistan."],
         ],
       },

@@ -493,7 +493,7 @@ export const installGuides: InstallGuide[] = [
         steps: [
           "Installera Smart IPTV från TV:ns appbutik och starta appen.",
           "Anteckna MAC-adressen som visas på skärmen.",
-          "Lägg till din M3U-länk på siptv.eu/mylist tillsammans med MAC-adressen, eller skicka MAC-adressen till oss via WhatsApp så hjälper vi dig.",
+          "Lägg till din M3U-länk på siptv.app/mylist tillsammans med MAC-adressen, eller skicka MAC-adressen till oss via WhatsApp så hjälper vi dig.",
           "Starta om appen på TV:n så laddas kanallistan.",
         ],
       },
