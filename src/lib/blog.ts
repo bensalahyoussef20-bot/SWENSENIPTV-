@@ -2372,15 +2372,15 @@ export const posts: Post[] = [
   },
   {
     slug: "basta-iptv-appen",
-    title: "Bästa IPTV-appen 2026 för Smart TV, Fire TV och Apple TV",
+    title: "Bästa IPTV-appen 2026 för Smart TV, Fire TV, Apple TV och mobil",
     metaTitle: "Bästa IPTV-appen 2026: 4 appar jämförda",
     description:
-      "Vilken IPTV-app är bäst för din TV? Vi jämför IPTV Smarters, TiviMate, IBO Player och Smart IPTV för Smart TV, Fire TV och Apple TV.",
+      "Vilken IPTV-app är bäst? Vi jämför IPTV Smarters, TiviMate, IBO Player och Smart IPTV för Smart TV, Fire TV, Apple TV, iPhone och Android.",
     excerpt:
       "TiviMate, IPTV Smarters, IBO Player eller Smart IPTV? Så skiljer sig apparna åt och så väljer du rätt IPTV-app för din Smart TV, Fire TV eller Apple TV.",
     publishedAt: "2026-10-17",
-    updatedAt: "2026-10-17",
-    readingMinutes: 7,
+    updatedAt: "2026-11-18",
+    readingMinutes: 9,
     image: bastaIptvAppenImage,
     related: ["iptv-samsung-smart-tv", "iptv-apple-tv-iphone"],
     body: [
@@ -2410,6 +2410,7 @@ export const posts: Post[] = [
           ["Apple TV", "Smarters Player Lite", "–"],
           ["iPhone och iPad", "Smarters Player Lite", "–"],
           ["Android-mobil och surfplatta", "IPTV Smarters", "–"],
+          ["Chromecast med Google TV", "TiviMate", "IPTV Smarters"],
         ],
       },
       {
@@ -2502,6 +2503,51 @@ export const posts: Post[] = [
         head: ["App", "Enheter", "Inloggning"],
         rows: installApps.map((app) => [app.name, app.devices, app.login]),
       },
+      { type: "h2", text: "Bästa IPTV-appen för iPhone, iPad och Apple TV", id: "iphone-apple-tv" },
+      {
+        type: "p",
+        content: [
+          "På iPhone, iPad och Apple TV använder du Smarters Player Lite, som är namnet på IPTV Smarters i App Store. Du installerar appen från App Store och loggar in med Xtream Codes eller en M3U-länk, och samma inloggning fungerar i appen på alla dina Apple-enheter. På Apple TV kan appar installeras på Apple TV HD och Apple TV 4K – äldre modeller, från tredje generationen och tidigare, saknar App Store. Tittar du i mobilen drar HD och 4K mycket data, så använd wifi när du kan. Steg för steg finns i guiden ",
+          { text: "IPTV på Apple TV, iPhone och iPad", href: "/blog/iptv-apple-tv-iphone" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Bästa IPTV-appen för Android-mobil och surfplatta", id: "android" },
+      {
+        type: "p",
+        content: [
+          "I Android-mobilen och surfplattan använder du IPTV Smarters. TiviMate är enligt utvecklaren byggd för Android TV och inte anpassad för mobiler och surfplattor, så den passar bättre på TV:n. Med IPTV Smarters får du samma upplägg med live-TV, filmer och serier i mobilen som på en Fire TV eller Android TV, och du loggar in med Xtream Codes eller M3U-länk. Mer om apparna på Android finns i guiden ",
+          { text: "IPTV på Android TV och Google TV", href: "/blog/iptv-android-tv" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Bästa IPTV-appen för Chromecast med Google TV", id: "chromecast" },
+      {
+        type: "p",
+        content: [
+          "Chromecast med Google TV kör Google TV, som bygger på Android TV. Där installerar du TiviMate från Google Play eller IPTV Smarters – via appen Downloader om den inte finns i Google Play – och styr allt med den medföljande fjärrkontrollen. TiviMate passar dig som mest tittar på live-TV och vill ha en tydlig TV-guide. Äldre Chromecast-modeller utan Google TV har ingen appbutik och kan inte köra en IPTV-app på egen hand – de tar bara emot det du castar från mobilen. Läs mer i avsnittet om ",
+          { text: "Chromecast med Google TV", href: "/blog/iptv-android-tv#chromecast" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Bästa IPTV-appen för Samsung Smart TV", id: "samsung" },
+      {
+        type: "p",
+        content: [
+          "Samsung använder operativsystemet Tizen, så Android-appar som TiviMate går inte att installera direkt på TV:n. Använd i stället IBO Player eller Smart IPTV från Samsungs appbutik Apps. Vill du logga in med Xtream Codes är IBO Player det naturliga valet, eftersom Smart IPTV stöder M3U-länk och MAC-aktivering men inte Xtream Codes. Båda apparna kan kräva en licens från apputvecklaren efter provperioden. Steg för steg finns i guiden ",
+          { text: "IPTV på Samsung Smart TV", href: "/blog/iptv-samsung-smart-tv" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Bästa IPTV-appen för LG Smart TV", id: "lg" },
+      {
+        type: "p",
+        content: [
+          "LG använder webOS och appbutiken LG Content Store. Där installerar du IBO Player eller Smart IPTV och loggar in på samma sätt som på Samsung. Enligt Smart IPTV:s utvecklare finns en aktuell appversion för webOS 3.0 och senare, och en äldre version för LG-modeller med Netcast och webOS 1.0–2.0. Hittar du ingen passande app kan du koppla in en Fire TV Stick eller en Google TV-enhet via HDMI. Läs mer i avsnittet om ",
+          { text: "LG Smart TV", href: "/blog/iptv-smart-tv#lg" },
+          ".",
+        ],
+      },
       { type: "h2", text: "Exempel: så väljer du app", id: "exempel" },
       {
         type: "ul",
@@ -2552,6 +2598,27 @@ export const posts: Post[] = [
         ],
       },
       { type: "h2", text: "Vanliga frågor om IPTV-appar", id: "vanliga-fragor" },
+      { type: "h3", text: "Vilken IPTV-app är bäst?" },
+      {
+        type: "p",
+        content: [
+          "Det finns ingen app som är bäst för alla – det beror på din enhet. På Fire TV och Android TV är TiviMate och IPTV Smarters de vanligaste valen, på Samsung och LG IBO Player eller Smart IPTV, på Apple TV, iPhone och iPad Smarters Player Lite och i Android-mobilen IPTV Smarters.",
+        ],
+      },
+      { type: "h3", text: "Finns det en gratis IPTV-app?" },
+      {
+        type: "p",
+        content: [
+          "Vissa IPTV-appar är gratis att ladda ner, medan andra kräver en licens eller en premiumversion efter en provperiod. Villkoren bestäms av apputvecklaren och kan ändras, så kontrollera aktuell information i appbutiken. Kom ihåg att appen bara är en spelare – kanalerna kommer från ditt IPTV-abonnemang, inte från appen. Var försiktig med appar och listor som lovar gratis kanaler; de saknar ofta rättigheter till innehållet.",
+        ],
+      },
+      { type: "h3", text: "Är en IPTV-app och en IPTV-spelare samma sak?" },
+      {
+        type: "p",
+        content: [
+          "Ja. En IPTV-app är en spelare: den visar kanaler, filmer och serier från din IPTV-leverantör men innehåller inga kanaler i sig. Därför behöver du inloggningsuppgifter, oftast Xtream Codes eller en M3U-länk, för att börja titta.",
+        ],
+      },
       { type: "h3", text: "Vilken IPTV-app är bäst för Samsung TV?" },
       {
         type: "p",
