@@ -502,7 +502,7 @@ export const posts: Post[] = [
           "Fler tips för respektive märke finns i guiderna ",
           { text: "IPTV på Samsung Smart TV", href: "/blog/iptv-samsung-smart-tv" },
           " och ",
-          { text: "LG Smart TV", href: "/blog/iptv-smart-tv#lg" },
+          { text: "LG Smart TV", href: "/blog/iptv-lg-smart-tv" },
           ".",
         ],
       },
@@ -1310,7 +1310,9 @@ export const posts: Post[] = [
       {
         type: "p",
         content: [
-          "Stegen för både IBO Player och Smart IPTV finns i ",
+          "En utförlig genomgång med webOS-versioner, installation och felsökning finns i guiden ",
+          { text: "IPTV på LG Smart TV", href: "/blog/iptv-lg-smart-tv" },
+          ". Stegen för både IBO Player och Smart IPTV finns i ",
           { text: "installationsguiden för Smart TV", href: "/installera#smart-tv" },
           ". Behöver du MAC-adressen hittar du den i guiden ",
           { text: "MAC-adress för IPTV", href: "/blog/mac-adress-iptv" },
@@ -3183,8 +3185,8 @@ export const posts: Post[] = [
       {
         type: "p",
         content: [
-          "LG använder webOS och appbutiken LG Content Store. Där installerar du IBO Player eller Smart IPTV och loggar in på samma sätt som på Samsung. Enligt Smart IPTV:s utvecklare finns en aktuell appversion för webOS 3.0 och senare, och en äldre version för LG-modeller med Netcast och webOS 1.0–2.0. Hittar du ingen passande app kan du koppla in en Fire TV Stick eller en Google TV-enhet via HDMI. Läs mer i avsnittet om ",
-          { text: "LG Smart TV", href: "/blog/iptv-smart-tv#lg" },
+          "LG använder webOS och appbutiken LG Content Store. Där installerar du IBO Player eller Smart IPTV och loggar in på samma sätt som på Samsung. Enligt Smart IPTV:s utvecklare finns en aktuell appversion för webOS 3.0 och senare, och en äldre version för LG-modeller med Netcast och webOS 1.0–2.0. Hittar du ingen passande app kan du koppla in en Fire TV Stick eller en Google TV-enhet via HDMI. Steg för steg för LG finns i guiden ",
+          { text: "IPTV på LG Smart TV", href: "/blog/iptv-lg-smart-tv" },
           ".",
         ],
       },
@@ -3473,8 +3475,8 @@ export const posts: Post[] = [
       {
         type: "p",
         content: [
-          "Ja, IBO Player och Smart IPTV finns även för LG Smart TV, där du installerar dem från LG Content Store. Stegen är i stort sett desamma – se ",
-          { text: "installationsguiden för Smart TV", href: "/installera#smart-tv" },
+          "Ja, IBO Player och Smart IPTV finns även för LG Smart TV, där du installerar dem från LG Content Store. Stegen är i stort sett desamma – se guiden ",
+          { text: "IPTV på LG Smart TV", href: "/blog/iptv-lg-smart-tv" },
           ". Vilka andra TV-märken som fungerar ser du i guiden ",
           { text: "IPTV på Smart TV", href: "/blog/iptv-smart-tv" },
           ".",
