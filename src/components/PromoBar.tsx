@@ -31,18 +31,19 @@ function splitRemaining(ms: number) {
 }
 
 export default function PromoBar() {
-  const [dismissed, setDismissed] = useState(true);
-  const [remaining, setRemaining] = useState({ hours: "00", minutes: "00", seconds: "00" });
+  const [dismissed, setDismissed] = useState(false);
+  const [remaining, setRemaining] = useState({ hours: "--", minutes: "--", seconds: "--" });
 
   useEffect(() => {
     try {
-      if (window.sessionStorage.getItem(DISMISSED_KEY)) return;
+      if (window.sessionStorage.getItem(DISMISSED_KEY)) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setDismissed(true);
+        return;
+      }
     } catch {
       // sessionStorage unavailable — fall through and show the bar.
     }
-
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setDismissed(false);
 
     let deadline = getOrCreateDeadline();
 
@@ -120,7 +121,7 @@ export default function PromoBar() {
 function TimeBox({ label, value }: { label: string; value: string }) {
   return (
     <span className="flex flex-col items-center justify-center rounded-md bg-black px-1.5 py-0.5 leading-none">
-      <span className="text-xs font-bold text-accent sm:text-sm">{value}</span>
+      <span className="min-w-[2ch] text-center text-xs font-bold tabular-nums text-accent sm:text-sm">{value}</span>
       <span className="text-[8px] font-medium text-white/60">{label}</span>
     </span>
   );
