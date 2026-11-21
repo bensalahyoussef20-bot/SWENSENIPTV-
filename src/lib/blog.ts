@@ -1781,7 +1781,9 @@ export const posts: Post[] = [
         content: [
           "Öppna Downloader och ange den adress som TiviMates utvecklare anger på ",
           { text: "tivimate.com", href: "https://tivimate.com/" },
-          ": tivimate.com/apk, eller sifferkoden 272483 (enligt webbplatsen i november 2026). Välj Installera när nedladdningen är klar. TiviMate är byggd för Android TV och fjärrkontroll, och vissa funktioner låses upp med en betald uppgradering från utvecklaren.",
+          ": tivimate.com/apk, eller sifferkoden 272483 (enligt webbplatsen i november 2026). Välj Installera när nedladdningen är klar. TiviMate är byggd för Android TV och fjärrkontroll, och vissa funktioner låses upp med en betald uppgradering från utvecklaren. Hur du låser upp Premium på Fire TV med appen TiviMate Companion förklarar vi i ",
+          { text: "guiden om TiviMate Companion och Premium", href: "/blog/tivimate#tivimate-companion" },
+          ".",
         ],
       },
       { type: "h3", text: "IPTV Smarters" },
@@ -2142,7 +2144,9 @@ export const posts: Post[] = [
         content: [
           "Utvecklaren erbjuder också en direktnedladdning på ",
           { text: "tivimate.com", href: "https://tivimate.com/" },
-          ", som du kan hämta med Downloader på samma sätt som på Fire TV.",
+          ", som du kan hämta med Downloader på samma sätt som på Fire TV. Vad TiviMate Premium kostar och vilka funktioner appen har läser du i ",
+          { text: "guiden om TiviMate Premium och funktioner", href: "/blog/tivimate" },
+          ".",
         ],
       },
       { type: "h2", text: "Installera IPTV Smarters", id: "iptv-smarters" },
@@ -3387,6 +3391,14 @@ export const posts: Post[] = [
           ["Att tänka på: finns bara för Android-baserade enheter, och vissa funktioner kräver en betald premiumversion från apputvecklaren."],
         ],
       },
+      {
+        type: "p",
+        content: [
+          "Installation, Premium och vanliga fel går vi igenom i ",
+          { text: "guiden om TiviMate", href: "/blog/tivimate" },
+          ".",
+        ],
+      },
       { type: "h2", text: "IPTV Smarters – för många enheter", id: "iptv-smarters" },
       {
         type: "p",
@@ -3759,7 +3771,9 @@ export const posts: Post[] = [
       {
         type: "p",
         content: [
-          "Nej, TiviMate finns bara för Android-baserade enheter. Vill du använda TiviMate behöver du en Fire TV Stick eller en Android TV-box kopplad till TV:n.",
+          "Nej, TiviMate finns bara för Android-baserade enheter. Vill du använda TiviMate behöver du en Fire TV Stick eller en Android TV-box kopplad till TV:n. Vilka enheter appen fungerar på ser du i ",
+          { text: "guiden om TiviMate", href: "/blog/tivimate#enheter" },
+          ".",
         ],
       },
       { type: "h3", text: "Fungerar det på äldre Samsung-modeller?" },
