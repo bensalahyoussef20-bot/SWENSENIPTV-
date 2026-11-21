@@ -2222,8 +2222,9 @@ export const posts: Post[] = [
   {
     slug: "ostabilt-wifi-lagenhet",
     title: "Ostabilt wifi i lägenheten? Så löser du det",
+    metaTitle: "Ostabilt wifi i lägenheten? Så fixar du det",
     description:
-      "Ostabilt wifi i lägenheten? Så hittar du orsaken – grannarnas nätverk, routerns placering eller väggar – och åtgärdar den steg för steg.",
+      "Tappar wifi:t i lägenheten? Oftast är det grannarnas nätverk, routerns placering eller väggarna. Hitta felet med tre snabba tester och åtgärda det.",
     excerpt:
       "Grannarnas nätverk, routerns placering och tjocka väggar är de vanligaste orsakerna till ostabilt wifi i lägenheter. Så hittar du felet och löser det.",
     publishedAt: "2026-10-25",
@@ -3975,9 +3976,9 @@ export const posts: Post[] = [
   {
     slug: "iptv-wifi-eller-kabel",
     title: "Wi-Fi eller nätverkskabel för IPTV – och rätt routerinställningar",
-    metaTitle: "Wi-Fi eller nätverkskabel för IPTV?",
+    metaTitle: "Wifi eller kabel för IPTV – vad är bäst?",
     description:
-      "Ska du använda wifi eller nätverkskabel för IPTV? Så skiljer de sig åt, vilken kabel du behöver och vilka routerinställningar som ger stabilare bild.",
+      "Nätverkskabel ger stabilast IPTV, men wifi kan räcka. Så avgör du vad som passar din TV, vilken kabel du behöver och vilka routerinställningar som hjälper.",
     excerpt:
       "Nätverkskabel ger stabilast bild, men wifi kan räcka. Så väljer du anslutning, vilken kabel som behövs och vilka routerinställningar som ger stabilare IPTV.",
     publishedAt: "2026-10-17",
@@ -4390,9 +4391,9 @@ export const posts: Post[] = [
   {
     slug: "internethastighet-for-iptv",
     title: "Hur snabbt internet behöver du för IPTV i HD och 4K?",
-    metaTitle: "Internethastighet för IPTV i HD och 4K",
+    metaTitle: "Hur snabbt internet behövs för IPTV?",
     description:
-      "Hur snabbt internet behöver du för IPTV? Se hur många Mbit/s som krävs för SD, HD och 4K och hur du mäter rätt hemma. Läs hela guiden!",
+      "För IPTV behöver du minst 5 Mbit/s för SD, 10 Mbit/s för HD och 25 Mbit/s för 4K per ström. Så räknar du ut hushållets behov och mäter rätt hemma.",
     excerpt:
       "Hur många Mbit/s behöver du för IPTV i SD, HD och 4K? Här är siffrorna, hur du räknar ut vad hela hushållet behöver och hur du mäter rätt.",
     publishedAt: "2026-10-06",
@@ -4611,8 +4612,9 @@ export const posts: Post[] = [
   {
     slug: "iptv-buffrar",
     title: "IPTV buffrar? 8 sätt att få en stabil bild",
+    metaTitle: "IPTV buffrar hela tiden? 8 sätt att fixa det",
     description:
-      "Buffrar din IPTV? Så hittar du orsaken – nätverk, enhet eller app – och 8 sätt att få stabil bild, från nätverkskabel och 5 GHz-wifi till appinställningar.",
+      "Buffrar eller laggar IPTV hela tiden? Så hittar du orsaken – wifi, enhet eller app – och får stabil bild igen med 8 konkreta åtgärder, steg för steg.",
     excerpt:
       "Bilden fryser eller laddar hela tiden? Så tar du reda på om felet sitter i nätverket, enheten eller tjänsten – och 8 sätt att få en stabil bild.",
     publishedAt: "2026-09-25",
