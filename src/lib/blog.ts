@@ -141,6 +141,303 @@ const gbPerHour = (mbit: number) =>
 
 export const posts: Post[] = [
   {
+    slug: "tivimate",
+    title: "TiviMate – så installerar och använder du IPTV-appen steg för steg",
+    metaTitle: "TiviMate: installation, Premium och tips",
+    description:
+      "Så installerar du TiviMate på Android TV, Google TV och Fire TV, lägger till din spellista och låser upp Premium – och varför appen saknas på Samsung och LG.",
+    excerpt:
+      "TiviMate är en IPTV-spelare för Android TV, Google TV och Fire TV. Så installerar du appen, lägger till din spellista och vet om Premium är värt det.",
+    publishedAt: "2026-11-21",
+    updatedAt: "2026-11-21",
+    readingMinutes: 7,
+    related: ["iptv-android-tv", "iptv-fire-tv-stick"],
+    body: [
+      { type: "h2", text: "Kort svar", id: "kort-svar" },
+      {
+        type: "p",
+        content: [
+          "TiviMate är en IPTV-spelare som är byggd för Android TV. Du installerar den från Google Play på Android TV och Google TV, eller med utvecklarens egen APK-fil på Fire TV och andra enheter utan Google Play. Sedan lägger du till din spellista med Xtream Codes eller en M3U-länk. Appen är gratis att installera, men vissa funktioner kräver TiviMate Premium.",
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "TiviMate innehåller inga kanaler – de kommer från ditt IPTV-abonnemang. Det finns heller ingen officiell version för Samsung, LG eller Apple TV.",
+        ],
+      },
+      { type: "h2", text: "Vad är TiviMate?", id: "vad-ar-tivimate" },
+      {
+        type: "p",
+        content: [
+          "TiviMate är en app för att titta på IPTV, utvecklad av Armobsoft FZE. Appen är uppbyggd kring en TV-guide som påminner om vanlig tablå-TV och styrs med fjärrkontrollen. Enligt utvecklaren är TiviMate enbart en mediaspelare som inte tillhandahåller något innehåll – du lägger själv till din spellista.",
+        ],
+      },
+      {
+        type: "table",
+        head: ["", "TiviMate", "IPTV-abonnemang"],
+        rows: [
+          ["Vad det är", "En spelare som visar kanalerna på TV:n", "Tjänsten som levererar kanaler, filmer och serier"],
+          ["Vem som står för det", "Apputvecklaren Armobsoft FZE", "Din IPTV-leverantör, till exempel IPTV Sverige"],
+          ["Innehåller kanaler", "Nej", "Ja, i form av en spellista"],
+          ["Kostnad", "Gratis att installera – Premium kostar extra", "Enligt leverantörens priser"],
+        ],
+      },
+      { type: "h2", text: "Vilka enheter fungerar TiviMate på?", id: "enheter" },
+      {
+        type: "p",
+        content: [
+          "Utvecklaren anger att TiviMate är byggd för Android TV och navigering med fjärrkontroll, och att appen inte är anpassad för pekskärmar som mobiler och surfplattor.",
+        ],
+      },
+      {
+        type: "table",
+        head: ["Enhet", "Fungerar TiviMate?", "Så installeras appen"],
+        rows: [
+          ["Android TV och Google TV", "Ja", "Från Google Play"],
+          ["Chromecast med Google TV", "Ja", "Från Google Play"],
+          ["Fire TV och Firestick", "Ja", "Med utvecklarens APK-fil via appen Downloader"],
+          ["Android-mobil och surfplatta", "Inte anpassad enligt utvecklaren", "Använd hellre en app byggd för mobilen"],
+          ["Samsung (Tizen) och LG (webOS)", "Nej, ingen officiell version", "Använd IBO Player eller Smart IPTV, eller en extern enhet"],
+          ["Apple TV, iPhone och iPad", "Nej, ingen officiell version", "Använd Smarters Player Lite"],
+          ["Windows och Mac", "Nej, ingen officiell version", "Använd en spelare för datorn"],
+        ],
+      },
+      { type: "h2", text: "Så installerar du TiviMate", id: "installera" },
+      { type: "h3", text: "Android TV och Google TV" },
+      {
+        type: "ol",
+        items: [
+          ["Öppna Google Play på TV:n eller Google TV-enheten."],
+          ["Sök efter TiviMate och installera appen TiviMate IPTV Player."],
+          ["Starta appen och lägg till din spellista enligt stegen nedan."],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Hela förloppet, även för Chromecast med Google TV, finns i guiden ",
+          { text: "IPTV på Android TV och Google TV", href: "/blog/iptv-android-tv#tivimate" },
+          ".",
+        ],
+      },
+      { type: "h3", text: "Fire TV och Firestick" },
+      {
+        type: "p",
+        content: [
+          "Fire TV saknar Google Play, så där installerar du TiviMate med utvecklarens egen APK-fil. Installera appen Downloader, tillåt den att installera appar och ange adressen tivimate.com/apk – eller sifferkoden 272483 (enligt utvecklarens webbplats i november 2026). Alla steg, inklusive utvecklaralternativen, går vi igenom i ",
+          { text: "IPTV på Fire TV Stick – steg för steg", href: "/blog/iptv-fire-tv-stick#steg-4" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Lägg till din spellista", id: "spellista" },
+      {
+        type: "p",
+        content: [
+          "Enligt utvecklaren stöder TiviMate spellistor i formaten M3U, Xtream Codes och Stalker Portal. Med ett IPTV-abonnemang loggar du oftast in med Xtream Codes eller en M3U-länk.",
+        ],
+      },
+      { type: "h3", text: "Med Xtream Codes" },
+      {
+        type: "ol",
+        items: [
+          ["Öppna TiviMate och välj Lägg till spellista (Add playlist)."],
+          ["Välj Xtream Codes och ange serveradress, användarnamn och lösenord."],
+          ["Välj Nästa och vänta medan kanalerna och TV-guiden laddas."],
+        ],
+      },
+      { type: "h3", text: "Med M3U-länk" },
+      {
+        type: "ol",
+        items: [
+          ["Öppna TiviMate och välj Lägg till spellista (Add playlist)."],
+          ["Välj M3U-spellista och klistra in din M3U-länk."],
+          ["Välj Nästa och vänta medan kanalerna laddas."],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Vilket inloggningssätt som passar bäst förklarar vi i guiden ",
+          { text: "Xtream Codes eller M3U-länk", href: "/blog/xtream-codes-eller-m3u" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "TiviMate Premium – vad ingår och vad kostar det?", id: "premium" },
+      {
+        type: "p",
+        content: [
+          "TiviMate är gratis att installera, men vissa funktioner låses upp med TiviMate Premium. Vilka funktioner det gäller visas i appen. Enligt utvecklaren låser Premium bara upp funktioner i appen – det ger aldrig tillgång till kanaler eller annat innehåll.",
+        ],
+      },
+      {
+        type: "table",
+        head: ["", "Enligt Google Play (november 2026)"],
+        rows: [
+          ["Köp i appen", "11–399 kr när betalningen sker via Google Play"],
+          ["Vad du betalar för", "Funktioner i appen – inga kanaler"],
+          ["Vem du betalar till", "Apputvecklaren, inte din IPTV-leverantör"],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Priserna bestäms av utvecklaren och kan ändras, så kontrollera aktuellt pris i appen innan du köper. TiviMate Premium ingår inte i ditt IPTV-abonnemang hos oss.",
+        ],
+      },
+      { type: "h3", text: "TiviMate Companion" },
+      {
+        type: "p",
+        content: [
+          "På enheter utan Google Play, som Fire TV, låser du upp Premium med appen ",
+          { text: "TiviMate Companion", href: "https://play.google.com/store/apps/details?id=ar.tvplayer.companion" },
+          ", som du installerar i mobilen. Enligt utvecklaren används den för att låsa upp Premium och hantera dina aktiverade enheter – den är ingen IPTV-spelare.",
+        ],
+      },
+      { type: "h2", text: "Funktioner värda att känna till", id: "funktioner" },
+      {
+        type: "p",
+        content: ["Utvecklaren lyfter bland annat fram följande funktioner:"],
+      },
+      {
+        type: "ul",
+        items: [
+          [
+            "TV-guide (EPG) i en tydlig tablå – läs mer om ",
+            { text: "TV-guiden (EPG)", href: "/blog/iptv-epg-tv-guide" },
+            ".",
+          ],
+          ["Flera spellistor som du kan växla mellan."],
+          ["Favoritkanaler och sökning."],
+          ["Catch-up, om din IPTV-leverantör stöder funktionen."],
+          ["Inspelning av program."],
+          ["Föräldrakontroll."],
+          ["Multiview – flera kanaler samtidigt på samma skärm."],
+        ],
+      },
+      { type: "h2", text: "TiviMate på Samsung, LG eller Apple TV?", id: "samsung-lg-apple-tv" },
+      {
+        type: "p",
+        content: [
+          "Samsung använder Tizen, LG använder webOS och Apple TV använder tvOS – och för de systemen finns ingen officiell version av TiviMate. Du har två alternativ: använda en app som finns för din TV, eller koppla in en extern enhet med Android TV, Google TV eller Fire TV via HDMI.",
+        ],
+      },
+      {
+        type: "table",
+        head: ["Din TV eller enhet", "App i stället för TiviMate", "Guide"],
+        rows: [
+          ["Samsung Smart TV", "IBO Player eller Smart IPTV", "IPTV på Samsung Smart TV"],
+          ["LG Smart TV", "Smart IPTV, eller IBO Player om den finns för din modell", "IPTV på LG Smart TV"],
+          ["Apple TV, iPhone och iPad", "Smarters Player Lite", "IPTV på Apple TV och iPhone"],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Guiderna hittar du här: ",
+          { text: "IPTV på Samsung Smart TV", href: "/blog/iptv-samsung-smart-tv" },
+          ", ",
+          { text: "IPTV på LG Smart TV", href: "/blog/iptv-lg-smart-tv" },
+          " och ",
+          { text: "IPTV på Apple TV och iPhone", href: "/blog/iptv-apple-tv-iphone" },
+          ". En översikt över alla TV-märken finns i ",
+          { text: "IPTV på Smart TV", href: "/blog/iptv-smart-tv" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Vanliga problem och lösningar", id: "vanliga-problem" },
+      {
+        type: "table",
+        head: ["Problem", "Trolig orsak", "Lösning"],
+        rows: [
+          ["Bilden buffrar eller hackar", "Oftast wifi eller uppkopplingen", "Använd nätverkskabel och kontrollera hastigheten"],
+          ["TV-guiden är tom eller visar fel tider", "EPG har inte laddats eller fel tidszon", "Uppdatera TV-guiden i appen och kontrollera tidszonen"],
+          ["Spellistan laddas inte", "Fel serveradress, användarnamn, lösenord eller länk", "Kontrollera uppgifterna tecken för tecken och lägg till spellistan igen"],
+          ["Premium låses inte upp på Fire TV", "Fire TV saknar Google Play", "Lås upp Premium med TiviMate Companion i mobilen"],
+          ["Appen hittas inte i mobilens Google Play", "TiviMate är byggd för TV", "Installera appen på en Android TV- eller Google TV-enhet"],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Buffrar bilden ofta hjälper guiderna ",
+          { text: "när IPTV buffrar", href: "/blog/iptv-buffrar" },
+          " och ",
+          { text: "wifi eller kabel för IPTV", href: "/blog/iptv-wifi-eller-kabel" },
+          ". Vill du jämföra TiviMate med andra appar, läs guiden om ",
+          { text: "bästa IPTV-appen", href: "/blog/basta-iptv-appen" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Vanliga frågor om TiviMate", id: "vanliga-fragor" },
+      { type: "h3", text: "Är TiviMate gratis?" },
+      {
+        type: "p",
+        content: [
+          "Appen är gratis att installera, men vissa funktioner kräver TiviMate Premium, som du köper från utvecklaren.",
+        ],
+      },
+      { type: "h3", text: "Vad kostar TiviMate Premium?" },
+      {
+        type: "p",
+        content: [
+          "Enligt Google Play kostar köpen i appen mellan 11 och 399 kr när du betalar via Google Play (november 2026). Priserna bestäms av utvecklaren och kan ändras, så kontrollera aktuellt pris i appen.",
+        ],
+      },
+      { type: "h3", text: "Ingår kanaler i TiviMate?" },
+      {
+        type: "p",
+        content: [
+          "Nej. Enligt utvecklaren är TiviMate enbart en mediaspelare, och Premium låser bara upp funktioner i appen. Kanalerna kommer från ditt IPTV-abonnemang.",
+        ],
+      },
+      { type: "h3", text: "Finns TiviMate för Samsung TV?" },
+      {
+        type: "p",
+        content: [
+          "Nej, det finns ingen officiell version för Samsungs operativsystem Tizen. Använd IBO Player eller Smart IPTV, eller koppla in en Fire TV Stick eller en Google TV-enhet.",
+        ],
+      },
+      { type: "h3", text: "Finns TiviMate för Apple TV?" },
+      {
+        type: "p",
+        content: [
+          "Nej, det finns ingen officiell version för Apple TV, iPhone eller iPad. Där använder du i stället Smarters Player Lite.",
+        ],
+      },
+      { type: "h3", text: "Fungerar TiviMate på Fire TV Stick?" },
+      {
+        type: "p",
+        content: [
+          "Ja. Du installerar appen med utvecklarens APK-fil via Downloader, och Premium låser du upp med appen TiviMate Companion i mobilen.",
+        ],
+      },
+      { type: "h3", text: "Kan jag använda TiviMate i mobilen?" },
+      {
+        type: "p",
+        content: [
+          "Utvecklaren anger att TiviMate inte är anpassad för pekskärmar som mobiler och surfplattor. I mobilen fungerar en app som är byggd för mobilen bättre.",
+        ],
+      },
+      { type: "h3", text: "Vad är TiviMate Companion?" },
+      {
+        type: "p",
+        content: [
+          "En app från samma utvecklare som används för att låsa upp Premium på enheter utan Google Play och hantera dina aktiverade enheter. Den är ingen IPTV-spelare.",
+        ],
+      },
+      { type: "h2", text: "Sammanfattning", id: "sammanfattning" },
+      {
+        type: "p",
+        content: [
+          "TiviMate är en spelare för Android TV, Google TV och Fire TV – inte en IPTV-tjänst. Installera appen, lägg till din spellista med Xtream Codes eller M3U-länk och avgör sedan om Premium är värt det för dig. Premium betalas till apputvecklaren och ingår inte i abonnemanget. Kanalerna får du från din IPTV-leverantör – med ",
+          { text: "IPTV Sverige", href: "/" },
+          " kan du testa abonnemanget gratis via WhatsApp innan du köper.",
+        ],
+      },
+    ],
+  },
+  {
     slug: "iptv-lg-smart-tv",
     title: "IPTV på LG Smart TV – så kommer du igång steg för steg",
     metaTitle: "IPTV på LG Smart TV: appar och installation",
