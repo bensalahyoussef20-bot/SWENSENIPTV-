@@ -196,7 +196,11 @@ export default function Page() {
               >
                 Kontakta oss via WhatsApp
               </a>{" "}
-              så får du ett pris.
+              så får du ett pris. Hur samtidiga enheter fungerar förklarar vi i{" "}
+              <Link href="/blog/iptv-flera-enheter" className={linkClass}>
+                guiden om IPTV på flera enheter
+              </Link>
+              .
             </p>
 
             <h2 className="mt-14 text-2xl font-bold">Det här ingår inte i priset</h2>

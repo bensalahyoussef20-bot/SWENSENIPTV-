@@ -2211,7 +2211,9 @@ export const posts: Post[] = [
       {
         type: "p",
         content: [
-          "Berätta hur många enheter du behöver när du beställer, så får du priset för just ditt abonnemang.",
+          "Berätta hur många enheter du behöver när du beställer, så får du priset för just ditt abonnemang. Hur samtidiga enheter fungerar och vad som krävs hemma går vi igenom i guiden ",
+          { text: "IPTV på flera enheter samtidigt", href: "/blog/iptv-flera-enheter" },
+          ".",
         ],
       },
       { type: "h2", text: "4. Passar innehållet dig?", id: "innehall" },
@@ -2741,7 +2743,7 @@ export const posts: Post[] = [
         type: "p",
         content: [
           "Antalet enheter som kan titta samtidigt med samma abonnemang. Hos oss kostar varje extra samtidig enhet extra. Läs mer i guiden ",
-          { text: "Köpa IPTV", href: "/blog/kopa-iptv" },
+          { text: "IPTV på flera enheter", href: "/blog/iptv-flera-enheter" },
           ".",
         ],
       },
@@ -3287,7 +3289,9 @@ export const posts: Post[] = [
       {
         type: "p",
         content: [
-          "Vill du kunna titta på fler enheter samtidigt kostar det extra. Hur många enheter du behöver väljer du när du beställer via WhatsApp – berätta hur många det gäller, så får du priset för just ditt abonnemang.",
+          "Vill du kunna titta på fler enheter samtidigt kostar det extra. Hur många enheter du behöver väljer du när du beställer via WhatsApp – berätta hur många det gäller, så får du priset för just ditt abonnemang. Läs mer om ",
+          { text: "vad som räknas som en samtidig enhet", href: "/blog/iptv-flera-enheter#samtidiga-strommar" },
+          ".",
         ],
       },
       { type: "h2", text: "Det här bör du jämföra", id: "jamfora" },
@@ -5035,7 +5039,9 @@ export const posts: Post[] = [
       {
         type: "p",
         content: [
-          "Tänk på hur ni faktiskt tittar. Står det en TV i vardagsrummet och en i sovrummet, och tittar barnen ibland på surfplattan samtidigt, är det den situationen du ska räkna på – inte en vanlig vardagskväll när bara en TV är igång.",
+          "Tänk på hur ni faktiskt tittar. Står det en TV i vardagsrummet och en i sovrummet, och tittar barnen ibland på surfplattan samtidigt, är det den situationen du ska räkna på – inte en vanlig vardagskväll när bara en TV är igång. Hur du sätter upp appen på varje TV och vad flera samtidiga enheter kostar går vi igenom i guiden om ",
+          { text: "IPTV i flera rum", href: "/blog/iptv-flera-enheter#flera-rum" },
+          ".",
         ],
       },
       {
