@@ -6,8 +6,10 @@ import GuaranteeBadge from "@/components/GuaranteeBadge";
 
 export default function PricingSection({
   headingLevel = 2,
+  title = "Välj ditt IPTV Sverige-abonnemang",
 }: {
   headingLevel?: 1 | 2;
+  title?: string;
 }) {
   const Heading = headingLevel === 1 ? "h1" : "h2";
 
@@ -19,7 +21,7 @@ export default function PricingSection({
             Sweden IPTV — Priser
           </span>
           <Heading className="mt-3 text-3xl font-extrabold sm:text-4xl">
-            Välj ditt IPTV Sverige-abonnemang
+            {title}
           </Heading>
           <p className="mt-4 text-muted">
             Flexibla abonnemang för alla – börja streama IPTV i HD och 4K idag.

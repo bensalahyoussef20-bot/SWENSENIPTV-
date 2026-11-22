@@ -11,8 +11,8 @@ import { pageOpenGraph } from "@/lib/seo";
 // Lowest monthly price across the plans, used in the title, description and FAQ.
 const lowestPerMonth = Math.min(...plans.map((p) => p.perMonth));
 
-const title = `IPTV-pris från ${lowestPerMonth} kr/mån – ingen bindningstid`;
-const description = `Se vad IPTV kostar: 3, 6 eller 12 månader från ${lowestPerMonth} kr/mån. Inga bindningstider eller dolda avgifter – beställ via WhatsApp eller testa gratis först.`;
+const title = `IPTV-abonnemang och pris från ${lowestPerMonth} kr/mån`;
+const description = `Köp IPTV-abonnemang på 3, 6 eller 12 månader från ${lowestPerMonth} kr/mån. Ingen bindningstid – beställ via WhatsApp eller testa gratis först.`;
 
 export const metadata: Metadata = {
   title,
@@ -53,6 +53,16 @@ const breadcrumbJsonLd = {
 };
 
 const plansByPrice = [...plans].sort((a, b) => a.price - b.price);
+// Cost of a full year when the same period is bought again (12 / months times).
+const plansWithYear = plansByPrice.map((plan) => {
+  const months = Number.parseInt(plan.duration, 10);
+  const times = 12 / months;
+  return { ...plan, months, times, yearTotal: times * plan.price };
+});
+const twelveMonths = plansWithYear.find((p) => p.months === 12);
+const shorterPerMonth = Math.max(
+  ...plansWithYear.filter((p) => p.months !== 12).map((p) => p.perMonth),
+);
 const highestPerMonth = Math.max(...plans.map((p) => p.perMonth));
 const linkClass = "text-primary hover:underline";
 
@@ -63,7 +73,7 @@ export default function Page() {
       <JsonLd data={breadcrumbJsonLd} />
       <Header />
       <main id="main-content" className="flex-1">
-        <PricingSection headingLevel={1} />
+        <PricingSection headingLevel={1} title="Köpa IPTV – abonnemang och priser" />
         <TrustBadges />
 
         <section className="py-16">
@@ -93,6 +103,70 @@ export default function Page() {
               .
             </p>
 
+            <h2 className="mt-14 text-2xl font-bold">
+              Prisjämförelse: totalpris och pris per månad
+            </h2>
+            <p className="mt-4 text-muted">
+              Så här mycket kostar varje period – och vad det blir över ett
+              helt år om du köper samma period flera gånger:
+            </p>
+            <div className="mt-4 overflow-x-auto rounded-2xl border border-border">
+              <table className="w-full text-left text-sm">
+                <thead className="bg-surface">
+                  <tr>
+                    <th scope="col" className="px-4 py-3 font-semibold">Period</th>
+                    <th scope="col" className="px-4 py-3 font-semibold">Totalpris</th>
+                    <th scope="col" className="px-4 py-3 font-semibold">Per månad</th>
+                    <th scope="col" className="px-4 py-3 font-semibold">
+                      Kostnad för 12 månader
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {plansWithYear.map((plan) => (
+                    <tr key={plan.id} className="border-t border-border">
+                      <th scope="row" className="px-4 py-3 font-semibold">
+                        {plan.months} månader
+                      </th>
+                      <td className="px-4 py-3 text-muted">{plan.price} kr</td>
+                      <td className="px-4 py-3 text-muted">cirka {plan.perMonth} kr</td>
+                      <td className="px-4 py-3 text-muted">
+                        {plan.yearTotal} kr
+                        {plan.times > 1 && ` (${plan.times} × ${plan.price} kr)`}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <h2 className="mt-14 text-2xl font-bold">Så köper du IPTV – steg för steg</h2>
+            <ol className="mt-4 list-decimal space-y-2 pl-5 text-muted">
+              <li>Välj den period som passar dig bland abonnemangen ovan.</li>
+              <li>
+                Klicka på knappen för abonnemanget – den öppnar WhatsApp med
+                ett färdigt meddelande.
+              </li>
+              <li>
+                Vi skickar dina inloggningsuppgifter – Xtream Codes, M3U-länk
+                eller aktivering via MAC-adress.
+              </li>
+              <li>
+                Installera appen på din enhet med hjälp av vår{" "}
+                <Link href="/installera" className={linkClass}>
+                  installationsguide
+                </Link>
+                .
+              </li>
+            </ol>
+            <p className="mt-4 text-muted">
+              Inför köpet kan du också gå igenom vår{" "}
+              <Link href="/blog/kopa-iptv" className={linkClass}>
+                checklista för att köpa IPTV
+              </Link>
+              .
+            </p>
+
             <h2 className="mt-14 text-2xl font-bold">Det här ingår i abonnemanget</h2>
             <p className="mt-4 text-muted">
               Exakt vad som ingår i varje period ser du i korten ovan.
@@ -108,6 +182,38 @@ export default function Page() {
             <p className="mt-4 text-muted">
               Med 12 månader får du även full VOD-tillgång, premiumsupport och
               direkt aktivering. 6 månader inkluderar prioriterad support.
+            </p>
+
+            <h2 className="mt-14 text-2xl font-bold">Titta på flera enheter samtidigt</h2>
+            <p className="mt-4 text-muted">
+              Vill du titta på fler enheter samtidigt tillkommer en extra
+              kostnad.{" "}
+              <a
+                href={waLinks.buyNow}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkClass}
+              >
+                Kontakta oss via WhatsApp
+              </a>{" "}
+              så får du ett pris.
+            </p>
+
+            <h2 className="mt-14 text-2xl font-bold">Det här ingår inte i priset</h2>
+            <p className="mt-4 text-muted">
+              IPTV-appen ingår inte i abonnemanget. Vissa appar är gratis,
+              medan andra kräver en licens eller betald uppgradering från
+              apputvecklaren – till exempel Smart IPTV, IBO Player och TiviMate
+              Premium. Den kostnaden betalas direkt till apputvecklaren. Läs
+              mer i guiderna om{" "}
+              <Link href="/blog/smart-iptv-app" className={linkClass}>
+                Smart IPTV-appen
+              </Link>{" "}
+              och{" "}
+              <Link href="/blog/tivimate" className={linkClass}>
+                TiviMate
+              </Link>
+              .
             </p>
 
             <h2 className="mt-14 text-2xl font-bold">Fungerar på dina enheter</h2>
@@ -130,14 +236,9 @@ export default function Page() {
             </p>
             <p className="mt-4 text-muted">
               Vill du testa först? Börja med en{" "}
-              <a
-                href={waLinks.freeTrial}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={linkClass}
-              >
+              <Link href="/testa-gratis" className={linkClass}>
                 gratis testperiod
-              </a>{" "}
+              </Link>{" "}
               och kontrollera att streamingen fungerar med din uppkoppling
               innan du väljer abonnemang.
             </p>
@@ -148,6 +249,12 @@ export default function Page() {
               Priset per månad beror på perioden du väljer: från{" "}
               {lowestPerMonth} kr/mån med 12 månader till {highestPerMonth}{" "}
               kr/mån med 3 eller 6 månader.
+            </p>
+            <h3 className="mt-8 font-semibold">Hur köper jag IPTV?</h3>
+            <p className="mt-2 text-muted">
+              Välj period, klicka på knappen för abonnemanget och skicka
+              meddelandet i WhatsApp. Vi skickar sedan dina
+              inloggningsuppgifter och hjälper dig att komma igång.
             </p>
             <h3 className="mt-8 font-semibold">Finns det någon bindningstid?</h3>
             <p className="mt-2 text-muted">
@@ -163,6 +270,26 @@ export default function Page() {
             <h3 className="mt-8 font-semibold">Hur snabbt kommer jag igång?</h3>
             <p className="mt-2 text-muted">
               De flesta abonnemang är aktiva inom 5 minuter efter beställningen.
+            </p>
+            <h3 className="mt-8 font-semibold">
+              Kostar det extra att titta på flera enheter samtidigt?
+            </h3>
+            <p className="mt-2 text-muted">
+              Ja, fler samtidiga enheter kostar extra. Kontakta oss via
+              WhatsApp så får du ett pris.
+            </p>
+            <h3 className="mt-8 font-semibold">Ingår IPTV-appen i priset?</h3>
+            <p className="mt-2 text-muted">
+              Nej. Appen kommer från en apputvecklare. Vissa appar är gratis,
+              medan andra kräver en egen licens som betalas till
+              apputvecklaren.
+            </p>
+            <h3 className="mt-8 font-semibold">Vad skiljer 3, 6 och 12 månader?</h3>
+            <p className="mt-2 text-muted">
+              Främst priset per månad: 12 månader ger lägst pris, cirka{" "}
+              {twelveMonths?.perMonth ?? lowestPerMonth} kr/mån, mot cirka{" "}
+              {shorterPerMonth} kr/mån för 3 och 6 månader. Längre perioder
+              innehåller också fler förmåner, som du ser i korten ovan.
             </p>
             <h3 className="mt-8 font-semibold">Vilket abonnemang ska jag välja?</h3>
             <p className="mt-2 text-muted">

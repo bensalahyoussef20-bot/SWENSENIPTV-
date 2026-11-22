@@ -11,6 +11,7 @@ const routes: Array<{
 }> = [
   { path: "", priority: 1, changeFrequency: "weekly" },
   { path: "/priser", priority: 0.9, changeFrequency: "weekly" },
+  { path: "/testa-gratis", priority: 0.8, changeFrequency: "monthly" },
   { path: "/fordelar", priority: 0.7, changeFrequency: "monthly" },
   { path: "/installera", priority: 0.7, changeFrequency: "monthly" },
   { path: "/om-oss", priority: 0.6, changeFrequency: "monthly" },
