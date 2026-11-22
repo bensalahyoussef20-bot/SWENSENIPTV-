@@ -1,4 +1,4 @@
-import { infoSection, installApps, plans, type InfoSegment } from "@/lib/data";
+import { infoSection, installApps, plans, waLinks, type InfoSegment } from "@/lib/data";
 
 export type ArticleBlock =
   | { type: "p"; content: InfoSegment[] }
@@ -138,8 +138,253 @@ const speedFor = (quality: string) =>
 // Data per hour: 1 Mbit/s for 3 600 s = 3 600 Mbit = 450 MB = 0.45 GB (1 GB = 1 000 MB).
 const gbPerHour = (mbit: number) =>
   (mbit * 0.45).toLocaleString("sv-SE", { maximumFractionDigits: 2 });
+// Speed per stream as a number, for adding up several simultaneous streams.
+const mbitFor = (quality: string) => Number.parseInt(speedFor(quality), 10);
 
 export const posts: Post[] = [
+  {
+    slug: "iptv-flera-enheter",
+    title: "IPTV på flera enheter – så tittar du på flera TV-apparater samtidigt",
+    metaTitle: "IPTV på flera enheter samtidigt",
+    description:
+      "Kan du titta på IPTV på flera TV-apparater samtidigt? Så fungerar samtidiga anslutningar, vilken hastighet som krävs och hur du lägger till fler enheter.",
+    excerpt:
+      "Samma inloggning fungerar på alla dina enheter – det som räknas är hur många som tittar samtidigt. Så fungerar det, vad som krävs och hur du sätter upp IPTV i flera rum.",
+    publishedAt: "2026-11-22",
+    updatedAt: "2026-11-22",
+    readingMinutes: 6,
+    related: ["kopa-iptv", "internethastighet-for-iptv"],
+    body: [
+      { type: "h2", text: "Kort svar", id: "kort-svar" },
+      {
+        type: "p",
+        content: [
+          "Ja, du kan titta på IPTV på flera enheter. Samma inloggning fungerar på alla dina enheter, men det som räknas är hur många som tittar samtidigt. Ska flera enheter kunna titta på samma gång tillkommer en extra kostnad för varje extra enhet – kontakta oss via WhatsApp så får du ett pris.",
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          `Tänk också på att varje ström behöver sin egen bandbredd: minst ${speedFor("HD")} för HD och ${speedFor("4K")} för 4K per enhet som tittar.`,
+        ],
+      },
+      { type: "h2", text: "Installerade enheter eller samtidiga strömmar?", id: "samtidiga-strommar" },
+      {
+        type: "p",
+        content: [
+          "Det är skillnad på hur många enheter du har installerat IPTV på och hur många som tittar samtidigt. Du kan ha appen på TV:n, i mobilen och på surfplattan – det som avgör är hur många av dem som spelar upp något på samma gång.",
+        ],
+      },
+      {
+        type: "table",
+        head: ["Situation", "Vad du behöver"],
+        rows: [
+          ["Appen finns på flera enheter, men bara en används åt gången", "En enhet åt gången räcker"],
+          ["Två personer tittar samtidigt på olika skärmar", "Två samtidiga enheter"],
+          ["Tre TV-apparater är igång samtidigt, till exempel under en sportkväll", "Tre samtidiga enheter"],
+          ["En MAG-box eller en app som aktiveras via MAC-adress", "Varje enhet aktiveras för sig"],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Aktiveras en enhet via MAC-adress, som en MAG-box eller appen Smart IPTV, kopplas aktiveringen till just den enheten. Hur det fungerar förklarar vi i guiden om ",
+          { text: "MAC-adress för IPTV", href: "/blog/mac-adress-iptv" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Hur många samtidiga enheter behöver ni?", id: "hur-manga" },
+      {
+        type: "p",
+        content: ["Utgå från hur ni faktiskt tittar hemma – inte från en vanlig vardagskväll när bara en TV är igång:"],
+      },
+      {
+        type: "table",
+        head: ["Hushåll", "Samtidiga enheter"],
+        rows: [
+          ["Du tittar ensam, eller alla ser på samma TV", "1"],
+          ["En tittar i vardagsrummet och en i sovrummet", "2"],
+          ["Två TV-apparater under en stor sportkväll", "2"],
+          ["Två TV-apparater och barnen på surfplattan samtidigt", "3"],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Fler tips inför köpet finns i vår ",
+          { text: "checklista för att köpa IPTV", href: "/blog/kopa-iptv#antal-enheter" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Vad kostar fler enheter?", id: "kostnad" },
+      {
+        type: "p",
+        content: [
+          "Vill du titta på fler enheter samtidigt tillkommer en extra kostnad. Berätta hur många enheter du behöver, så får du priset för just ditt abonnemang. ",
+          { text: "Kontakta oss via WhatsApp", href: waLinks.buyNow },
+          " eller se våra ",
+          { text: "priser och abonnemang", href: "/priser" },
+          ".",
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Tänk också på att vissa IPTV-appar tar betalt per enhet. Smart IPTV aktiveras till exempel mot en avgift per TV enligt utvecklaren – läs mer i guiden om ",
+          { text: "Smart IPTV-appen", href: "/blog/smart-iptv-app" },
+          ". Sådana avgifter betalas till apputvecklaren och ingår inte i abonnemanget.",
+        ],
+      },
+      { type: "h2", text: "Internethastighet för flera strömmar", id: "internethastighet" },
+      {
+        type: "p",
+        content: [
+          `Varje enhet som tittar använder sin egen del av uppkopplingen. Räkna med minst ${speedFor("SD")} för SD, ${speedFor("HD")} för HD och ${speedFor("4K")} för 4K per ström, och lägg ihop behovet för alla som tittar samtidigt:`,
+        ],
+      },
+      {
+        type: "table",
+        head: ["Samtidiga strömmar", "Minsta hastighet"],
+        rows: [
+          ["2 × HD", `${mbitFor("HD") * 2} Mbit/s`],
+          ["3 × HD", `${mbitFor("HD") * 3} Mbit/s`],
+          ["1 × HD + 1 × 4K", `${mbitFor("HD") + mbitFor("4K")} Mbit/s`],
+          ["2 × 4K", `${mbitFor("4K") * 2} Mbit/s`],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Siffrorna är ett minimum för IPTV-strömmarna. Resten av hemmet använder också internet samtidigt, så ha gärna marginal. Hur du räknar ut behovet och mäter rätt går vi igenom i guiden om ",
+          { text: "internethastighet för IPTV", href: "/blog/internethastighet-for-iptv" },
+          ". Kan du ansluta TV:n med kabel blir bilden ofta stabilare – se ",
+          { text: "wifi eller kabel för IPTV", href: "/blog/iptv-wifi-eller-kabel" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Så sätter du upp IPTV i flera rum", id: "flera-rum" },
+      { type: "h3", text: "Smart TV i varje rum" },
+      {
+        type: "p",
+        content: [
+          "Varje TV behöver sin egen IPTV-app. På Samsung och LG installerar du appen från TV:ns appbutik – stegen finns i guiderna ",
+          { text: "IPTV på Samsung Smart TV", href: "/blog/iptv-samsung-smart-tv" },
+          " och ",
+          { text: "IPTV på LG Smart TV", href: "/blog/iptv-lg-smart-tv" },
+          ".",
+        ],
+      },
+      { type: "h3", text: "TV utan passande app" },
+      {
+        type: "p",
+        content: [
+          "Saknar en TV en passande app kan du koppla in en extern enhet via HDMI, till exempel en Fire TV Stick eller en Google TV-enhet. Se ",
+          { text: "IPTV på Fire TV Stick", href: "/blog/iptv-fire-tv-stick" },
+          " och ",
+          { text: "IPTV på Android TV och Google TV", href: "/blog/iptv-android-tv" },
+          ".",
+        ],
+      },
+      { type: "h3", text: "Mobil och surfplatta" },
+      {
+        type: "p",
+        content: [
+          "I mobilen och på surfplattan använder du en app som är byggd för pekskärm. För iPhone och iPad finns stegen i guiden ",
+          { text: "IPTV på Apple TV och iPhone", href: "/blog/iptv-apple-tv-iphone" },
+          ".",
+        ],
+      },
+      { type: "h3", text: "Samma inloggning i olika appar" },
+      {
+        type: "p",
+        content: [
+          "Dina uppgifter för Xtream Codes eller M3U-länken fungerar i alla appar som stöder samma inloggningssätt. Du kan alltså använda en app på TV:n och en annan i mobilen. Skillnaden mellan inloggningssätten förklarar vi i ",
+          { text: "Xtream Codes eller M3U-länk", href: "/blog/xtream-codes-eller-m3u" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Vanliga problem med flera enheter", id: "vanliga-problem" },
+      {
+        type: "table",
+        head: ["Problem", "Trolig orsak", "Lösning"],
+        rows: [
+          ["Bilden buffrar när flera tittar samtidigt", "Uppkopplingen räcker inte till alla strömmar", "Kontrollera hastigheten, anslut TV:n med kabel och pausa stora nedladdningar"],
+          ["Strömmen stoppar när en annan enhet börjar titta", "Kan bero på att fler enheter tittar samtidigt än abonnemanget omfattar", "Stäng av uppspelningen på en enhet eller kontakta oss för fler samtidiga enheter"],
+          ["En enhet som aktiveras via MAC-adress fungerar inte", "Enheten är inte aktiverad", "Skicka enhetens MAC-adress till oss via WhatsApp"],
+          ["Wifi:t blir ostabilt med många enheter igång", "Trängsel i det trådlösa nätverket", "Använd 5 GHz-bandet eller nätverkskabel till TV:n"],
+        ],
+      },
+      {
+        type: "p",
+        content: [
+          "Fler tips för en stabil bild finns i guiden om ",
+          { text: "när IPTV buffrar", href: "/blog/iptv-buffrar" },
+          ".",
+        ],
+      },
+      { type: "h2", text: "Vanliga frågor om IPTV på flera enheter", id: "vanliga-fragor" },
+      { type: "h3", text: "Kan jag använda samma konto på flera enheter?" },
+      {
+        type: "p",
+        content: [
+          "Ja. Samma inloggning fungerar på alla dina enheter, till exempel på TV:n, i mobilen och på surfplattan.",
+        ],
+      },
+      { type: "h3", text: "Kan flera titta samtidigt?" },
+      {
+        type: "p",
+        content: [
+          "Ja, men varje extra enhet som ska kunna titta samtidigt kostar extra. Berätta hur många enheter du behöver när du beställer.",
+        ],
+      },
+      { type: "h3", text: "Vad kostar en extra enhet?" },
+      {
+        type: "p",
+        content: [
+          "Priset beror på hur många enheter du behöver. Kontakta oss via WhatsApp så får du priset för just ditt abonnemang.",
+        ],
+      },
+      { type: "h3", text: "Måste jag installera appen på varje enhet?" },
+      {
+        type: "p",
+        content: [
+          "Ja. Varje TV eller enhet behöver en egen IPTV-app, där du loggar in med dina uppgifter.",
+        ],
+      },
+      { type: "h3", text: "Behöver varje TV en egen applicens?" },
+      {
+        type: "p",
+        content: [
+          "Det beror på appen. Smart IPTV kostar enligt utvecklaren en avgift per TV, medan andra appar är gratis eller har egna villkor. Applicenser betalas till apputvecklaren och ingår inte i abonnemanget.",
+        ],
+      },
+      { type: "h3", text: "Hur snabbt internet behövs för två TV-apparater?" },
+      {
+        type: "p",
+        content: [
+          `Minst ${mbitFor("HD") * 2} Mbit/s för två strömmar i HD och ${mbitFor("4K") * 2} Mbit/s för två i 4K – plus marginal för resten av hemmets användning.`,
+        ],
+      },
+      { type: "h3", text: "Fungerar olika appar på olika enheter med samma konto?" },
+      {
+        type: "p",
+        content: [
+          "Ja, så länge apparna stöder samma inloggningssätt, till exempel Xtream Codes eller M3U-länk.",
+        ],
+      },
+      { type: "h2", text: "Sammanfattning", id: "sammanfattning" },
+      {
+        type: "p",
+        content: [
+          "Samma inloggning fungerar på alla dina enheter – det som räknas är hur många som tittar samtidigt. Varje extra samtidig enhet kostar extra, och varje ström behöver sin egen bandbredd. Räkna ut hur många som tittar samtidigt hemma, se till att uppkopplingen räcker och installera appen på varje enhet. Med ",
+          { text: "IPTV Sverige", href: "/" },
+          " kan du ",
+          { text: "testa gratis", href: "/testa-gratis" },
+          " innan du köper.",
+        ],
+      },
+    ],
+  },
   {
     slug: "tivimate",
     title: "TiviMate – så installerar och använder du IPTV-appen steg för steg",
